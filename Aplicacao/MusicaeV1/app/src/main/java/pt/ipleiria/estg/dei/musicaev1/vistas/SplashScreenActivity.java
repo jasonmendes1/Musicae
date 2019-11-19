@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
-    private static int SLAPSH_TIME_OUT = 1;
+    private static int SLAPSH_TIME_OUT = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
