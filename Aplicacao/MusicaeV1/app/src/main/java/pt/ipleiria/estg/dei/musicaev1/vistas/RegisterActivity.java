@@ -13,7 +13,12 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+<<<<<<< HEAD
         Toast.makeText(this, "Oi", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Pedro", Toast.LENGTH_SHORT).show();
+=======
+        Toast.makeText(this, "Ola", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "222222", Toast.LENGTH_SHORT).show();
+>>>>>>> ea977f1b7c06a0168fa0323eb947052d5c0621ae
     }
 }
