@@ -15,5 +15,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         Toast.makeText(this, "Ola", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "222222", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "22223333333", Toast.LENGTH_SHORT).show();
     }
 }
