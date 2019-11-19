@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.sql.SQLOutput;
 
@@ -52,10 +53,11 @@ public class LoginActivity extends AppCompatActivity {
              */
         }
 
-        Intent intent = new Intent(this, MainActivity.class);
+        /*Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.CHAVE_EMAIL, email);
         startActivity(intent);
-        finish();
+        finish();*/
+        Toast.makeText(this, "oi", Toast.LENGTH_SHORT).show();
     }
 
 
