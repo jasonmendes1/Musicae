@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
         finish();*/
         Toast.makeText(this, "oi", Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "ollaaaaaaaaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Oi gato", Toast.LENGTH_SHORT).show();
     }
-
 
     public boolean isEmailValido(String email){
         if(email == null){
