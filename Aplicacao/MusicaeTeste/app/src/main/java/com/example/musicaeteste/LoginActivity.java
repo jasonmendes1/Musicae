@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();*/
         Toast.makeText(this, "oi", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ollaaaaaaaaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
     }
 
 
