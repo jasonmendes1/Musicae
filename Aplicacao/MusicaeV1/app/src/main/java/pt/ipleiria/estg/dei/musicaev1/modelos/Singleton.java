@@ -9,6 +9,7 @@ class Singleton {
     private ArrayList<Genero>Generos;
     private ArrayList<Habilidade>Habilidades;
     private ArrayList<Industria>Industrias;
+    private ArrayList<ListaFoto>listaFotos;
     private ArrayList<ListaMusica>listaMusicas;
     private ArrayList<Musico>Musicos;
     private ArrayList<Perfil>Perfis;

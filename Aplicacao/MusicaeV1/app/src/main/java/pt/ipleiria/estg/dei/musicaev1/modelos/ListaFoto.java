@@ -1,9 +1,9 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
-public class ListaFotos {
+public class ListaFoto {
     private int idListaFoto, foto;
 
-    public ListaFotos(int idlistamusica, int foto) {
+    public ListaFoto(int idlistamusica, int foto) {
         this.idListaFoto = idlistamusica;
         this.foto = foto;
     }
