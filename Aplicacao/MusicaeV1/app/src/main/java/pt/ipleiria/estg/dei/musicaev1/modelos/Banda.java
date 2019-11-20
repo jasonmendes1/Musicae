@@ -57,12 +57,5 @@ public class Banda {
     public void setContacto(String contacto) {
         this.contacto = contacto;
     }
-
-    public static int getAutoIncrementID() {
-        return autoIncrementID;
-    }
-
-    public static void setAutoIncrementID(int autoIncrementID) {
-        Banda.autoIncrementID = autoIncrementID;
-    }
+    
 }
