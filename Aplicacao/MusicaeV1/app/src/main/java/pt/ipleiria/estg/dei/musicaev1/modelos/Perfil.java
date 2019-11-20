@@ -77,13 +77,6 @@ public class Perfil {
         this.experiencia = experiencia;
     }
 
-    public static int getAutoIncrementID() {
-        return autoIncrementID;
-    }
-
-    public static void setAutoIncrementID(int autoIncrementID) {
-        Perfil.autoIncrementID = autoIncrementID;
-    }
 }
 
 
