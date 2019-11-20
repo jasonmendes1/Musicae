@@ -1,12 +1,11 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class ListaMusica {
-    int idlistamusica;
-    String nome;
-    private static int autoIncrementID = 1;
+    private int idlistamusica;
+    private String nome;
 
-    public ListaMusica(String nome) {
-        this.idlistamusica = autoIncrementID++;
+    public ListaMusica(int idlistamusica, String nome) {
+        this.idlistamusica = idlistamusica;
         this.nome = nome;
     }
 
