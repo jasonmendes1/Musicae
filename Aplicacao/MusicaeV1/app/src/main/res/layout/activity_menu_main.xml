@@ -19,6 +19,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:theme="@style/ThemeOverlay.AppCompat.navTheme"
         app:headerLayout="@layout/side_menu_profile"
         app:menu="@menu/side_menu_drawer"/>
 
