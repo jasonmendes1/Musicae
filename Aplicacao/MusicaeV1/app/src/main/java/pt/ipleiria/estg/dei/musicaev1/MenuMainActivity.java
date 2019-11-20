@@ -1,13 +1,16 @@
 package pt.ipleiria.estg.dei.musicaev1;
 
-import androidx.appcompat.app.ActionBar;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
-
-import android.os.Bundle;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -15,6 +18,14 @@ public class MenuMainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private FragmentManager fragmentManager;
+
+    public static final String SECCAO_INFO_USER = "SECCAO_INFO_USER";
+    public static final String CHAVE_USERNAME = "USERNAME";
+    public static final String CHAVE_EMAIL = "EMAIL";
+    private String username = "";
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +46,14 @@ public class MenuMainActivity extends AppCompatActivity {
         toggle.syncState();
         drawer.addDrawerListener(toggle);
 
+        carregarCabecalho();
+    }
+
+    private void carregarCabecalho() {
+        username = getIntent().getStringExtra(CHAVE_USERNAME);
+
+        View view = navigationView.getHeaderView(0);
+        TextView textViewUser = view.findViewById(R.id.tvNome);
+        textViewUser.setText(username);
     }
 }
