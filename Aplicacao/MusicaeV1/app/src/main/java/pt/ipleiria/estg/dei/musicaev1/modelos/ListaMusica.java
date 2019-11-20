@@ -1,8 +1,6 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class ListaMusica {
-<<<<<<< HEAD
-=======
     int idlistamusica;
     String nome;
     private static int autoIncrementID = 1;
@@ -27,7 +25,5 @@ public class ListaMusica {
     public void setNome(String nome) {
         this.nome = nome;
     }
->>>>>>> c3fd2b0df070fb1dc1177b87539263f382031e63
-
 }
 
