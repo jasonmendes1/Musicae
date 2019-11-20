@@ -3,10 +3,9 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 public class Banda {
     private int idbanda, logo;
     private String nome, descricao, localizacao, contacto;
-    private static int autoIncrementID = 1;
 
-    public Banda(int logo, String nome, String descricao, String localizacao, String contacto) {
-        this.idbanda = autoIncrementID++;
+    public Banda(int idbanda, int logo, String nome, String descricao, String localizacao, String contacto) {
+        this.idbanda = idbanda;
         this.logo = logo;
         this.nome = nome;
         this.descricao = descricao;
@@ -58,11 +57,4 @@ public class Banda {
         this.contacto = contacto;
     }
 
-    public static int getAutoIncrementID() {
-        return autoIncrementID;
-    }
-
-    public static void setAutoIncrementID(int autoIncrementID) {
-        Banda.autoIncrementID = autoIncrementID;
-    }
 }
