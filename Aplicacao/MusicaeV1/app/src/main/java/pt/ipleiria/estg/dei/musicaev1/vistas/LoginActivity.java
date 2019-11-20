@@ -1,11 +1,13 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -26,8 +28,8 @@ public class LoginActivity extends AppCompatActivity {
         String username = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        /*Intent intent = new Intent(this, XXXXXX.class);
+        Intent intent = new Intent(this, MenuMainActivity.class);
         startActivity(intent);
-        finish();*/
+        finish();
     }
 }

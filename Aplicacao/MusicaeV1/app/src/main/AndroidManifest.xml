@@ -9,10 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".vistas.LoginActivity"></activity>
-        <activity android:name=".vistas.RegisterActivity" />
-        <activity android:name=".vistas.WelcomeActivity" />
-        <activity android:name=".vistas.SplashScreenActivity">
+        <activity android:name=".MenuMainActivity" android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".vistas.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.WelcomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".vistas.SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
