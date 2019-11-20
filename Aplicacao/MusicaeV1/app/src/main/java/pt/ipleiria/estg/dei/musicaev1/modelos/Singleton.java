@@ -25,6 +25,7 @@ class Singleton {
         Generos = new ArrayList<>();
         Habilidades = new ArrayList<>();
         Industrias = new ArrayList<>();
+        listaFotos = new ArrayList<>();
         listaMusicas = new ArrayList<>();
         Musicos = new ArrayList<>();
         Perfis = new ArrayList<>();
