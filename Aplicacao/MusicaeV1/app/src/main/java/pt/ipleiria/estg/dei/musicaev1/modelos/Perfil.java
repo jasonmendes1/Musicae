@@ -1,10 +1,10 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Perfil {
-    private int idperfil, datanasc, imagem;
-    private String nome, sexo, descricao, localidade, experiencia;
+    private int idperfil, imagem;
+    private String nome, sexo, descricao, localidade, experiencia, datanasc;
 
-    public Perfil(int idperfil, int imagem, String nome, int datanasc, String localidade, String sexo, String descricao, String experiencia) {
+    public Perfil(int idperfil, int imagem, String nome, String datanasc, String localidade, String sexo, String descricao, String experiencia) {
         this.idperfil = idperfil;
         this.imagem = imagem;
         this.nome = nome;
@@ -19,11 +19,11 @@ public class Perfil {
         return idperfil;
     }
 
-    public int getDatanasc() {
+    public String getDatanasc() {
         return datanasc;
     }
 
-    public void setDatanasc(int datanasc) {
+    public void setDatanasc(String datanasc) {
         this.datanasc = datanasc;
     }
 
