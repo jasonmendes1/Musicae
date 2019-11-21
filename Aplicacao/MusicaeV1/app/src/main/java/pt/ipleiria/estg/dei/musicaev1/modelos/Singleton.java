@@ -2,6 +2,8 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 import java.util.ArrayList;
 
+import pt.ipleiria.estg.dei.musicaev1.R;
+
 class Singleton {
 
     private ArrayList<Banda>Bandas;
@@ -84,6 +86,12 @@ class Singleton {
         Generos.add(new Genero("Jazz"));
         Generos.add(new Genero("Rap"));
         Generos.add(new Genero("Reggae"));
+    }
+
+    private void perfisGerarFakeData(){
+        Perfis.add(new Perfil(R.drawable.perfil, "Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)", "Bué experiência wi"));
+        Perfis.add(new Perfil(R.drawable.perfil, "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)", "Bué pouca experiência dred"));
+        Perfis.add(new Perfil(R.drawable.perfil, "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)", "Bué pouca experiência wi"));
     }
 
 }
