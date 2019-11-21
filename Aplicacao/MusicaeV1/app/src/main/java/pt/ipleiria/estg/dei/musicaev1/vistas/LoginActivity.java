@@ -18,12 +18,11 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText editTextUsername;
-    private EditText editTextPassword;
     private Perfil perfil;
     private TextInputLayout textInputUsername;
     private TextInputLayout textInputPassword;
     private TextInputEditText editTextUsername;
+    private TextInputEditText editTextPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,26 +32,16 @@ public class LoginActivity extends AppCompatActivity {
         textInputUsername = findViewById(R.id.text_input_username);
         textInputPassword = findViewById(R.id.text_input_password);
         editTextUsername = findViewById(R.id.etUsername);
+        editTextPassword = findViewById(R.id.etPassword);
     }
 
     public void onClickLogin(View view) {
         String username = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
 
-/*
-        if(!isEmailValido(username)){
-            editTextUsername.setError("Erro!");
+        if (!validateUsername() || !validatePassword()) {
             return;
         }
-
- */
-/*
-        if(!isPasswordValida(password)){
-            editTextPassword.setError("Erro");
-            return;
-        }
-
- */
 
         if(Singleton.getInstance().verificarLogin(username, password)){
             Intent intent = new Intent(this, MenuMainActivity.class);
@@ -61,9 +50,6 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }else{
             //Toast.makeText(this, "Hehe fodeu", Toast.LENGTH_SHORT).show();
-        }
-        if (!validateUsername() || !validatePassword()) {
-            return;
         }
 
         Intent intent = new Intent(this, MenuMainActivity.class);
