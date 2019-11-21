@@ -5,16 +5,21 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
+
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextUsername;
     private EditText editTextPassword;
+    private Perfil perfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +34,30 @@ public class LoginActivity extends AppCompatActivity {
         String username = editTextUsername.getText().toString();
         String password = editTextPassword.getText().toString();
 
-        /*if(!isEmailValido(email)){
-            editTextEmail.setError(getString(R.string.erro_email));
+/*
+        if(!isEmailValido(username)){
+            editTextUsername.setError("Erro!");
             return;
         }
 
+ */
+/*
         if(!isPasswordValida(password)){
-            editTextPassword.setError(getString(R.string.erro_password));
+            editTextPassword.setError("Erro");
             return;
-        }*/
+        }
 
-        Intent intent = new Intent(this, MenuMainActivity.class);
-        intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
-        startActivity(intent);
-        finish();
+ */
+
+        if(Singleton.getInstance().verificarLogin(username, password)){
+            Intent intent = new Intent(this, MenuMainActivity.class);
+            intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
+            startActivity(intent);
+            finish();
+        }else{
+            //Toast.makeText(this, "Hehe fodeu", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public boolean isEmailValido(String email){
