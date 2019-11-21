@@ -80,7 +80,7 @@ public class Singleton {
     public boolean verificarUsername(String username){
         for (Perfil p: Perfis
         ) {
-            if(p.getUsername() == username){
+            if(p.getUsername().equals(username)){
                 return true;
             }
         }
