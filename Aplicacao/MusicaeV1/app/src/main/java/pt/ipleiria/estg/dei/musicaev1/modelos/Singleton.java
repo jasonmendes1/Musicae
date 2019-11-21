@@ -35,6 +35,7 @@ class Singleton {
         //Funções de gerar fake data
         habilidadesGerarFakeData();
         generosGerarFakeData();
+        perfisGerarFakeData();
     }
 
     // Gets todos:
@@ -72,6 +73,17 @@ class Singleton {
     // ---- End gets ----
 
 
+    //Quando registar para verificar se o username já está a ser usado
+    public boolean verificarUsername(String username){
+        for (Perfil p: Perfis
+        ) {
+            if(p.getUsername() == username){
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void habilidadesGerarFakeData(){
         Habilidades.add(new Habilidade("Vocalista"));
         Habilidades.add(new Habilidade("Guitarra"));
@@ -89,9 +101,9 @@ class Singleton {
     }
 
     private void perfisGerarFakeData(){
-        Perfis.add(new Perfil(R.drawable.perfil, "Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)", "Bué experiência wi"));
-        Perfis.add(new Perfil(R.drawable.perfil, "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)", "Bué pouca experiência dred"));
-        Perfis.add(new Perfil(R.drawable.perfil, "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)", "Bué pouca experiência wi"));
+        Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)", "Bué experiência wi"));
+        Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)", "Bué pouca experiência dred"));
+        Perfis.add(new Perfil(R.drawable.perfil,"jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)", "Bué pouca experiência wi"));
     }
 
 }

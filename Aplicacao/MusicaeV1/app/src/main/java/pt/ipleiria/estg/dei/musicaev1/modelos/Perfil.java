@@ -2,12 +2,14 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Perfil {
     private int idperfil, imagem;
-    private String nome, sexo, descricao, localidade, experiencia, datanasc;
+    private String username, password, nome, sexo, descricao, localidade, experiencia, datanasc;
     private static int autoIncrementoId = 1;
 
-    public Perfil(int imagem, String nome, String datanasc, String localidade, String sexo, String descricao, String experiencia) {
+    public Perfil(int imagem, String username, String password, String nome,  String datanasc, String localidade, String sexo, String descricao, String experiencia) {
         this.idperfil = autoIncrementoId++;
         this.imagem = imagem;
+        this.username = username;
+        this.password = password;
         this.nome = nome;
         this.datanasc = datanasc;
         this.localidade = localidade;
@@ -18,6 +20,14 @@ public class Perfil {
 
     public int getIdperfil() {
         return idperfil;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getDatanasc() {
