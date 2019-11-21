@@ -36,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View view) {
-        String username = editTextUsername.getText().toString();
-        String password = editTextPassword.getText().toString();
+        String username = editTextUsername.getText().toString().trim().toLowerCase();
+        String password = editTextPassword.getText().toString().trim();
 
         if (!validateUsername() || !validatePassword()) {
             return;
@@ -49,23 +49,18 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else{
-            //Toast.makeText(this, "Hehe fodeu", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "'"+username+ "'" + "/" + "'"+password+"'", Toast.LENGTH_SHORT).show();
         }
-
-        Intent intent = new Intent(this, MenuMainActivity.class);
-        intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
-        startActivity(intent);
-        finish();
     }
 
     private boolean validateUsername() {
         String usernameInput = editTextUsername.getText().toString().trim();
 
         if (usernameInput.isEmpty()) {
-            textInputUsername.setError("Field can't be empty");
+            textInputUsername.setError("Campo não pode estar vazio");
             return false;
         } else if (usernameInput.length() > 15) {
-            textInputUsername.setError("Username too long");
+            textInputUsername.setError("Username demasiado longo!");
             return false;
         } else {
             textInputUsername.setError(null);
@@ -77,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         String passwordInput = textInputPassword.getEditText().getText().toString().trim();
 
         if (passwordInput.isEmpty()) {
-            textInputPassword.setError("Field can't be empty");
+            textInputPassword.setError("Campo não pode estar vazio");
             return false;
         } else {
             textInputPassword.setError(null);

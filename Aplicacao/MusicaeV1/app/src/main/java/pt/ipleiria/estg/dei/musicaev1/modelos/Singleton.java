@@ -1,5 +1,8 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
@@ -87,7 +90,8 @@ public class Singleton {
     public boolean verificarLogin(String username, String password){
         for (Perfil p: Perfis
         ) {
-            if(p.getUsername() == username && p.getPassword() == password){
+            if(p.getUsername().equals(username) && p.getPassword().equals(password)){
+                System.out.println("adwadw");
                 return true;
             }
         }
