@@ -29,8 +29,11 @@ class Singleton {
         listaMusicas = new ArrayList<>();
         Musicos = new ArrayList<>();
         Perfis = new ArrayList<>();
+
+        //Funções de gerar fake data
     }
 
+    // Gets todos:
     public ArrayList<Banda> getBandas() {
         return Bandas;
     }
@@ -62,4 +65,23 @@ class Singleton {
     public ArrayList<Perfil> getPerfis() {
         return Perfis;
     }
+    // ---- End gets ----
+
+
+    private void habilidadesGerarFakeData(){
+        Habilidades.add(new Habilidade("Vocalista"));
+        Habilidades.add(new Habilidade("Guitarra"));
+        Habilidades.add(new Habilidade("Violino"));
+        Habilidades.add(new Habilidade("Baterista"));
+        Habilidades.add(new Habilidade("Pianista"));
+    }
+
+    private void generosGerarFakeData(){
+        Generos.add(new Genero("Rock"));
+        Generos.add(new Genero("Pop"));
+        Generos.add(new Genero("Jazz"));
+        Generos.add(new Genero("Rap"));
+        Generos.add(new Genero("Reggae"));
+    }
+
 }

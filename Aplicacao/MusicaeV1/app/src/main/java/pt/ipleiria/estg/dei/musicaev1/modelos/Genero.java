@@ -3,9 +3,10 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 public class Genero {
     private int idGenero;
     private String nome;
+    private static int autoIncrementoId = 1;
 
-    public Genero(int idGenero, String nome) {
-        this.idGenero = idGenero;
+    public Genero(String nome) {
+        this.idGenero = autoIncrementoId++;
         this.nome = nome;
     }
 
