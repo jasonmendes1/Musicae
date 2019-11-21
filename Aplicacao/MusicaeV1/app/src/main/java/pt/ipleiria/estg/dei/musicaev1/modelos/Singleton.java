@@ -31,6 +31,8 @@ class Singleton {
         Perfis = new ArrayList<>();
 
         //Funções de gerar fake data
+        habilidadesGerarFakeData();
+        generosGerarFakeData();
     }
 
     // Gets todos:
