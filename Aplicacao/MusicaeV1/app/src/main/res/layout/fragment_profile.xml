@@ -85,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <Space
-        android:id="@+id/spaceV"
+        android:id="@+id/spaceH"
         android:layout_width="0dp"
         android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spaceV"
+        app:layout_constraintTop_toBottomOf="@+id/spaceH"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -114,26 +114,26 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toEndOf="@+id/spaceV"
-        app:layout_constraintTop_toBottomOf="@+id/spaceV"
+        app:layout_constraintTop_toBottomOf="@+id/spaceH"
         app:layout_constraintVertical_bias="0.947" />
 
     <ScrollView
         android:id="@+id/svProfile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="371dp"
+        android:layout_height="341dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toEndOf="@+id/spaceV"
-        app:layout_constraintTop_toBottomOf="@+id/spaceV"
+        app:layout_constraintTop_toBottomOf="@+id/spaceH"
         app:layout_constraintVertical_bias="0.199">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/iv1"
@@ -143,7 +143,7 @@
 
             <TextView
                 android:id="@+id/TextViewInst"
-                android:layout_width="210dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/iv1"
                 android:fontFamily="@font/bold"
@@ -372,7 +372,11 @@
                 android:textColor="@color/gray"
                 android:textSize="15sp" />
 
-
+            <Space
+                android:id="@+id/space7"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@id/iv7" />
         </RelativeLayout>
     </ScrollView>
 
