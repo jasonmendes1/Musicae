@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 
-class Singleton {
+public class Singleton {
 
     private ArrayList<Banda>Bandas;
     private ArrayList<BandaMembros>BandaMembros;
@@ -17,7 +17,7 @@ class Singleton {
     private ArrayList<Perfil>Perfis;
 
     private static final Singleton ourInstance = new Singleton();
-    static Singleton getInstance() {
+    public static Singleton getInstance() {
         return ourInstance;
     }
 
@@ -84,6 +84,16 @@ class Singleton {
         return false;
     }
 
+    public boolean verificarLogin(String username, String password){
+        for (Perfil p: Perfis
+        ) {
+            if(p.getUsername() == username && p.getPassword() == password){
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void habilidadesGerarFakeData(){
         Habilidades.add(new Habilidade("Vocalista"));
         Habilidades.add(new Habilidade("Guitarra"));
@@ -105,5 +115,4 @@ class Singleton {
         Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)", "Bué pouca experiência dred"));
         Perfis.add(new Perfil(R.drawable.perfil,"jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)", "Bué pouca experiência wi"));
     }
-
 }

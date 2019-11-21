@@ -3,7 +3,8 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -11,9 +12,15 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
+
 
 public class LoginActivity extends AppCompatActivity {
 
+    private EditText editTextUsername;
+    private EditText editTextPassword;
+    private Perfil perfil;
     private TextInputLayout textInputUsername;
     private TextInputLayout textInputPassword;
     private TextInputEditText editTextUsername;
@@ -30,7 +37,32 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onClickLogin(View view) {
         String username = editTextUsername.getText().toString();
-        if (!validateUsername() | !validatePassword()) {
+        String password = editTextPassword.getText().toString();
+
+/*
+        if(!isEmailValido(username)){
+            editTextUsername.setError("Erro!");
+            return;
+        }
+
+ */
+/*
+        if(!isPasswordValida(password)){
+            editTextPassword.setError("Erro");
+            return;
+        }
+
+ */
+
+        if(Singleton.getInstance().verificarLogin(username, password)){
+            Intent intent = new Intent(this, MenuMainActivity.class);
+            intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
+            startActivity(intent);
+            finish();
+        }else{
+            //Toast.makeText(this, "Hehe fodeu", Toast.LENGTH_SHORT).show();
+        }
+        if (!validateUsername() || !validatePassword()) {
             return;
         }
 
