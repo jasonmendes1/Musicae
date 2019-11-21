@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else{
-            Toast.makeText(this, "'"+username+ "'" + "/" + "'"+password+"'", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
         }
     }
 
