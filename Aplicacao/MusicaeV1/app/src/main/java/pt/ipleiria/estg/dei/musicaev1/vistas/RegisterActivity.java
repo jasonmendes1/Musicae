@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btnMusico:
-                Intent intent = new Intent(this, RegisterInstrumentActivity.class);
+                Intent intent = new Intent(this, RegisterSkillActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnIndustria:

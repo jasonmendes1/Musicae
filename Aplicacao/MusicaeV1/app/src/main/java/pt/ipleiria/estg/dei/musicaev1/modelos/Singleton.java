@@ -99,11 +99,16 @@ public class Singleton {
     }
 
     private void habilidadesGerarFakeData(){
-        Habilidades.add(new Habilidade("Vocalista"));
-        Habilidades.add(new Habilidade("Guitarra"));
-        Habilidades.add(new Habilidade("Violino"));
-        Habilidades.add(new Habilidade("Baterista"));
-        Habilidades.add(new Habilidade("Pianista"));
+        Habilidades.add(new Habilidade("Vocalist"));
+        Habilidades.add(new Habilidade("Guitar"));
+        Habilidades.add(new Habilidade("Violin"));
+        Habilidades.add(new Habilidade("Drumms"));
+        Habilidades.add(new Habilidade("DJ"));
+        Habilidades.add(new Habilidade("Piano"));
+        Habilidades.add(new Habilidade("Trumpet"));
+        Habilidades.add(new Habilidade("Saxophone"));
+        Habilidades.add(new Habilidade("Flute"));
+        Habilidades.add(new Habilidade("Clarinet"));
     }
 
     private void generosGerarFakeData(){
@@ -112,6 +117,11 @@ public class Singleton {
         Generos.add(new Genero("Jazz"));
         Generos.add(new Genero("Rap"));
         Generos.add(new Genero("Reggae"));
+        Generos.add(new Genero("Acoustic"));
+        Generos.add(new Genero("Gospel"));
+        Generos.add(new Genero("Country"));
+        Generos.add(new Genero("Dubstep"));
+        Generos.add(new Genero("Metal"));
     }
 
     private void perfisGerarFakeData(){
