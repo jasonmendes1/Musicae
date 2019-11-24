@@ -29,17 +29,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        textInputUsername = findViewById(R.id.text_input_username);
+        /*textInputUsername = findViewById(R.id.text_input_username);
         textInputPassword = findViewById(R.id.text_input_password);
         editTextUsername = findViewById(R.id.etUsername);
-        editTextPassword = findViewById(R.id.etPassword);
+        editTextPassword = findViewById(R.id.etPassword);*/
     }
 
     public void onClickLogin(View view) {
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
-        if (!validateUsername() || !validatePassword()) {
+        /*if (!validateUsername() || !validatePassword()) {
             return;
         }
 
@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }else{
             Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     private boolean validateUsername() {
