@@ -86,6 +86,8 @@ public class Perfil {
         this.experiencia = experiencia;
     }
 
+    public void setId(int anInt) {
+    }
 }
 
 
