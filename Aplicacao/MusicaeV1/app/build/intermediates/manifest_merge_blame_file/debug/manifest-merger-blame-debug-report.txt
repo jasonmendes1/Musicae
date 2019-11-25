@@ -1,0 +1,102 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="pt.ipleiria.estg.dei.musicaev1"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:5:5-46:19
+12        android:allowBackup="true"
+12-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.1.0] C:\Users\Pedro\.gradle\caches\transforms-2\files-2.1\f01b27bb220ecb79298884ef36a7a2fb\core-1.1.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity
+21-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:12:9-14:68
+22            android:name="pt.ipleiria.estg.dei.musicaev1.vistas.RegisterGenreActivity"
+22-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:12:19-63
+23            android:screenOrientation="portrait"
+23-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:13:13-49
+24            android:theme="@style/AppTheme.NoActionBar" />
+24-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:14:13-56
+25        <activity
+25-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:15:9-18:59
+26            android:name="pt.ipleiria.estg.dei.musicaev1.vistas.RegisterSkillActivity"
+26-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:16:13-57
+27            android:screenOrientation="portrait"
+27-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:17:13-49
+28            android:theme="@style/AppTheme.NoActionBar" />
+28-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:18:13-56
+29        <activity
+29-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:19:9-23:59
+30            android:name="pt.ipleiria.estg.dei.musicaev1.MenuMainActivity"
+30-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:20:13-45
+31            android:launchMode="singleTop"
+31-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:21:13-43
+32            android:screenOrientation="portrait"
+32-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:22:13-49
+33            android:theme="@style/AppTheme.NoActionBar" />
+33-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:23:13-56
+34        <activity
+34-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:24:9-27:59
+35            android:name="pt.ipleiria.estg.dei.musicaev1.vistas.LoginActivity"
+35-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:25:13-49
+36            android:screenOrientation="portrait"
+36-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:26:13-49
+37            android:theme="@style/AppTheme.NoActionBar" />
+37-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:27:13-56
+38        <activity
+38-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:28:9-31:59
+39            android:name="pt.ipleiria.estg.dei.musicaev1.vistas.RegisterActivity"
+39-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:29:13-52
+40            android:screenOrientation="portrait"
+40-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:30:13-49
+41            android:theme="@style/AppTheme.NoActionBar" />
+41-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:31:13-56
+42        <activity
+42-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:32:9-35:59
+43            android:name="pt.ipleiria.estg.dei.musicaev1.vistas.WelcomeActivity"
+43-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:33:13-51
+44            android:screenOrientation="portrait"
+44-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:34:13-49
+45            android:theme="@style/AppTheme.NoActionBar" />
+45-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:35:13-56
+46        <activity
+46-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:36:9-45:20
+47            android:name="pt.ipleiria.estg.dei.musicaev1.vistas.SplashScreenActivity"
+47-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:37:13-56
+48            android:screenOrientation="portrait"
+48-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:38:13-49
+49            android:theme="@style/AppTheme.NoActionBar" >
+49-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:39:13-56
+50            <intent-filter>
+50-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:40:13-44:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:41:17-69
+51-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:41:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:43:17-77
+53-->C:\Users\Pedro\Documents\GitHub\ProjetoFinal\Aplicacao\MusicaeV1\app\src\main\AndroidManifest.xml:43:27-74
+54            </intent-filter>
+55        </activity>
+56    </application>
+57
+58</manifest>
