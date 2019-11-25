@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MusicaeTeste</string>
+    <string name="erro_email">Email inválido</string>
+    <string name="erro_password">Password Inválida</string>
+</resources>
