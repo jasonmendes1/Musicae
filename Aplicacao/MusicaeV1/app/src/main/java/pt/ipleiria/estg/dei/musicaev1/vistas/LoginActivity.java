@@ -39,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
+        Intent intent = new Intent(this, MenuMainActivity.class);
+        intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
+        startActivity(intent);
+        finish();
+
         /*if (!validateUsername() || !validatePassword()) {
             return;
         }
