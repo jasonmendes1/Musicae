@@ -13,9 +13,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d201ede-b3c9-439e-8c9d-68a7b7a6ca07" name="Default Changelist" comment="Perfil">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+=======
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/PerfilBDTESTE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Perfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Perfil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/PerfilBDHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +39,15 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29_x86" />
+=======
+<<<<<<< HEAD
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_XL_API_29" />
+=======
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_29" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -37,30 +58,79 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
               <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-          <provider editor-type-id="android-designer2" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/MenuMainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="49" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="49" />
+            <state relative-caret-position="1564">
+              <caret line="115" column="58" selection-start-line="115" selection-start-column="58" selection-end-line="115" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+<<<<<<< HEAD
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="49" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="49" />
+=======
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/PerfilBDTESTE.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Perfil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
             </state>
           </provider>
         </entry>
@@ -106,7 +176,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/SplashScreenActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/WelcomeActivity.java" />
         <option value="$USER_HOME$/Desktop/MusicaeV1/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/MenuMainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/MenuMainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/side_menu.xml" />
@@ -126,6 +195,13 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterActivity.java" />
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Perfil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/PerfilBDHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/PerfilBDTESTE.java" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
       </list>
     </option>
   </component>
@@ -141,13 +217,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="MusicaeV1" type="b2602c69:ProjectViewProjectNode" />
               <item name="MusicaeV1" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+<<<<<<< HEAD
+=======
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MusicaeV1" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
             </path>
           </expand>
           <select />
@@ -170,17 +263,25 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="musicaev1" type="cbb59c9e:AndroidPsiDirectoryNode" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+              <item name="vistas" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="adaptadores" type="462c0819:PsiDirectoryNode" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
             </path>
             <path>
               <item name="MusicaeV1" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+<<<<<<< HEAD
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="MusicaeV1" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+=======
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="musicaev1" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="modelos" type="462c0819:PsiDirectoryNode" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
             </path>
           </expand>
           <select />
@@ -198,8 +299,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\Documents\GitHub\Musicae\Aplicacao\MusicaeV1\app\src\main\res" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\GitHub\Musicae\Aplicacao\MusicaeV1\app\src\main\res\drawable" />
+      <recent name="C:\Users\Admin\Documents\GitHub\Musicae\Aplicacao\MusicaeV1\app\src\main\res\layout" />
+      <recent name="C:\Users\Admin\Desktop\MusicaeV1\app\src\main\res\drawable-hdpi" />
+      <recent name="C:\Users\Admin\Desktop\MusicaeV1\app\src\main\res\drawable" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="pt.ipleiria.estg.dei.musicaev1" />
@@ -208,11 +312,8 @@
       <recent name="pt.ipleiria.estg.dei.musicaev1.vistas" />
       <recent name="pt.ipleiria.estg.dei.musicaev1" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\Documents\GitHub\Musicae\Aplicacao\MusicaeV1\app\src\main\res\drawable" />
-      <recent name="C:\Users\Admin\Documents\GitHub\Musicae\Aplicacao\MusicaeV1\app\src\main\res\layout" />
-      <recent name="C:\Users\Admin\Desktop\MusicaeV1\app\src\main\res\drawable-hdpi" />
-      <recent name="C:\Users\Admin\Desktop\MusicaeV1\app\src\main\res\drawable" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\GitHub\Musicae\Aplicacao\MusicaeV1\app\src\main\res" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -320,11 +421,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17397882" />
+=======
+<<<<<<< HEAD
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+=======
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
+    <editor active="true" />
+    <layout>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19288956" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -339,15 +452,28 @@
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="6" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.049099836" />
+=======
+<<<<<<< HEAD
+      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.14734562" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" weight="0.32936078" />
+=======
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.14729951" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.32936078" />
+>>>>>>> da4b6e575bec43db676ecf37a768c565ac199007
       <window_info anchor="bottom" id="Find" order="9" weight="0.32936078" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
+<<<<<<< HEAD
       <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.32980332" />
+=======
+      <window_info anchor="right" id="Preview" order="5" visible="true" weight="0.32995737" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
       <window_info anchor="right" id="Assistant" order="6" weight="0.32995737" />
     </layout>
     <layout-to-restore>
@@ -391,12 +517,12 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/Rectangle 1.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/Rectangle 1.png" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash_screen.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_login.xml" />
     <entry file="file://$USER_HOME$/Desktop/MusicaeV1/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java" />
@@ -448,7 +574,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/action_bar.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
@@ -457,6 +582,7 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Industria.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -465,6 +591,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/WelcomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -476,20 +613,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/side_menu_profile.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/side_menu_drawer.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="731">
           <caret line="43" column="47" lean-forward="true" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="47" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -499,12 +636,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu_main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_login_welcome.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -523,20 +660,21 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/backround_register1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/button_preto.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -568,22 +706,50 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Perfil.java">
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="391">
+          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterInstrumentActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterInstrumentActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/MenuMainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="115" column="58" selection-start-line="115" selection-start-column="58" selection-end-line="115" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_instrument.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register_instrument.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/MenuMainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -613,11 +779,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/adaptadores/ListaGeneroAdaptador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/adaptadores/ListaHabilidadeAdaptador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="188">
           <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
@@ -628,14 +808,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+=======
+        <state relative-caret-position="-170">
+          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/Perfil.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="153">
           <caret line="9" column="49" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="49" />
+=======
+        <state relative-caret-position="116">
+          <caret line="69" column="30" selection-start-line="69" selection-start-column="30" selection-end-line="69" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/modelos/PerfilBDTESTE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/pt/ipleiria/estg/dei/musicaev1/vistas/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> 2295be1cb84cfba83f665318e1d649b5163c4240
         </state>
       </provider>
     </entry>
