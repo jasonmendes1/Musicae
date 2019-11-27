@@ -34,7 +34,7 @@ public class RegisterIndustryActivity extends AppCompatActivity{
         lvListaIndustria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(RegisterIndustryActivity.this, RegisterIndustryActivity.class);
+                Intent intent = new Intent(RegisterIndustryActivity.this, RegisterGenreActivity.class);
                 startActivity(intent);
             }
         });

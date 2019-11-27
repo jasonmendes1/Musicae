@@ -63,7 +63,7 @@ public class PerfilBDTESTE extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
-                Perfil auxPerfil = new Perfil(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5),cursor.getString(6), cursor.getString(7),cursor.getString(8),cursor.getString(9));
+                Perfil auxPerfil = new Perfil(cursor.getInt(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),cursor.getString(5),cursor.getString(6), cursor.getString(7),cursor.getString(8));
                 auxPerfil.setId(cursor.getInt(0));
                 perfils.add(auxPerfil);
             }while (cursor.moveToNext());
