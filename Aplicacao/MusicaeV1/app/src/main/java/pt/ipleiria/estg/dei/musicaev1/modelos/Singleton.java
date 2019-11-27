@@ -124,6 +124,15 @@ public class Singleton {
         Generos.add(new Genero("Metal"));
     }
 
+    private void industriasGerarFakeData(){
+        Industrias.add(new Industria("Photographer"));
+        Industrias.add(new Industria("Management"));
+        Industrias.add(new Industria("Music Teacher"));
+        Industrias.add(new Industria("Recording Studio"));
+        Industrias.add(new Industria("Song Writer"));
+        Industrias.add(new Industria("Other"));
+    }
+
     private void perfisGerarFakeData(){
         Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)", "Bué experiência wi"));
         Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)", "Bué pouca experiência dred"));
