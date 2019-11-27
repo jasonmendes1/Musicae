@@ -134,8 +134,8 @@ public class Singleton {
     }
 
     private void perfisGerarFakeData(){
-        Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)", "Bué experiência wi"));
-        Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)", "Bué pouca experiência dred"));
-        Perfis.add(new Perfil(R.drawable.perfil,"jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)", "Bué pouca experiência wi"));
+        Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)"));
+        Perfis.add(new Perfil(R.drawable.perfil,"pedro","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
+        Perfis.add(new Perfil(R.drawable.perfil,"jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
     }
 }

@@ -5,7 +5,7 @@ public class Perfil {
     private String username, password, nome, sexo, descricao, localidade, experiencia, datanasc;
     private static int autoIncrementoId = 1;
 
-    public Perfil(int imagem, String username, String password, String nome,  String datanasc, String localidade, String sexo, String descricao, String experiencia) {
+    public Perfil(int imagem, String username, String password, String nome,  String datanasc, String localidade, String sexo, String descricao) {
         this.idperfil = autoIncrementoId++;
         this.imagem = imagem;
         this.username = username;
@@ -15,7 +15,6 @@ public class Perfil {
         this.localidade = localidade;
         this.sexo = sexo;
         this.descricao = descricao;
-        this.experiencia = experiencia;
     }
 
     public int getIdperfil() {
@@ -76,14 +75,6 @@ public class Perfil {
 
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
-    }
-
-    public String getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(String experiencia) {
-        this.experiencia = experiencia;
     }
 
     public void setId(int anInt) {
