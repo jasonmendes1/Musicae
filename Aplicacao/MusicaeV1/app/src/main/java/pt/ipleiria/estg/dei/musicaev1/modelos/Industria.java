@@ -5,7 +5,7 @@ public class Industria {
     private int idIndustria;
     private String tipo;
 
-    public Industria(String tipo){
+    public Industria(int idIndustria, String tipo){
         this.idIndustria = idIndustria;
         this.tipo = tipo;
     }
