@@ -18,6 +18,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Industria;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class RegisterIndustryActivity extends AppCompatActivity{
+
     private ArrayList<Industria> listaIndustrias;
     private ListView lvListaIndustrias;
 

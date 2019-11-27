@@ -35,7 +35,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(intent);
                 break;
             case R.id.btnIndustria:
-                Toast.makeText(this, "Industria", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(this, RegisterIndustryActivity.class);
+                startActivity(intent2);
                 break;
         }
     }
