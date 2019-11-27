@@ -19,19 +19,19 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class RegisterIndustryActivity extends AppCompatActivity{
 
-    private ArrayList<Industria> listaIndustrias;
-    private ListView lvListaIndustrias;
+    private ArrayList<Industria> listaIndustria;
+    private ListView lvListaIndustria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_industry);
 
-        listaIndustrias = Singleton.getInstance().getIndustrias();
-        lvListaIndustrias = findViewById(R.id.lvListaIndustrias);
-        lvListaIndustrias.setAdapter(new ListaIndustriaAdaptador(this, listaIndustrias));
+        listaIndustria = Singleton.getInstance().getIndustrias();
+        lvListaIndustria = findViewById(R.id.lvListaIndustrias);
+        lvListaIndustria.setAdapter(new ListaIndustriaAdaptador(this, listaIndustria));
 
-        lvListaIndustrias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvListaIndustria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(RegisterIndustryActivity.this, RegisterIndustryActivity.class);
