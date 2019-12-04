@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,4 +7,82 @@
     tools:context=".vistas.RegisterDetails"
     android:background="@drawable/backround_details">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/regular"
+        android:text="Enter your details"
+        android:textColor="@color/gray"
+        android:textSize="25sp"
+        android:layout_below="@id/space1"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/TextView"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etFirstName"
+        android:layout_width="140dp"
+        android:layout_height="36dp"
+        android:layout_below="@id/space2"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space2"
+        android:layout_toEndOf="@id/etFirstName" />
+
+    <EditText
+        android:id="@+id/etLastName"
+        android:layout_width="140dp"
+        android:layout_height="36dp"
+        android:layout_below="@id/space2"
+        android:layout_toEndOf="@id/space3" />
+
+    <Space
+        android:id="@+id/space4"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/etFirstName"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Spinner
+        android:id="@+id/spinnerGenre"
+        android:layout_width="305dp"
+        android:layout_height="36dp"
+        android:layout_below="@id/space4"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space5"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/spinnerGenre"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="305dp"
+        android:layout_height="36dp"
+        android:hint="Email"
+        android:layout_below="@id/space5"
+        android:layout_toEndOf="@id/spaceV" />
+</RelativeLayout>
