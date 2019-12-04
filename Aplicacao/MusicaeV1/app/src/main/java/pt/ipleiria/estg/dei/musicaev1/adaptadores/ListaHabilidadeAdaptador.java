@@ -18,7 +18,6 @@ public class ListaHabilidadeAdaptador extends BaseAdapter {
     private LayoutInflater inflater;
     private ArrayList<Habilidade> habilidades;
 
-
     public ListaHabilidadeAdaptador(Context context, ArrayList<Habilidade> habilidades) {
         this.context = context;
         this.habilidades = habilidades;
