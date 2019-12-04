@@ -5,35 +5,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Habilidade;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 
-public class ListaHabilidadeAdaptador extends BaseAdapter {
+public class ListaBandaAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<Habilidade> habilidades;
+    private ArrayList<Banda> bandas;
 
-    public ListaHabilidadeAdaptador(Context context, ArrayList<Habilidade> habilidades) {
+
+    public ListaBandaAdaptador(Context context, ArrayList<Banda> bandas) {
         this.context = context;
-        this.habilidades = habilidades;
+        this.bandas = bandas;
     }
 
     @Override
-    public int getCount() { return habilidades.size(); }
+    public int getCount() { return bandas.size(); }
 
     @Override
     public Object getItem(int position) {
-        return habilidades.get(position);
+        return bandas.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return habilidades.get(position).getIdHabilidade();
+        return bandas.get(position).getIdbanda();
     }
 
     @Override
@@ -43,7 +48,7 @@ public class ListaHabilidadeAdaptador extends BaseAdapter {
         }
 
         if(convertView == null){
-            convertView = inflater.inflate(R.layout.item_lista_habilidade, null);
+            convertView = inflater.inflate(R.layout.item_lista_banda, null);
         }
 
         ViewHolderLista viewHolder = (ViewHolderLista)convertView.getTag();
@@ -52,19 +57,26 @@ public class ListaHabilidadeAdaptador extends BaseAdapter {
             convertView.setTag(viewHolder);
         }
 
-        viewHolder.update(habilidades.get(position));
+        viewHolder.update(bandas.get(position));
         return convertView;
     }
 
     private class ViewHolderLista{
-        private TextView tipo;
+        private TextView nome;
+        private ImageView logo;
 
         public ViewHolderLista(View convertView){
-            tipo = convertView.findViewById(R.id.tvHabilidade);
+            nome = convertView.findViewById(R.id.tvNomeBanda);
         }
 
-        public void update(Habilidade habilidade){
-            tipo.setText(habilidade.getTipo());
+        public void update(Banda banda){
+            nome.setText(banda.getNome());
+            Glide.with(context)
+                    .load(banda.getLogo())
+                    .placeholder(R.drawable.full_logo_branco)
+                    .thumbnail(0f)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(logo);
         }
     }
 }

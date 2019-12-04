@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Habilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Industria;
 
 public class ListaIndustriaAdaptador extends BaseAdapter{
@@ -47,9 +46,9 @@ public class ListaIndustriaAdaptador extends BaseAdapter{
             convertView = inflater.inflate(R.layout.item_lista_industria, null);
         }
 
-        ListaIndustriaAdaptador.ViewHolderLista viewHolder = (ListaIndustriaAdaptador.ViewHolderLista)convertView.getTag();
+        ViewHolderLista viewHolder = (ViewHolderLista)convertView.getTag();
         if(viewHolder == null){
-            viewHolder = new ListaIndustriaAdaptador.ViewHolderLista(convertView);
+            viewHolder = new ViewHolderLista(convertView);
             convertView.setTag(viewHolder);
         }
 

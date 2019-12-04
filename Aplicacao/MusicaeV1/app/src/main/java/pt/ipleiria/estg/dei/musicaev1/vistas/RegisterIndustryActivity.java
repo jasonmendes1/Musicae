@@ -11,9 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaHabilidadeAdaptador;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaIndustriaAdaptador;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Habilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Industria;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
@@ -30,6 +28,7 @@ public class RegisterIndustryActivity extends AppCompatActivity{
         listaIndustria = Singleton.getInstance().getIndustrias();
         lvListaIndustria = findViewById(R.id.lvListaIndustrias);
         lvListaIndustria.setAdapter(new ListaIndustriaAdaptador(this, listaIndustria));
+
 
         lvListaIndustria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -1,6 +1,8 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 
+import com.android.volley.RequestQueue;
+
 import java.util.ArrayList;
 
 public class Singleton {
@@ -13,6 +15,16 @@ public class Singleton {
     private ArrayList<ListaMusica>listaMusicas;
     private ArrayList<Musico>Musicos;
     private ArrayList<Perfil>Perfis;
+
+    private static RequestQueue volleyQueue = null;
+
+    private String tokenAPI = "MusicaeYelele";
+
+    private String urlAPIPerfil = "http://localhost/MusicaeWeb/backend/web/v1/perfil";
+    private String urlAPIUser = "http://localhost/MusicaeWeb/backend/web/v1/user";
+    private String urlAPIBandas = "http://localhost/MusicaeWeb/backend/web/v1/bandas";
+    // Mais?
+
 
     private static final Singleton ourInstance = new Singleton();
     public static Singleton getInstance() {
@@ -34,6 +46,7 @@ public class Singleton {
         habilidadesGerarFakeData();
         generosGerarFakeData();
         perfisGerarFakeData();
+        industriasGerarFakeData();
     }
 
     // Gets todos:
