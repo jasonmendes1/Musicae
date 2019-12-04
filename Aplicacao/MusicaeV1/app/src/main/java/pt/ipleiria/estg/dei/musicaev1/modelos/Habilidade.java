@@ -7,7 +7,7 @@ public class Habilidade {
 
 
     public Habilidade(String tipo){
-        this.idHabilidade = autoIncrementoId++;
+        this.idHabilidade = idHabilidade;
         this.tipo = tipo;
     }
 

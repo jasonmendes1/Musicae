@@ -1,10 +1,10 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Banda {
-    private int idbanda, logo;
-    private String nome, descricao, localizacao, contacto;
+    private int idbanda;
+    private String logo, nome, descricao, localizacao, contacto;
 
-    public Banda(int idbanda, int logo, String nome, String descricao, String localizacao, String contacto) {
+    public Banda(int idbanda, String logo, String nome, String descricao, String localizacao, String contacto) {
         this.idbanda = idbanda;
         this.logo = logo;
         this.nome = nome;
@@ -17,11 +17,11 @@ public class Banda {
         return idbanda;
     }
 
-    public int getLogo() {
+    public String getLogo() {
         return logo;
     }
 
-    public void setLogo(int logo) {
+    public void setLogo(String logo) {
         this.logo = logo;
     }
 

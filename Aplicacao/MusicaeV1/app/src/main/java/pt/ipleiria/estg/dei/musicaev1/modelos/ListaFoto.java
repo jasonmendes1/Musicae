@@ -1,9 +1,10 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class ListaFoto {
-    private int idListaFoto, foto;
+    private int idListaFoto;
+    private String foto;
 
-    public ListaFoto(int idlistamusica, int foto) {
+    public ListaFoto(int idlistamusica, String foto) {
         this.idListaFoto = idlistamusica;
         this.foto = foto;
     }
@@ -12,11 +13,11 @@ public class ListaFoto {
         return idListaFoto;
     }
 
-    public int getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(int foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 }
