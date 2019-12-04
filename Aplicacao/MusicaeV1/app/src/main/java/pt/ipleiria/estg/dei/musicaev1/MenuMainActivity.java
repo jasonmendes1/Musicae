@@ -97,6 +97,10 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
             case R.id.nav_portfolio:
                 break;
             case R.id.nav_logout:
+                sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                editor.putString(MenuMainActivity.SECCAO_INFO_USER, "-1");
+                editor.apply();
                 dialogLogout();
                 break;
             default:

@@ -56,6 +56,9 @@ public class PerfilBDTESTE extends SQLiteOpenHelper {
 
     // *************************************** METODOS CRUD ***************************************
     public ArrayList<Perfil> getAllPerfils(){
+        /*Pedro Lopes: Comentei porque o nosso perfil por enquanto é só para testar o login
+        Até porque no perfil final não podemos ter lá nem username nem password isso é na tabela Users.
+
         ArrayList<Perfil> perfils = new ArrayList<>();
 
         Cursor cursor = this.database.query(TABLE_NAME, new String[]{
@@ -69,5 +72,8 @@ public class PerfilBDTESTE extends SQLiteOpenHelper {
             }while (cursor.moveToNext());
         }
         return perfils;
+
+         */
+        return null;
     }
 }

@@ -1,9 +1,12 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +26,11 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout textInputUsername, textInputPassword;
     private TextInputEditText editTextUsername, editTextPassword;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+    private boolean isChecked = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +43,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View view) {
+        System.out.println("--> checkbox is " + isChecked);
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
 
-        int verificacao = Singleton.getInstance().verificarLogin(username, password);
-        if(verificacao != -1){
+        int id = Singleton.getInstance().verificarLogin(username, password);
+        System.out.println("--> idLogin: "+ id);
+        if(id != -1){
+            if(!isChecked){
+                descartarSharedpreferences();
+            }
             Intent intent = new Intent(this, MenuMainActivity.class);
             intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
-            intent.putExtra(MenuMainActivity.CHAVE_ID, ""+verificacao);
+            intent.putExtra(MenuMainActivity.CHAVE_ID, ""+id);
             startActivity(intent);
             finish();
         }else{
@@ -54,9 +67,29 @@ public class LoginActivity extends AppCompatActivity {
     public void itemClicked(View v){
         CheckBox checkBox = (CheckBox) v;
         if(checkBox.isChecked()){
-            //Codigo de sharedpreferences aqui.
+            isChecked = true;
+            guardarSharedpreferences();
+        }else{
+            isChecked = false;
+            descartarSharedpreferences();
         }
     }
+
+    private void guardarSharedpreferences(){
+        sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        int id = Singleton.getInstance().verificarLogin(editTextUsername.getText().toString().trim().toLowerCase(), editTextPassword.getText().toString().trim());
+        editor.putString(MenuMainActivity.SECCAO_INFO_USER, "" + id);
+        editor.apply();
+    }
+
+    private void descartarSharedpreferences(){
+        sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putString(MenuMainActivity.SECCAO_INFO_USER, "-1");
+        editor.apply();
+    }
+
 
 
     /*
