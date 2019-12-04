@@ -33,6 +33,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
 
     public static final String SECCAO_INFO_USER = "SECCAO_INFO_USER";
     public static final String CHAVE_USERNAME = "USERNAME";
+    public static final String CHAVE_ID = "-1";
     public static final String CHAVE_EMAIL = "EMAIL";
     private String username = "";
 
@@ -62,16 +63,17 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
 
         fragmentManager = getSupportFragmentManager();
         navigationView.setNavigationItemSelectedListener(this);
-
         carregamentoFragmentoInicial();
     }
 
     private void carregarCabecalho() {
         username = getIntent().getStringExtra(CHAVE_USERNAME);
+        String id = getIntent().getStringExtra(CHAVE_ID);
 
+        String usernameId = username + "#" + id;
         View view = navigationView.getHeaderView(0);
         TextView textViewUser = view.findViewById(R.id.tvNome);
-        textViewUser.setText(username);
+        textViewUser.setText(usernameId);
     }
 
     private void carregamentoFragmentoInicial(){

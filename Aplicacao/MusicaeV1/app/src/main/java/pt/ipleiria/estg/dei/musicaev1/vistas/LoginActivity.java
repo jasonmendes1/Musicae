@@ -19,10 +19,8 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 public class LoginActivity extends AppCompatActivity {
 
     private Perfil perfil;
-    private TextInputLayout textInputUsername;
-    private TextInputLayout textInputPassword;
-    private TextInputEditText editTextUsername;
-    private TextInputEditText editTextPassword;
+    private TextInputLayout textInputUsername, textInputPassword;
+    private TextInputEditText editTextUsername, editTextPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +37,26 @@ public class LoginActivity extends AppCompatActivity {
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
+
+        /*
         Intent intent = new Intent(this, MenuMainActivity.class);
         intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
         startActivity(intent);
-        finish();
-
-        /*if (!validateUsername() || !validatePassword()) {
+        finish();if (!validateUsername() || !validatePassword()) {
             return;
         }
-
-        if(Singleton.getInstance().verificarLogin(username, password)){
+*/
+        int verificacao = Singleton.getInstance().verificarLogin(username, password);
+        System.out.println("--> id: "+ verificacao);
+        if(verificacao != -1){
             Intent intent = new Intent(this, MenuMainActivity.class);
             intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
+            intent.putExtra(MenuMainActivity.CHAVE_ID, ""+verificacao);
             startActivity(intent);
             finish();
         }else{
             Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
-        }*/
+        }
     }
 
     private boolean validateUsername() {
@@ -75,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validatePassword() {
         String passwordInput = textInputPassword.getEditText().getText().toString().trim();
-
         if (passwordInput.isEmpty()) {
             textInputPassword.setError("Campo não pode estar vazio");
             return false;
