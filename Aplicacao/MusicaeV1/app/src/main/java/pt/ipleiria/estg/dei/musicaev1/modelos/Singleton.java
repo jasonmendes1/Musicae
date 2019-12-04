@@ -39,6 +39,7 @@ public class Singleton {
         habilidadesGerarFakeData();
         generosGerarFakeData();
         perfisGerarFakeData();
+        industriasGerarFakeData();
     }
 
     // Gets todos:

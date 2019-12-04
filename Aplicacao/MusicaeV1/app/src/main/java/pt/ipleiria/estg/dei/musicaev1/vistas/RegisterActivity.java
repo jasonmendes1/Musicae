@@ -31,11 +31,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btnMusico:
-                Intent intent = new Intent(this, RegisterSkillActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, RegisterSkillActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnIndustria:
-                Intent intent2 = new Intent(this, RegisterIndustryActivity.class);
+                Intent intent2 = new Intent(RegisterActivity.this, RegisterIndustryActivity.class);
                 startActivity(intent2);
                 break;
         }

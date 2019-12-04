@@ -10,30 +10,31 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Industria;
-
-public class ListaIndustriaAdaptador extends BaseAdapter{
+import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
+/*
+public class ListaBandaAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<Industria> industrias;
+    private ArrayList<Banda> bandas;
 
-    public ListaIndustriaAdaptador(Context context, ArrayList<Industria> industrias) {
+
+    public ListaBandaAdaptador(Context context, ArrayList<Banda> bandas) {
         this.context = context;
-        this.industrias = industrias;
+        this.bandas = bandas;
     }
 
     @Override
-    public int getCount() { return industrias.size(); }
+    public int getCount() { return bandas.size(); }
 
     @Override
     public Object getItem(int position) {
-        return industrias.get(position);
+        return bandas.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return industrias.get(position).getIdIndustria();
+        return bandas.get(position).getIdbanda();
     }
 
     @Override
@@ -43,7 +44,7 @@ public class ListaIndustriaAdaptador extends BaseAdapter{
         }
 
         if(convertView == null){
-            convertView = inflater.inflate(R.layout.item_lista_industria, null);
+            convertView = inflater.inflate(R.layout.item_lista_banda, null);
         }
 
         ViewHolderLista viewHolder = (ViewHolderLista)convertView.getTag();
@@ -52,19 +53,22 @@ public class ListaIndustriaAdaptador extends BaseAdapter{
             convertView.setTag(viewHolder);
         }
 
-        viewHolder.update(industrias.get(position));
+        viewHolder.update(bandas.get(position));
         return convertView;
     }
 
     private class ViewHolderLista{
-        private TextView tipo;
+        private TextView nome;
 
         public ViewHolderLista(View convertView){
-            tipo = convertView.findViewById(R.id.tvIndustria);
+            nome = convertView.findViewById(R.id.tvNomeBanda);
         }
 
-        public void update(Industria industria){
-            tipo.setText(industria.getTipo());
+        public void update(Banda banda){
+            nome.setText(banda.getNome());
         }
     }
+
+
 }
+*/
