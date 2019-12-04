@@ -35,7 +35,7 @@ public class ListaGeneroAdaptador extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return generos.get(position).getIdGenero();
+        return generos.get(position).getId();
     }
 
     @Override

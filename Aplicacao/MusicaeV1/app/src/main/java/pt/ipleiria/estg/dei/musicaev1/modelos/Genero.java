@@ -1,15 +1,15 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Genero {
-    private int idGenero;
+    private int id;
     private String nome;
 
     public Genero(String nome) {
         this.nome = nome;
     }
 
-    public int getIdGenero() {
-        return idGenero;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {

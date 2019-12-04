@@ -1,14 +1,11 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
-import android.content.Context;
-import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
 
 import java.util.ArrayList;
 
-import pt.ipleiria.estg.dei.musicaev1.R;
-
 public class Singleton {
-
     private ArrayList<Banda>Bandas;
     private ArrayList<BandaMembros>BandaMembros;
     private ArrayList<Genero>Generos;
@@ -18,6 +15,16 @@ public class Singleton {
     private ArrayList<ListaMusica>listaMusicas;
     private ArrayList<Musico>Musicos;
     private ArrayList<Perfil>Perfis;
+
+    private static RequestQueue volleyQueue = null;
+
+    private String tokenAPI = "MusicaeYelele";
+
+    private String urlAPIPerfil = "http://localhost/MusicaeWeb/backend/web/v1/perfil";
+    private String urlAPIUser = "http://localhost/MusicaeWeb/backend/web/v1/user";
+    private String urlAPIBandas = "http://localhost/MusicaeWeb/backend/web/v1/bandas";
+    // Mais?
+
 
     private static final Singleton ourInstance = new Singleton();
     public static Singleton getInstance() {
@@ -76,6 +83,16 @@ public class Singleton {
     }
     // ---- End gets ----
 
+    public Perfil getPerfil(int id){
+        for (Perfil p: Perfis
+             ) {
+            if(p.getIdperfil() == id){
+                return p;
+            }
+        }
+        return null;
+    }
+
 
     //Quando registar para verificar se o username já está a ser usado
     public boolean verificarUsername(String username){
@@ -88,15 +105,14 @@ public class Singleton {
         return false;
     }
 
-    public boolean verificarLogin(String username, String password){
+    public int verificarLogin(String username, String password){
         for (Perfil p: Perfis
         ) {
             if(p.getUsername().equals(username) && p.getPassword().equals(password)){
-                System.out.println("adwadw");
-                return true;
+                return p.getIdperfil();
             }
         }
-        return false;
+        return -1;
     }
 
     private void habilidadesGerarFakeData(){
@@ -135,8 +151,8 @@ public class Singleton {
     }
 
     private void perfisGerarFakeData(){
-        Perfis.add(new Perfil(R.drawable.perfil,"url","pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)"));
-        Perfis.add(new Perfil(R.drawable.perfil,"url","pedro","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
-        Perfis.add(new Perfil(R.drawable.perfil,"url","jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
+        Perfis.add(new Perfil(1,"url","pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)"));
+        Perfis.add(new Perfil(2,"url","pedroalves","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
+        Perfis.add(new Perfil(3,"url","jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
     }
 }

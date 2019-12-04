@@ -5,13 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
-/*
+
 public class ListaBandaAdaptador extends BaseAdapter {
 
     private Context context;
@@ -59,6 +63,7 @@ public class ListaBandaAdaptador extends BaseAdapter {
 
     private class ViewHolderLista{
         private TextView nome;
+        private ImageView logo;
 
         public ViewHolderLista(View convertView){
             nome = convertView.findViewById(R.id.tvNomeBanda);
@@ -66,9 +71,12 @@ public class ListaBandaAdaptador extends BaseAdapter {
 
         public void update(Banda banda){
             nome.setText(banda.getNome());
+            Glide.with(context)
+                    .load(banda.getLogo())
+                    .placeholder(R.drawable.full_logo_branco)
+                    .thumbnail(0f)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(logo);
         }
     }
-
-
 }
-*/
