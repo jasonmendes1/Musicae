@@ -83,11 +83,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
+        android:id="@+id/chkRememberme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_input_password"
         android:layout_toEndOf="@id/space1"
         android:fontFamily="@font/regular"
+        android:onClick="itemClicked"
         android:text="Remember me"
         android:textColor="@color/gray"
         android:textSize="18sp"

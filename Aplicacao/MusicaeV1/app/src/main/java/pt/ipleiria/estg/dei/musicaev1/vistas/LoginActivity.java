@@ -3,6 +3,7 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,16 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString().trim();
 
 
-        /*
-        Intent intent = new Intent(this, MenuMainActivity.class);
-        intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
-        startActivity(intent);
-        finish();if (!validateUsername() || !validatePassword()) {
-            return;
-        }
-*/
         int verificacao = Singleton.getInstance().verificarLogin(username, password);
-        System.out.println("--> id: "+ verificacao);
         if(verificacao != -1){
             Intent intent = new Intent(this, MenuMainActivity.class);
             intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
@@ -59,6 +51,15 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    public void itemClicked(View v){
+        CheckBox checkBox = (CheckBox) v;
+        if(checkBox.isChecked()){
+            //Codigo de sharedpreferences aqui.
+        }
+    }
+
+
+    /*
     private boolean validateUsername() {
         String usernameInput = editTextUsername.getText().toString().trim();
 
@@ -84,4 +85,5 @@ public class LoginActivity extends AppCompatActivity {
             return true;
         }
     }
+    */
 }
