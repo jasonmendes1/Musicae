@@ -4,8 +4,10 @@ public class Genero {
     private int id;
     private String nome;
 
-    public Genero(String nome) {
+    public Genero(int id,String nome)
+    {
         this.nome = nome;
+        this.id = id;
     }
 
     public int getId() {

@@ -1,18 +1,18 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Habilidade {
-    private int idHabilidade;
+    private int id;
     private String tipo;
     private static int autoIncrementoId = 1;
 
 
-    public Habilidade(String tipo){
-        this.idHabilidade = idHabilidade;
+    public Habilidade(int id, String tipo){
+        this.id = id;
         this.tipo = tipo;
     }
 
-    public int getIdHabilidade() {
-        return idHabilidade;
+    public int getId() {
+        return id;
     }
 
     public String getTipo() {

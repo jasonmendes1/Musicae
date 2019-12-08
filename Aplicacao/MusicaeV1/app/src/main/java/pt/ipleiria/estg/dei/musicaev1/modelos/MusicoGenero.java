@@ -1,23 +1,24 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class MusicoGenero{
-    private int id;
     private int idMusico;
-    private String nome;
+    private int idHabilidade;
 
-    public MusicoGenero(int idMusico,String nome){
+    public MusicoGenero(int idMusico,int idHabilidade){
         this.idMusico = idMusico;
-        this.nome = nome;
+        this.idHabilidade = idHabilidade;
     }
 
     public int getIdMusico() {
         return idMusico;
     }
 
-    public String getNome() {
-        return nome;
+    public int getIdHabilidade() {
+        return idHabilidade;
     }
 }
+
+
 /*
 
 package pt.ipleiria.estg.dei.musicaev1.modelos;
