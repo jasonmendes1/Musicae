@@ -155,4 +155,7 @@ public class Singleton {
         Perfis.add(new Perfil(2,"url", "pedroalves@gmail.com", "pedroalves","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
         Perfis.add(new Perfil(3,"url","jason@gmail.com", "jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
     }
+
+
+
 }
