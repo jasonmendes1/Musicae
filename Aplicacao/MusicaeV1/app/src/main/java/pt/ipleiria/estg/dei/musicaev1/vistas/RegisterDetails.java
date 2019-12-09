@@ -3,12 +3,14 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ public class RegisterDetails extends AppCompatActivity {
 
     private TextView mDisplayDate;
     private DatePickerDialog .OnDateSetListener mDateSetListener;
+    private Button buttonNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,5 +90,14 @@ public class RegisterDetails extends AppCompatActivity {
                 mDisplayDate.setText(date);
             }
         };
+
+        buttonNext = findViewById(R.id.button);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterDetails.this, RegisterFinal.class);
+                startActivity(intent);
+            }
+        });
     }
 }
