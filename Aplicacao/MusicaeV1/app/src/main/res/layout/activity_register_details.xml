@@ -15,32 +15,30 @@
         android:layout_toEndOf="@id/spaceV" />
 
     <Space
-        android:id="@+id/space1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
         android:id="@+id/spaceV"
         android:layout_width="50dp"
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/TextView"
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/space1"
-        android:layout_toEndOf="@id/space0"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="50dp"
+        android:layout_toEndOf="@id/spaceV"
         android:fontFamily="@font/regular"
-        android:text="Enter your details"
+        android:text="Favorite genres"
         android:textColor="@color/gray"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Space
         android:id="@+id/space2"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_below="@id/TextView"
+        android:layout_height="20dp"
+        android:layout_below="@id/tv"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText

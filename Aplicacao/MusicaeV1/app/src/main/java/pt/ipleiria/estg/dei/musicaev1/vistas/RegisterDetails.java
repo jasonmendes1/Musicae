@@ -91,6 +91,8 @@ public class RegisterDetails extends AppCompatActivity {
             }
         };
 
+        //-----------------------
+
         buttonNext = findViewById(R.id.button);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override

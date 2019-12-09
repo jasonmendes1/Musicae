@@ -15,7 +15,7 @@
     <Space
         android:id="@+id/space2"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="65dp"
         android:layout_below="@id/imageView"
         android:layout_toEndOf="@id/space1" />
 
