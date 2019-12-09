@@ -46,23 +46,9 @@
     <EditText
         android:id="@+id/etFirstName"
         android:layout_width="140dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:layout_height="36dp"
-        android:hint="First Name"
-        android:fontFamily="@font/regular"
-        android:textColor="@color/gray"
-        android:textSize="15sp"
-=======
         android:layout_height="50dp"
         android:hint="First Name"
         android:inputType="textPersonName"
->>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
-=======
-        android:layout_height="50dp"
-        android:hint="First Name"
-        android:inputType="textPersonName"
->>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/spaceV" />
 
@@ -76,23 +62,9 @@
     <EditText
         android:id="@+id/etLastName"
         android:layout_width="140dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:layout_height="36dp"
-        android:hint="Last Name"
-        android:fontFamily="@font/regular"
-        android:textColor="@color/gray"
-        android:textSize="15sp"
-=======
         android:layout_height="50dp"
         android:hint="Last Name"
         android:inputType="textPersonName"
->>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
-=======
-        android:layout_height="50dp"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
->>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/space3" />
 
