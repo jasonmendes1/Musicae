@@ -33,7 +33,7 @@ public class ListaHabilidadeAdaptador extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return habilidades.get(position).getIdHabilidade();
+        return habilidades.get(position).getId();
     }
 
     @Override
