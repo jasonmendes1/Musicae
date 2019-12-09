@@ -116,29 +116,29 @@ public class Singleton {
     }
 
     private void habilidadesGerarFakeData(){
-        Habilidades.add(new Habilidade("Vocalist"));
-        Habilidades.add(new Habilidade("Guitar"));
-        Habilidades.add(new Habilidade("Violin"));
-        Habilidades.add(new Habilidade("Drums"));
-        Habilidades.add(new Habilidade("DJ"));
-        Habilidades.add(new Habilidade("Piano"));
-        Habilidades.add(new Habilidade("Trumpet"));
-        Habilidades.add(new Habilidade("Saxophone"));
-        Habilidades.add(new Habilidade("Flute"));
-        Habilidades.add(new Habilidade("Clarinet"));
+        Habilidades.add(new Habilidade(1,"Vocalist"));
+        Habilidades.add(new Habilidade(2,"Guitar"));
+        Habilidades.add(new Habilidade(3,"Violin"));
+        Habilidades.add(new Habilidade(4,"Drums"));
+        Habilidades.add(new Habilidade(5,"DJ"));
+        Habilidades.add(new Habilidade(6,"Piano"));
+        Habilidades.add(new Habilidade(7,"Trumpet"));
+        Habilidades.add(new Habilidade(8,"Saxophone"));
+        Habilidades.add(new Habilidade(9,"Flute"));
+        Habilidades.add(new Habilidade(10,"Clarinet"));
     }
 
     private void generosGerarFakeData(){
-        Generos.add(new Genero("Rock"));
-        Generos.add(new Genero("Pop"));
-        Generos.add(new Genero("Jazz"));
-        Generos.add(new Genero("Rap"));
-        Generos.add(new Genero("Reggae"));
-        Generos.add(new Genero("Acoustic"));
-        Generos.add(new Genero("Gospel"));
-        Generos.add(new Genero("Country"));
-        Generos.add(new Genero("Dubstep"));
-        Generos.add(new Genero("Metal"));
+        Generos.add(new Genero(1,"Rock"));
+        Generos.add(new Genero(2,"Pop"));
+        Generos.add(new Genero(3,"Jazz"));
+        Generos.add(new Genero(4,"Rap"));
+        Generos.add(new Genero(5,"Reggae"));
+        Generos.add(new Genero(6,"Acoustic"));
+        Generos.add(new Genero(7,"Gospel"));
+        Generos.add(new Genero(8,"Country"));
+        Generos.add(new Genero(9,"Dubstep"));
+        Generos.add(new Genero(10,"Metal"));
     }
 
     private void industriasGerarFakeData(){
@@ -155,4 +155,7 @@ public class Singleton {
         Perfis.add(new Perfil(2,"url", "pedroalves@gmail.com", "pedroalves","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
         Perfis.add(new Perfil(3,"url","jason@gmail.com", "jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
     }
+
+
+
 }

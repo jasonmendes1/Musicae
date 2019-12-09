@@ -8,9 +8,16 @@
     android:background="@drawable/backround_details">
 
     <Space
+        android:id="@+id/space0"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space1"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
         android:id="@+id/space1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_toEndOf="@id/spaceV" />
 
     <Space
@@ -22,24 +29,40 @@
         android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/space1"
+        android:layout_toEndOf="@id/space0"
         android:fontFamily="@font/regular"
         android:text="Enter your details"
         android:textColor="@color/gray"
-        android:textSize="25sp"
-        android:layout_below="@id/space1"
-        android:layout_toEndOf="@id/spaceV" />
+        android:textSize="25sp" />
 
     <Space
         android:id="@+id/space2"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:layout_below="@id/TextView"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
         android:id="@+id/etFirstName"
         android:layout_width="140dp"
+<<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_height="36dp"
+        android:hint="First Name"
+        android:fontFamily="@font/regular"
+        android:textColor="@color/gray"
+        android:textSize="15sp"
+=======
+        android:layout_height="50dp"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+>>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
+=======
+        android:layout_height="50dp"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+>>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/spaceV" />
 
@@ -53,42 +76,108 @@
     <EditText
         android:id="@+id/etLastName"
         android:layout_width="140dp"
+<<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_height="36dp"
+        android:hint="Last Name"
         android:fontFamily="@font/regular"
         android:textColor="@color/gray"
         android:textSize="15sp"
+=======
+        android:layout_height="50dp"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+>>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
+=======
+        android:layout_height="50dp"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+>>>>>>> 6e493dda0d77ebc9944efead65c3432b4d98e8a7
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/space3" />
 
     <Space
         android:id="@+id/space4"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_below="@id/etFirstName"
         android:layout_toEndOf="@id/spaceV" />
 
     <Spinner
         android:id="@+id/spinnerGenre"
         android:layout_width="305dp"
-        android:layout_height="36dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
         android:layout_below="@id/space4"
         android:layout_toEndOf="@id/spaceV" />
 
     <Space
         android:id="@+id/space5"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_below="@id/spinnerGenre"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="305dp"
-        android:layout_height="36dp"
+        android:layout_height="50dp"
         android:hint="Email"
-        android:fontFamily="@font/regular"
-        android:textColor="@color/gray"
-        android:textSize="15sp"
+        android:inputType="textEmailAddress"
         android:layout_below="@id/space5"
         android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space6"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/etEmail"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:layout_below="@id/space6"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space7"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/etPhone"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="City"
+        android:inputType="textPersonName"
+        android:layout_below="@id/space7"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space8"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/etCity"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Birth Date"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/space8"
+        android:layout_toEndOf="@id/spaceV" />
+
 </RelativeLayout>

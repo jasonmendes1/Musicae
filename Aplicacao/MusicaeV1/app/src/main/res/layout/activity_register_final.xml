@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.RegisterFinal"
+    android:background="@drawable/backround_register_final">
+
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="328dp"
+        android:layout_height="235dp"
+        android:layout_below="@id/space1"
+        android:layout_toEndOf="@id/spaceV"
+        app:srcCompat="@drawable/full_logo_preto" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/imageView"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:layout_below="@id/space2"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/etUsername"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/space3"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space4"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/etPassword"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/space4"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/etConfirmPassword"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="308dp"
+        android:layout_height="38dp"
+        android:layout_below="@id/space5"
+        android:layout_toEndOf="@id/spaceV"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/bold"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</RelativeLayout>
