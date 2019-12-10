@@ -39,10 +39,10 @@ public class RegisterDetails extends AppCompatActivity {
         spinner = findViewById(R.id.spinnerGenre);
 
         List<String> categorias = new ArrayList<>();
-        categorias.add(0, "Select Your Genre");
-        categorias.add(1, "Male");
-        categorias.add(2, "Female");
-        categorias.add(3, "?? Other ??");
+        categorias.add(0, "Sexo");
+        categorias.add(1, "Homem");
+        categorias.add(2, "Mulher");
+        categorias.add(3, "?? Outro ??");
 
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categorias);
@@ -52,11 +52,11 @@ public class RegisterDetails extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getItemAtPosition(position) == "Select Your Genre"){
+                if(parent.getItemAtPosition(position) == "Sexo"){
 
                 }else{
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_SHORT).show();
                 }
             }
 

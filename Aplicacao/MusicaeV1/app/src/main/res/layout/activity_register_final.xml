@@ -69,7 +69,7 @@
         android:id="@+id/etConfirmPassword"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Confirm Password"
+        android:hint="Confirmar Password"
         android:inputType="textPassword"
         android:layout_below="@id/space4"
         android:layout_toEndOf="@id/spaceV" />
@@ -89,7 +89,7 @@
         android:layout_toEndOf="@id/spaceV"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
-        android:text="Register"
+        android:text="Registar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp" />

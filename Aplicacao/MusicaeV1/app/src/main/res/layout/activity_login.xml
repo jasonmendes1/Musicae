@@ -90,7 +90,7 @@
         android:layout_toEndOf="@id/space1"
         android:fontFamily="@font/regular"
         android:onClick="itemClicked"
-        android:text="Remember me"
+        android:text="Lembrar Conta"
         android:textColor="@color/gray"
         android:textSize="18sp"
         app:buttonTint="@color/red" />

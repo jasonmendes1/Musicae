@@ -7,21 +7,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_profile"
-            android:title="My Profile"
+            android:title="Meu Perfil"
             android:icon="@drawable/ic_menu_perfil"
             android:fontFamily="@font/bold"
             android:textColor="@color/red"
             android:textSize="20sp"/>
         <item
             android:id="@+id/nav_bandas"
-            android:title="My Bands"
+            android:title="Minhas Bandas"
             android:icon="@drawable/ic_menu_banda"
             android:fontFamily="@font/bold"
             android:textColor="@color/gray"
             android:textSize="20sp"/>
         <item
             android:id="@+id/nav_portfolio"
-            android:title="Portfolio"
+            android:title="Portfólio"
             android:icon="@drawable/ic_menu_portfolio"
             android:fontFamily="@font/bold"
             android:textColor="@color/gray"

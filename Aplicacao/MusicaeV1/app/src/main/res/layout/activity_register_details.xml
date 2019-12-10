@@ -8,13 +8,6 @@
     android:background="@drawable/backround_details">
 
     <Space
-        android:id="@+id/space0"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/space1"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
         android:id="@+id/spaceV"
         android:layout_width="50dp"
         android:layout_height="match_parent" />
@@ -23,11 +16,11 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="77dp"
+        android:layout_marginStart="59dp"
         android:layout_marginTop="50dp"
         android:layout_toEndOf="@id/spaceV"
         android:fontFamily="@font/regular"
-        android:text="Favorite genres"
+        android:text="Detalhes da Conta"
         android:textColor="@color/gray"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +38,7 @@
         android:id="@+id/etFirstName"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:hint="First Name"
+        android:hint="Primeiro Nome"
         android:inputType="textPersonName"
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/spaceV" />
@@ -61,7 +54,7 @@
         android:id="@+id/etLastName"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:hint="Last Name"
+        android:hint="Último Nome"
         android:inputType="textPersonName"
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/space3" />
@@ -110,7 +103,7 @@
         android:id="@+id/etPhone"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Phone"
+        android:hint="Telemóvel"
         android:inputType="phone"
         android:layout_below="@id/space6"
         android:layout_toEndOf="@id/spaceV" />
@@ -126,7 +119,7 @@
         android:id="@+id/etCity"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="City"
+        android:hint="Cidade"
         android:inputType="textPersonName"
         android:layout_below="@id/space7"
         android:layout_toEndOf="@id/spaceV" />
@@ -142,7 +135,7 @@
         android:id="@+id/tvDate"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Birth Date"
+        android:hint="Data de Nascimento"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
         android:gravity="center_vertical"
