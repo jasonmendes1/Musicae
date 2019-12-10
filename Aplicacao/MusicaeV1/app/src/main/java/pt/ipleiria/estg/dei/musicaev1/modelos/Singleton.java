@@ -31,7 +31,7 @@ public class Singleton {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    //private String UrlAPILivros = "http://backend.test/v1";
+    //Metam aqui o vosso IPV4 para testar o login pela api
     private String UrlAPILivros = "http://10.200.24.21/MusicaeWeb/backend/web/v1";
 
     private static final Singleton ourInstance = new Singleton();
