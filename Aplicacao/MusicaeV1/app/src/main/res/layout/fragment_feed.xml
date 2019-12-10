@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/btnFiltro"
-        android:layout_width="321dp"
+        android:layout_width="350dp"
         android:layout_height="38dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_preto"
@@ -20,5 +20,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnOrganizar"
+        android:layout_width="138dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/bold"
+        android:text="Organizar por"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
+
+    <Button
+        android:id="@+id/btnNome"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="Nome"
+        android:textAllCaps="false"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnOrganizar"
+        app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
+
+    <Button
+        android:id="@+id/btnDate"
+        android:layout_width="105dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="Data"
+        android:textAllCaps="false"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnNome"
+        app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
+
+    <ListView
+        android:id="@+id/lvFeed"
+        android:layout_width="352dp"
+        android:layout_height="530dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOrganizar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

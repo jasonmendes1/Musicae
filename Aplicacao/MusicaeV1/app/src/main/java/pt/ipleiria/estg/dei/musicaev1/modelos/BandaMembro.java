@@ -1,10 +1,10 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
-public class BandaMembros {
+public class BandaMembro {
     private int idBanda, idMusico, idHabilidade;
     private String dataentrada;
 
-    public BandaMembros(int idBanda, int idMusico, int idHabilidade, String dataentrada) {
+    public BandaMembro(int idBanda, int idMusico, int idHabilidade, String dataentrada) {
         this.idBanda = idBanda;
         this.idMusico = idMusico;
         this.idHabilidade = idHabilidade;

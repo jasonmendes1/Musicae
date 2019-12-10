@@ -7,19 +7,19 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import pt.ipleiria.estg.dei.musicaev1.R;
+
 public class Singleton {
     private ArrayList<Banda>Bandas;
-    private ArrayList<BandaMembros>BandaMembros;
+    private ArrayList<auxFeed>bandasFeed;
+    private ArrayList<BandaMembro>BandaMembros;
     private ArrayList<Genero>Generos;
     private ArrayList<Habilidade>Habilidades;
     private ArrayList<Industria>Industrias;
@@ -43,6 +43,7 @@ public class Singleton {
 
     private Singleton() {
         Bandas = new ArrayList<>();
+        bandasFeed = new ArrayList<>();
         BandaMembros = new ArrayList<>();
         Generos = new ArrayList<>();
         Habilidades = new ArrayList<>();
@@ -57,6 +58,7 @@ public class Singleton {
         generosGerarFakeData();
         perfisGerarFakeData();
         industriasGerarFakeData();
+        gerarFakeData();
     }
 
     // Gets todos:
@@ -64,7 +66,7 @@ public class Singleton {
         return Bandas;
     }
 
-    public ArrayList<BandaMembros> getBandaMembros() {
+    public ArrayList<BandaMembro> getBandaMembros() {
         return BandaMembros;
     }
 
@@ -187,6 +189,47 @@ public class Singleton {
         Perfis.add(new Perfil(3,"url","jason@gmail.com", "jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
     }
 
+    public ArrayList<auxFeed> getBandasFeed() {
+        return bandasFeed;
+    }
 
+    public auxFeed getBandaFeed(long idBandasFeed){
+        for(auxFeed i: bandasFeed){
+            if(i.getId() == idBandasFeed){
+                return i;
+            }
+        }
+        return null;
+    }
 
+    public void adicionarBandaFeed(auxFeed livro){
+        bandasFeed.add(livro);
+    }
+
+    public void removerBandaFeed(int idBandasFeed){
+        auxFeed auxBandaFeed = getBandaFeed(idBandasFeed);
+        if(auxBandaFeed != null){
+            bandasFeed.remove(auxBandaFeed);
+        }
+    }
+
+    public void editarBandaFeed(auxFeed bandaFeed){
+        if(!bandasFeed.contains(bandaFeed)){
+            return;
+        }
+        auxFeed auxBandaFeed = getBandaFeed(bandaFeed.getId());
+        auxBandaFeed.setNome(bandaFeed.getNome());
+        auxBandaFeed.setInstrumento(bandaFeed.getInstrumento());
+        auxBandaFeed.setCompromisso(bandaFeed.getCompromisso());
+        auxBandaFeed.setExperiencia(bandaFeed.getExperiencia());
+    }
+
+    private void gerarFakeData(){
+        bandasFeed.add(new auxFeed(2,"Banda 1", "Guitarra", "diversao", "experiente", R.drawable.perfil));
+        bandasFeed.add(new auxFeed(3,"Banda 2", "Piano", "tour", "amador", R.drawable.perfil));
+        bandasFeed.add(new auxFeed(3,"Banda 3", "Flauta", "diversao", "experiente", R.drawable.perfil));
+        bandasFeed.add(new auxFeed(1,"Banda 4", "Triangulo", "diversao", "iniciante", R.drawable.perfil));
+        bandasFeed.add(new auxFeed(4,"Banda 5", "Vocalista", "diversao", "experiente", R.drawable.perfil));
+    }
 }
+
