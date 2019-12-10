@@ -8,12 +8,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 
     private Button buttonLogin;
     private TextView textViewRegister;
+    private Button buttonNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,15 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonNext = findViewById(R.id.button);
+        buttonNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, MenuMainActivity.class);
                 startActivity(intent);
             }
         });

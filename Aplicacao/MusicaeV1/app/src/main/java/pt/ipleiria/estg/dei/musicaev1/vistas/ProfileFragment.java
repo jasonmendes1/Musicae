@@ -1,16 +1,14 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
@@ -32,7 +30,7 @@ public class ProfileFragment extends Fragment {
         tvId = rootView.findViewById(R.id.tvID);
         tvEmail = rootView.findViewById(R.id.tvEmail);
 
-        perfil = Singleton.getInstance(getContext()).getPerfil(Integer.parseInt(getActivity().getIntent().getStringExtra(MenuMainActivity.CHAVE_ID)));
+        /*perfil = Singleton.getInstance().getPerfil(Integer.parseInt(getActivity().getIntent().getStringExtra(MenuMainActivity.CHAVE_ID)));
         System.out.println("--> perfilId:"+ perfil.getIdperfil());
 
 
@@ -41,7 +39,7 @@ public class ProfileFragment extends Fragment {
         tvUsername.setText(perfil.getNome());
         tvEmail.setText(perfil.getEmail());
         tvId.setText(idText);
-        System.out.println("--> " + perfil);
+        System.out.println("--> " + perfil);*/
 
         return rootView;
     }
