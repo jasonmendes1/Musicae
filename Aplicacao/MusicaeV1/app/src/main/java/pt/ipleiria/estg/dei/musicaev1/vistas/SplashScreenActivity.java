@@ -30,7 +30,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     Intent mainIntent = new Intent(SplashScreenActivity.this, MenuMainActivity.class);
-                    perfil = Singleton.getInstance().getPerfil(Integer.parseInt(sharedPreferences.getString(MenuMainActivity.SECCAO_INFO_USER, "-1")));
+                    perfil = Singleton.getInstance(getApplicationContext()).getPerfil(Integer.parseInt(sharedPreferences.getString(MenuMainActivity.SECCAO_INFO_USER, "-1")));
                     mainIntent.putExtra(MenuMainActivity.CHAVE_USERNAME, perfil.getUsername());
                     mainIntent.putExtra(MenuMainActivity.CHAVE_ID, ""+ perfil.getIdperfil());
                     startActivity(mainIntent);

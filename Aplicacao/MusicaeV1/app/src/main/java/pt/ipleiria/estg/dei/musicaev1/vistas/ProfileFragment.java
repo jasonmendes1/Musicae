@@ -32,7 +32,7 @@ public class ProfileFragment extends Fragment {
         tvId = rootView.findViewById(R.id.tvID);
         tvEmail = rootView.findViewById(R.id.tvEmail);
 
-        perfil = Singleton.getInstance().getPerfil(Integer.parseInt(getActivity().getIntent().getStringExtra(MenuMainActivity.CHAVE_ID)));
+        perfil = Singleton.getInstance(getContext()).getPerfil(Integer.parseInt(getActivity().getIntent().getStringExtra(MenuMainActivity.CHAVE_ID)));
         System.out.println("--> perfilId:"+ perfil.getIdperfil());
 
 

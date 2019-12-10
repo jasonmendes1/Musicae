@@ -1,18 +1,28 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
+import java.sql.SQLOutput;
 
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
@@ -21,6 +31,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 
 public class LoginActivity extends AppCompatActivity {
+
 
     private Perfil perfil;
     private TextInputLayout textInputUsername, textInputPassword;
@@ -43,13 +54,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View view) {
-        System.out.println("--> checkbox is " + isChecked);
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
 
+        Singleton.getInstance(getApplicationContext()).verificaLoginAPI(password);
+
+        /*
         int id = Singleton.getInstance().verificarLogin(username, password);
-        System.out.println("--> idLogin: "+ id);
         if(id != -1){
             if(!isChecked){
                 descartarSharedpreferences();
@@ -62,6 +74,8 @@ public class LoginActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
         }
+
+         */
     }
 
     public void itemClicked(View v){
@@ -78,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
     private void guardarSharedpreferences(){
         sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        int id = Singleton.getInstance().verificarLogin(editTextUsername.getText().toString().trim().toLowerCase(), editTextPassword.getText().toString().trim());
+        int id = Singleton.getInstance(getApplicationContext()).verificarLogin(editTextUsername.getText().toString().trim().toLowerCase(), editTextPassword.getText().toString().trim());
         editor.putString(MenuMainActivity.SECCAO_INFO_USER, "" + id);
         editor.apply();
     }

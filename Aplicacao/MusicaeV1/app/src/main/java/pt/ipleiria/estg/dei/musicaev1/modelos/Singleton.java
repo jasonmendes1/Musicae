@@ -1,7 +1,19 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 
+import android.content.Context;
+
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -16,19 +28,17 @@ public class Singleton {
     private ArrayList<Musico>Musicos;
     private ArrayList<Perfil>Perfis;
 
+
     private static RequestQueue volleyQueue = null;
-
-    private String tokenAPI = "MusicaeYelele";
-
-    private String urlAPIPerfil = "http://localhost/MusicaeWeb/backend/web/v1/perfil";
-    private String urlAPIUser = "http://localhost/MusicaeWeb/backend/web/v1/user";
-    private String urlAPIBandas = "http://localhost/MusicaeWeb/backend/web/v1/bandas";
-    // Mais?
-
+    private String tokenAPI = "";
+    //private String UrlAPILivros = "http://backend.test/v1";
+    private String UrlAPILivros = "http://10.200.24.21/MusicaeWeb/backend/web/v1";
 
     private static final Singleton ourInstance = new Singleton();
-    public static Singleton getInstance() {
+    public static Singleton getInstance(Context context) {
+        volleyQueue = Volley.newRequestQueue(context);
         return ourInstance;
+
     }
 
     private Singleton() {
@@ -104,6 +114,27 @@ public class Singleton {
         }
         return false;
     }
+
+
+
+    public void verificaLoginAPI(String password){
+        System.out.println("--> url: >" + UrlAPILivros+ "/user/1/verifica/"+ password+"<");
+
+
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlAPILivros+ "/user/1/verifica/"+ password, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println("--> onResponse: " + response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO: " + error.getMessage());
+            }
+        });
+        volleyQueue.add(req);
+    }
+
 
     public int verificarLogin(String username, String password){
         for (Perfil p: Perfis

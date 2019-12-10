@@ -25,7 +25,7 @@ public class RegisterIndustryActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_industry);
 
-        listaIndustria = Singleton.getInstance().getIndustrias();
+        listaIndustria = Singleton.getInstance(getApplicationContext()).getIndustrias();
         lvListaIndustria = findViewById(R.id.lvListaIndustrias);
         lvListaIndustria.setAdapter(new ListaIndustriaAdaptador(this, listaIndustria));
 

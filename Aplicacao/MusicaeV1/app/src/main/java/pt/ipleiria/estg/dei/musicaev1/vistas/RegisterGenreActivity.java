@@ -25,7 +25,7 @@ public class RegisterGenreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_genre);
 
-        listaGeneros = Singleton.getInstance().getGeneros();
+        listaGeneros = Singleton.getInstance(getApplicationContext()).getGeneros();
         lvListaGeneros = findViewById(R.id.lvListaGeneros);
         lvListaGeneros.setAdapter(new ListaGeneroAdaptador(this, listaGeneros));
 

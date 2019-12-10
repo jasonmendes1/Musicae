@@ -25,7 +25,7 @@ public class RegisterSkillActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_skill);
 
-        listaHabilidades = Singleton.getInstance().getHabilidades();
+        listaHabilidades = Singleton.getInstance(getApplicationContext()).getHabilidades();
         lvListaHabilidades = findViewById(R.id.lvListaHabilidades);
         lvListaHabilidades.setAdapter(new ListaHabilidadeAdaptador(this, listaHabilidades));
 
