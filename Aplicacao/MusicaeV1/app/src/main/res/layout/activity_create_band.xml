@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.CreateBandActivity"
+    android:background="@drawable/backround_filter">
+
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
+        android:layout_toEndOf="@id/spaceV"
+        android:fontFamily="@font/regular"
+        android:text="Cria a tua Banda"
+        android:textColor="@color/gray"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/tv"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etBandName"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Nome da Banda"
+        android:inputType="textPersonName"
+        android:layout_below="@id/space2"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space4"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/etBandName"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Spinner
+        android:id="@+id/spinnerGenre"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/space4"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space5"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/spinnerGenre"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Cidade"
+        android:inputType="textPersonName"
+        android:layout_below="@id/space5"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space6"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/etCity"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:hint="Telemóvel"
+        android:inputType="phone"
+        android:layout_below="@id/space6"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space7"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/etPhone"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Space
+        android:id="@+id/space8"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/etPhone"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="305dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/space8"
+        android:layout_toEndOf="@id/spaceV"
+        android:gravity="start"
+        android:hint="Descriçãp"
+        android:lines="5" />
+
+    <Space
+        android:id="@+id/space9"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/etDescription"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="130dp"
+        android:layout_height="38dp"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/bold"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_below="@id/space9"
+        android:layout_toEndOf="@id/spaceV"/>
+
+    <Space
+        android:id="@+id/space10"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_below="@id/space9"
+        android:layout_toEndOf="@id/btnCancelar" />
+
+    <Button
+        android:id="@+id/btnCriarBanda"
+        android:layout_width="130dp"
+        android:layout_height="38dp"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/bold"
+        android:text="Criar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_below="@id/space9"
+        android:layout_toEndOf="@id/space10"/>
+
+</RelativeLayout>
