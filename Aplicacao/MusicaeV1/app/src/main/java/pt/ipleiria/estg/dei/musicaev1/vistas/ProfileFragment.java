@@ -49,6 +49,7 @@ public class ProfileFragment extends Fragment {
         perfil.setSexo(perfil.getSexo());
         perfil.setLocalidade(perfil.getLocalidade());
         perfil.setNrtelemovel(perfil.getNrtelemovel());
+        perfil.setDatanasc(perfil.getDatanasc());
 
         return perfil;
     }
