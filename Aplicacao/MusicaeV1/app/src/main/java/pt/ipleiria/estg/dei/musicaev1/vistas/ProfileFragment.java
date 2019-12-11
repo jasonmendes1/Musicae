@@ -43,4 +43,13 @@ public class ProfileFragment extends Fragment {
 
         return rootView;
     }
+
+    private Perfil editarPerfil(){
+        perfil.setNome(perfil.getNome());
+        perfil.setSexo(perfil.getSexo());
+        perfil.setLocalidade(perfil.getLocalidade());
+        perfil.setNrtelemovel(perfil.getNrtelemovel());
+
+        return perfil;
+    }
 }

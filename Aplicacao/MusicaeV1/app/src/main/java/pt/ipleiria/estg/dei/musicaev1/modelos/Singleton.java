@@ -184,9 +184,9 @@ public class Singleton {
     }
 
     private void perfisGerarFakeData(){
-        Perfis.add(new Perfil(1,"url","pedro@gmail.com", "pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)"));
-        Perfis.add(new Perfil(2,"url", "pedroalves@gmail.com", "pedroalves","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
-        Perfis.add(new Perfil(3,"url","jason@gmail.com", "jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
+        Perfis.add(new Perfil(1,"url","pedro@gmail.com", "pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", 91900000, "Oii sou um rapaz eheh B)"));
+        Perfis.add(new Perfil(2,"url", "pedroalves@gmail.com", "pedroalves","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino",91900000, "Oii sou um rapazito eheh B)"));
+        Perfis.add(new Perfil(3,"url","jason@gmail.com", "jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino",91900000, "Oii sou um rapazote eheh B)"));
     }
 
     public ArrayList<auxFeed> getBandasFeed() {
