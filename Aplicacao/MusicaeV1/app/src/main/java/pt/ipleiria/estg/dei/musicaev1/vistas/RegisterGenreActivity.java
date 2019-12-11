@@ -32,7 +32,7 @@ public class RegisterGenreActivity extends AppCompatActivity {
         lvListaGeneros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(RegisterGenreActivity.this, RegisterDetails.class);
+                Intent intent = new Intent(RegisterGenreActivity.this, RegisterDetailsActivity.class);
                 startActivity(intent);
             }
         });

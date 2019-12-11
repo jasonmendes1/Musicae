@@ -22,7 +22,7 @@ import java.util.List;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 
-public class RegisterDetails extends AppCompatActivity {
+public class RegisterDetailsActivity extends AppCompatActivity {
 
     private Spinner spinner;
 
@@ -76,7 +76,7 @@ public class RegisterDetails extends AppCompatActivity {
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(RegisterDetails.this, android.R.style.Theme_Holo_Dialog_MinWidth, mDateSetListener, year, month, day);
+                DatePickerDialog dialog = new DatePickerDialog(RegisterDetailsActivity.this, android.R.style.Theme_Holo_Dialog_MinWidth, mDateSetListener, year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -97,7 +97,7 @@ public class RegisterDetails extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterDetails.this, RegisterFinal.class);
+                Intent intent = new Intent(RegisterDetailsActivity.this, RegisterFinalActivity.class);
                 startActivity(intent);
             }
         });

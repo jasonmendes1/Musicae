@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,12 +20,11 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 
-import pt.ipleiria.estg.dei.musicaev1.vistas.BandsFragment;
+import pt.ipleiria.estg.dei.musicaev1.vistas.BandListFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.FeedFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.LoginActivity;
 import pt.ipleiria.estg.dei.musicaev1.vistas.PortfolioFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.ProfileFragment;
-import pt.ipleiria.estg.dei.musicaev1.vistas.WelcomeActivity;
 
 public class MenuMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -96,7 +94,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 setTitle(item.getTitle());
                 break;
             case R.id.nav_bandas:
-                fragment = new BandsFragment();
+                fragment = new BandListFragment();
                 setTitle(item.getTitle());
                 break;
             case R.id.nav_portfolio:

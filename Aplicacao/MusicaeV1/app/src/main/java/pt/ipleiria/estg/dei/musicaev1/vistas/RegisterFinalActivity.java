@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 
-public class RegisterFinal extends AppCompatActivity {
+public class RegisterFinalActivity extends AppCompatActivity {
 
     private Button buttonRegistar;
 
@@ -22,7 +22,7 @@ public class RegisterFinal extends AppCompatActivity {
         buttonRegistar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterFinal.this, LoginActivity.class);
+                Intent intent = new Intent(RegisterFinalActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

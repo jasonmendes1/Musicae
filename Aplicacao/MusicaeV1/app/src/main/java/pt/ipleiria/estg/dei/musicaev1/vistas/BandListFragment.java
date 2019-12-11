@@ -9,15 +9,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import pt.ipleiria.estg.dei.musicaev1.R;
 
-public class BandsFragment extends Fragment {
+public class BandListFragment extends Fragment {
+
+    private FloatingActionButton fab;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bands, container, false);
+
+        final View rootView = inflater.inflate(R.layout.fragment_band_list, container, false);
+
+        fab = rootView.findViewById(R.id.fabADD);
+
+
+
+        return rootView;
     }
 
 }

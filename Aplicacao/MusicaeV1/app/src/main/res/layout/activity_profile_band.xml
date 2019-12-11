@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/ivBannner"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:fontFamily="@font/semibold"
+        android:text="Band Name"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivBannner" />
+
+    <Space
+        android:id="@+id/spaceH"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBannner" />
+
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spaceH"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="512dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/spaceV"
+        app:layout_constraintTop_toBottomOf="@+id/spaceH">
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:src="@drawable/side_rect" />
+
+        <ImageView
+            android:id="@+id/iv2"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/iv1"
+            android:src="@drawable/side_rect" />
+        <ImageView
+            android:id="@+id/iv3"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/iv2"
+            android:src="@drawable/side_rect" />
+        <ImageView
+            android:id="@+id/iv4"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/iv3"
+            android:src="@drawable/side_rect" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv1"
+            android:fontFamily="@font/bold"
+            android:text="Descrição"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_toEndOf="@id/iv2"
+            android:fontFamily="@font/regular"
+            android:text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <Space
+            android:id="@+id/space1"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/iv4" />
+
+        <ImageView
+            android:id="@+id/iv5"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/space1"
+            android:src="@drawable/side_rect" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv5"
+            android:layout_below="@id/space1"
+            android:fontFamily="@font/bold"
+            android:text="Membros"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabADD"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/space1"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toEndOf="@id/tv2"
+            android:clickable="true"
+            android:src="@drawable/ic_action_add"
+            app:backgroundTint="@color/red" />
+
+        <ListView
+            android:id="@+id/lvMembers"
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/iv5"/>
+
+        <Space
+            android:id="@+id/space2"
+            android:layout_width="20dp"
+            android:layout_height="239dp"
+            android:layout_below="@id/space1"
+            android:layout_toEndOf="@id/lvMembers"/>
+
+        <ImageView
+            android:id="@+id/iv6"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/space1"
+            android:layout_toEndOf="@id/space2"
+            android:src="@drawable/side_rect" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv6"
+            android:layout_below="@id/space1"
+            android:fontFamily="@font/bold"
+            android:text="Data de Criação"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv3"
+            android:layout_toEndOf="@id/iv6"
+            android:fontFamily="@font/regular"
+            android:text="11/22/3333"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <Space
+            android:id="@+id/space3"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/tvDate"
+            android:layout_toEndOf="@id/space2"/>
+
+        <ImageView
+            android:id="@+id/iv7"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/space3"
+            android:layout_toEndOf="@id/space2"
+            android:src="@drawable/side_rect" />
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv7"
+            android:layout_below="@id/space3"
+            android:fontFamily="@font/bold"
+            android:text="Telemóvel"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv4"
+            android:layout_toEndOf="@id/iv7"
+            android:fontFamily="@font/regular"
+            android:text="931234567"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <Space
+            android:id="@+id/space4"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/tvNumber"
+            android:layout_toEndOf="@id/space2"/>
+
+        <ImageView
+            android:id="@+id/iv8"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@id/space4"
+            android:layout_toEndOf="@id/space2"
+            android:src="@drawable/side_rect" />
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv8"
+            android:layout_below="@id/space4"
+            android:fontFamily="@font/bold"
+            android:text="Cidade"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv5"
+            android:layout_toEndOf="@id/iv8"
+            android:fontFamily="@font/regular"
+            android:text="leiria"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <Space
+            android:id="@+id/space5"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/tvCity"
+            android:layout_toEndOf="@id/space2"/>
+
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="115dp"
+            android:layout_height="38dp"
+            android:background="@drawable/button_preto"
+            android:fontFamily="@font/semibold"
+            android:text="Editar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_below="@id/lvMembers"/>
+
+        <Button
+            android:id="@+id/btnCandidatos"
+            android:layout_width="140dp"
+            android:layout_height="38dp"
+            android:background="@drawable/button_preto"
+            android:fontFamily="@font/semibold"
+            android:text="Candidatos"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_below="@id/lvMembers"
+            android:layout_toEndOf="@id/btnEditar"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabProcura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_action_search"
+            app:backgroundTint="@color/red"
+            android:layout_toEndOf="@id/btnCandidatos"
+            android:layout_below="@id/tvCity"/>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
