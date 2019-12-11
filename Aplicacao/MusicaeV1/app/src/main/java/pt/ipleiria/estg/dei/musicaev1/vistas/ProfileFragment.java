@@ -20,7 +20,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView tvUsername, tvId, tvEmail, tvDataNasc, tvNrTelemovel;
+    private TextView tvUsername, tvId, tvNome, tvEmail, tvDataNasc, tvNrTelemovel;
     private Perfil perfil;
     private SharedPreferences sharedPreferences;
 
@@ -31,6 +31,7 @@ public class ProfileFragment extends Fragment {
 
         tvUsername = rootView.findViewById(R.id.tvUsername);
         tvId = rootView.findViewById(R.id.tvID);
+        tvNome = rootView.findViewById(R.id.tvName);
         tvEmail = rootView.findViewById(R.id.tvEmail);
         tvDataNasc = rootView.findViewById(R.id.tvNumber);
         tvNrTelemovel = rootView.findViewById(R.id.tvBirthDate);
@@ -50,9 +51,12 @@ public class ProfileFragment extends Fragment {
     }
 
     private void mostrarPerfil(Perfil perfil){
-
         tvUsername.setText(perfil.getUsername());
+        tvId.setText(perfil.getIdperfil());
+        tvNome.setText(perfil.getNome());
         tvEmail.setText(perfil.getEmail());
+        tvDataNasc.setText(perfil.getDatanasc());
+        tvNrTelemovel.setText(perfil.getNrtelemovel());
     }
 
     private Perfil editarPerfil(){
