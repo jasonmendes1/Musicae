@@ -21,8 +21,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 
+import pt.ipleiria.estg.dei.musicaev1.vistas.BandsFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.FeedFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.LoginActivity;
+import pt.ipleiria.estg.dei.musicaev1.vistas.PortfolioFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.ProfileFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.WelcomeActivity;
 
@@ -94,8 +96,12 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 setTitle(item.getTitle());
                 break;
             case R.id.nav_bandas:
+                fragment = new BandsFragment();
+                setTitle(item.getTitle());
                 break;
             case R.id.nav_portfolio:
+                fragment = new PortfolioFragment();
+                setTitle(item.getTitle());
                 break;
             case R.id.nav_feed:
                 fragment = new FeedFragment();
