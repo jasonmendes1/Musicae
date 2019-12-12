@@ -27,27 +27,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Space
-        android:id="@+id/space2"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_below="@id/tv"
-        android:layout_toEndOf="@id/spaceV" />
-
     <EditText
         android:id="@+id/etBandName"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:hint="Nome da Banda"
+        android:layout_marginTop="10dp"
         android:inputType="textPersonName"
-        android:layout_below="@id/space2"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
-        android:id="@+id/space4"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/etBandName"
+        android:layout_below="@id/tv"
         android:layout_toEndOf="@id/spaceV" />
 
     <Spinner
@@ -56,15 +43,9 @@
         android:layout_height="50dp"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
+        android:layout_marginTop="10dp"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:layout_below="@id/space4"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
-        android:id="@+id/space5"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/spinnerGenre"
+        android:layout_below="@id/etBandName"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
@@ -72,15 +53,9 @@
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:hint="Cidade"
+        android:layout_marginTop="10dp"
         android:inputType="textPersonName"
-        android:layout_below="@id/space5"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
-        android:id="@+id/space6"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/etCity"
+        android:layout_below="@id/spinnerGenre"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
@@ -88,40 +63,21 @@
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:hint="Telemóvel"
+        android:layout_marginTop="10dp"
         android:inputType="phone"
-        android:layout_below="@id/space6"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
-        android:id="@+id/space7"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/etPhone"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
-        android:id="@+id/space8"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@id/etPhone"
+        android:layout_below="@id/etCity"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="305dp"
         android:layout_height="150dp"
-        android:layout_below="@id/space8"
+        android:layout_below="@id/etPhone"
         android:layout_toEndOf="@id/spaceV"
         android:gravity="start"
+        android:layout_marginTop="10dp"
         android:hint="Descriçãp"
         android:lines="5" />
-
-    <Space
-        android:id="@+id/space9"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/etDescription"
-        android:layout_toEndOf="@id/spaceV" />
 
     <Button
         android:id="@+id/btnCancelar"
@@ -133,15 +89,9 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_below="@id/space9"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/etDescription"
         android:layout_toEndOf="@id/spaceV"/>
-
-    <Space
-        android:id="@+id/space10"
-        android:layout_width="45dp"
-        android:layout_height="30dp"
-        android:layout_below="@id/space9"
-        android:layout_toEndOf="@id/btnCancelar" />
 
     <Button
         android:id="@+id/btnCriarBanda"
@@ -150,10 +100,12 @@
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
         android:text="Criar"
+        android:layout_marginTop="40dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_below="@id/space9"
-        android:layout_toEndOf="@id/space10"/>
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/etDescription"
+        android:layout_toEndOf="@id/btnCancelar"/>
 
 </RelativeLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,4 +7,256 @@
     tools:context=".vistas.FilterActivity"
     android:background="@drawable/backround_filter">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/bold"
+        android:text="Habilidade:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerHabilidade"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/tv1"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerHabilidade"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/bold"
+        android:text="Indústria:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerIndustria"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/tv2"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinnerIndustria"
+        android:fontFamily="@font/bold"
+        android:text="Sexo:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/chkAmbos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv3"
+        android:layout_toEndOf="@id/spaceV"
+        android:fontFamily="@font/regular"
+        android:text="Ambos"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:buttonTint="@color/gray" />
+
+    <CheckBox
+        android:id="@+id/chkHomem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv3"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@id/chkAmbos"
+        android:fontFamily="@font/regular"
+        android:text="Homem"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:buttonTint="@color/gray" />
+
+    <CheckBox
+        android:id="@+id/chkMulher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv3"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@id/chkHomem"
+        android:fontFamily="@font/regular"
+        android:text="Mulher"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:buttonTint="@color/gray" />
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/chkAmbos"
+        android:fontFamily="@font/bold"
+        android:text="Idade:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_below="@id/tv4"
+        android:fontFamily="@font/regular"
+        android:text="De"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etFrom"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:inputType="number"
+        android:layout_below="@id/tv4"
+        android:layout_toEndOf="@id/tv5" />
+
+    <TextView
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/etFrom"
+        android:layout_below="@id/tv4"
+        android:fontFamily="@font/regular"
+        android:text=" a "
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etTo"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:inputType="number"
+        android:layout_below="@id/tv4"
+        android:layout_toEndOf="@id/tv6" />
+
+    <TextView
+        android:id="@+id/tv7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv6"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/bold"
+        android:text="Género de Música:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerGenero"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/tv7"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <TextView
+        android:id="@+id/tv8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinnerGenero"
+        android:fontFamily="@font/bold"
+        android:text="Experiência:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerExperiencia"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/tv8"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <TextView
+        android:id="@+id/tv9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinnerExperiencia"
+        android:fontFamily="@font/bold"
+        android:text="Compromisso:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
+
+    <CheckBox
+        android:id="@+id/chkPeloMenos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv9"
+        android:layout_toEndOf="@id/spaceV"
+        android:fontFamily="@font/regular"
+        android:text="Pelo Menos"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:buttonTint="@color/gray" />
+
+    <CheckBox
+        android:id="@+id/chkExato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv9"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@id/chkPeloMenos"
+        android:fontFamily="@font/regular"
+        android:text="Exato"
+        android:textColor="@color/gray"
+        android:textSize="18sp"
+        app:buttonTint="@color/gray" />
+
+    <Spinner
+        android:id="@+id/spinnerCompromisso"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/chkPeloMenos"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Button
+        android:id="@+id/btnProcurar"
+        android:layout_width="308dp"
+        android:layout_height="38dp"
+        android:layout_below="@id/spinnerCompromisso"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_vermelho"
+        android:fontFamily="@font/bold"
+        android:text="PROCURAR"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</RelativeLayout>
