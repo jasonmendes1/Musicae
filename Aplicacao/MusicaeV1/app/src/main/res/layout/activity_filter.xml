@@ -22,7 +22,7 @@
         android:fontFamily="@font/bold"
         android:text="Habilidade:"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <Spinner
         android:id="@+id/spinnerHabilidade"
@@ -44,7 +44,7 @@
         android:fontFamily="@font/bold"
         android:text="Indústria:"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <Spinner
         android:id="@+id/spinnerIndustria"
@@ -58,83 +58,58 @@
 
     <TextView
         android:id="@+id/tv3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@id/spinnerIndustria"
         android:fontFamily="@font/bold"
         android:text="Sexo:"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
-    <CheckBox
-        android:id="@+id/chkAmbos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv3"
-        android:layout_toEndOf="@id/spaceV"
-        android:fontFamily="@font/regular"
-        android:text="Ambos"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:buttonTint="@color/gray" />
-
-    <CheckBox
-        android:id="@+id/chkHomem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv3"
-        android:layout_marginLeft="20dp"
-        android:layout_toEndOf="@id/chkAmbos"
-        android:fontFamily="@font/regular"
-        android:text="Homem"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:buttonTint="@color/gray" />
-
-    <CheckBox
-        android:id="@+id/chkMulher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv3"
-        android:layout_marginLeft="20dp"
-        android:layout_toEndOf="@id/chkHomem"
-        android:fontFamily="@font/regular"
-        android:text="Mulher"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:buttonTint="@color/gray" />
+    <Spinner
+        android:id="@+id/spinnerSexo"
+        android:layout_width="254dp"
+        android:layout_height="50dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/spinnerIndustria"
+        android:layout_toEndOf="@id/tv3" />
 
     <TextView
         android:id="@+id/tv4"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/chkAmbos"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/spinnerSexo"
         android:fontFamily="@font/bold"
-        android:text="Idade:"
+        android:text="Idade"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <TextView
         android:id="@+id/tv5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/spaceV"
-        android:layout_below="@id/tv4"
+        android:layout_toEndOf="@id/tv4"
+        android:layout_below="@id/spinnerSexo"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/regular"
-        android:text="De"
+        android:text="de"
+        android:layout_marginLeft="5dp"
         android:textColor="@color/gray"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/etFrom"
         android:layout_width="60dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:inputType="number"
-        android:layout_below="@id/tv4"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/spinnerSexo"
         android:layout_toEndOf="@id/tv5" />
 
     <TextView
@@ -142,31 +117,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/etFrom"
-        android:layout_below="@id/tv4"
+        android:layout_below="@id/spinnerSexo"
         android:fontFamily="@font/regular"
         android:text=" a "
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/gray"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/etTo"
         android:layout_width="60dp"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:inputType="number"
-        android:layout_below="@id/tv4"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/spinnerSexo"
         android:layout_toEndOf="@id/tv6" />
 
     <TextView
         android:id="@+id/tv7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv6"
+        android:layout_below="@+id/etFrom"
         android:layout_toEndOf="@id/spaceV"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/bold"
         android:text="Género de Música:"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <Spinner
         android:id="@+id/spinnerGenero"
@@ -188,7 +166,7 @@
         android:fontFamily="@font/bold"
         android:text="Experiência:"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <Spinner
         android:id="@+id/spinnerExperiencia"
@@ -202,39 +180,41 @@
 
     <TextView
         android:id="@+id/tv9"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="10dp"
         android:layout_below="@id/spinnerExperiencia"
         android:fontFamily="@font/bold"
-        android:text="Compromisso:"
+        android:text="Compromisso"
         android:textColor="@color/gray"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <CheckBox
         android:id="@+id/chkPeloMenos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv9"
-        android:layout_toEndOf="@id/spaceV"
+        android:layout_below="@id/spinnerExperiencia"
+        android:layout_toEndOf="@id/tv9"
         android:fontFamily="@font/regular"
+        android:layout_marginTop="8dp"
         android:text="Pelo Menos"
         android:textColor="@color/gray"
-        android:textSize="18sp"
+        android:textSize="17sp"
         app:buttonTint="@color/gray" />
 
     <CheckBox
         android:id="@+id/chkExato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv9"
-        android:layout_marginLeft="20dp"
+        android:layout_below="@id/spinnerExperiencia"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="8dp"
         android:layout_toEndOf="@id/chkPeloMenos"
         android:fontFamily="@font/regular"
         android:text="Exato"
         android:textColor="@color/gray"
-        android:textSize="18sp"
+        android:textSize="17sp"
         app:buttonTint="@color/gray" />
 
     <Spinner
