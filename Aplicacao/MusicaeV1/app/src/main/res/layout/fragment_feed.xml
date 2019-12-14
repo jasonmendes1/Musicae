@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <Button
-        android:id="@+id/btnNome"
+        android:id="@+id/btnNomeFeed"
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginLeft="5dp"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <Button
-        android:id="@+id/btnDate"
+        android:id="@+id/btnDataFeed"
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginTop="17dp"
@@ -67,7 +67,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btnNome"
+        app:layout_constraintStart_toEndOf="@+id/btnNomeFeed"
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <ListView

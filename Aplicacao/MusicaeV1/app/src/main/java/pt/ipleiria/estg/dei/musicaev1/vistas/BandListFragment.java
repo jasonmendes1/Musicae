@@ -1,6 +1,7 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,8 +25,13 @@ public class BandListFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_band_list, container, false);
 
         fab = rootView.findViewById(R.id.fabADD);
-
-
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CreateBandActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }

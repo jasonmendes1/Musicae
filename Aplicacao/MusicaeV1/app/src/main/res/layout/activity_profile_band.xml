@@ -265,7 +265,7 @@
             android:layout_toEndOf="@id/space2"/>
 
         <Button
-            android:id="@+id/btnEditar"
+            android:id="@+id/btnEditarBanda"
             android:layout_width="115dp"
             android:layout_height="38dp"
             android:background="@drawable/button_preto"
@@ -288,7 +288,7 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_below="@id/lvMembers"
-            android:layout_toEndOf="@id/btnEditar"/>
+            android:layout_toEndOf="@id/btnEditarBanda"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabProcura"

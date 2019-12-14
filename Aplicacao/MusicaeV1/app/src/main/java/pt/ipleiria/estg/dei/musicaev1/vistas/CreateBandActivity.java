@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import pt.ipleiria.estg.dei.musicaev1.R;
 public class CreateBandActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private Button buttonCancelar, buttonCriar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,24 @@ public class CreateBandActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        //------------------------------------------------------------ Buttons ------------------------------------------------------------
+
+        buttonCancelar = findViewById(R.id.btnCancelar);
+        buttonCriar = findViewById(R.id.btnCriarBanda);
+
+        buttonCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        buttonCriar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });

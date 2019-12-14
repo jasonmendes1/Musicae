@@ -1,6 +1,7 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -27,6 +30,7 @@ public class FeedFragment extends Fragment {
     private ArrayList<auxFeed> listaFeed;
     private ListView lvListaBandas;
     private SearchView searchView;
+    private Button buttonFiltro, buttonNome, buttonData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,18 +42,15 @@ public class FeedFragment extends Fragment {
         lvListaBandas = rootView.findViewById(R.id.lvFeed);
         lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), listaFeed));
 
-        /*lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                auxFeed tempLivro = (auxFeed) parent.getItemAtPosition(position);
-                Intent intent = new Intent(getContext(), DetalhesLivro.class);
-                intent.putExtra(DetalhesLivro.ID_LIVRO, tempLivro.getId());
+                Intent intent = new Intent(getContext(), ProfileBandActivity.class);
                 startActivity(intent);
             }
         });
 
-        FloatingActionButton fab = rootView.findViewById(R.id.fab);
+        /*FloatingActionButton fab = rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +58,18 @@ public class FeedFragment extends Fragment {
                 startActivity(intent);
             }
         });*/
+
+        buttonFiltro = rootView.findViewById(R.id.btnFiltro);
+        buttonNome = rootView.findViewById(R.id.btnNomeFeed);
+        buttonData = rootView.findViewById(R.id.btnDataFeed);
+
+        buttonFiltro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FilterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }

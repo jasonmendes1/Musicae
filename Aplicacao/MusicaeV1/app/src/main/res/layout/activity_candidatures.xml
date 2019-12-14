@@ -45,12 +45,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:layout_width="350dp"
-        android:layout_height="match_parent"
+        android:id="@+id/lvCandiadtos"
+        android:layout_width="345dp"
+        android:layout_height="392dp"
         android:layout_marginTop="112dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="190dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/bold"
+        android:text="Cancelar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvCandiadtos" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
