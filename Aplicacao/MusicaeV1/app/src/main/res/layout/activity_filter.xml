@@ -24,21 +24,21 @@
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
-    <Spinner
-        android:id="@+id/spinnerHabilidade"
+    <EditText
+        android:id="@+id/etSkill"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:textColor="?attr/editTextColor"
-        android:background="?attr/editTextBackground"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textColor="@color/gray"
         android:layout_below="@id/tv1"
-        android:layout_toEndOf="@id/spaceV" />
+        android:layout_toEndOf="@id/spaceV"
+        android:singleLine="true"
+        android:scrollHorizontally="true"/>
 
     <TextView
         android:id="@+id/tv2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerHabilidade"
+        android:layout_below="@+id/etSkill"
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/bold"
@@ -46,13 +46,11 @@
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
-    <Spinner
-        android:id="@+id/spinnerIndustria"
+    <EditText
+        android:id="@+id/etIndustria"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:textColor="?attr/editTextColor"
-        android:background="?attr/editTextBackground"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textColor="@color/gray"
         android:layout_below="@id/tv2"
         android:layout_toEndOf="@id/spaceV" />
 
@@ -62,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/spinnerIndustria"
+        android:layout_below="@id/etIndustria"
         android:fontFamily="@font/bold"
         android:text="Sexo:"
         android:textColor="@color/gray"
@@ -75,7 +73,7 @@
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:layout_below="@id/spinnerIndustria"
+        android:layout_below="@id/etIndustria"
         android:layout_toEndOf="@id/tv3" />
 
     <TextView
@@ -239,4 +237,5 @@
         android:text="PROCURAR"
         android:textColor="@color/white"
         android:textSize="20sp" />
+
 </RelativeLayout>

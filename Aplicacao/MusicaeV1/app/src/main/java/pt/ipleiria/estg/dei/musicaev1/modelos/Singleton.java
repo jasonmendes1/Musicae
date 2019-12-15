@@ -58,7 +58,7 @@ public class Singleton {
         generosGerarFakeData();
         perfisGerarFakeData();
         industriasGerarFakeData();
-        gerarFakeData();
+        bandasGerarFakeData();
     }
 
     // Gets todos:
@@ -224,7 +224,7 @@ public class Singleton {
         auxBandaFeed.setExperiencia(bandaFeed.getExperiencia());
     }
 
-    private void gerarFakeData(){
+    private void bandasGerarFakeData(){
         bandasFeed.add(new auxFeed(2,"Banda 1", "Guitarra", "diversao", "experiente", R.drawable.perfil));
         bandasFeed.add(new auxFeed(3,"Banda 2", "Piano", "tour", "amador", R.drawable.perfil));
         bandasFeed.add(new auxFeed(3,"Banda 3", "Flauta", "diversao", "experiente", R.drawable.perfil));
