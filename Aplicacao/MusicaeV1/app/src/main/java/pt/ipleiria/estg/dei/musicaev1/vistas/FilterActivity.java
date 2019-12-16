@@ -204,7 +204,23 @@ public class FilterActivity extends AppCompatActivity {
         //----------------------------------------------------------------------- Select Age ------------------------------------------------------------------------------
         editTextN1 = findViewById(R.id.etFrom);
         editTextN2 = findViewById(R.id.etTo);
-        
+
+        editTextN2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                try{
+                    Double  n1 = Double.parseDouble (editTextN1.getText().toString());
+                    Double  n2 = Double.parseDouble (editTextN2.getText().toString());
+
+                    if(n2 < n1){
+                        editTextN2.setError("Erro Idade");
+                    }
+
+                }catch (Exception e){
+
+                }
+            }
+        });
+
         //----------------------------------------------------------------------- Select Genre ------------------------------------------------------------------------------
         editTextGenre = findViewById(R.id.etGenero);
         editTextGenre.setFocusable(false);
@@ -288,7 +304,6 @@ public class FilterActivity extends AppCompatActivity {
 
                 }else{
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -345,7 +360,6 @@ public class FilterActivity extends AppCompatActivity {
 
                 }else{
                     String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_SHORT).show();
                 }
             }
 
