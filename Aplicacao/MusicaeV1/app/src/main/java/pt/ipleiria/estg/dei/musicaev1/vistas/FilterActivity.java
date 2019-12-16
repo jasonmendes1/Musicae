@@ -4,24 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class FilterActivity extends AppCompatActivity {
 
@@ -49,7 +40,9 @@ public class FilterActivity extends AppCompatActivity {
         editTextSkill = findViewById(R.id.etSkill);
         editTextSkill.setFocusable(false);
 
-        listItems = getResources().getStringArray(R.array.skillsArray);
+        //listItems = getResources().getStringArray(R.array.skillsArray);
+        listItems = Singleton.getInstance(getApplicationContext()).getHabilidadesFiltro();
+        System.out.println("-->" + listItems);
         checkedItems = new boolean[listItems.length];;
 
         editTextSkill.setOnClickListener(new View.OnClickListener() {

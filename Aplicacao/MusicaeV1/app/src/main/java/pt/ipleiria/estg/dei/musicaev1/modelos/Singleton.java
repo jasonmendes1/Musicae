@@ -231,5 +231,11 @@ public class Singleton {
         bandasFeed.add(new auxFeed(1,"Banda 4", "Triangulo", "diversao", "iniciante", R.drawable.perfil));
         bandasFeed.add(new auxFeed(4,"Banda 5", "Vocalista", "diversao", "experiente", R.drawable.perfil));
     }
+
+    public String[] getHabilidadesFiltro() {
+        //TODO: FAZER FOREACH PARA CONSTRUIR A STRING
+        String[] listItems = {"teste1", "teste2"};
+        return listItems;
+    }
 }
 

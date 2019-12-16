@@ -45,7 +45,7 @@ public class WelcomeActivity extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, FilterActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, MenuMainActivity.class);
                 startActivity(intent);
             }
         });
