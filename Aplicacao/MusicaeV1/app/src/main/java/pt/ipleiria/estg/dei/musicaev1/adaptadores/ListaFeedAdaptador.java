@@ -11,16 +11,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.auxFeed;
+import pt.ipleiria.estg.dei.musicaev1.modelos.FeedModel;
 
 public class ListaFeedAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<auxFeed> bandas;
+    private ArrayList<FeedModel> bandas;
 
 
-    public ListaFeedAdaptador(Context context, ArrayList<auxFeed> bandas) {
+    public ListaFeedAdaptador(Context context, ArrayList<FeedModel> bandas) {
         this.context = context;
         this.bandas = bandas;
     }
@@ -75,7 +75,7 @@ public class ListaFeedAdaptador extends BaseAdapter {
             capa = convertView.findViewById(R.id.ivBanda);
         }
 
-        public void update(auxFeed banda){
+        public void update(FeedModel banda){
             nome.setText(banda.getNome());
             instrumento.setText(banda.getInstrumento());
             experiencia.setText(banda.getExperiencia());

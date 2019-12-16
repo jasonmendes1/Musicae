@@ -27,7 +27,7 @@
     <EditText
         android:id="@+id/etSkill"
         android:layout_width="305dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:textColor="@color/gray"
         android:layout_below="@id/tv1"
         android:layout_toEndOf="@id/spaceV"
@@ -49,17 +49,19 @@
     <EditText
         android:id="@+id/etIndustria"
         android:layout_width="305dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:textColor="@color/gray"
         android:layout_below="@id/tv2"
-        android:layout_toEndOf="@id/spaceV" />
+        android:layout_toEndOf="@id/spaceV"
+        android:singleLine="true"
+        android:scrollHorizontally="true" />
 
     <TextView
         android:id="@+id/tv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/etIndustria"
         android:fontFamily="@font/bold"
         android:text="Sexo:"
@@ -69,10 +71,9 @@
     <Spinner
         android:id="@+id/spinnerSexo"
         android:layout_width="254dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
         android:layout_below="@id/etIndustria"
         android:layout_toEndOf="@id/tv3" />
 
@@ -81,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/spinnerSexo"
         android:fontFamily="@font/bold"
         android:text="Idade"
@@ -94,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/tv4"
         android:layout_below="@id/spinnerSexo"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/regular"
         android:text="de"
         android:layout_marginLeft="5dp"
@@ -104,11 +105,12 @@
     <EditText
         android:id="@+id/etFrom"
         android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:inputType="number"
-        android:layout_marginLeft="5dp"
+        android:layout_height="45dp"
         android:layout_below="@id/spinnerSexo"
-        android:layout_toEndOf="@id/tv5" />
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/tv5"
+        android:gravity="center"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/tv6"
@@ -119,18 +121,19 @@
         android:fontFamily="@font/regular"
         android:text=" a "
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/gray"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/etTo"
         android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:inputType="number"
-        android:layout_marginLeft="5dp"
+        android:layout_height="45dp"
         android:layout_below="@id/spinnerSexo"
-        android:layout_toEndOf="@id/tv6" />
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/tv6"
+        android:gravity="center"
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/tv7"
@@ -144,15 +147,15 @@
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
-    <Spinner
-        android:id="@+id/spinnerGenero"
+    <EditText
+        android:id="@+id/etGenero"
         android:layout_width="305dp"
-        android:layout_height="50dp"
-        android:textColor="?attr/editTextColor"
-        android:background="?attr/editTextBackground"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_height="45dp"
+        android:textColor="@color/gray"
         android:layout_below="@id/tv7"
-        android:layout_toEndOf="@id/spaceV" />
+        android:layout_toEndOf="@id/spaceV"
+        android:singleLine="true"
+        android:scrollHorizontally="true" />
 
     <TextView
         android:id="@+id/tv8"
@@ -160,7 +163,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/spinnerGenero"
+        android:layout_below="@id/etGenero"
         android:fontFamily="@font/bold"
         android:text="Experiência:"
         android:textColor="@color/gray"
@@ -169,7 +172,7 @@
     <Spinner
         android:id="@+id/spinnerExperiencia"
         android:layout_width="305dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
@@ -218,7 +221,7 @@
     <Spinner
         android:id="@+id/spinnerCompromisso"
         android:layout_width="305dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"

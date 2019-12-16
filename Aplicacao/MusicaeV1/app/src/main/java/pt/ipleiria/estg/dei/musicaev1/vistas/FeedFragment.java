@@ -22,12 +22,12 @@ import java.util.ArrayList;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaFeedAdaptador;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
-import pt.ipleiria.estg.dei.musicaev1.modelos.auxFeed;
+import pt.ipleiria.estg.dei.musicaev1.modelos.FeedModel;
 
 
 public class FeedFragment extends Fragment {
 
-    private ArrayList<auxFeed> listaFeed;
+    private ArrayList<FeedModel> listaFeed;
     private ListView lvListaBandas;
     private SearchView searchView;
     private Button buttonFiltro, buttonNome, buttonData;
@@ -89,8 +89,8 @@ public class FeedFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ArrayList<auxFeed> tempListaLivros = new ArrayList<>();
-                for (auxFeed tempLivro: Singleton.getInstance(getContext()).getBandasFeed()) {
+                ArrayList<FeedModel> tempListaLivros = new ArrayList<>();
+                for (FeedModel tempLivro: Singleton.getInstance(getContext()).getBandasFeed()) {
                     if(tempLivro.getNome().toLowerCase().contains(newText.toLowerCase())){
                         tempListaLivros.add(tempLivro);
                     }
