@@ -1,86 +1,45 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Perfil {
-    private int idperfil;
-    private String imagem, email, username, password, nome, sexo, descricao, localidade, experiencia, datanasc;
+    private int id;
+    private String nome, sexo, dataNasc, descricao, foto, localidade;
 
-    public Perfil(int idperfil, String imagem, String email , String username, String password, String nome,  String datanasc, String localidade, String sexo, String descricao) {
-        this.idperfil = idperfil;
-        this.imagem = imagem;
-        this.username = username;
-        this.password = password;
+    public Perfil(int id, String nome, String sexo , String dataNasc, String descricao, String foto,  String localidade) {
+        this.id = id;
         this.nome = nome;
-        this.datanasc = datanasc;
-        this.localidade = localidade;
         this.sexo = sexo;
+        this.dataNasc = dataNasc;
         this.descricao = descricao;
+        this.foto = foto;
+        this.localidade = localidade;
     }
 
-    public int getIdperfil() {
-        return idperfil;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getDatanasc() {
-        return datanasc;
-    }
-
-    public void setDatanasc(String datanasc) {
-        this.datanasc = datanasc;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public String getDataNasc() {
+        return dataNasc;
     }
 
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public String getFoto() {
+        return foto;
     }
 
     public String getLocalidade() {
         return localidade;
-    }
-
-    public void setLocalidade(String localidade) {
-        this.localidade = localidade;
-    }
-
-    public void setId(int anInt) {
     }
 }
 

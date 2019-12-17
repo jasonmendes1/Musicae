@@ -1,6 +1,7 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -26,11 +27,12 @@ import java.sql.SQLOutput;
 
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginListener {
 
 
     private Perfil perfil;
@@ -57,10 +59,15 @@ public class LoginActivity extends AppCompatActivity {
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
+        if(!isChecked){
+            descartarSharedpreferences();
+        }
 
-        Singleton.getInstance(getApplicationContext()).verificaLoginAPI(password);
+        Singleton.getInstance(getApplicationContext()).setLoginListener(this);
+        Singleton.getInstance(getApplicationContext()).verificaLoginAPI(username,password);
 
-        /*
+
+/*
         int id = Singleton.getInstance().verificarLogin(username, password);
         if(id != -1){
             if(!isChecked){
@@ -90,11 +97,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void guardarSharedpreferences(){
+        /*
         sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         int id = Singleton.getInstance(getApplicationContext()).verificarLogin(editTextUsername.getText().toString().trim().toLowerCase(), editTextPassword.getText().toString().trim());
         editor.putString(MenuMainActivity.SECCAO_INFO_USER, "" + id);
         editor.apply();
+
+         */
     }
 
     private void descartarSharedpreferences(){
@@ -103,6 +113,25 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString(MenuMainActivity.SECCAO_INFO_USER, "-1");
         editor.apply();
     }
+
+    @Override
+    public void onRefreshLogin(String response) {
+        if(response.contains("-1")){
+            Toast.makeText(this, "Username ou Password Errada!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Logged In!", Toast.LENGTH_SHORT).show();
+
+            System.out.println("--> response no loginActivity" + response);
+
+            Intent intent = new Intent(this, MenuMainActivity.class);
+            intent.putExtra(MenuMainActivity.CHAVE_USERNAME, "Pedro");
+            intent.putExtra(MenuMainActivity.CHAVE_ID, ""+ "1");
+            startActivity(intent);
+            finish();
+        }
+    }
+
+
 
 
 

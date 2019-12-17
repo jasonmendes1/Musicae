@@ -2,6 +2,7 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 
 import android.content.Context;
+import android.graphics.PathEffect;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 
 public class Singleton {
     private ArrayList<Banda>Bandas;
@@ -28,17 +30,20 @@ public class Singleton {
     private ArrayList<Musico>Musicos;
     private ArrayList<Perfil>Perfis;
 
+    private LoginListener loginListener;
+
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
     //Metam aqui o vosso IPV4 para testar o login pela api
-    private String UrlAPILivros = "http://10.200.24.21/MusicaeWeb/backend/web/v1";
+    private String UrlAPILivros = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
+
+    private boolean aux = false;
 
     private static final Singleton ourInstance = new Singleton();
     public static Singleton getInstance(Context context) {
         volleyQueue = Volley.newRequestQueue(context);
         return ourInstance;
-
     }
 
     private Singleton() {
@@ -98,54 +103,33 @@ public class Singleton {
     public Perfil getPerfil(int id){
         for (Perfil p: Perfis
              ) {
-            if(p.getIdperfil() == id){
+            if(p.getId() == id){
                 return p;
             }
         }
         return null;
     }
 
-
-    //Quando registar para verificar se o username já está a ser usado
-    public boolean verificarUsername(String username){
-        for (Perfil p: Perfis
-        ) {
-            if(p.getUsername().equals(username)){
-                return true;
-            }
-        }
-        return false;
+    public void setLoginListener(LoginListener loginListener){
+        this.loginListener = loginListener;
     }
 
 
-
-    public void verificaLoginAPI(String password){
-        System.out.println("--> url: >" + UrlAPILivros+ "/user/1/verifica/"+ password+"<");
-
-
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlAPILivros+ "/user/1/verifica/"+ password, null, new Response.Listener<JSONObject>() {
+    public void verificaLoginAPI(String username, String password){
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlAPILivros + "/user/" + username + "/" + password, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                System.out.println("--> onResponse: " + response);
+                if(loginListener!=null){
+                    loginListener.onRefreshLogin(response.toString());
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO: " + error.getMessage());
+                System.out.println("--> Erro: " + error.getMessage());
             }
         });
         volleyQueue.add(req);
-    }
-
-
-    public int verificarLogin(String username, String password){
-        for (Perfil p: Perfis
-        ) {
-            if(p.getUsername().equals(username) && p.getPassword().equals(password)){
-                return p.getIdperfil();
-            }
-        }
-        return -1;
     }
 
     private void habilidadesGerarFakeData(){
@@ -184,9 +168,9 @@ public class Singleton {
     }
 
     private void perfisGerarFakeData(){
-        Perfis.add(new Perfil(1,"url","pedro@gmail.com", "pedro","123" ,"Pedro Lopes", "23-Nov-1998", "Marinha Meca B)", "Masculino", "Oii sou um rapaz eheh B)"));
-        Perfis.add(new Perfil(2,"url", "pedroalves@gmail.com", "pedroalves","123" , "Pedro Alves", "19-Fev-2010", "Marinha Meca B)", "Masculino", "Oii sou um rapazito eheh B)"));
-        Perfis.add(new Perfil(3,"url","jason@gmail.com", "jason","123" , "Jason Mendes", "18-Fev-1657", "Leiria Meca B)", "Masculino", "Oii sou um rapazote eheh B)"));
+        Perfis.add(new Perfil(1, "Pedro Lopes", "Masculino", "23-11-1998", "Descricao bla", "foto.url", "Marinha Grande"));
+        Perfis.add(new Perfil(2, "Pedro Alves", "Masculino", "01-01-2000", "Descricao bla", "foto.url", "Marinha Grande"));
+        Perfis.add(new Perfil(3, "Pedro Lopes", "Masculino", "01-01-1998", "Descricao bla", "foto.url", "Leiria"));
     }
 
     public ArrayList<auxFeed> getBandasFeed() {

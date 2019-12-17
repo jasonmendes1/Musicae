@@ -31,8 +31,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                 public void run() {
                     Intent mainIntent = new Intent(SplashScreenActivity.this, MenuMainActivity.class);
                     perfil = Singleton.getInstance(getApplicationContext()).getPerfil(Integer.parseInt(sharedPreferences.getString(MenuMainActivity.SECCAO_INFO_USER, "-1")));
-                    mainIntent.putExtra(MenuMainActivity.CHAVE_USERNAME, perfil.getUsername());
-                    mainIntent.putExtra(MenuMainActivity.CHAVE_ID, ""+ perfil.getIdperfil());
+                    mainIntent.putExtra(MenuMainActivity.CHAVE_USERNAME, perfil.getNome());
+                    mainIntent.putExtra(MenuMainActivity.CHAVE_ID, ""+ perfil.getId());
                     startActivity(mainIntent);
                 }
             },SLAPSH_TIME_OUT);

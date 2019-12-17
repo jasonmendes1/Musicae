@@ -30,16 +30,13 @@ public class ProfileFragment extends Fragment {
         tvId = rootView.findViewById(R.id.tvID);
         tvEmail = rootView.findViewById(R.id.tvEmail);
 
-        /*perfil = Singleton.getInstance().getPerfil(Integer.parseInt(getActivity().getIntent().getStringExtra(MenuMainActivity.CHAVE_ID)));
-        System.out.println("--> perfilId:"+ perfil.getIdperfil());
 
+        perfil = Singleton.getInstance(getContext()).getPerfil(Integer.parseInt(getActivity().getIntent().getStringExtra(MenuMainActivity.CHAVE_ID)));
+        String idText= "#" + perfil.getId();
 
-        String idText= "#" + perfil.getIdperfil();
 
         tvUsername.setText(perfil.getNome());
-        tvEmail.setText(perfil.getEmail());
         tvId.setText(idText);
-        System.out.println("--> " + perfil);*/
 
         return rootView;
     }
