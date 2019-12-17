@@ -39,7 +39,7 @@
 
     <Button
         android:id="@+id/btnNomeFeed"
-        android:layout_width="105dp"
+        android:layout_width="80dp"
         android:layout_height="38dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="24dp"
@@ -55,13 +55,14 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <Button
-        android:id="@+id/btnDataFeed"
-        android:layout_width="105dp"
+        android:id="@+id/btnInstrumentoFeed"
+        android:layout_width="127dp"
         android:layout_height="38dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/bold"
         android:background="@drawable/button_branco"
-        android:text="Data"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="Instrumento"
         android:textAllCaps="false"
         android:textColor="@color/gray"
         android:textSize="20sp"

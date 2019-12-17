@@ -2,7 +2,6 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +18,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaFeedAdaptador;
@@ -32,7 +34,7 @@ public class FeedFragment extends Fragment {
     private ArrayList<FeedModel> listaFeed;
     private ListView lvListaBandas;
     private SearchView searchView;
-    private Button buttonFiltro, buttonNome, buttonData;
+    private Button buttonFiltro, buttonNome, buttonInstrumento;
     private Integer selecionado = 0;
 
     @Override
@@ -53,15 +55,6 @@ public class FeedFragment extends Fragment {
             }
         });
 
-        /*FloatingActionButton fab = rootView.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DetalhesLivro.class);
-                startActivity(intent);
-            }
-        });*/
-
         buttonFiltro = rootView.findViewById(R.id.btnFiltro);
         buttonFiltro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,11 +65,12 @@ public class FeedFragment extends Fragment {
         });
 
         buttonNome = rootView.findViewById(R.id.btnNomeFeed);
-        buttonData = rootView.findViewById(R.id.btnDataFeed);
+        buttonInstrumento = rootView.findViewById(R.id.btnInstrumentoFeed);
 
         buttonNome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //---------------------------------------- XML -----------------------------------------
                 switch (selecionado){
                     case 0:
                         selecionado = 1;
@@ -86,46 +80,51 @@ public class FeedFragment extends Fragment {
                     case 1:
                         selecionado = 0;
                         buttonNome.setBackgroundResource(R.drawable.button_branco);
-                        buttonData.setBackgroundResource(R.drawable.button_branco);
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
                         Toast.makeText(getContext(), "Limpo", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
                         selecionado = 1;
                         buttonNome.setBackgroundResource(R.drawable.button_branco_selecionado);
-                        buttonData.setBackgroundResource(R.drawable.button_branco);
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
                         Toast.makeText(getContext(), "Nome", Toast.LENGTH_SHORT).show();
                         break;
                         default:
                             return;
                 }
+                //--------------------------------------------------------------------------------------
+
+
             }
         });
 
-        buttonData.setOnClickListener(new View.OnClickListener() {
+        buttonInstrumento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //---------------------------------------- XML -----------------------------------------
                 switch (selecionado){
                     case 0:
                         selecionado = 2;
-                        buttonData.setBackgroundResource(R.drawable.button_branco_selecionado);
-                        Toast.makeText(getContext(), "Data", Toast.LENGTH_SHORT).show();
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        Toast.makeText(getContext(), "Instrumento", Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
                         selecionado = 2;
-                        buttonData.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco_selecionado);
                         buttonNome.setBackgroundResource(R.drawable.button_branco);
-                        Toast.makeText(getContext(), "Data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Instrumento", Toast.LENGTH_SHORT).show();
 
                         break;
                     case 2:
                         selecionado = 0;
-                        buttonData.setBackgroundResource(R.drawable.button_branco);
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
                         buttonNome.setBackgroundResource(R.drawable.button_branco);
                         Toast.makeText(getContext(), "Limpo", Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         return;
                 }
+                //--------------------------------------------------------------------------------------
             }
         });
 
@@ -147,14 +146,14 @@ public class FeedFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ArrayList<FeedModel> tempListaLivros = new ArrayList<>();
-                for (FeedModel tempLivro: Singleton.getInstance(getContext()).getBandasFeed()) {
-                    if(tempLivro.getNome().toLowerCase().contains(newText.toLowerCase())){
-                        tempListaLivros.add(tempLivro);
+                ArrayList<FeedModel> tempListaBandas = new ArrayList<>();
+                for (FeedModel tempFeed: Singleton.getInstance(getContext()).getBandasFeed()) {
+                    if(tempFeed.getNome().toLowerCase().contains(newText.toLowerCase())){
+                        tempListaBandas.add(tempFeed);
                     }
                 }
 
-                lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), tempListaLivros));
+                lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), tempListaBandas));
                 return true;
             }
         });

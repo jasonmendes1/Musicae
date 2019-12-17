@@ -228,7 +228,7 @@ public class Singleton {
         bandasFeed.add(new FeedModel(2, "Banda 1", "Guitarra", "diversao", "experiente", R.drawable.perfil));
         bandasFeed.add(new FeedModel(3, "Banda 2", "Piano", "tour", "amador", R.drawable.perfil));
         bandasFeed.add(new FeedModel(3, "Banda 3", "Flauta", "diversao", "experiente", R.drawable.perfil));
-        bandasFeed.add(new FeedModel(1, "Banda 4", "Triangulo", "diversao", "iniciante", R.drawable.perfil));
+        bandasFeed.add(new FeedModel(1, "Banda 4", "Guitarra", "diversao", "iniciante", R.drawable.perfil));
         bandasFeed.add(new FeedModel(4, "Banda 5", "Vocalista", "diversao", "experiente", R.drawable.perfil));
     }
 
