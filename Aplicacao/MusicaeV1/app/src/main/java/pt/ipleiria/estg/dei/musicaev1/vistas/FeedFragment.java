@@ -2,6 +2,7 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -31,6 +33,7 @@ public class FeedFragment extends Fragment {
     private ListView lvListaBandas;
     private SearchView searchView;
     private Button buttonFiltro, buttonNome, buttonData;
+    private Integer selecionado = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,14 +63,69 @@ public class FeedFragment extends Fragment {
         });*/
 
         buttonFiltro = rootView.findViewById(R.id.btnFiltro);
-        buttonNome = rootView.findViewById(R.id.btnNomeFeed);
-        buttonData = rootView.findViewById(R.id.btnDataFeed);
-
         buttonFiltro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FilterActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        buttonNome = rootView.findViewById(R.id.btnNomeFeed);
+        buttonData = rootView.findViewById(R.id.btnDataFeed);
+
+        buttonNome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (selecionado){
+                    case 0:
+                        selecionado = 1;
+                        buttonNome.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        Toast.makeText(getContext(), "Nome", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        selecionado = 0;
+                        buttonNome.setBackgroundResource(R.drawable.button_branco);
+                        buttonData.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Limpo", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        selecionado = 1;
+                        buttonNome.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        buttonData.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Nome", Toast.LENGTH_SHORT).show();
+                        break;
+                        default:
+                            return;
+                }
+            }
+        });
+
+        buttonData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (selecionado){
+                    case 0:
+                        selecionado = 2;
+                        buttonData.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        Toast.makeText(getContext(), "Data", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        selecionado = 2;
+                        buttonData.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        buttonNome.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Data", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 2:
+                        selecionado = 0;
+                        buttonData.setBackgroundResource(R.drawable.button_branco);
+                        buttonNome.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Limpo", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        return;
+                }
             }
         });
 

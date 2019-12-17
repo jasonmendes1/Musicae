@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,6 +18,7 @@ import pt.ipleiria.estg.dei.musicaev1.R;
 public class BandListFragment extends Fragment {
 
     private FloatingActionButton fab;
+    Button buttonAtual, buttonPassado, buttonPendente;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,6 +34,14 @@ public class BandListFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        //---------------------------------------------------- Buttons --------------------------------------------------
+        buttonAtual = rootView.findViewById(R.id.btnAtuais);
+        buttonPassado = rootView.findViewById(R.id.btnPassadas);
+        buttonPendente = rootView.findViewById(R.id.btnPendentes);
+
+
+        //------------------------------------------------------------------------------------------------------------
 
         return rootView;
     }

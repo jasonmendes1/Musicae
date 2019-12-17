@@ -21,16 +21,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/btnOrganizar"
         android:layout_width="138dp"
         android:layout_height="38dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
+        android:gravity="center"
         android:text="Organizar por"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/gray"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.113"
@@ -40,11 +40,11 @@
     <Button
         android:id="@+id/btnNomeFeed"
         android:layout_width="105dp"
-        android:layout_height="52dp"
+        android:layout_height="38dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_branco"
         android:fontFamily="@font/bold"
-        android:gravity="center"
         android:text="Nome"
         android:textAllCaps="false"
         android:textColor="@color/gray"
@@ -57,10 +57,10 @@
     <Button
         android:id="@+id/btnDataFeed"
         android:layout_width="105dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="17dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/bold"
-        android:gravity="center"
+        android:background="@drawable/button_branco"
         android:text="Data"
         android:textAllCaps="false"
         android:textColor="@color/gray"
