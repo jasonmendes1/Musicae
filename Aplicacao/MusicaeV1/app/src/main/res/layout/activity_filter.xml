@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.FilterActivity"
+    android:background="@drawable/backround_filter">
+
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="50dp"
+        android:layout_height="match_parent" />
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/bold"
+        android:text="Habilidade:"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/etSkill"
+        android:layout_width="305dp"
+        android:layout_height="45dp"
+        android:textColor="@color/gray"
+        android:layout_below="@id/tv1"
+        android:layout_toEndOf="@id/spaceV"
+        android:singleLine="true"
+        android:scrollHorizontally="true"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etSkill"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/bold"
+        android:text="Indústria:"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/etIndustria"
+        android:layout_width="305dp"
+        android:layout_height="45dp"
+        android:textColor="@color/gray"
+        android:layout_below="@id/tv2"
+        android:layout_toEndOf="@id/spaceV"
+        android:singleLine="true"
+        android:scrollHorizontally="true" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/etIndustria"
+        android:fontFamily="@font/bold"
+        android:text="Sexo:"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <Spinner
+        android:id="@+id/spinnerSexo"
+        android:layout_width="254dp"
+        android:layout_height="45dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:layout_below="@id/etIndustria"
+        android:layout_toEndOf="@id/tv3" />
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinnerSexo"
+        android:fontFamily="@font/bold"
+        android:text="Idade"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tv4"
+        android:layout_below="@id/spinnerSexo"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/regular"
+        android:text="de"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etFrom"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/spinnerSexo"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/tv5"
+        android:gravity="center"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/etFrom"
+        android:layout_below="@id/spinnerSexo"
+        android:fontFamily="@font/regular"
+        android:text=" a "
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/etTo"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/spinnerSexo"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/tv6"
+        android:gravity="center"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tv7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etFrom"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/bold"
+        android:text="Género de Música:"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/etGenero"
+        android:layout_width="305dp"
+        android:layout_height="45dp"
+        android:textColor="@color/gray"
+        android:layout_below="@id/tv7"
+        android:layout_toEndOf="@id/spaceV"
+        android:singleLine="true"
+        android:scrollHorizontally="true" />
+
+    <TextView
+        android:id="@+id/tv8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/etGenero"
+        android:fontFamily="@font/bold"
+        android:text="Experiência:"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <Spinner
+        android:id="@+id/spinnerExperiencia"
+        android:layout_width="305dp"
+        android:layout_height="45dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/tv8"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <TextView
+        android:id="@+id/tv9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinnerExperiencia"
+        android:fontFamily="@font/bold"
+        android:text="Compromisso"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <CheckBox
+        android:id="@+id/chkPeloMenos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerExperiencia"
+        android:layout_toEndOf="@id/tv9"
+        android:fontFamily="@font/regular"
+        android:layout_marginTop="8dp"
+        android:text="Pelo Menos"
+        android:textColor="@color/gray"
+        android:textSize="17sp"
+        app:buttonTint="@color/gray" />
+
+    <CheckBox
+        android:id="@+id/chkExato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerExperiencia"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@id/chkPeloMenos"
+        android:fontFamily="@font/regular"
+        android:text="Exato"
+        android:textColor="@color/gray"
+        android:textSize="17sp"
+        app:buttonTint="@color/gray" />
+
+    <Spinner
+        android:id="@+id/spinnerCompromisso"
+        android:layout_width="305dp"
+        android:layout_height="45dp"
+        android:textColor="?attr/editTextColor"
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_below="@id/chkPeloMenos"
+        android:layout_toEndOf="@id/spaceV" />
+
+    <Button
+        android:id="@+id/btnProcurarFiltro"
+        android:layout_width="308dp"
+        android:layout_height="38dp"
+        android:layout_below="@id/spinnerCompromisso"
+        android:layout_toEndOf="@id/spaceV"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_vermelho"
+        android:fontFamily="@font/bold"
+        android:text="PROCURAR"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+</RelativeLayout>

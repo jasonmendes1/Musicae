@@ -21,16 +21,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/btnOrganizar"
         android:layout_width="138dp"
         android:layout_height="38dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
+        android:gravity="center"
         android:text="Organizar por"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/gray"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.113"
@@ -38,13 +38,13 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <Button
-        android:id="@+id/btnNome"
-        android:layout_width="105dp"
-        android:layout_height="52dp"
+        android:id="@+id/btnNomeFeed"
+        android:layout_width="80dp"
+        android:layout_height="38dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_branco"
         android:fontFamily="@font/bold"
-        android:gravity="center"
         android:text="Nome"
         android:textAllCaps="false"
         android:textColor="@color/gray"
@@ -55,19 +55,20 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <Button
-        android:id="@+id/btnDate"
-        android:layout_width="105dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="17dp"
+        android:id="@+id/btnInstrumentoFeed"
+        android:layout_width="127dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_branco"
         android:fontFamily="@font/bold"
         android:gravity="center"
-        android:text="Data"
+        android:text="Instrumento"
         android:textAllCaps="false"
         android:textColor="@color/gray"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btnNome"
+        app:layout_constraintStart_toEndOf="@+id/btnNomeFeed"
         app:layout_constraintTop_toBottomOf="@+id/btnFiltro" />
 
     <ListView

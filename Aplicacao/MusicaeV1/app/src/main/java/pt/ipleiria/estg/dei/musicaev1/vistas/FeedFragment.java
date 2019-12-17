@@ -1,6 +1,7 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -8,25 +9,33 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaFeedAdaptador;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
-import pt.ipleiria.estg.dei.musicaev1.modelos.auxFeed;
+import pt.ipleiria.estg.dei.musicaev1.modelos.FeedModel;
 
 
 public class FeedFragment extends Fragment {
 
-    private ArrayList<auxFeed> listaFeed;
+    private ArrayList<FeedModel> listaFeed;
     private ListView lvListaBandas;
     private SearchView searchView;
+    private Button buttonFiltro, buttonNome, buttonInstrumento;
+    private Integer selecionado = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,25 +47,86 @@ public class FeedFragment extends Fragment {
         lvListaBandas = rootView.findViewById(R.id.lvFeed);
         lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), listaFeed));
 
-        /*lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                auxFeed tempLivro = (auxFeed) parent.getItemAtPosition(position);
-                Intent intent = new Intent(getContext(), DetalhesLivro.class);
-                intent.putExtra(DetalhesLivro.ID_LIVRO, tempLivro.getId());
+                Intent intent = new Intent(getContext(), ProfileBandActivity.class);
                 startActivity(intent);
             }
         });
 
-        FloatingActionButton fab = rootView.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        buttonFiltro = rootView.findViewById(R.id.btnFiltro);
+        buttonFiltro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), DetalhesLivro.class);
+                Intent intent = new Intent(getActivity(), FilterActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
+
+        buttonNome = rootView.findViewById(R.id.btnNomeFeed);
+        buttonInstrumento = rootView.findViewById(R.id.btnInstrumentoFeed);
+
+        buttonNome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //---------------------------------------- XML -----------------------------------------
+                switch (selecionado){
+                    case 0:
+                        selecionado = 1;
+                        buttonNome.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        Toast.makeText(getContext(), "Nome", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        selecionado = 0;
+                        buttonNome.setBackgroundResource(R.drawable.button_branco);
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Limpo", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        selecionado = 1;
+                        buttonNome.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Nome", Toast.LENGTH_SHORT).show();
+                        break;
+                        default:
+                            return;
+                }
+                //--------------------------------------------------------------------------------------
+
+
+            }
+        });
+
+        buttonInstrumento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //---------------------------------------- XML -----------------------------------------
+                switch (selecionado){
+                    case 0:
+                        selecionado = 2;
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        Toast.makeText(getContext(), "Instrumento", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        selecionado = 2;
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco_selecionado);
+                        buttonNome.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Instrumento", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 2:
+                        selecionado = 0;
+                        buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
+                        buttonNome.setBackgroundResource(R.drawable.button_branco);
+                        Toast.makeText(getContext(), "Limpo", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        return;
+                }
+                //--------------------------------------------------------------------------------------
+            }
+        });
 
         return rootView;
     }
@@ -76,14 +146,14 @@ public class FeedFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ArrayList<auxFeed> tempListaLivros = new ArrayList<>();
-                for (auxFeed tempLivro: Singleton.getInstance(getContext()).getBandasFeed()) {
-                    if(tempLivro.getNome().toLowerCase().contains(newText.toLowerCase())){
-                        tempListaLivros.add(tempLivro);
+                ArrayList<FeedModel> tempListaBandas = new ArrayList<>();
+                for (FeedModel tempFeed: Singleton.getInstance(getContext()).getBandasFeed()) {
+                    if(tempFeed.getNome().toLowerCase().contains(newText.toLowerCase())){
+                        tempListaBandas.add(tempFeed);
                     }
                 }
 
-                lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), tempListaLivros));
+                lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), tempListaBandas));
                 return true;
             }
         });

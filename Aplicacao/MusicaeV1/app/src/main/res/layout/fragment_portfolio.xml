@@ -7,7 +7,7 @@
     tools:context=".vistas.PortfolioFragment">
 
     <ListView
-        android:id="@+id/lvFeed"
+        android:id="@+id/lvPortfolio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"

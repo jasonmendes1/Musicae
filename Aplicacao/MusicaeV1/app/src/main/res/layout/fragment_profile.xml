@@ -103,7 +103,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnEdit"
+        android:id="@+id/btnEditProfile"
         android:layout_width="115dp"
         android:layout_height="38dp"
         android:background="@drawable/button_preto"

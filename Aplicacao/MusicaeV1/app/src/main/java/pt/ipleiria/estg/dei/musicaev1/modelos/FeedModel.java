@@ -1,11 +1,11 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
-public class auxFeed {
+public class FeedModel {
     private int id, membros, capa;
     private String nome, instrumento, compromisso, experiencia;
     private static int autoIncrementID = 1;
 
-    public auxFeed(int membros, String nome, String instrumento, String compromisso, String experiencia, int capa) {
+    public FeedModel(int membros, String nome, String instrumento, String compromisso, String experiencia, int capa) {
         this.id = autoIncrementID++;
         this.membros = membros;
         this.nome = nome;
@@ -72,6 +72,6 @@ public class auxFeed {
     }
 
     public static void setAutoIncrementID(int autoIncrementID) {
-        auxFeed.autoIncrementID = autoIncrementID;
+        FeedModel.autoIncrementID = autoIncrementID;
     }
 }
