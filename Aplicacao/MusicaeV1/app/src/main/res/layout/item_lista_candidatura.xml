@@ -1,128 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/ivCandidatura"
+        android:layout_width="115dp"
+        android:layout_height="102dp" />
 
-        <ImageView
-            android:id="@+id/ivBanda"
-            android:layout_width="115dp"
-            android:layout_height="109dp" />
+    <TextView
+        android:id="@+id/tvNomeCandidatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/ivCandidatura"
+        android:text="Nome"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:fontFamily="@font/bold"/>
 
-        <Space
-            android:layout_width="10dp"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/tvSkillCandidatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instrumento"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="@color/gray"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/regular"
+        android:layout_below="@id/tvNomeCandidatura"
+        android:layout_toEndOf="@id/ivCandidatura"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabADDcandidatura"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:backgroundTint="@color/green"
+        android:src="@drawable/ic_action_done"
+        android:layout_toEndOf="@id/ivCandidatura"
+        android:layout_below="@id/tvSkillCandidatura"
+        android:layout_marginLeft="200dp"/>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabREJECTcandidatura"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:backgroundTint="@color/red"
+        android:src="@drawable/ic_action_delete"
+        android:layout_toEndOf="@id/fabADDcandidatura"
+        android:layout_below="@id/tvSkillCandidatura"
+        android:layout_marginLeft="10dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:text="Tipo: "
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvTipo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:text="Nome: "
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvNome"
-                    android:layout_width="match_parent"
-                    android:layout_height="21dp"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:text="Habilidade: "
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvHabilidade"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnSim"
-                    android:layout_width="60dp"
-                    android:layout_height="35dp"
-                    android:layout_marginLeft="140dp"
-                    android:fontFamily="@font/bold"
-                    android:text="Yup"
-                    android:textAllCaps="false"
-                    android:textColor="@color/gray"
-                    android:textSize="12sp"/>
-
-                <Button
-                    android:id="@+id/btnNao"
-                    android:layout_width="60dp"
-                    android:layout_height="35dp"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/bold"
-                    android:text="Nop"
-                    android:textAllCaps="false"
-                    android:textColor="@color/gray"
-                    android:textSize="12sp"/>
-            </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+</RelativeLayout>
