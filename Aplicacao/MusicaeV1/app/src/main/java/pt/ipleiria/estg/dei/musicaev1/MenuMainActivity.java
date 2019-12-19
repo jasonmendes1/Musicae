@@ -78,10 +78,10 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void carregamentoFragmentoInicial(){
-        navigationView.setCheckedItem(R.id.nav_profile);
-        Fragment fragment = new ProfileFragment();
+        navigationView.setCheckedItem(R.id.nav_feed);
+        Fragment fragment = new FeedFragment();
         fragmentManager.beginTransaction().replace(R.id.contentFragment, fragment).commit();
-        setTitle("Profile");
+        setTitle("Feed");
     }
 
     @Override

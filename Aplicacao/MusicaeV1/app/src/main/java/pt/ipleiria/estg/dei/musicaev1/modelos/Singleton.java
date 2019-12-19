@@ -116,9 +116,9 @@ public class Singleton {
 
 
     public void verificaLoginAPI(String username, String password){
-        System.out.println("--> url: >" + UrlAPILivros + "/user/1/verifica/" + password + "<");
+        System.out.println("--> url: >" + UrlAPILivros + "/user/"+ username + "/" + password + "<");
 
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlAPILivros + "/user/1/verifica/" + password, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlAPILivros + "/user/"+ username + "/" + password, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if(loginListener!=null){

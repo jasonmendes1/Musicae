@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         Singleton.getInstance(getApplicationContext()).setLoginListener(this);
         Singleton.getInstance(getApplicationContext()).verificaLoginAPI(username,password);
 
-
 /*
         int id = Singleton.getInstance().verificarLogin(username, password);
         if(id != -1){
@@ -130,10 +129,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
             finish();
         }
     }
-
-
-
-
 
     /*
     private boolean validateUsername() {
