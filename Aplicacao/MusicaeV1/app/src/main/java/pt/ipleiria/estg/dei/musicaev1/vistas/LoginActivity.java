@@ -64,7 +64,10 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         }
 
         Singleton.getInstance(getApplicationContext()).setLoginListener(this);
-        Singleton.getInstance(getApplicationContext()).verificaLoginAPI(username,password);
+        String pw_encryptada = Singleton.getInstance(getApplicationContext()).getEncrypted(password);
+        System.out.println("--> encryptado: " + pw_encryptada);
+        //Singleton.getInstance(getApplicationContext()).verificaLoginAPI(username,password);
+        Singleton.getInstance(getApplicationContext()).verificaLoginAPI_POST(username,pw_encryptada);
 
 /*
         int id = Singleton.getInstance().verificarLogin(username, password);
@@ -115,6 +118,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
     @Override
     public void onRefreshLogin(String response) {
+        System.out.println("--> Response no onRefreshLogin do LoginActivity: "+ response);
         if(response.contains("-1")){
             Toast.makeText(this, "Username ou Password Errada!", Toast.LENGTH_SHORT).show();
         }else{

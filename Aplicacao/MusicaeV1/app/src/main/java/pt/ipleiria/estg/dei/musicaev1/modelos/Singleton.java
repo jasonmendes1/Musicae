@@ -4,6 +4,14 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 import android.content.Context;
 import android.graphics.PathEffect;
 
+import android.util.Base64;
+
+import java.net.UnknownServiceException;
+import java.security.Key;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -14,6 +22,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
@@ -32,6 +42,9 @@ public class Singleton {
 
     private LoginListener loginListener;
 
+
+    private static final String ALGORITHM = "AES";
+    private static final byte[] SALT = "tHeApAcHe6410111".getBytes();
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
@@ -110,15 +123,37 @@ public class Singleton {
         return null;
     }
 
+
+    public String getEncrypted(String plainText) {
+        if (plainText == null) {
+            return null;
+        }
+        Key salt = getSalt();
+        try {
+            Cipher cipher = Cipher.getInstance(ALGORITHM);
+            cipher.init(Cipher.ENCRYPT_MODE, salt);
+            byte[] encodedValue = cipher.doFinal(plainText.getBytes());
+            return Base64.encodeToString(encodedValue,Base64.DEFAULT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        throw new IllegalArgumentException("Failed to encrypt data");
+    }
+
+    static Key getSalt() {
+        return new SecretKeySpec(SALT, ALGORITHM);
+    }
+
+
     public void setLoginListener(LoginListener loginListener){
         this.loginListener = loginListener;
     }
 
+    public void verificaLoginAPI_POST(final String username,final String password){
+        //System.out.println("--> url: >" + UrlAPILivros + "/user/"+ username + "/" + password + "<");
+        System.out.println("--> url: >"+UrlAPILivros + "/user/verificaLogin <");
 
-    public void verificaLoginAPI(String username, String password){
-        System.out.println("--> url: >" + UrlAPILivros + "/user/"+ username + "/" + password + "<");
-
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, UrlAPILivros + "/user/"+ username + "/" + password, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPILivros + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if(loginListener!=null){
