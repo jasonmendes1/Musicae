@@ -7,16 +7,25 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 
 public class CreateBandActivity extends AppCompatActivity {
 
+    public static  final String ID_BANDA = "idBanda";
+    private Banda banda;
+    private EditText edNomeBanda, edCidadeBanda, edContactoBanda, edDescricaoBanda;
+    private int idBanda;
     private Spinner spinner;
     private Button buttonCancelar, buttonCriar;
 
