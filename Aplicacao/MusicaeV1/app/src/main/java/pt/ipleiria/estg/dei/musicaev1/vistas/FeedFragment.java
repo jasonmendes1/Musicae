@@ -60,7 +60,7 @@ public class FeedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), FilterActivity.class);
-                startActivity(intent);
+                startActivity(intent);  
             }
         });
 
