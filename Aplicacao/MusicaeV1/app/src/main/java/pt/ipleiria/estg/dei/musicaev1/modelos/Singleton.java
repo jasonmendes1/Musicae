@@ -53,7 +53,7 @@ public class Singleton extends Application implements BandasListener{
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
     //Metam aqui o vosso IPV4 para testar o login pela api
-    private String UrlAPI = "http://10.200.27.83/MusicaeWeb/backend/web/v1/bandas";
+    private String UrlAPI = "http://192.168.1.95/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private BandasListener bandasListener;
