@@ -69,16 +69,11 @@
             android:layout_below="@id/iv1"
             android:src="@drawable/side_rect" />
         <ImageView
-            android:id="@+id/iv3"
-            android:layout_width="wrap_content"
-            android:layout_height="39dp"
-            android:layout_below="@id/iv2"
-            android:src="@drawable/side_rect" />
-        <ImageView
             android:id="@+id/iv4"
             android:layout_width="wrap_content"
             android:layout_height="39dp"
-            android:layout_below="@id/iv3"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/iv2"
             android:src="@drawable/side_rect" />
 
         <TextView
@@ -99,6 +94,28 @@
             android:layout_toEndOf="@id/iv2"
             android:fontFamily="@font/regular"
             android:text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/iv6"
+            android:layout_below="@id/space1"
+            android:fontFamily="@font/bold"
+            android:text="Data de Criação"
+            android:textColor="@color/gray"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv3"
+            android:layout_toEndOf="@id/iv6"
+            android:fontFamily="@font/regular"
+            android:text="11/22/3333"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -164,24 +181,25 @@
             android:src="@drawable/side_rect" />
 
         <TextView
-            android:id="@+id/tv3"
+            android:id="@+id/tv6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv6"
-            android:layout_below="@id/space1"
+            android:layout_toEndOf="@id/iv4"
+            android:layout_marginTop="25dp"
+            android:layout_below="@id/tvDescription"
             android:fontFamily="@font/bold"
-            android:text="Data de Criação"
+            android:text="Género Musical:"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/tvDate"
+            android:id="@+id/tvGenre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv3"
-            android:layout_toEndOf="@id/iv6"
+            android:layout_below="@id/tv6"
+            android:layout_toEndOf="@id/iv4"
             android:fontFamily="@font/regular"
-            android:text="11/22/3333"
+            android:text="Jazz"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 

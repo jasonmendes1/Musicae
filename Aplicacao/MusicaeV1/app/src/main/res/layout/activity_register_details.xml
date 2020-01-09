@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".vistas.RegisterDetailsActivity"
-    android:background="@drawable/backround_details">
+    android:background="@drawable/bkg_detalhes">
 
     <Space
         android:id="@+id/spaceV"

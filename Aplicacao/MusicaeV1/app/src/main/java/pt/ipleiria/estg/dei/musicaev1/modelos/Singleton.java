@@ -34,7 +34,6 @@ public class Singleton {
     private ArrayList<BandaMembro> BandaMembros;
     private ArrayList<Genero> Generos;
     private ArrayList<Habilidade> Habilidades;
-    private ArrayList<Industria> Industrias;
     private ArrayList<ListaFoto> listaFotos;
     private ArrayList<ListaMusica> listaMusicas;
     private ArrayList<Musico> Musicos;
@@ -66,7 +65,6 @@ public class Singleton {
         BandaMembros = new ArrayList<>();
         Generos = new ArrayList<>();
         Habilidades = new ArrayList<>();
-        Industrias = new ArrayList<>();
         listaFotos = new ArrayList<>();
         listaMusicas = new ArrayList<>();
         Musicos = new ArrayList<>();
@@ -76,7 +74,6 @@ public class Singleton {
         habilidadesGerarFakeData();
         generosGerarFakeData();
         perfisGerarFakeData();
-        industriasGerarFakeData();
         bandasGerarFakeData();
     }
 
@@ -95,10 +92,6 @@ public class Singleton {
 
     public ArrayList<Habilidade> getHabilidades() {
         return Habilidades;
-    }
-
-    public ArrayList<Industria> getIndustrias() {
-        return Industrias;
     }
 
     public ArrayList<ListaMusica> getListaMusicas() {
@@ -193,15 +186,6 @@ public class Singleton {
         Generos.add(new Genero(8, "Country"));
         Generos.add(new Genero(9, "Dubstep"));
         Generos.add(new Genero(10, "Metal"));
-    }
-
-    private void industriasGerarFakeData() {
-        Industrias.add(new Industria("Photographer"));
-        Industrias.add(new Industria("Management"));
-        Industrias.add(new Industria("Music Teacher"));
-        Industrias.add(new Industria("Recording Studio"));
-        Industrias.add(new Industria("Song Writer"));
-        Industrias.add(new Industria("Other"));
     }
 
     private void perfisGerarFakeData(){
