@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
     }
 
     public void onClickLogin(View view) {
+        Toast.makeText(this, "OI", Toast.LENGTH_SHORT).show();
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
 
@@ -83,8 +84,8 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         }else{
             Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
         }
+*/
 
-         */
     }
 
     public void itemClicked(View v){

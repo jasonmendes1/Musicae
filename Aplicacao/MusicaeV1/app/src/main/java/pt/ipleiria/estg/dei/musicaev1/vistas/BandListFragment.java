@@ -1,13 +1,19 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,29 +22,33 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
+import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaBandaAdaptador;
+import pt.ipleiria.estg.dei.musicaev1.listeners.BandasListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
+import pt.ipleiria.estg.dei.musicaev1.utils.BandaJsonParser;
 
-public class BandListFragment extends Fragment {
+public class BandListFragment extends Fragment implements BandasListener {
 
     private Button buttonAtual, buttonPassado, buttonPendente;
     private ArrayList<Banda> listaBandas;
     private ListView lvListaBandas;
     private SearchView searchView;
     private SwipeRefreshLayout swipeRefreshLayout;
-    //private ListaBandaAdaptador listaBandaAdaptador;
+    private ListaBandaAdaptador listaBandaAdaptador;
 
 
     public static final int RESULT_CODE_CRIAR = 10;
     public static final int RESULT_CODE_GUARDAR_REMOVER = 11;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
 
         final View rootView = inflater.inflate(R.layout.fragment_band_list, container, false);
 
@@ -62,8 +72,22 @@ public class BandListFragment extends Fragment {
             }
         });
 
-        //Singleton.getInstance(getContext()).setBandasListener(this);
-        //Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), BandaJsonParser.isConnectionInternet(getContext()));
+        Singleton.getInstance(getContext()).setBandasListener(this);
+        Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), BandaJsonParser.isConnectionInternet(getContext()));
+
+        swipeRefreshLayout = rootView.findViewById(R.id.swipeLayout);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), BandaJsonParser.isConnectionInternet(getContext()));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 2000);
+            }
+        });
 
         //---------------------------------------------------- Buttons --------------------------------------------------
         buttonAtual = rootView.findViewById(R.id.btnAtuais);
@@ -76,4 +100,27 @@ public class BandListFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onResume() {
+        Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), BandaJsonParser.isConnectionInternet(getContext()));
+        if(searchView != null){
+            searchView.onActionViewCollapsed();
+        }
+        super.onResume();
+    }
+
+    @Override
+    public void onRefreshListaBandas(ArrayList<Banda> listaBandas) {
+        System.out.println("--> onRefreshListaLivros" + listaBandas);
+        if(!listaBandas.isEmpty()){
+            listaBandaAdaptador = new ListaBandaAdaptador(getContext(), listaBandas);
+            lvListaBandas.setAdapter(listaBandaAdaptador);
+            listaBandaAdaptador.refresh(listaBandas);
+        }
+    }
+
+    @Override
+    public void onUpdateListaBandas(Banda banda, int operacao) {
+
+    }
 }

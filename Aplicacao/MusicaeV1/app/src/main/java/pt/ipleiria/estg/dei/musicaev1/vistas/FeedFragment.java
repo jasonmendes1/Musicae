@@ -43,7 +43,7 @@ public class FeedFragment extends Fragment {
 
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_feed, container, false);
-        listaFeed = Singleton.getInstance(getContext()).getBandasFeed();
+        //listaFeed = Singleton.getInstance(getContext()).getBandasFeed();
         lvListaBandas = rootView.findViewById(R.id.lvFeed);
         lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), listaFeed));
 
@@ -147,11 +147,11 @@ public class FeedFragment extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 ArrayList<FeedModel> tempListaBandas = new ArrayList<>();
-                for (FeedModel tempFeed: Singleton.getInstance(getContext()).getBandasFeed()) {
+                /*for (FeedModel tempFeed: Singleton.getInstance(getContext()).getBandasFeed()) {
                     if(tempFeed.getNome().toLowerCase().contains(newText.toLowerCase())){
                         tempListaBandas.add(tempFeed);
                     }
-                }
+                }*/
 
                 lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), tempListaBandas));
                 return true;
