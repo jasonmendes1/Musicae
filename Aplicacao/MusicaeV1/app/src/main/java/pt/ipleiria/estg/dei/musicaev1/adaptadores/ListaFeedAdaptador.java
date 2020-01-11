@@ -8,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
@@ -80,7 +83,14 @@ public class ListaFeedAdaptador extends BaseAdapter {
             instrumento.setText(banda.getInstrumento());
             experiencia.setText(banda.getExperiencia());
             compromisso.setText(banda.getCompromisso());
-            capa.setImageResource(banda.getCapa());
+            Glide.with(context)
+                    .load(banda.getCapa())
+                    .placeholder(R.drawable.banner)
+                    .thumbnail(0f)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(capa);
         }
     }
+
+
 }

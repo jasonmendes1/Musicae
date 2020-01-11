@@ -22,7 +22,6 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 
 public class CreateBandActivity extends AppCompatActivity {
 
-    public static  final String ID_BANDA = "idBanda";
     private Banda banda;
     private EditText edNomeBanda, edCidadeBanda, edContactoBanda, edDescricaoBanda;
     private int idBanda;

@@ -13,6 +13,7 @@ import pt.ipleiria.estg.dei.musicaev1.R;
 
 public class ProfileBandActivity extends AppCompatActivity {
 
+    public static  final String ID_BANDA = "idBanda";
     private Button buttonEditar, buttonCandidatos;
     private FloatingActionButton fabProcura;
 

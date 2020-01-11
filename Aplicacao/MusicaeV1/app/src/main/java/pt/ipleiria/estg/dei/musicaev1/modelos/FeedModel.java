@@ -1,13 +1,11 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class FeedModel {
-    private int id, membros, capa;
-    private String nome, instrumento, compromisso, experiencia;
-    private static int autoIncrementID = 1;
+    private int id;
+    private String nome, instrumento, compromisso, experiencia, capa;
 
-    public FeedModel(int membros, String nome, String instrumento, String compromisso, String experiencia, int capa) {
-        this.id = autoIncrementID++;
-        this.membros = membros;
+    public FeedModel(int id, String nome, String instrumento, String compromisso, String experiencia, String capa) {
+        this.id = id;
         this.nome = nome;
         this.instrumento = instrumento;
         this.compromisso = compromisso;
@@ -19,12 +17,8 @@ public class FeedModel {
         return id;
     }
 
-    public int getMembros() {
-        return membros;
-    }
-
-    public void setMembros(int membros) {
-        this.membros = membros;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -59,19 +53,11 @@ public class FeedModel {
         this.experiencia = experiencia;
     }
 
-    public int getCapa() {
+    public String getCapa() {
         return capa;
     }
 
-    public void setCapa(int capa) {
+    public void setCapa(String capa) {
         this.capa = capa;
-    }
-
-    public static int getAutoIncrementID() {
-        return autoIncrementID;
-    }
-
-    public static void setAutoIncrementID(int autoIncrementID) {
-        FeedModel.autoIncrementID = autoIncrementID;
     }
 }

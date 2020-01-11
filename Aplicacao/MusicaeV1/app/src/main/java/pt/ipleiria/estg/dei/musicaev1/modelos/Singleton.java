@@ -53,7 +53,8 @@ public class Singleton extends Application implements BandasListener{
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
     //Metam aqui o vosso IPV4 para testar o login pela api
-    private String UrlAPI = "http://192.168.1.95/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String UrlAPIBandas = "http://192.168.1.7/MusicaeWeb/backend/web/v1/bandas";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private BandasListener bandasListener;
@@ -279,7 +280,7 @@ public class Singleton extends Application implements BandasListener{
                 bandasListener.onRefreshListaBandas(bandas);
             }
         }else{
-            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI, null, new Response.Listener<JSONArray>() {
+            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPIBandas, null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     bandas = BandaJsonParser.parserJsonBandas(response, context);
@@ -302,7 +303,7 @@ public class Singleton extends Application implements BandasListener{
     }
 
     public void adicionarBandaAPI(final Banda banda, final Context context){
-        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI, new Response.Listener<String>() {
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPIBandas, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
@@ -333,7 +334,7 @@ public class Singleton extends Application implements BandasListener{
     }
 
     public void removerBandaAPI(final Banda banda){
-        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/" + banda.getId(), new Response.Listener<String>() {
+        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPIBandas + "/" + banda.getId(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA REMOVER: " + response);
@@ -352,7 +353,7 @@ public class Singleton extends Application implements BandasListener{
     }
 
     public void editarBandaAPI(final Banda banda, final Context context){
-        StringRequest req = new StringRequest(Request.Method.PUT, UrlAPI + "/" + banda.getId(), new Response.Listener<String>() {
+        StringRequest req = new StringRequest(Request.Method.PUT, UrlAPIBandas + "/" + banda.getId(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA EDITAR: " + response);

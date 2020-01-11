@@ -57,8 +57,8 @@ public class BandListFragment extends Fragment implements BandasListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Banda tempBanda = (Banda) parent.getItemAtPosition(position);
-                Intent intent = new Intent(getContext(), CreateBandActivity.class);
-                intent.putExtra(CreateBandActivity.ID_BANDA, tempBanda.getId());
+                Intent intent = new Intent(getContext(), ProfileBandActivity.class);
+                intent.putExtra(ProfileBandActivity.ID_BANDA, tempBanda.getId());
                 startActivityForResult(intent, RESULT_CODE_GUARDAR_REMOVER);
             }
         });
@@ -111,7 +111,7 @@ public class BandListFragment extends Fragment implements BandasListener {
 
     @Override
     public void onRefreshListaBandas(ArrayList<Banda> listaBandas) {
-        System.out.println("--> onRefreshListaLivros" + listaBandas);
+        System.out.println("--> onRefreshListaBandas" + listaBandas);
         if(!listaBandas.isEmpty()){
             listaBandaAdaptador = new ListaBandaAdaptador(getContext(), listaBandas);
             lvListaBandas.setAdapter(listaBandaAdaptador);

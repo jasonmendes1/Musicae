@@ -45,7 +45,7 @@ public class FeedFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_feed, container, false);
         //listaFeed = Singleton.getInstance(getContext()).getBandasFeed();
         lvListaBandas = rootView.findViewById(R.id.lvFeed);
-        lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), listaFeed));
+/*        lvListaBandas.setAdapter(new ListaFeedAdaptador(getContext(), listaFeed));
 
         lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -63,7 +63,7 @@ public class FeedFragment extends Fragment {
                 startActivity(intent);  
             }
         });
-
+*/
         buttonNome = rootView.findViewById(R.id.btnNomeFeed);
         buttonInstrumento = rootView.findViewById(R.id.btnInstrumentoFeed);
 

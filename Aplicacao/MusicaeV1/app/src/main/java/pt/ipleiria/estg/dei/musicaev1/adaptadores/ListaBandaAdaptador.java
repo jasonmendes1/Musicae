@@ -73,7 +73,6 @@ public class ListaBandaAdaptador extends BaseAdapter {
         private TextView genero;
         private TextView localizacao;
         private TextView contacto;
-        private TextView descricao;
         private ImageView capa;
 
         public ViewHolderLista(View convertView){
