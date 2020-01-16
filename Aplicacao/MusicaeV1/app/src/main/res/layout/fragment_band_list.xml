@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".vistas.BandListFragment">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabADD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp"
-            android:clickable="true"
-            android:src="@drawable/ic_action_add"
-            app:backgroundTint="@color/red" />
-    </FrameLayout>
-
     <Button
         android:id="@+id/btnAtuais"
         android:layout_width="175dp"
@@ -64,8 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAtuais" />
 
-    <ListView
-        android:id="@+id/lvListaBandas"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="35dp"
@@ -74,6 +58,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPendentes" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPendentes"
+        android:id="@+id/swipeLayout">
+
+        <ListView
+            android:id="@+id/lvListaBandas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabADDbanda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:src="@drawable/ic_action_add"
+            app:backgroundTint="@color/red" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

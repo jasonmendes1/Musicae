@@ -27,26 +27,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerIndustry"
-        android:layout_width="305dp"
-        android:layout_height="50dp"
-        android:textColor="?attr/editTextColor"
+    <TextView
+        android:id="@+id/tv0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="40dp"
-        android:background="?attr/editTextBackground"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
         android:layout_below="@id/tv1"
-        android:layout_toEndOf="@id/spaceV" />
+        android:fontFamily="@font/bold"
+        android:text="Género Musical:"
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinnerSkill"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:layout_below="@id/spinnerIndustry"
+        android:layout_below="@id/tv0"
         android:layout_toEndOf="@id/spaceV" />
 
     <TextView

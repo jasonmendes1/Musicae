@@ -20,13 +20,6 @@
             android:textColor="@color/gray"
             android:textSize="20sp"/>
         <item
-            android:id="@+id/nav_portfolio"
-            android:title="Portfólio"
-            android:icon="@drawable/ic_menu_portfolio"
-            android:fontFamily="@font/bold"
-            android:textColor="@color/gray"
-            android:textSize="20sp"/>
-        <item
             android:id="@+id/nav_feed"
             android:title="Feed"
             android:icon="@drawable/ic_menu_feed"

@@ -23,7 +23,6 @@ import com.google.android.material.navigation.NavigationView;
 import pt.ipleiria.estg.dei.musicaev1.vistas.BandListFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.FeedFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.LoginActivity;
-import pt.ipleiria.estg.dei.musicaev1.vistas.PortfolioFragment;
 import pt.ipleiria.estg.dei.musicaev1.vistas.ProfileFragment;
 
 public class MenuMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -95,10 +94,6 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
                 break;
             case R.id.nav_bandas:
                 fragment = new BandListFragment();
-                setTitle(item.getTitle());
-                break;
-            case R.id.nav_portfolio:
-                fragment = new PortfolioFragment();
                 setTitle(item.getTitle());
                 break;
             case R.id.nav_feed:

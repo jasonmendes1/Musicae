@@ -82,8 +82,8 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         }else{
             Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
         }
+*/
 
-         */
     }
 
     public void itemClicked(View v){

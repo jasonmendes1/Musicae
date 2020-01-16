@@ -14,16 +14,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.FeedModel;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 
-public class ListaFeedAdaptador extends BaseAdapter {
+public class ListaBandaAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<FeedModel> bandas;
+    private ArrayList<Banda> bandas;
 
 
-    public ListaFeedAdaptador(Context context, ArrayList<FeedModel> bandas) {
+    public ListaBandaAdaptador(Context context, ArrayList<Banda> bandas) {
         this.context = context;
         this.bandas = bandas;
     }
@@ -50,7 +50,7 @@ public class ListaFeedAdaptador extends BaseAdapter {
         }
 
         if(convertView == null){
-            convertView = inflater.inflate(R.layout.item_feed, null);
+            convertView = inflater.inflate(R.layout.item_lista_banda, null);
         }
 
         ViewHolderLista viewHolder = (ViewHolderLista)convertView.getTag();
@@ -63,26 +63,31 @@ public class ListaFeedAdaptador extends BaseAdapter {
         return convertView;
     }
 
+    public void refresh(ArrayList<Banda> listaBandas) {
+        this.bandas = listaBandas;
+        notifyDataSetChanged();
+    }
+
     private class ViewHolderLista{
         private TextView nome;
-        private TextView instrumento;
-        private TextView experiencia;
-        private TextView compromisso;
+        private TextView genero;
+        private TextView localizacao;
+        private TextView contacto;
         private ImageView capa;
 
         public ViewHolderLista(View convertView){
             nome = convertView.findViewById(R.id.tvNome);
-            instrumento = convertView.findViewById(R.id.tvInstrumento);
-            experiencia = convertView.findViewById(R.id.tvExperiencia);
-            compromisso = convertView.findViewById(R.id.tvCompromisso);
-            capa = convertView.findViewById(R.id.ivBanda);
+            genero = convertView.findViewById(R.id.tvGenero);
+            localizacao = convertView.findViewById(R.id.tvLocalizacao);
+            contacto = convertView.findViewById(R.id.tvContacto);
+            capa = convertView.findViewById(R.id.imageViewCapa);
         }
 
-        public void update(FeedModel banda){
+        public void update(Banda banda){
             nome.setText(banda.getNome());
-            instrumento.setText(banda.getInstrumento());
-            experiencia.setText(banda.getExperiencia());
-            compromisso.setText(banda.getCompromisso());
+            genero.setText(banda.getGenero());
+            localizacao.setText(banda.getLocalizacao());
+            contacto.setText(""+banda.getContacto());
             Glide.with(context)
                     .load(banda.getCapa())
                     .placeholder(R.drawable.banner)
@@ -91,6 +96,4 @@ public class ListaFeedAdaptador extends BaseAdapter {
                     .into(capa);
         }
     }
-
-
 }
