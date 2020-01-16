@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         Singleton.getInstance(getApplicationContext()).setLoginListener(this);
         String pw_encryptada = Singleton.getInstance(getApplicationContext()).getEncrypted(password);
         System.out.println("--> encryptado: " + pw_encryptada);
-        //Singleton.getInstance(getApplicationContext()).verificaLoginAPI(username,password);
         Singleton.getInstance(getApplicationContext()).verificaLoginAPI_POST(username,pw_encryptada);
 
 /*
@@ -118,14 +117,18 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
     @Override
     public void onRefreshLogin(String response) {
-        System.out.println("--> Response no onRefreshLogin do LoginActivity: "+ response);
         if(response.contains("-1")){
             Toast.makeText(this, "Username ou Password Errada!", Toast.LENGTH_SHORT).show();
         }else{
+            try {
+                JSONObject obj = new JSONObject(response);
+                System.out.println("--> objetoToString:" + obj.toString());
+                System.out.println("--> phonetype value: "+ obj.getString("phonetype"));
+            } catch (Throwable tx) {
+                System.out.println("--> Could not parse malformed JSON: \"" + response + "\"");
+            }
             Toast.makeText(this, "Logged In!", Toast.LENGTH_SHORT).show();
-
-            System.out.println("--> response no loginActivity" + response);
-
+            System.out.println("-->" + response + "          loginActivity");
             Intent intent = new Intent(this, MenuMainActivity.class);
             intent.putExtra(MenuMainActivity.CHAVE_USERNAME, "Pedro");
             intent.putExtra(MenuMainActivity.CHAVE_ID, ""+ "1");

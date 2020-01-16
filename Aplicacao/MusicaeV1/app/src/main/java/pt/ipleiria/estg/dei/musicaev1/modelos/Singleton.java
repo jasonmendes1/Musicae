@@ -49,7 +49,7 @@ public class Singleton {
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
     //Metam aqui o vosso IPV4 para testar o login pela api
-    private String UrlAPILivros = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
+    private String UrlAPILivros = "http://10.200.26.89/MusicaeWeb/backend/web/v1";
 
     private boolean aux = false;
 
@@ -151,9 +151,9 @@ public class Singleton {
 
     public void verificaLoginAPI_POST(final String username,final String password){
         //System.out.println("--> url: >" + UrlAPILivros + "/user/"+ username + "/" + password + "<");
-        System.out.println("--> url: >"+UrlAPILivros + "/user/verificaLogin <");
+        System.out.println("--> url:" + UrlAPILivros + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
 
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPILivros + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPILivros + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if(loginListener!=null){

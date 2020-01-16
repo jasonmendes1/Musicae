@@ -40,7 +40,6 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-
         // Inflate the layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_feed, container, false);
         listaFeed = Singleton.getInstance(getContext()).getBandasFeed();
@@ -54,7 +53,6 @@ public class FeedFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         buttonFiltro = rootView.findViewById(R.id.btnFiltro);
         buttonFiltro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +61,6 @@ public class FeedFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         buttonNome = rootView.findViewById(R.id.btnNomeFeed);
         buttonInstrumento = rootView.findViewById(R.id.btnInstrumentoFeed);
 
@@ -89,13 +86,13 @@ public class FeedFragment extends Fragment {
                         buttonInstrumento.setBackgroundResource(R.drawable.button_branco);
                         Toast.makeText(getContext(), "Nome", Toast.LENGTH_SHORT).show();
                         break;
-                        default:
-                            return;
+                    default:
+                        return;
                 }
                 //--------------------------------------------------------------------------------------
-
-
             }
+
+
         });
 
         buttonInstrumento.setOnClickListener(new View.OnClickListener() {
