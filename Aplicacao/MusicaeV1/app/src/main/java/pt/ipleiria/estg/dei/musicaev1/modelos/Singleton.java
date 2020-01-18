@@ -274,11 +274,11 @@ public class Singleton extends Application implements FeedListener {
                 feedListener.onRefreshListaBandasFeed(bandasFeed);
             }
         }else{
-            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas", null, new Response.Listener<JSONArray>() {
+            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades", null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
-                    System.out.println("--> RESPOSTA: " + bandasFeed);
+                    System.out.println("--> RESPOSTA GET FEED API: " + bandasFeed);
 
                     //adicionarBandasFeedBD(bandasFeed);
 
@@ -289,20 +289,9 @@ public class Singleton extends Application implements FeedListener {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    System.out.println("--> ERRO: "+ error.getMessage());
+                    System.out.println("--> ERRO GET FEED API: "+ error.getMessage());
                 }
-            }){
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> headers = new HashMap<>();
-                    String credentials = "pedro:123456";
-                    String auth = "Basic "
-                            + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
-                    headers.put("Content-Type", "application/json");
-                    headers.put("Authorization", auth);
-                    return headers;
-                }
-            };
+            });
 
             volleyQueue.add(req);
         }
