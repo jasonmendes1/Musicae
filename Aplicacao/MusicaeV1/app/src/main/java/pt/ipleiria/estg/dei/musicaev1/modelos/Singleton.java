@@ -11,6 +11,7 @@ import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -49,7 +50,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -212,11 +213,6 @@ public class Singleton extends Application implements FeedListener {
 
     //------------------------------------------------------------------ BANDAS FEED -----------------------------------------------------------------------
 
-    public ArrayList<Feed> getFeedBD() {
-        bandasFeed = musicaeBDHelper.getAllFeedBD();
-        return bandasFeed;
-    }
-
     public Feed getFeed(long idFeed){
         for(Feed f: bandasFeed){
             if(f.getId() == idFeed){
@@ -224,6 +220,11 @@ public class Singleton extends Application implements FeedListener {
             }
         }
         return null;
+    }
+/*
+    public ArrayList<Feed> getFeedBD() {
+        bandasFeed = musicaeBDHelper.getAllFeedBD();
+        return bandasFeed;
     }
 
     public void adicionarFeedBD(Feed feed){
@@ -262,7 +263,7 @@ public class Singleton extends Application implements FeedListener {
             System.out.println("--> Banda Feed atualizada na BD");
         }
     }
-
+*/
 
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
@@ -279,7 +280,7 @@ public class Singleton extends Application implements FeedListener {
                     bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
                     System.out.println("--> RESPOSTA: " + bandasFeed);
 
-                    adicionarBandasFeedBD(bandasFeed);
+                    //adicionarBandasFeedBD(bandasFeed);
 
                     if(feedListener != null){
                         feedListener.onRefreshListaBandasFeed(bandasFeed);
@@ -290,7 +291,19 @@ public class Singleton extends Application implements FeedListener {
                 public void onErrorResponse(VolleyError error) {
                     System.out.println("--> ERRO: "+ error.getMessage());
                 }
-            });
+            }){
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String, String> headers = new HashMap<>();
+                    String credentials = "pedro:123456";
+                    String auth = "Basic "
+                            + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+                    headers.put("Content-Type", "application/json");
+                    headers.put("Authorization", auth);
+                    return headers;
+                }
+            };
+
             volleyQueue.add(req);
         }
     }
@@ -385,7 +398,7 @@ public class Singleton extends Application implements FeedListener {
 
     @Override
     public void onUpdateListaBandasFeed(Feed feed, int operacao) {
-        System.out.println("--> Entrou update lista feed BD");
+        /*System.out.println("--> Entrou update lista feed BD");
         switch (operacao){
             case 1: adicionarFeedBD(feed);
                 break;
@@ -394,6 +407,6 @@ public class Singleton extends Application implements FeedListener {
             case 3: removerFeedBD(feed.getId());
                 break;
 
-        }
+        }*/
     }
 }
