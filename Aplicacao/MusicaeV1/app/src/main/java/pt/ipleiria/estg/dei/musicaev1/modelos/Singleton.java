@@ -49,8 +49,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    //Metam aqui o vosso IPV4 para testar o login pela api
-    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -77,7 +76,6 @@ public class Singleton extends Application implements FeedListener {
         Perfis = new ArrayList<>();
 
         musicaeBDHelper = new MusicaeBDHelper(context);
-        //Funções de gerar fake data
         habilidadesGerarFakeData();
         generosGerarFakeData();
         perfisGerarFakeData();
