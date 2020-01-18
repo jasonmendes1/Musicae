@@ -29,7 +29,7 @@ import java.util.Map;
 
 import pt.ipleiria.estg.dei.musicaev1.listeners.BandasFeedListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
-import pt.ipleiria.estg.dei.musicaev1.utils.BandaJsonParser;
+import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class Singleton extends Application implements BandasFeedListener {
     private ArrayList<Banda> bandas;
@@ -278,7 +278,7 @@ public class Singleton extends Application implements BandasFeedListener {
             JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas", null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
-                    bandas = BandaJsonParser.parserJsonBandas(response, context);
+                    bandas = FeedJsonParser.parserJsonBandas(response, context);
                     System.out.println("--> RESPOSTA: " + bandas);
 
                     adicionarBandasBD(bandas);
@@ -304,7 +304,7 @@ public class Singleton extends Application implements BandasFeedListener {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
 
                 if(bandasFeedListener != null){
-                    bandasFeedListener.onUpdateListaBandas(BandaJsonParser.parserJsonBandas(response, context), 1);
+                    bandasFeedListener.onUpdateListaBandas(FeedJsonParser.parserJsonBandas(response, context), 1);
                 }
             }
         }, new Response.ErrorListener() {
@@ -354,7 +354,7 @@ public class Singleton extends Application implements BandasFeedListener {
                 System.out.println("--> RESPOSTA EDITAR: " + response);
 
                 if(bandasFeedListener != null){
-                    bandasFeedListener.onUpdateListaBandas(BandaJsonParser.parserJsonBandas(response, context), 2);
+                    bandasFeedListener.onUpdateListaBandas(FeedJsonParser.parserJsonBandas(response, context), 2);
                 }
             }
         }, new Response.ErrorListener() {

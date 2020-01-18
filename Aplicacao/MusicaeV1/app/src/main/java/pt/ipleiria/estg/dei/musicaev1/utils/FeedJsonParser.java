@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 
-public class BandaJsonParser {
+public class FeedJsonParser {
     public static ArrayList<Banda> parserJsonBandas(JSONArray response, Context context){
         System.out.println("--> PARSER LISTA BANDAS: "+ response);
         ArrayList<Banda> tempListaBandas = new ArrayList<Banda>();
