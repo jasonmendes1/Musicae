@@ -22,12 +22,12 @@ import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaBandaAdaptador;
-import pt.ipleiria.estg.dei.musicaev1.listeners.BandasFeedListener;
+import pt.ipleiria.estg.dei.musicaev1.listeners.FeedListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
-public class BandListFragment extends Fragment implements BandasFeedListener {
+public class BandListFragment extends Fragment {
 
     private Button buttonAtual, buttonPassado, buttonPendente;
     private ArrayList<Banda> listaBandas;
@@ -66,14 +66,13 @@ public class BandListFragment extends Fragment implements BandasFeedListener {
             }
         });
 
-        Singleton.getInstance(getContext()).setBandasFeedListener(this);
-        Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+        Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
 
         swipeRefreshLayout = rootView.findViewById(R.id.swipeLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+                Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -96,25 +95,10 @@ public class BandListFragment extends Fragment implements BandasFeedListener {
 
     @Override
     public void onResume() {
-        Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+        Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
         if(searchView != null){
             searchView.onActionViewCollapsed();
         }
         super.onResume();
-    }
-
-    @Override
-    public void onRefreshListaBandas(ArrayList<Banda> listaBandas) {
-        System.out.println("--> onRefreshListaBandas" + listaBandas);
-        if(!listaBandas.isEmpty()){
-            listaBandaAdaptador = new ListaBandaAdaptador(getContext(), listaBandas);
-            lvListaBandas.setAdapter(listaBandaAdaptador);
-            listaBandaAdaptador.refresh(listaBandas);
-        }
-    }
-
-    @Override
-    public void onUpdateListaBandas(Banda banda, int operacao) {
-
     }
 }

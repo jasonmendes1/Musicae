@@ -11,27 +11,26 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Feed;
 
 public class FeedJsonParser {
-    public static ArrayList<Banda> parserJsonBandas(JSONArray response, Context context){
-        System.out.println("--> PARSER LISTA BANDAS: "+ response);
-        ArrayList<Banda> tempListaBandas = new ArrayList<Banda>();
+    public static ArrayList<Feed> parserJsonFeed(JSONArray response, Context context){
+        System.out.println("--> PARSER LISTA FEED: "+ response);
+        ArrayList<Feed> tempListaFeed = new ArrayList<Feed>();
 
         try{
             for(int i = 0; i < response.length(); i++){
-                JSONObject banda = (JSONObject) response.get(i);
+                JSONObject feed = (JSONObject) response.get(i);
 
-                int idBanda = banda.getInt("id");
-                String nome = banda.getString("nome");
-                String genero = banda.getString("genero");
-                String localizacao = banda.getString("localizacao");
-                int contacto = banda.getInt("contacto");
-                String descricao = banda.getString("descricao");
-                String capa = banda.getString("capa");
+                int idFeed = feed.getInt("id");
+                String nome = feed.getString("nome");
+                String instrumento = feed.getString("instrumento");
+                String compromisso = feed.getString("compromisso");
+                String experiencia = feed.getString("experiencia");
+                String capa = feed.getString("capa");
 
-                Banda auxBanda = new Banda(idBanda, nome, genero, localizacao, contacto, descricao, capa);
-                tempListaBandas.add(auxBanda);
+                Feed auxfeed = new Feed(idFeed, nome, instrumento, compromisso, experiencia, capa);
+                tempListaFeed.add(auxfeed);
             }
 
         }catch(JSONException e){
@@ -39,32 +38,31 @@ public class FeedJsonParser {
             Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        return tempListaBandas;
+        return tempListaFeed;
     }
 
-    public static Banda parserJsonBandas(String response, Context context){
+    public static Feed parserJsonFeed(String response, Context context){
         System.out.println("--> PARSER ADICIONAR: "+ response);
-        Banda auxBanda = null;
+        Feed auxFeed = null;
 
         try{
-            JSONObject banda = new JSONObject(response);
+            JSONObject feed = new JSONObject(response);
 
-            int idBanda = banda.getInt("id");
-            String nome = banda.getString("nome");
-            String genero = banda.getString("genero");
-            String localizacao = banda.getString("localizacao");
-            int contacto = banda.getInt("contacto");
-            String descricao = banda.getString("descricao");
-            String capa = banda.getString("capa");
+            int idFeed = feed.getInt("id");
+            String nome = feed.getString("nome");
+            String instrumento = feed.getString("instrumento");
+            String compromisso = feed.getString("compromisso");
+            String experiencia = feed.getString("experiencia");
+            String capa = feed.getString("capa");
 
-            auxBanda = new Banda(idBanda, nome, genero, localizacao, contacto, descricao, capa);
+            auxFeed = new Feed(idFeed, nome, instrumento, compromisso, experiencia, capa);
 
         }catch(JSONException e){
             e.printStackTrace();
             Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        return auxBanda;
+        return auxFeed;
     }
 
     public static boolean isConnectionInternet(Context context){

@@ -27,12 +27,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import pt.ipleiria.estg.dei.musicaev1.listeners.BandasFeedListener;
+import pt.ipleiria.estg.dei.musicaev1.listeners.FeedListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
-public class Singleton extends Application implements BandasFeedListener {
+public class Singleton extends Application implements FeedListener {
     private ArrayList<Banda> bandas;
+    private ArrayList<Feed> bandasFeed;
     private ArrayList<BandaMembro> BandaMembros;
     private ArrayList<Genero> Generos;
     private ArrayList<Habilidade> Habilidades;
@@ -52,7 +53,7 @@ public class Singleton extends Application implements BandasFeedListener {
     private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
-    private BandasFeedListener bandasFeedListener;
+    private FeedListener feedListener;
 
     private static Singleton INSTANCE = null;
 
@@ -66,6 +67,7 @@ public class Singleton extends Application implements BandasFeedListener {
 
     private Singleton(Context context) {
         bandas = new ArrayList<>();
+        bandasFeed = new ArrayList<>();
         BandaMembros = new ArrayList<>();
         Generos = new ArrayList<>();
         Habilidades = new ArrayList<>();
@@ -212,79 +214,77 @@ public class Singleton extends Application implements BandasFeedListener {
 
     //------------------------------------------------------------------ BANDAS FEED -----------------------------------------------------------------------
 
-    public ArrayList<Banda> getBandasBD() {
-        //return new ArrayList<>(bandas);
-        bandas = musicaeBDHelper.getAllBandasBD();
-        return bandas;
+    public ArrayList<Feed> getFeedBD() {
+        bandasFeed = musicaeBDHelper.getAllFeedBD();
+        return bandasFeed;
     }
 
-    public Banda getBanda(long idBanda){
-        for(Banda b: bandas){
-            if(b.getId() == idBanda){
-                return b;
+    public Feed getFeed(long idFeed){
+        for(Feed f: bandasFeed){
+            if(f.getId() == idFeed){
+                return f;
             }
         }
         return null;
     }
 
-    public void adicionarBandaBD(Banda banda){
-        musicaeBDHelper.adicionarBandaBD(banda);
+    public void adicionarFeedBD(Feed feed){
+        musicaeBDHelper.adicionarFeedBD(feed);
     }
 
-    public void adicionarBandasBD(ArrayList<Banda> listaBandas){
-        musicaeBDHelper.removerAllBandasBD();
-        for (Banda banda: listaBandas) {
-            adicionarBandaBD(banda);
+    public void adicionarBandasFeedBD(ArrayList<Feed> listafeed){
+        musicaeBDHelper.removerAllFeedBD();
+        for (Feed feed: listafeed) {
+            adicionarFeedBD(feed);
         }
     }
 
-    public void removerBandaBD(int idBanda){
-        Banda auxBanda = getBanda(idBanda);
+    public void removerFeedBD(int idFeed){
+        Feed auxFeed = getFeed(idFeed);
 
-        if(auxBanda != null){
-            if (musicaeBDHelper.removerBandaBD(auxBanda.getId())) {
-                bandas.remove(auxBanda);
-                System.out.println("--> Banda Removida da BD");
+        if(auxFeed != null){
+            if (musicaeBDHelper.removerFeedBD(auxFeed.getId())) {
+                bandasFeed.remove(auxFeed);
+                System.out.println("--> Banda Feed Removida da BD");
             }
         }
     }
 
-    public void guardarBandaBD(Banda banda){
-        if(!bandas.contains(banda)){
+    public void guardarFeedBD(Feed feed){
+        if(!bandasFeed.contains(feed)){
             return;
         }
-        Banda auxBanda = getBanda(banda.getId());
-        auxBanda.setNome(banda.getNome());
-        auxBanda.setGenero(banda.getGenero());
-        auxBanda.setLocalizacao(banda.getLocalizacao());
-        auxBanda.setContacto(banda.getContacto());
-        auxBanda.setDescricao(banda.getDescricao());
+        Feed auxFeed = getFeed(feed.getId());
+        auxFeed.setNome(feed.getNome());
+        auxFeed.setInstrumento(feed.getInstrumento());
+        auxFeed.setExperiencia(feed.getExperiencia());
+        auxFeed.setCompromisso(feed.getCompromisso());
 
-        if (musicaeBDHelper.guardarBandaBD(auxBanda)) {
-            System.out.println("--> Banda atualizada na BD");
+        if (musicaeBDHelper.guardarFeedBD(auxFeed)) {
+            System.out.println("--> Banda Feed atualizada na BD");
         }
     }
 
 
-    public void getAllBandasAPI(final Context context, boolean isConnected){
+    public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
 
         if(!isConnected){
-            bandas = musicaeBDHelper.getAllBandasBD();
-            if(bandasFeedListener != null){
-                bandasFeedListener.onRefreshListaBandas(bandas);
+            bandasFeed = musicaeBDHelper.getAllFeedBD();
+            if(feedListener != null){
+                feedListener.onRefreshListaBandasFeed(bandasFeed);
             }
         }else{
             JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas", null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
-                    bandas = FeedJsonParser.parserJsonBandas(response, context);
-                    System.out.println("--> RESPOSTA: " + bandas);
+                    bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
+                    System.out.println("--> RESPOSTA: " + bandasFeed);
 
-                    adicionarBandasBD(bandas);
+                    adicionarBandasFeedBD(bandasFeed);
 
-                    if(bandasFeedListener != null){
-                        bandasFeedListener.onRefreshListaBandas(bandas);
+                    if(feedListener != null){
+                        feedListener.onRefreshListaBandasFeed(bandasFeed);
                     }
                 }
             }, new Response.ErrorListener() {
@@ -297,30 +297,29 @@ public class Singleton extends Application implements BandasFeedListener {
         }
     }
 
-    public void adicionarBandaAPI(final Banda banda, final Context context){
+    public void adicionarFeedAPI(final Feed feed, final Context context){
         StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/bandas", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
 
-                if(bandasFeedListener != null){
-                    bandasFeedListener.onUpdateListaBandas(FeedJsonParser.parserJsonBandas(response, context), 1);
+                if(feedListener != null){
+                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 1);
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO ADICIONAR BANDA API: "+ error.getMessage());
+                System.out.println("--> ERRO ADICIONAR BANDA FEED API: "+ error.getMessage());
             }
         }) {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
-                params.put("token", tokenAPI);
-                params.put("nome", banda.getNome());
-                params.put("genero", banda.getGenero());
-                params.put("localizacao", banda.getLocalizacao());
-                params.put("contacto", "" + banda.getContacto());
-                params.put("descricao", banda.getDescricao());
+                params.put("nome", feed.getNome());
+                params.put("instrumento", feed.getInstrumento());
+                params.put("experiencia", feed.getExperiencia());
+                params.put("compromisso", feed.getCompromisso());
+                params.put("capa", feed.getCapa());
 
                 return params;
             }
@@ -328,74 +327,73 @@ public class Singleton extends Application implements BandasFeedListener {
         volleyQueue.add(req);
     }
 
-    public void removerBandaAPI(final Banda banda){
-        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/bandas/" + banda.getId(), new Response.Listener<String>() {
+    public void editarFeedAPI(final Feed feed, final Context context){
+        StringRequest req = new StringRequest(Request.Method.PUT, UrlAPI + "/bandas/" + feed.getId(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println("--> RESPOSTA REMOVER: " + response);
+                System.out.println("--> RESPOSTA EDITAR FEED: " + response);
 
-                if(bandasFeedListener != null){
-                    bandasFeedListener.onUpdateListaBandas(banda, 3);
+                if(feedListener != null){
+                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 2);
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO REMOVER BANDA API: "+ error.getMessage());
+                System.out.println("--> ERRO EDITAR BANDA FEED API: "+ error.getMessage());
+            }
+        }){
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("nome", feed.getNome());
+                params.put("instrumento", feed.getInstrumento());
+                params.put("experiencia", feed.getExperiencia());
+                params.put("compromisso", feed.getCompromisso());
+                params.put("capa", feed.getCapa());
+
+                return params;
+            }
+        };
+        volleyQueue.add(req);
+    }
+
+    public void removerFeedAPI(final Feed feed){
+        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/bandas/" + feed.getId(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println("--> RESPOSTA REMOVER FEED: " + response);
+
+                if(feedListener != null){
+                    feedListener.onUpdateListaBandasFeed(feed, 3);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO REMOVER BANDA FEED API: "+ error.getMessage());
             }
         });
         volleyQueue.add(req);
     }
 
-    public void editarBandaAPI(final Banda banda, final Context context){
-        StringRequest req = new StringRequest(Request.Method.PUT, UrlAPI + "/bandas/" + banda.getId(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                System.out.println("--> RESPOSTA EDITAR: " + response);
-
-                if(bandasFeedListener != null){
-                    bandasFeedListener.onUpdateListaBandas(FeedJsonParser.parserJsonBandas(response, context), 2);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO EDITAR BANDA API: "+ error.getMessage());
-            }
-        }){
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("token", tokenAPI);
-                params.put("nome", banda.getNome());
-                params.put("genero", banda.getGenero());
-                params.put("localizacao", banda.getLocalizacao());
-                params.put("contacto", "" + banda.getContacto());
-                params.put("descricao", banda.getDescricao());
-
-                return params;
-            }
-        };
-        volleyQueue.add(req);
-    }
-
-    public void setBandasFeedListener(BandasFeedListener bandasFeedListener){
-        this.bandasFeedListener = bandasFeedListener;
+    public void setFeedListener(FeedListener feedListener){
+        this.feedListener = feedListener;
     }
 
     @Override
-    public void onRefreshListaBandas(ArrayList<Banda> listaBandas) {
+    public void onRefreshListaBandasFeed(ArrayList<Feed> listaFeed) {
 
     }
 
     @Override
-    public void onUpdateListaBandas(Banda banda, int operacao) {
-        System.out.println("--> Entrou update lista bandas BD");
+    public void onUpdateListaBandasFeed(Feed feed, int operacao) {
+        System.out.println("--> Entrou update lista feed BD");
         switch (operacao){
-            case 1: adicionarBandaBD(banda);
+            case 1: adicionarFeedBD(feed);
                 break;
-            case 2: guardarBandaBD(banda);
+            case 2: guardarFeedBD(feed);
                 break;
-            case 3: removerBandaBD(banda.getId());
+            case 3: removerFeedBD(feed.getId());
                 break;
 
         }
