@@ -14,16 +14,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.FeedModel;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaFeed;
 
 public class ListaFeedAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<FeedModel> bandas;
+    private ArrayList<BandaFeed> bandas;
 
 
-    public ListaFeedAdaptador(Context context, ArrayList<FeedModel> bandas) {
+    public ListaFeedAdaptador(Context context, ArrayList<BandaFeed> bandas) {
         this.context = context;
         this.bandas = bandas;
     }
@@ -78,7 +78,7 @@ public class ListaFeedAdaptador extends BaseAdapter {
             capa = convertView.findViewById(R.id.ivBanda);
         }
 
-        public void update(FeedModel banda){
+        public void update(BandaFeed banda){
             nome.setText(banda.getNome());
             instrumento.setText(banda.getInstrumento());
             experiencia.setText(banda.getExperiencia());

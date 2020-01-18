@@ -1,10 +1,10 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
-public class FeedModel {
+public class BandaFeed {
     private int id;
     private String nome, instrumento, compromisso, experiencia, capa;
 
-    public FeedModel(int id, String nome, String instrumento, String compromisso, String experiencia, String capa) {
+    public BandaFeed(int id, String nome, String instrumento, String compromisso, String experiencia, String capa) {
         this.id = id;
         this.nome = nome;
         this.instrumento = instrumento;

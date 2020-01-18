@@ -1,7 +1,6 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -9,7 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -20,18 +18,15 @@ import androidx.fragment.app.Fragment;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaFeedAdaptador;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
-import pt.ipleiria.estg.dei.musicaev1.modelos.FeedModel;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaFeed;
 
 
 public class FeedFragment extends Fragment {
 
-    private ArrayList<FeedModel> listaFeed;
+    private ArrayList<BandaFeed> listaFeed;
     private ListView lvListaBandas;
     private SearchView searchView;
     private Button buttonFiltro, buttonNome, buttonInstrumento;
@@ -144,8 +139,8 @@ public class FeedFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ArrayList<FeedModel> tempListaBandas = new ArrayList<>();
-                /*for (FeedModel tempFeed: Singleton.getInstance(getContext()).getBandasFeed()) {
+                ArrayList<BandaFeed> tempListaBandas = new ArrayList<>();
+                /*for (BandaFeed tempFeed: Singleton.getInstance(getContext()).getBandasFeed()) {
                     if(tempFeed.getNome().toLowerCase().contains(newText.toLowerCase())){
                         tempListaBandas.add(tempFeed);
                     }

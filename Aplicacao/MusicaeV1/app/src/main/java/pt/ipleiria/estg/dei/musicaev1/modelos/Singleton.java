@@ -27,11 +27,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import pt.ipleiria.estg.dei.musicaev1.listeners.BandasListener;
+import pt.ipleiria.estg.dei.musicaev1.listeners.BandasFeedListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 import pt.ipleiria.estg.dei.musicaev1.utils.BandaJsonParser;
 
-public class Singleton extends Application implements BandasListener{
+public class Singleton extends Application implements BandasFeedListener {
     private ArrayList<Banda> bandas;
     private ArrayList<BandaMembro> BandaMembros;
     private ArrayList<Genero> Generos;
@@ -52,7 +52,7 @@ public class Singleton extends Application implements BandasListener{
     private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
-    private BandasListener bandasListener;
+    private BandasFeedListener bandasFeedListener;
 
     private static Singleton INSTANCE = null;
 
@@ -210,7 +210,7 @@ public class Singleton extends Application implements BandasListener{
         return listItems;
     }
 
-    //------------------------------------------------------------------ BANDAS -----------------------------------------------------------------------
+    //------------------------------------------------------------------ BANDAS FEED -----------------------------------------------------------------------
 
     public ArrayList<Banda> getBandasBD() {
         //return new ArrayList<>(bandas);
@@ -271,8 +271,8 @@ public class Singleton extends Application implements BandasListener{
 
         if(!isConnected){
             bandas = musicaeBDHelper.getAllBandasBD();
-            if(bandasListener != null){
-                bandasListener.onRefreshListaBandas(bandas);
+            if(bandasFeedListener != null){
+                bandasFeedListener.onRefreshListaBandas(bandas);
             }
         }else{
             JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas", null, new Response.Listener<JSONArray>() {
@@ -283,8 +283,8 @@ public class Singleton extends Application implements BandasListener{
 
                     adicionarBandasBD(bandas);
 
-                    if(bandasListener != null){
-                        bandasListener.onRefreshListaBandas(bandas);
+                    if(bandasFeedListener != null){
+                        bandasFeedListener.onRefreshListaBandas(bandas);
                     }
                 }
             }, new Response.ErrorListener() {
@@ -303,8 +303,8 @@ public class Singleton extends Application implements BandasListener{
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
 
-                if(bandasListener != null){
-                    bandasListener.onUpdateListaBandas(BandaJsonParser.parserJsonBandas(response, context), 1);
+                if(bandasFeedListener != null){
+                    bandasFeedListener.onUpdateListaBandas(BandaJsonParser.parserJsonBandas(response, context), 1);
                 }
             }
         }, new Response.ErrorListener() {
@@ -334,8 +334,8 @@ public class Singleton extends Application implements BandasListener{
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA REMOVER: " + response);
 
-                if(bandasListener != null){
-                    bandasListener.onUpdateListaBandas(banda, 3);
+                if(bandasFeedListener != null){
+                    bandasFeedListener.onUpdateListaBandas(banda, 3);
                 }
             }
         }, new Response.ErrorListener() {
@@ -353,8 +353,8 @@ public class Singleton extends Application implements BandasListener{
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA EDITAR: " + response);
 
-                if(bandasListener != null){
-                    bandasListener.onUpdateListaBandas(BandaJsonParser.parserJsonBandas(response, context), 2);
+                if(bandasFeedListener != null){
+                    bandasFeedListener.onUpdateListaBandas(BandaJsonParser.parserJsonBandas(response, context), 2);
                 }
             }
         }, new Response.ErrorListener() {
@@ -378,8 +378,8 @@ public class Singleton extends Application implements BandasListener{
         volleyQueue.add(req);
     }
 
-    public void setBandasListener(BandasListener bandasListener){
-        this.bandasListener = bandasListener;
+    public void setBandasFeedListener(BandasFeedListener bandasFeedListener){
+        this.bandasFeedListener = bandasFeedListener;
     }
 
     @Override
