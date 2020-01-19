@@ -4,34 +4,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaGeneroAdaptador;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Genero;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class RegisterGenreActivity extends AppCompatActivity {
 
-    private ArrayList<Genero> listaGeneros;
     private ListView lvListaGeneros;
+    private String[] listaGeneros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_genre);
 
-        listaGeneros = Singleton.getInstance(getApplicationContext()).getGeneros();
         lvListaGeneros = findViewById(R.id.lvListaGeneros);
-        lvListaGeneros.setAdapter(new ListaGeneroAdaptador(this, listaGeneros));
+        listaGeneros = Singleton.getInstance(getApplicationContext()).getGeneroFiltro();
 
-        lvListaGeneros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        // Create The Adapter with passing ArrayList as 3rd parameter
+        ArrayAdapter<String> arrayAdapter =
+                new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaGeneros);
+        // Set The Adapter
+        lvListaGeneros.setAdapter(arrayAdapter);
+
+        // register onClickListener to handle click events on each item
+        lvListaGeneros.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
+            // argument position gives the index of item which is clicked
+            public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
+            {
                 Intent intent = new Intent(RegisterGenreActivity.this, RegisterDetailsActivity.class);
                 startActivity(intent);
             }

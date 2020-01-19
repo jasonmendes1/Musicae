@@ -6,15 +6,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaHabilidadeAdaptador;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Habilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class RegisterSkillActivity extends AppCompatActivity {
@@ -29,6 +24,7 @@ public class RegisterSkillActivity extends AppCompatActivity {
 
         lvListaHabilidades = findViewById(R.id.lvListaHabilidades);
         listaHabilidades = Singleton.getInstance(getApplicationContext()).getHabilidadesFiltro();
+
 
         // Create The Adapter with passing ArrayList as 3rd parameter
         ArrayAdapter<String> arrayAdapter =
