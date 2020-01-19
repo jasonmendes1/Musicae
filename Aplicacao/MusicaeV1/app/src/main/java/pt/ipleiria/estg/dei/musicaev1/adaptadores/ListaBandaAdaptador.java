@@ -70,30 +70,21 @@ public class ListaBandaAdaptador extends BaseAdapter {
 
     private class ViewHolderLista{
         private TextView nome;
-        private TextView genero;
-        private TextView localizacao;
-        private TextView contacto;
-        private ImageView capa;
+        private TextView instrumento;
+        private TextView dataEntrada;
 
         public ViewHolderLista(View convertView){
             nome = convertView.findViewById(R.id.tvNome);
-            genero = convertView.findViewById(R.id.tvGenero);
-            localizacao = convertView.findViewById(R.id.tvLocalizacao);
-            contacto = convertView.findViewById(R.id.tvContacto);
-            capa = convertView.findViewById(R.id.imageViewCapa);
+            instrumento = convertView.findViewById(R.id.tvInstrumento);
+            dataEntrada = convertView.findViewById(R.id.tvDataEntrada);
         }
 
         public void update(Banda banda){
+            /*
             nome.setText(banda.getNome());
-            genero.setText(banda.getGenero());
-            localizacao.setText(banda.getLocalizacao());
-            contacto.setText(""+banda.getContacto());
-            Glide.with(context)
-                    .load(banda.getCapa())
-                    .placeholder(R.drawable.banner)
-                    .thumbnail(0f)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(capa);
+            instrumento.setText(banda.getGenero());
+            dataEntrada.setText(banda.getLocalizacao());
+             */
         }
     }
 }
