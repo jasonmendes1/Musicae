@@ -33,6 +33,7 @@ import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class Singleton extends Application implements FeedListener {
+    public int idUser;
     private ArrayList<Banda> bandas;
     private ArrayList<Feed> bandasFeed;
     private ArrayList<BandaMembro> BandaMembros;
@@ -50,7 +51,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -148,6 +149,23 @@ public class Singleton extends Application implements FeedListener {
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
 
         JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                if(loginListener!=null){
+                    loginListener.onRefreshLogin(response.toString());
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> Erro: " + error.getMessage());
+            }
+        });
+        volleyQueue.add(req);
+    }
+
+    public void minhasBandas(final int idmusico){
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPI , null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if(loginListener!=null){

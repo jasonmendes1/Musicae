@@ -44,6 +44,7 @@ public class BandListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
 
+
         final View rootView = inflater.inflate(R.layout.fragment_band_list, container, false);
 
         lvListaBandas = rootView.findViewById(R.id.lvListaBandas);
