@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -145,7 +146,7 @@ public class Singleton extends Application implements FeedListener {
     }
 
     public void verificaLoginAPI_POST(final String username, final String password){
-        //System.out.println("--> url: >" + UrlAPILivros + "/user/"+ username + "/" + password + "<");
+
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
 
         JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
@@ -231,74 +232,24 @@ public class Singleton extends Application implements FeedListener {
 
     //------------------------------------------------------------------ BANDAS FEED -----------------------------------------------------------------------
 
-    public Feed getFeed(long idFeed){
-        for(Feed f: bandasFeed){
-            if(f.getId() == idFeed){
-                return f;
+    public Banda getBanda(long idBanda){
+        for(Banda b: bandas){
+            if(b.getId() == idBanda){
+                return b;
             }
         }
         return null;
     }
-/*
-    public ArrayList<Feed> getFeedBD() {
-        bandasFeed = musicaeBDHelper.getAllFeedBD();
-        return bandasFeed;
-    }
 
-    public void adicionarFeedBD(Feed feed){
-        musicaeBDHelper.adicionarFeedBD(feed);
-    }
-
-    public void adicionarBandasFeedBD(ArrayList<Feed> listafeed){
-        musicaeBDHelper.removerAllFeedBD();
-        for (Feed feed: listafeed) {
-            adicionarFeedBD(feed);
-        }
-    }
-
-    public void removerFeedBD(int idFeed){
-        Feed auxFeed = getFeed(idFeed);
-
-        if(auxFeed != null){
-            if (musicaeBDHelper.removerFeedBD(auxFeed.getId())) {
-                bandasFeed.remove(auxFeed);
-                System.out.println("--> Banda Feed Removida da BD");
-            }
-        }
-    }
-
-    public void guardarFeedBD(Feed feed){
-        if(!bandasFeed.contains(feed)){
-            return;
-        }
-        Feed auxFeed = getFeed(feed.getId());
-        auxFeed.setNome(feed.getNome());
-        auxFeed.setInstrumento(feed.getInstrumento());
-        auxFeed.setExperiencia(feed.getExperiencia());
-        auxFeed.setCompromisso(feed.getCompromisso());
-
-        if (musicaeBDHelper.guardarFeedBD(auxFeed)) {
-            System.out.println("--> Banda Feed atualizada na BD");
-        }
-    }
-*/
 
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
 
-        if(!isConnected){
-            bandasFeed = musicaeBDHelper.getAllFeedBD();
-            if(feedListener != null){
-                feedListener.onRefreshListaBandasFeed(bandasFeed);
-            }
-        }else{
-            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas", null, new Response.Listener<JSONArray>() {
+            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades/feed", null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
-                    System.out.println("--> RESPOSTA: " + bandasFeed);
-
-                    //adicionarBandasFeedBD(bandasFeed);
+                    System.out.println("--> RESPOSTA GET FEED API: " + bandasFeed);
 
                     if(feedListener != null){
                         feedListener.onRefreshListaBandasFeed(bandasFeed);
@@ -307,102 +258,10 @@ public class Singleton extends Application implements FeedListener {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    System.out.println("--> ERRO: "+ error.getMessage());
+                    System.out.println("--> ERRO GET FEED API: "+ error.getMessage());
                 }
-            }){
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> headers = new HashMap<>();
-                    String credentials = "pedro:123456";
-                    String auth = "Basic "
-                            + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
-                    headers.put("Content-Type", "application/json");
-                    headers.put("Authorization", auth);
-                    return headers;
-                }
-            };
-
+            });
             volleyQueue.add(req);
-        }
-    }
-
-    public void adicionarFeedAPI(final Feed feed, final Context context){
-        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/bandas", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                System.out.println("--> RESPOSTA ADD POST: " + response);
-
-                if(feedListener != null){
-                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 1);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO ADICIONAR BANDA FEED API: "+ error.getMessage());
-            }
-        }) {
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap<>();
-                params.put("nome", feed.getNome());
-                params.put("instrumento", feed.getInstrumento());
-                params.put("experiencia", feed.getExperiencia());
-                params.put("compromisso", feed.getCompromisso());
-                params.put("capa", feed.getCapa());
-
-                return params;
-            }
-        };
-        volleyQueue.add(req);
-    }
-
-    public void editarFeedAPI(final Feed feed, final Context context){
-        StringRequest req = new StringRequest(Request.Method.PUT, UrlAPI + "/bandas/" + feed.getId(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                System.out.println("--> RESPOSTA EDITAR FEED: " + response);
-
-                if(feedListener != null){
-                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 2);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO EDITAR BANDA FEED API: "+ error.getMessage());
-            }
-        }){
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<>();
-                params.put("nome", feed.getNome());
-                params.put("instrumento", feed.getInstrumento());
-                params.put("experiencia", feed.getExperiencia());
-                params.put("compromisso", feed.getCompromisso());
-                params.put("capa", feed.getCapa());
-
-                return params;
-            }
-        };
-        volleyQueue.add(req);
-    }
-
-    public void removerFeedAPI(final Feed feed){
-        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/bandas/" + feed.getId(), new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                System.out.println("--> RESPOSTA REMOVER FEED: " + response);
-
-                if(feedListener != null){
-                    feedListener.onUpdateListaBandasFeed(feed, 3);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO REMOVER BANDA FEED API: "+ error.getMessage());
-            }
-        });
-        volleyQueue.add(req);
     }
 
     public void setFeedListener(FeedListener feedListener){
@@ -416,15 +275,6 @@ public class Singleton extends Application implements FeedListener {
 
     @Override
     public void onUpdateListaBandasFeed(Feed feed, int operacao) {
-        /*System.out.println("--> Entrou update lista feed BD");
-        switch (operacao){
-            case 1: adicionarFeedBD(feed);
-                break;
-            case 2: guardarFeedBD(feed);
-                break;
-            case 3: removerFeedBD(feed.getId());
-                break;
 
-        }*/
     }
 }

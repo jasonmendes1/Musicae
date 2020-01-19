@@ -97,28 +97,6 @@
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv6"
-            android:layout_below="@id/space1"
-            android:fontFamily="@font/bold"
-            android:text="Data de Criação"
-            android:textColor="@color/gray"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv3"
-            android:layout_toEndOf="@id/iv6"
-            android:fontFamily="@font/regular"
-            android:text="11/22/3333"
-            android:textColor="@color/gray"
-            android:textSize="17sp" />
-
         <Space
             android:id="@+id/space1"
             android:layout_width="match_parent"
@@ -207,23 +185,16 @@
             android:id="@+id/space3"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_below="@id/tvDate"
+            android:layout_below="@id/tvNumber"
             android:layout_toEndOf="@id/space2"/>
 
-        <ImageView
-            android:id="@+id/iv7"
-            android:layout_width="wrap_content"
-            android:layout_height="39dp"
-            android:layout_below="@id/space3"
-            android:layout_toEndOf="@id/space2"
-            android:src="@drawable/side_rect" />
 
         <TextView
             android:id="@+id/tv4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv7"
-            android:layout_below="@id/space3"
+            android:layout_toEndOf="@id/iv6"
+            android:layout_below="@id/space1"
             android:fontFamily="@font/bold"
             android:text="Telemóvel"
             android:textColor="@color/gray"
@@ -234,7 +205,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv4"
-            android:layout_toEndOf="@id/iv7"
+            android:layout_toEndOf="@id/iv6"
             android:fontFamily="@font/regular"
             android:text="931234567"
             android:textColor="@color/gray"

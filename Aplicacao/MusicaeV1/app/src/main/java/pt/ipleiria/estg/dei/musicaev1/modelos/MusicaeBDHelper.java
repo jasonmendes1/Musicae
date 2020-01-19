@@ -12,30 +12,17 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
 
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "musicaedb";
-    private static final String TABLE_BANDA = "bandas";
-    private static final String TABLE_HABILIDADE = "habilidades";
-    private static final String TABLE_GENERO = "generos";
-    private static final String TABLE_FEED = "bandahabilidades";
+    private static final String TABLE_NAME = "profiles";
 
-    private static final String HABILIDADE_ID = "Id";
-    private static final String HABILIDADE_NOME = "Nome";
+    private static final String PROFILE_ID = "id";
+    private static final String PROFILE_NOME = "nome";
+    private static final String PROFILE_SEXO = "sexo";
+    private static final String PROFILE_DATANAC = "dataNasc";
+    private static final String PROFILE_NRTELEMOVEL = "nrtelemovel";
+    private static final String PROFILE_DESCRICAO = "descricao";
+    private static final String PROFILE_FOTO = "foto";
+    private static final String PROFILE_LOCALIDADE = "localidade";
 
-    private static final String GENERO_ID = "Id";
-    private static final String GENERO_NOME = "Nome";
-
-    private static final String BANDA_ID = "Id";
-    private static final String BANDA_NOME = "Nome";
-    private static final String BANDA_DESCRICAO = "Descricao";
-    private static final String BANDA_LOCALIZACAO = "Localizacao";
-    private static final String BANDA_CONTACTO = "Contacto";
-    private static final String BANDA_LOGO = "Logo";
-    private static final String BANDA_REMOVIDA = "Removida";
-    private static final String BANDA_ID_GENERO = "IdGenero";
-
-    private static final String FEED_ID_BANDA = "IdBanda";
-    private static final String FEED_ID_HABILIDADE = "IdHabilidade";
-    private static final String FEED_EXPERIENCIA = "experiencia";
-    private static final String FEED_COMPROMISSO = "compromisso";
 
     private final SQLiteDatabase database;
 
@@ -47,91 +34,73 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String TBL_CREATE_GENERO = "CREATE TABLE " + TABLE_GENERO + "(" +
-                GENERO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                GENERO_NOME + " TEXT NOT NULL);";
-        db.execSQL(TBL_CREATE_GENERO);
-
-        String TBL_CREATE_HABILIDADE = "CREATE TABLE " + TABLE_HABILIDADE + "(" +
-                HABILIDADE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                HABILIDADE_NOME + " TEXT NOT NULL);";
-        db.execSQL(TBL_CREATE_HABILIDADE);
-
-        String TBL_CREATE_BANDA = "CREATE TABLE " + TABLE_BANDA + "(" +
-                BANDA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                BANDA_NOME + " TEXT NOT NULL, " +
-                BANDA_DESCRICAO + " TEXT NOT NULL, " +
-                BANDA_LOCALIZACAO + " TEXT NOT NULL, " +
-                BANDA_CONTACTO + " INTEGER NOT NULL, " +
-                BANDA_LOGO + " BLOB, " +
-                BANDA_REMOVIDA + " INTEGER NOT NULL, " +
-                BANDA_ID_GENERO + " INTEGER REFERENCES " + TABLE_GENERO + "(" + GENERO_ID + ")" + ")";
-        db.execSQL(TBL_CREATE_BANDA);
-
-        String TBL_CREATE_FEED = "CREATE TABLE " + TABLE_FEED + "(" +
-                FEED_ID_BANDA + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                FEED_ID_HABILIDADE + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                FEED_EXPERIENCIA + " TEXT NOT NULL, " +
-                FEED_COMPROMISSO + " TEXT NOT NULL, " +
-                FEED_ID_BANDA + " INTEGER REFERENCES " + TABLE_BANDA + "(" + BANDA_ID + ")" +
-                FEED_ID_HABILIDADE + " INTEGER REFERENCES " + TABLE_HABILIDADE + "(" + HABILIDADE_ID + ")" + ")";
-        db.execSQL(TBL_CREATE_FEED);
+        String TBL_CREATE_PROFILE = "CREATE TABLE " + TABLE_NAME + "(" +
+                PROFILE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                PROFILE_NOME + " TEXT NOT NULL, " +
+                PROFILE_SEXO + " TEXT NOT NULL, " +
+                PROFILE_DATANAC + " DATETIME NOT NULL, " +
+                PROFILE_NRTELEMOVEL + " INTEGER NOT NULL, " +
+                PROFILE_DESCRICAO + " INTEGER NOT NULL, " +
+                PROFILE_FOTO + " BLOB, " +
+                PROFILE_LOCALIDADE + " TEXT NOT NULL);";
+        db.execSQL(TBL_CREATE_PROFILE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_GENERO);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_HABILIDADE);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_BANDA);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_FEED);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         this.onCreate(sqLiteDatabase);
     }
 
     //*************************** MÉTODOS CRUD ***************************
 
-    public ArrayList<Feed> getAllFeedBD(){
-        ArrayList<Feed> bandasFeed = new ArrayList<>();
+    public ArrayList<Perfil> getAllPerfisBD(){
+        ArrayList<Perfil> perfis = new ArrayList<>();
 
-        Cursor cursor = this.database.query(TABLE_BANDA, new String[]{
-                        BANDA_ID, BANDA_NOME, BANDA_DESCRICAO, BANDA_LOCALIZACAO, BANDA_CONTACTO, BANDA_LOGO, BANDA_REMOVIDA, BANDA_ID_GENERO},
+        Cursor cursor = this.database.query(TABLE_NAME, new String[]{
+                        PROFILE_ID, PROFILE_NOME, PROFILE_SEXO, PROFILE_DATANAC, PROFILE_NRTELEMOVEL, PROFILE_DESCRICAO, PROFILE_FOTO, PROFILE_LOCALIDADE},
                 null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             do{
-                Feed auxFeed = new Feed(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
-                bandasFeed.add(auxFeed);
+                Perfil auxPerfil = new Perfil(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7));
+                perfis.add(auxPerfil);
             }while (cursor.moveToNext());
         }
-        return bandasFeed;
+        return perfis;
     }
 
-    public void adicionarFeedBD(Feed feed){
+    public void adicionarPerfilBD(Perfil perfil){
         ContentValues values = new ContentValues();
-        values.put(BANDA_NOME, feed.getNome());
-        values.put(HABILIDADE_NOME, feed.getInstrumento());
-        values.put(FEED_EXPERIENCIA, feed.getExperiencia());
-        values.put(FEED_COMPROMISSO, feed.getCompromisso());
-        values.put(BANDA_LOGO, feed.getCapa());
+        values.put(PROFILE_NOME, perfil.getNome());
+        values.put(PROFILE_SEXO, perfil.getSexo());
+        values.put(PROFILE_DATANAC, perfil.getDatanasc());
+        values.put(PROFILE_NRTELEMOVEL, perfil.getNrtelemovel());
+        values.put(PROFILE_DESCRICAO, perfil.getDescricao());
+        values.put(PROFILE_FOTO, perfil.getFoto());
+        values.put(PROFILE_LOCALIDADE, perfil.getLocalidade());
 
-        this.database.insert(TABLE_FEED, null, values);
+        this.database.insert(TABLE_NAME, null, values);
     }
 
-    public boolean guardarFeedBD(Feed feed){
+    public boolean guardarPerfilBD(Perfil perfil){
         ContentValues values = new ContentValues();
-        values.put(BANDA_NOME, feed.getNome());
-        values.put(HABILIDADE_NOME, feed.getInstrumento());
-        values.put(FEED_EXPERIENCIA, feed.getExperiencia());
-        values.put(FEED_COMPROMISSO, feed.getCompromisso());
-        values.put(BANDA_LOGO, feed.getCapa());
+        values.put(PROFILE_NOME, perfil.getNome());
+        values.put(PROFILE_SEXO, perfil.getSexo());
+        values.put(PROFILE_DATANAC, perfil.getDatanasc());
+        values.put(PROFILE_NRTELEMOVEL, perfil.getNrtelemovel());
+        values.put(PROFILE_DESCRICAO, perfil.getDescricao());
+        values.put(PROFILE_FOTO, perfil.getFoto());
+        values.put(PROFILE_LOCALIDADE, perfil.getLocalidade());
 
-        return this.database.update(TABLE_FEED, values, "id = ?", new String[]{"" + feed.getId()}) > 0;
+        return this.database.update(TABLE_NAME, values, "id = ?", new String[]{"" + perfil.getId()}) > 0;
     }
 
-    public boolean removerFeedBD(int idFeed){
-        return (this.database.delete(TABLE_FEED, "id = ?", new String[]{"" + idFeed}) == 1);
+    public boolean removerPerfilBD(int idPerfil){
+        return (this.database.delete(TABLE_NAME, "id = ?", new String[]{"" + idPerfil}) == 1);
     }
 
-    public void removerAllFeedBD(){
-        this.database.delete(TABLE_FEED, null, null);
+    public void removerAllPerfil(){
+        this.database.delete(TABLE_NAME, null, null);
     }
 }

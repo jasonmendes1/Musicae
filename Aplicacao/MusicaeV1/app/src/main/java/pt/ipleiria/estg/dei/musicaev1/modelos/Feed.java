@@ -2,15 +2,15 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Feed {
     private int id;
-    private String nome, instrumento, compromisso, experiencia, capa;
+    private String nome, instrumento, compromisso, experiencia, logo;
 
-    public Feed(int idFeed, String nome, String instrumento, String compromisso, String experiencia, String capa) {
+    public Feed(int idFeed, String nome, String instrumento, String compromisso, String experiencia, String logo) {
         this.id = idFeed;
         this.nome = nome;
         this.instrumento = instrumento;
         this.compromisso = compromisso;
         this.experiencia = experiencia;
-        this.capa = capa;
+        this.logo = logo;
     }
 
     public int getId() {
@@ -53,11 +53,11 @@ public class Feed {
         this.experiencia = experiencia;
     }
 
-    public String getCapa() {
-        return capa;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setCapa(String capa) {
-        this.capa = capa;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }
