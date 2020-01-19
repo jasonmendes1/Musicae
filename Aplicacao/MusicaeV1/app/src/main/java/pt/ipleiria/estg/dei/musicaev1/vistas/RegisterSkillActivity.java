@@ -27,20 +27,17 @@ public class RegisterSkillActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_skill);
 
-        // Get the reference of movies
-        ListView moviesList=(ListView)findViewById(R.id.lvListaHabilidades);
-
+        lvListaHabilidades = findViewById(R.id.lvListaHabilidades);
         listaHabilidades = Singleton.getInstance(getApplicationContext()).getHabilidadesFiltro();
-
 
         // Create The Adapter with passing ArrayList as 3rd parameter
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaHabilidades);
         // Set The Adapter
-        moviesList.setAdapter(arrayAdapter);
+        lvListaHabilidades.setAdapter(arrayAdapter);
 
         // register onClickListener to handle click events on each item
-        moviesList.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        lvListaHabilidades.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             // argument position gives the index of item which is clicked
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
