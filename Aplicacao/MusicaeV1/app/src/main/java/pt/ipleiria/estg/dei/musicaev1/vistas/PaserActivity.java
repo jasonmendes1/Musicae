@@ -55,9 +55,9 @@ public class PaserActivity extends AppCompatActivity {
 
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject habilidade = response.getJSONObject(i);
-
-                                String Nome = habilidade.getString("Nome");
-
+                                String[] Nome = new String[response.length()];
+                                Nome[i] = habilidade.getString("Nome");
+                                
                                 mTextViewResult.append(Nome +  "\n\n");
                             }
                         } catch (JSONException e) {
