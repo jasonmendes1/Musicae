@@ -25,11 +25,11 @@ public class FeedJsonParser {
                 int idFeed = feed.getInt("id");
                 String nome = feed.getString("nome");
                 String instrumento = feed.getString("instrumento");
-                String compromisso = feed.getString("compromisso");
                 String experiencia = feed.getString("experiencia");
-                String capa = feed.getString("capa");
+                String compromisso = feed.getString("compromisso");
+                String logo = feed.getString("logo");
 
-                Feed auxfeed = new Feed(idFeed, nome, instrumento, compromisso, experiencia, capa);
+                Feed auxfeed = new Feed(idFeed, nome, instrumento, experiencia, compromisso, logo);
                 tempListaFeed.add(auxfeed);
             }
 
@@ -51,11 +51,11 @@ public class FeedJsonParser {
             int idFeed = feed.getInt("id");
             String nome = feed.getString("nome");
             String instrumento = feed.getString("instrumento");
-            String compromisso = feed.getString("compromisso");
             String experiencia = feed.getString("experiencia");
-            String capa = feed.getString("capa");
+            String compromisso = feed.getString("compromisso");
+            String logo = feed.getString("logo");
 
-            auxFeed = new Feed(idFeed, nome, instrumento, compromisso, experiencia, capa);
+            auxFeed = new Feed(idFeed, nome, instrumento, experiencia, compromisso, logo);
 
         }catch(JSONException e){
             e.printStackTrace();

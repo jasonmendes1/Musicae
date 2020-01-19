@@ -73,14 +73,14 @@ public class ListaFeedAdaptador extends BaseAdapter {
         private TextView instrumento;
         private TextView experiencia;
         private TextView compromisso;
-        private ImageView capa;
+        private ImageView logo;
 
         public ViewHolderLista(View convertView){
             nome = convertView.findViewById(R.id.tvNome);
             instrumento = convertView.findViewById(R.id.tvInstrumento);
             experiencia = convertView.findViewById(R.id.tvExperiencia);
             compromisso = convertView.findViewById(R.id.tvCompromisso);
-            capa = convertView.findViewById(R.id.ivFeed);
+            logo = convertView.findViewById(R.id.ivFeed);
         }
 
         public void update(Feed feed){
@@ -89,11 +89,11 @@ public class ListaFeedAdaptador extends BaseAdapter {
             experiencia.setText(feed.getExperiencia());
             compromisso.setText(feed.getCompromisso());
             Glide.with(context)
-                    .load(feed.getCapa())
+                    .load(feed.getLogo())
                     .placeholder(R.drawable.banner)
                     .thumbnail(0f)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(capa);
+                    .into(logo);
         }
     }
 
