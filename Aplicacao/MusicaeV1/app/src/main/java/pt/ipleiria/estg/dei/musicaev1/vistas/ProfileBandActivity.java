@@ -45,6 +45,7 @@ public class ProfileBandActivity extends AppCompatActivity {
 
 
             banda = Singleton.getInstance(getApplicationContext()).getBanda(idBanda);
+            System.out.println("--> IDBanda: " + idBanda);
             mostrarBanda(banda);
 
         buttonEditar = findViewById(R.id.btnEditarBanda);
