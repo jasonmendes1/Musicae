@@ -22,12 +22,12 @@ public class FeedJsonParser {
             for(int i = 0; i < response.length(); i++){
                 JSONObject feed = (JSONObject) response.get(i);
 
-                int idFeed = feed.getInt("id");
-                String nome = feed.getString("nome");
-                String instrumento = feed.getString("instrumento");
-                String experiencia = feed.getString("experiencia");
-                String compromisso = feed.getString("compromisso");
-                String logo = feed.getString("logo");
+                int idFeed = feed.getInt("Id");
+                String nome = feed.getString("Nome");
+                String instrumento = feed.getString("Instrumento");
+                String experiencia = feed.getString("Experiencia");
+                String compromisso = feed.getString("Compromisso");
+                String logo = feed.getString("Logo");
 
                 Feed auxfeed = new Feed(idFeed, nome, instrumento, experiencia, compromisso, logo);
                 tempListaFeed.add(auxfeed);
@@ -38,6 +38,7 @@ public class FeedJsonParser {
             Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
+        System.out.println("--> PARSER LISTA TEMP: "+ tempListaFeed);
         return tempListaFeed;
     }
 

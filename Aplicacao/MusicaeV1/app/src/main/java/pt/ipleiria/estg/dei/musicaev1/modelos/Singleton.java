@@ -214,6 +214,16 @@ public class Singleton extends Application implements FeedListener {
 
     //------------------------------------------------------------------ BANDAS FEED -----------------------------------------------------------------------
 
+    public Banda getBanda(long idBanda){
+        for(Banda b: bandas){
+            if(b.getId() == idBanda){
+                return b;
+            }
+        }
+        return null;
+    }
+
+
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
 
