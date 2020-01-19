@@ -42,7 +42,7 @@ public class Singleton extends Application implements FeedListener {
     private ArrayList<BandaHabilidade> minhasBandas;
     private ArrayList<BandaMembro> BandaMembros;
     private ArrayList<Genero> Generos;
-    private ArrayList<Habilidade> Habilidades;
+    private ArrayList<Habilidade> habilidades;
     private ArrayList<ListaFoto> listaFotos;
     private ArrayList<ListaMusica> listaMusicas;
     private ArrayList<Musico> Musicos;
@@ -57,7 +57,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -78,14 +78,13 @@ public class Singleton extends Application implements FeedListener {
         minhasBandas = new ArrayList<>();
         BandaMembros = new ArrayList<>();
         Generos = new ArrayList<>();
-        Habilidades = new ArrayList<>();
+        habilidades = new ArrayList<>();
         listaFotos = new ArrayList<>();
         listaMusicas = new ArrayList<>();
         Musicos = new ArrayList<>();
         Perfis = new ArrayList<>();
 
         musicaeBDHelper = new MusicaeBDHelper(context);
-        habilidadesGerarFakeData();
         generosGerarFakeData();
         perfisGerarFakeData();
     }
@@ -100,7 +99,7 @@ public class Singleton extends Application implements FeedListener {
     }
 
     public ArrayList<Habilidade> getHabilidades() {
-        return Habilidades;
+        return habilidades;
     }
 
     public ArrayList<ListaMusica> getListaMusicas() {
@@ -196,19 +195,6 @@ public class Singleton extends Application implements FeedListener {
 
     public void setIdUser(int idUser){
         this.idUser = idUser;
-    }
-
-    private void habilidadesGerarFakeData() {
-        Habilidades.add(new Habilidade(1, "Vocalist"));
-        Habilidades.add(new Habilidade(2, "Guitar"));
-        Habilidades.add(new Habilidade(3, "Violin"));
-        Habilidades.add(new Habilidade(4, "Drums"));
-        Habilidades.add(new Habilidade(5, "DJ"));
-        Habilidades.add(new Habilidade(6, "Piano"));
-        Habilidades.add(new Habilidade(7, "Trumpet"));
-        Habilidades.add(new Habilidade(8, "Saxophone"));
-        Habilidades.add(new Habilidade(9, "Flute"));
-        Habilidades.add(new Habilidade(10, "Clarinet"));
     }
 
     private void generosGerarFakeData() {
