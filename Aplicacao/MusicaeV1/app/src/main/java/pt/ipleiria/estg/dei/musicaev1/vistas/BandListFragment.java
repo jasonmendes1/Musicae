@@ -22,12 +22,14 @@ import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaBandaAdaptador;
+import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.FeedListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
-public class BandListFragment extends Fragment {
+public class BandListFragment extends Fragment implements BandaHabilidadeListener {
 
     private Button buttonAtual, buttonPassado, buttonPendente;
     private ArrayList<Banda> listaBandas;
@@ -43,7 +45,6 @@ public class BandListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-
 
         final View rootView = inflater.inflate(R.layout.fragment_band_list, container, false);
 
@@ -91,6 +92,19 @@ public class BandListFragment extends Fragment {
 
         //------------------------------------------------------------------------------------------------------------
 
+
+        Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
+        Singleton.getInstance(getContext()).getMinhasBandasAPI();
+
+
+
+
+
+
+
+
+
+
         return rootView;
     }
 
@@ -101,5 +115,14 @@ public class BandListFragment extends Fragment {
             searchView.onActionViewCollapsed();
         }
         super.onResume();
+    }
+
+    @Override
+    public void onRefreshBandaHabilidades(ArrayList<BandaHabilidade> MinhasBandas) {
+        if(!MinhasBandas.isEmpty()){
+            listaBandaAdaptador = new ListaBandaAdaptador(getContext(), MinhasBandas);
+            lvListaBandas.setAdapter(listaBandaAdaptador);
+            listaBandaAdaptador.refresh(MinhasBandas);
+        }
     }
 }

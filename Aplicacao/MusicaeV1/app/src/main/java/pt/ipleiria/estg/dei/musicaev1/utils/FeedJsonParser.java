@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Feed;
 
 public class FeedJsonParser {
+
     public static ArrayList<Feed> parserJsonFeed(JSONArray response, Context context){
         System.out.println("--> PARSER LISTA FEED: "+ response);
         ArrayList<Feed> tempListaFeed = new ArrayList<Feed>();

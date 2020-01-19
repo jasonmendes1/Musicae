@@ -14,33 +14,33 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
 
 public class ListaBandaAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<Banda> bandas;
+    private ArrayList<BandaHabilidade> bandaHabilidades;
 
 
-    public ListaBandaAdaptador(Context context, ArrayList<Banda> bandas) {
+    public ListaBandaAdaptador(Context context, ArrayList<BandaHabilidade> bandaHabilidades) {
         this.context = context;
-        this.bandas = bandas;
+        this.bandaHabilidades = bandaHabilidades;
     }
 
     @Override
     public int getCount() {
-        return bandas.size();
+        return bandaHabilidades.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return bandas.get(position);
+        return bandaHabilidades.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return bandas.get(position).getId();
+        return bandaHabilidades.get(position).getId();
     }
 
     @Override
@@ -59,12 +59,12 @@ public class ListaBandaAdaptador extends BaseAdapter {
             convertView.setTag(viewHolder);
         }
 
-        viewHolder.update(bandas.get(position));
+        viewHolder.update(bandaHabilidades.get(position));
         return convertView;
     }
 
-    public void refresh(ArrayList<Banda> listaBandas) {
-        this.bandas = listaBandas;
+    public void refresh(ArrayList<BandaHabilidade> bandaHabilidades) {
+        this.bandaHabilidades = bandaHabilidades;
         notifyDataSetChanged();
     }
 
@@ -79,12 +79,10 @@ public class ListaBandaAdaptador extends BaseAdapter {
             dataEntrada = convertView.findViewById(R.id.tvDataEntrada);
         }
 
-        public void update(Banda banda){
-            /*
-            nome.setText(banda.getNome());
-            instrumento.setText(banda.getGenero());
-            dataEntrada.setText(banda.getLocalizacao());
-             */
+        public void update(BandaHabilidade banda){
+            nome.setText(banda.getBandaNome());
+            instrumento.setText(banda.getHabilidadeNome());
+            dataEntrada.setText(banda.getDataEntrada());
         }
     }
 }

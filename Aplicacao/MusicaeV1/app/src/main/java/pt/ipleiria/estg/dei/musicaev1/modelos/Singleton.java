@@ -29,14 +29,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.FeedListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
+import pt.ipleiria.estg.dei.musicaev1.utils.BandaHabilidadeJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class Singleton extends Application implements FeedListener {
     public int idUser;
     private ArrayList<Banda> bandas;
     private ArrayList<Feed> bandasFeed;
+    private ArrayList<BandaHabilidade> minhasBandas;
     private ArrayList<BandaMembro> BandaMembros;
     private ArrayList<Genero> Generos;
     private ArrayList<Habilidade> Habilidades;
@@ -46,6 +49,8 @@ public class Singleton extends Application implements FeedListener {
     private ArrayList<Perfil> Perfis;
 
     private LoginListener loginListener;
+    private BandaHabilidadeListener bandaHabilidadeListener;
+    public int IdUser = 4;
 
     private static final String ALGORITHM = "AES";
     private static final byte[] SALT = "tHeApAcHe6410111".getBytes();
@@ -70,6 +75,7 @@ public class Singleton extends Application implements FeedListener {
     private Singleton(Context context) {
         bandas = new ArrayList<>();
         bandasFeed = new ArrayList<>();
+        minhasBandas = new ArrayList<>();
         BandaMembros = new ArrayList<>();
         Generos = new ArrayList<>();
         Habilidades = new ArrayList<>();
@@ -165,12 +171,14 @@ public class Singleton extends Application implements FeedListener {
         volleyQueue.add(req);
     }
 
-    public void minhasBandas(final int idmusico){
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPI , null, new Response.Listener<JSONObject>() {
+    public void getMinhasBandasAPI (final Context context, boolean isConnected){
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.POST, UrlAPI + "/bandas/membros/" + idUser , null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
-                if(loginListener!=null){
-                    loginListener.onRefreshLogin(response.toString());
+            public void onResponse(JSONArray response) {
+                minhasBandas = BandaHabilidadeJsonParser.parserJsonBandaHabilidade(response, context);
+                if(bandaHabilidadeListener!=null){
+                    bandaHabilidadeListener.onRefreshBandaHabilidades(minhasBandas);
+                    //TOU AQUI
                 }
             }
         }, new Response.ErrorListener() {
@@ -180,6 +188,14 @@ public class Singleton extends Application implements FeedListener {
             }
         });
         volleyQueue.add(req);
+    }
+
+    public int getIdUser(){
+        return idUser;
+    }
+
+    public void setIdUser(int idUser){
+        this.idUser = idUser;
     }
 
     private void habilidadesGerarFakeData() {
@@ -229,7 +245,6 @@ public class Singleton extends Application implements FeedListener {
         String[] listItems = {"Rock", "Pop", "Jazz", "Rap", "Reggae", "Acoustic", "Gospel", "Country", "Dubstep", "Metal"};
         return listItems;
     }
-
     //------------------------------------------------------------------ BANDAS FEED -----------------------------------------------------------------------
 
     public Banda getBanda(long idBanda){
@@ -266,6 +281,10 @@ public class Singleton extends Application implements FeedListener {
 
     public void setFeedListener(FeedListener feedListener){
         this.feedListener = feedListener;
+    }
+
+    public void setBandaHabilidadeListener(BandaHabilidadeListener bandaHabilidadeListener){
+        this.bandaHabilidadeListener = bandaHabilidadeListener;
     }
 
     @Override
