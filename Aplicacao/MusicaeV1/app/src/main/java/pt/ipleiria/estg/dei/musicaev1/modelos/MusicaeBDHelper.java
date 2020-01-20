@@ -19,7 +19,6 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
 
     private static final String HABILIDADE_ID = "Id";
     private static final String HABILIDADE_NOME = "Nome";
-a
     private static final String GENERO_ID = "Id";
     private static final String GENERO_NOME = "Nome";
 
