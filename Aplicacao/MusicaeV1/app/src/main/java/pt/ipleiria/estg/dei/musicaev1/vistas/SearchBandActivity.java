@@ -38,16 +38,16 @@ public class SearchBandActivity extends AppCompatActivity {
         buttonCriarProcura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Singleton.getInstance(getApplicationContext()).adicionarBandaFeedAPI(criarFeed(),getApplicationContext());
+                //Singleton.getInstance(getApplicationContext()).adicionarBandaFeedAPI(criarFeed(),getApplicationContext());
                 setResult(RESULT_OK);
                 finish();
             }
         });
     }
 
-    private Feed criarFeed(){
-        /*String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
+    /*private Feed criarFeed(){
+        String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
         Feed auxFeed = new Feed(0, edTitulo.getText().toString(), edSerie.getText().toString(), edAutor.getText().toString(), Integer.parseInt(edAno.getText().toString()), img);
-        return auxFeed;*/
-    }
+        return auxFeed;
+    }*/
 }
