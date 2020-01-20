@@ -26,6 +26,7 @@ import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
+import pt.ipleiria.estg.dei.musicaev1.utils.BandaHabilidadeJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class BandListFragment extends Fragment implements BandaHabilidadeListener {
@@ -90,7 +91,7 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         //------------------------------------------------------------------------------------------------------------
 
         Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
-        Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+        Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
 
 
         return rootView;
