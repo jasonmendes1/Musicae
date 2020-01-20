@@ -3,10 +3,6 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +11,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -39,7 +38,8 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
     private ListaBandaAdaptador listaBandaAdaptador;
 
 
-    public static final int RESULT_CODE_CRIAR = 10;
+    public static final int RESULT_CODE_CRIAR = 12;
+    public static final int RESULT_CODE_VER = 10;
     public static final int RESULT_CODE_GUARDAR_REMOVER = 11;
 
     @Override
@@ -52,10 +52,11 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Banda tempBanda = (Banda) parent.getItemAtPosition(position);
+
+                /*Banda tempBanda = (Banda) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ProfileBandActivity.class);
-                intent.putExtra(ProfileBandActivity.ID_BANDA, tempBanda.getId());
-                startActivityForResult(intent, RESULT_CODE_GUARDAR_REMOVER);
+                intent.putExtra(ProfileBandActivity.NOME_BANDA, tempBanda.getNome());
+                startActivityForResult(intent, RESULT_CODE_VER);*/
             }
         });
 
@@ -72,7 +73,7 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+                Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -92,6 +93,7 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
 
         Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
         Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
+
 
 
         return rootView;

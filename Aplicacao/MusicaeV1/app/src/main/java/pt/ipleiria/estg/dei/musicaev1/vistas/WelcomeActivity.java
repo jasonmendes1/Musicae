@@ -2,6 +2,7 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -41,13 +42,13 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        buttonNext = findViewById(R.id.button);
+        /*buttonNext = findViewById(R.id.button);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, PaserActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, MenuMainActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
