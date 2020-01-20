@@ -111,7 +111,7 @@ public class DetalhesBanda extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Singleton.getInstance(getApplicationContext()).removerLivro(idLivro);
+                        Singleton.getInstance(getApplicationContext()).removerBanda(idBanda);
                         finish();
                     }})
 
@@ -126,25 +126,25 @@ public class DetalhesBanda extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        /*
-        if(idLivro != -1){
+
+        if(idBanda != -1){
             MenuInflater menuInflater = getMenuInflater();
-            menuInflater.inflate(R.menu.menu_detalhes_livro, menu);
+            menuInflater.inflate(R.menu.menu_detalhes_banda, menu);
             return super.onCreateOptionsMenu(menu);
         }
-         */
+
         return false;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        /*
+
         switch (item.getItemId()){
             case R.id.itemRemover:
                 dialogRemover();
                 return true;
         }
-         */
+
         return super.onOptionsItemSelected(item);
 
     }
