@@ -91,9 +91,9 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
 
         //------------------------------------------------------------------------------------------------------------
 
+        Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
+        Singleton.getInstance(getContext()).getMinhasBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
 
-        //Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
-        //Singleton.getInstance(getContext()).getMinhasBandasAPI();
 
         return rootView;
     }

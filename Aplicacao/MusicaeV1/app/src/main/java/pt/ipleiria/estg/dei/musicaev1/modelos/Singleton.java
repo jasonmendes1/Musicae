@@ -36,7 +36,6 @@ import pt.ipleiria.estg.dei.musicaev1.utils.BandaHabilidadeJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class Singleton extends Application implements FeedListener {
-    public int idUser;
     private ArrayList<Banda> bandas;
     private ArrayList<Feed> bandasFeed;
     private ArrayList<BandaHabilidade> minhasBandas;
@@ -57,7 +56,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -171,30 +170,31 @@ public class Singleton extends Application implements FeedListener {
     }
 
     public void getMinhasBandasAPI (final Context context, boolean isConnected){
-        JsonArrayRequest req = new JsonArrayRequest(Request.Method.POST, UrlAPI + "/bandas/membros/" + idUser , null, new Response.Listener<JSONArray>() {
+        System.out.println("-->wi response: BEM VINDO PUTA");
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas/membros/" + IdUser, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 minhasBandas = BandaHabilidadeJsonParser.parserJsonBandaHabilidade(response, context);
-                if(bandaHabilidadeListener!=null){
+                if (bandaHabilidadeListener != null) {
                     bandaHabilidadeListener.onRefreshBandaHabilidades(minhasBandas);
-                    //TOU AQUI
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("--> Erro: " + error.getMessage());
+                System.out.println("--> ERRO WI: " + error.getMessage());
             }
         });
         volleyQueue.add(req);
     }
 
+
     public int getIdUser(){
-        return idUser;
+        return IdUser;
     }
 
     public void setIdUser(int idUser){
-        this.idUser = idUser;
+        this.IdUser = idUser;
     }
 
     private void generosGerarFakeData() {
@@ -276,7 +276,7 @@ public class Singleton extends Application implements FeedListener {
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
 
-            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades/feed", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades/feed", null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
@@ -295,7 +295,39 @@ public class Singleton extends Application implements FeedListener {
             volleyQueue.add(req);
     }
 
+<<<<<<< HEAD
 
+=======
+    public void adicionarBandaFeedAPI(final Feed feed, final Context context){
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades/feed", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println("--> RESPOSTA ADD POST: " + response);
+
+                if(feedListener != null){
+                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 1);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO ADICIONAR BADA FEED API: "+ error.getMessage());
+            }
+        }) {
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("nome", feed.getNome());
+                params.put("instrumento", feed.getInstrumento());
+                params.put("compromisso", feed.getCompromisso());
+                params.put("experiencia", feed.getExperiencia());
+                params.put("capa", feed.getLogo());
+
+                return params;
+            }
+        };
+        volleyQueue.add(req);
+    }
+>>>>>>> 30d9f54c280e7caf9abd12f7967bf778c4775113
 
     public void setFeedListener(FeedListener feedListener){
         this.feedListener = feedListener;

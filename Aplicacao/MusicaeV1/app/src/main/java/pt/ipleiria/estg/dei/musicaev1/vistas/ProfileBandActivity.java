@@ -26,6 +26,7 @@ import org.json.JSONObject;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Feed;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class ProfileBandActivity extends AppCompatActivity {
@@ -121,6 +122,7 @@ public class ProfileBandActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileBandActivity.this, SearchBandActivity.class);
+                intent.putExtra(SearchBandActivity.ID_BANDA, idBanda);
                 startActivity(intent);
             }
         });
