@@ -26,7 +26,7 @@ public class SearchBandActivity extends AppCompatActivity {
         idBanda = getIntent().getIntExtra(ID_BANDA, 0);
 
         buttonCancelar = findViewById(R.id.btnCancelar);
-        buttonCriarProcura = findViewById(R.id.btnCriarProcura);
+        //buttonCriarProcura = findViewById(R.id.btnCriarProcura);
 
         buttonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,8 @@ public class SearchBandActivity extends AppCompatActivity {
     private Feed criarFeed(){
         /*String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
         Feed auxFeed = new Feed(0, edTitulo.getText().toString(), edSerie.getText().toString(), edAutor.getText().toString(), Integer.parseInt(edAno.getText().toString()), img);
-        return auxFeed;*/
+         */
+        return null;
+
     }
 }

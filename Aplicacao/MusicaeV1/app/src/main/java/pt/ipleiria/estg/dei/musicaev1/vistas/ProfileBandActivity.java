@@ -38,7 +38,7 @@ public class ProfileBandActivity extends AppCompatActivity {
     private int idBanda;
     private Button buttonEditar, buttonCandidatos;
     private FloatingActionButton fabProcura;
-    private String url = "http://192.168.1.7/MusicaeWeb/backend/web/v1/bandas/perfil";
+    private String url = "http://192.168.1.68/MusicaeWeb/backend/web/v1/bandas/perfil";
 
     private RequestQueue mQueue;
 
