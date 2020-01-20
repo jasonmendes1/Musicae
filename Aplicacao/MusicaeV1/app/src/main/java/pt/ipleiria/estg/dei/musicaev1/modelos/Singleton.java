@@ -330,7 +330,7 @@ public class Singleton extends Application implements FeedListener {
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD: " + response);
                 if(bandasListener != null){
-                    bandasListener.onUpdateListaBandaBD(BandaJsonParser.parserJsonBanda(response, context), 1);
+                    bandasListener.onUpdateListaBandasBD(BandaJsonParser.parserJsonBanda(response, context), 1);
                 }
             }
         }, new Response.ErrorListener() {
@@ -361,7 +361,7 @@ public class Singleton extends Application implements FeedListener {
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA REMOVER: " + response);
                 if(bandasListener != null){
-                    bandasListener.onUpdateListaBandaBD(banda, 3);
+                    bandasListener.onUpdateListaBandasBD(banda, 3);
                 }
             }
         }, new Response.ErrorListener() {
@@ -380,7 +380,7 @@ public class Singleton extends Application implements FeedListener {
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA EDITAR: " + response);
                 if(bandasListener != null){
-                    bandasListener.onUpdateListaBandaBD(BandaJsonParser.parserJsonBanda(response, context), 2);
+                    bandasListener.onUpdateListaBandasBD(BandaJsonParser.parserJsonBanda(response, context), 2);
                 }
             }
         }, new Response.ErrorListener() {
@@ -409,7 +409,7 @@ public class Singleton extends Application implements FeedListener {
     }
 
     @Override
-    public void onRefreshListaBandas(ArrayList<Banda> listaBandas) {
+    public void onRefreshBanda(ArrayList<Banda> listaBandas) {
 
     }
 
