@@ -251,6 +251,27 @@ public class Singleton extends Application implements FeedListener {
         return null;
     }
 
+    public Banda getBandasBD(long idBanda){
+        for(Banda l: bandas){
+            if(l.getId() == idBanda){
+                return l;
+            }
+        }
+        return null;
+    }
+
+    public void removerBanda(int idBanda){
+        Banda auxBanda = getBanda(idBanda);
+
+        if(auxBanda != null){
+            if(musicaeBDHelper.removerPerfilBD(auxLivro.getId())){
+                livros.remove(auxLivro);
+                System.out.println("--> Livro removido da BD");
+            }
+
+        }
+    }
+
 
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
@@ -273,6 +294,8 @@ public class Singleton extends Application implements FeedListener {
             });
             volleyQueue.add(req);
     }
+
+
 
     public void setFeedListener(FeedListener feedListener){
         this.feedListener = feedListener;

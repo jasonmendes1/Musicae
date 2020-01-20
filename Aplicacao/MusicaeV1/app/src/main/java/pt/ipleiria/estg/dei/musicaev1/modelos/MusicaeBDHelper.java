@@ -12,7 +12,27 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
 
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "musicaedb";
-    private static final String TABLE_NAME = "profiles";
+    private static final String TABLE_BANDA = "bandas";
+    private static final String TABLE_HABILIDADE = "habilidades";
+    private static final String TABLE_GENERO = "generos";
+    private static final String TABLE_FEED = "bandahabilidades";
+
+    private static final String HABILIDADE_ID = "Id";
+    private static final String HABILIDADE_NOME = "Nome";
+a
+    private static final String GENERO_ID = "Id";
+    private static final String GENERO_NOME = "Nome";
+
+    private static final String BANDA_ID = "Id";
+    private static final String BANDA_NOME = "Nome";
+    private static final String BANDA_DESCRICAO = "Descricao";
+    private static final String BANDA_LOCALIZACAO = "Localizacao";
+    private static final String BANDA_CONTACTO = "Contacto";
+    private static final String BANDA_LOGO = "Logo";
+    private static final String BANDA_REMOVIDA = "Removida";
+    private static final String BANDA_ID_GENERO = "IdGenero";
+
+    private static final String TABLE_PROFILES = "profiles";
 
     private static final String PROFILE_ID = "id";
     private static final String PROFILE_NOME = "nome";
@@ -34,7 +54,7 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String TBL_CREATE_PROFILE = "CREATE TABLE " + TABLE_NAME + "(" +
+        String TBL_CREATE_PROFILE = "CREATE TABLE " + TABLE_PROFILES + "(" +
                 PROFILE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 PROFILE_NOME + " TEXT NOT NULL, " +
                 PROFILE_SEXO + " TEXT NOT NULL, " +
@@ -44,11 +64,38 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
                 PROFILE_FOTO + " BLOB, " +
                 PROFILE_LOCALIDADE + " TEXT NOT NULL);";
         db.execSQL(TBL_CREATE_PROFILE);
+
+
+        String TBL_CREATE_GENERO = "CREATE TABLE " + TABLE_GENERO + "(" +
+                GENERO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                GENERO_NOME + " TEXT NOT NULL);";
+        db.execSQL(TBL_CREATE_GENERO);
+
+
+        String TBL_CREATE_HABILIDADE = "CREATE TABLE " + TABLE_HABILIDADE + "(" +
+                HABILIDADE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                HABILIDADE_NOME + " TEXT NOT NULL);";
+        db.execSQL(TBL_CREATE_HABILIDADE);
+
+
+        String TBL_CREATE_BANDA = "CREATE TABLE " + TABLE_BANDA + "(" +
+                BANDA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                BANDA_NOME + " TEXT NOT NULL, " +
+                BANDA_DESCRICAO + " TEXT NOT NULL, " +
+                BANDA_LOCALIZACAO + " TEXT NOT NULL, " +
+                BANDA_CONTACTO + " INTEGER NOT NULL, " +
+                BANDA_LOGO + " BLOB, " +
+                BANDA_REMOVIDA + " INTEGER NOT NULL, " +
+                BANDA_ID_GENERO + " INTEGER REFERENCES " + TABLE_GENERO + "(" + GENERO_ID + ")" + ")";
+        db.execSQL(TBL_CREATE_BANDA);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_GENERO);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_HABILIDADE);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_BANDA);
         this.onCreate(sqLiteDatabase);
     }
 
@@ -57,7 +104,7 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
     public ArrayList<Perfil> getAllPerfisBD(){
         ArrayList<Perfil> perfis = new ArrayList<>();
 
-        Cursor cursor = this.database.query(TABLE_NAME, new String[]{
+        Cursor cursor = this.database.query(TABLE_PROFILES, new String[]{
                         PROFILE_ID, PROFILE_NOME, PROFILE_SEXO, PROFILE_DATANAC, PROFILE_NRTELEMOVEL, PROFILE_DESCRICAO, PROFILE_FOTO, PROFILE_LOCALIDADE},
                 null, null, null, null, null);
 
@@ -70,6 +117,22 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         return perfis;
     }
 
+    public ArrayList<Banda> getAllBandasBD(){
+        ArrayList<Banda> bandas = new ArrayList<>();
+
+        Cursor cursor = this.database.query(TABLE_BANDA, new String[]{
+                        BANDA_ID, BANDA_NOME, BANDA_DESCRICAO, BANDA_LOCALIZACAO, BANDA_CONTACTO, BANDA_LOGO, BANDA_REMOVIDA, BANDA_ID_GENERO},
+                null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do{
+                Banda auxBanda = new Banda(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6));
+                bandas.add(auxBanda);
+            }while (cursor.moveToNext());
+        }
+        return bandas;
+    }
+
     public void adicionarPerfilBD(Perfil perfil){
         ContentValues values = new ContentValues();
         values.put(PROFILE_NOME, perfil.getNome());
@@ -80,7 +143,18 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         values.put(PROFILE_FOTO, perfil.getFoto());
         values.put(PROFILE_LOCALIDADE, perfil.getLocalidade());
 
-        this.database.insert(TABLE_NAME, null, values);
+        this.database.insert(TABLE_PROFILES, null, values);
+    }
+
+    public void adicionarBandaBD(Banda banda){
+        ContentValues values = new ContentValues();
+        values.put(BANDA_NOME, banda.getNome());
+        values.put(BANDA_DESCRICAO, banda.getDescricao());
+        values.put(BANDA_LOCALIZACAO, banda.getLocalizacao());
+        values.put(BANDA_CONTACTO, banda.getContacto());
+        values.put(BANDA_LOGO, banda.getCapa());
+
+        this.database.insert(TABLE_BANDA, null, values);
     }
 
     public boolean guardarPerfilBD(Perfil perfil){
@@ -93,14 +167,33 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         values.put(PROFILE_FOTO, perfil.getFoto());
         values.put(PROFILE_LOCALIDADE, perfil.getLocalidade());
 
-        return this.database.update(TABLE_NAME, values, "id = ?", new String[]{"" + perfil.getId()}) > 0;
+        return this.database.update(TABLE_PROFILES, values, "id = ?", new String[]{"" + perfil.getId()}) > 0;
+    }
+
+    public boolean guardarBandaBD(Banda banda){
+        ContentValues values = new ContentValues();
+        values.put(BANDA_NOME, banda.getNome());
+        values.put(BANDA_DESCRICAO, banda.getDescricao());
+        values.put(BANDA_LOCALIZACAO, banda.getLocalizacao());
+        values.put(BANDA_CONTACTO, banda.getContacto());
+        values.put(BANDA_LOGO, banda.getCapa());
+
+        return this.database.update(TABLE_BANDA, values, "id = ?", new String[]{"" + banda.getId()}) > 0;
     }
 
     public boolean removerPerfilBD(int idPerfil){
-        return (this.database.delete(TABLE_NAME, "id = ?", new String[]{"" + idPerfil}) == 1);
+        return (this.database.delete(TABLE_PROFILES, "id = ?", new String[]{"" + idPerfil}) == 1);
+    }
+
+    public boolean removerBandaBD(int idBanda){
+        return (this.database.delete(TABLE_BANDA, "id = ?", new String[]{"" + idBanda}) == 1);
     }
 
     public void removerAllPerfil(){
-        this.database.delete(TABLE_NAME, null, null);
+        this.database.delete(TABLE_PROFILES, null, null);
+    }
+
+    public void removerAllBanda(){
+        this.database.delete(TABLE_BANDA, null, null);
     }
 }
