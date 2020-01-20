@@ -355,37 +355,6 @@ public class Singleton extends Application implements FeedListener {
         volleyQueue.add(req);
     }
 
-    public void adicionarBandaAPI(final Banda banda, final Context context){
-        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                System.out.println("--> RESPOSTA ADD: " + response);
-                if(bandasListener != null){
-                    bandasListener.onUpdateListaLivrosBD(BandaJsonParser.parserJsonBanda(response, context), 1);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO: adicionarBandasAPI: " + error.getMessage());
-
-            }
-        }){
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap<>();
-                params.put("token", tokenAPI);
-                params.put("nome", banda.getNome());
-                params.put("descricao", banda.getDescricao());
-                params.put("localizacao", banda.getLocalizacao());
-                params.put("contacto", "" + banda.getContacto());
-                params.put("logo", banda.getCapa());
-
-                return params;
-            }
-        };
-        volleyQueue.add(req);
-    }
-
     public void removerBandasAPI(final Banda livro){
         StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/" + livro.getId(), new Response.Listener<String>() {
             @Override
