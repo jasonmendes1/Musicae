@@ -5,6 +5,27 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="UrlAPI">http://192.168.1.7/MusicaeWeb/backend/web/v1</string>
+    <string name="Npedidos">0</string>
+    <string name="txtPedidos">Pedidos</string>
+    <string name="btnCancelar">Cancelar</string>
+    <string name="txtCriarBanda">Cria a tua Banda</string>
+    <string name="txtCriarBandaNome">Nome da Banda</string>
+    <string name="txtCriarBandaLocalizacao">Cidade</string>
+    <string name="txtCriarBandaContacto">Telemóvel</string>
+    <string name="txtCriarBandaCancelar">Cancelar</string>
+    <string name="txtCriarBandaCriar">Criar</string>
+    <string name="txtFiltroHabilidade">Habilidade:</string>
+    <string name="txtFiltroGenero">Género de Música:</string>
+    <string name="txtFiltroIdade">Idade</string>
+    <string name="txtFiltroDe">de</string>
+    <string name="txtFiltroA">a</string>
+    <string name="txtFiltroExperiencia">Experiência:</string>
+    <string name="txtFiltroCompromisso">Compromisso</string>
+    <string name="txtFiltroPeloMenos">Pelo Menos</string>
+    <string name="txtFiltroExato">Exato</string>
+    <string name="txtFiltroProcurar">PROCURAR</string>
+    <string name="txtLembrarConta">Lembrar Conta</string>
+    <string name="txtLogin">Login</string>
 
     <array name="skillsArray">
         <item>aaaaaaaaaaaaaa</item>

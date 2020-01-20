@@ -37,10 +37,10 @@ public class CreateBandActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinnerGenre);
 
         List<String> categorias = new ArrayList<>();
-        categorias.add(0, "Sexo");
-        categorias.add(1, "Homem");
-        categorias.add(2, "Mulher");
-        categorias.add(3, "?? Outro ??");
+        categorias.add(0, "Genero");
+        categorias.add(1, "Rap");
+        categorias.add(2, "Jazz");
+        categorias.add(3, "Rock");
 
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categorias);

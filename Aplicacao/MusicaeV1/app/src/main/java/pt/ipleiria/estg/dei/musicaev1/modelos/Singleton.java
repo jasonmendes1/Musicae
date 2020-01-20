@@ -497,7 +497,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
     @Override
     public void onRefreshBanda(ArrayList<Banda> listabanda) {
-        
+
     }
 
     @Override
