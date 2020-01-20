@@ -24,7 +24,7 @@ import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
-public class DetalhesBanda extends AppCompatActivity {
+public class DetalhesBandaActivity extends AppCompatActivity {
 
     private Banda banda;
     public static  final String ID_BANDA = "idBanda";
