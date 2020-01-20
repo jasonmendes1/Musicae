@@ -67,7 +67,7 @@ public class ProfileFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        System.out.println("-->w estamos dentro do onResponse wi todos doidos ");
+                        System.out.println("-->RESPOSTA WI ");
                         try {
                             JSONObject profile = response.getJSONObject(0);
 

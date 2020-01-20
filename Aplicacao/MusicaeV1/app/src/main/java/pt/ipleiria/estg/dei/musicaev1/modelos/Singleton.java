@@ -172,7 +172,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
 
     public void getBandasPerfilAPI (final Context context, boolean isConnected){
-        System.out.println("-->wi response: BEM VINDO PUTA");
+        System.out.println("-->wi response: BEM VINDO");
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas/membros/" + IdUser, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
