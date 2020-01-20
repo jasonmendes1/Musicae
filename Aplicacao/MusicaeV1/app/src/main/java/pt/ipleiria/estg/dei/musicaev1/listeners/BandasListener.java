@@ -8,4 +8,5 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
 
 public interface BandasListener {
     void onRefreshBanda(ArrayList<Banda> Bandas);
+    void onUpdateListaLivrosBD(Banda banda, int operacao);
 }
