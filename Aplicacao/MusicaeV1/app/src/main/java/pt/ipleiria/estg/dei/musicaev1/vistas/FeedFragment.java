@@ -64,6 +64,7 @@ public class FeedFragment extends Fragment implements FeedListener {
                 Feed tempFeed = (Feed) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ProfileBandActivity.class);
                 intent.putExtra(ProfileBandActivity.ID_BANDA, tempFeed.getId());
+                intent.putExtra(ProfileBandActivity.NOME_BANDA, tempFeed.getNome());
                 startActivityForResult(intent, RESULT_CODE_VER);
             }
         });
