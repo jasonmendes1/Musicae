@@ -192,7 +192,7 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         this.database.delete(TABLE_PROFILES, null, null);
     }
 
-    public void removerAllBanda(){
+    public void removerAllBandaBD(){
         this.database.delete(TABLE_BANDA, null, null);
     }
 }

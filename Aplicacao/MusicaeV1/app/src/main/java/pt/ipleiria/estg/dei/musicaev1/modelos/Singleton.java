@@ -265,17 +265,14 @@ public class Singleton extends Application implements FeedListener {
     }
 
     public void adicionarBandaBD(Banda banda){
-        Banda auxBanda = MusicaeBDHelper.adicionarBandaBD(banda);
-        if(auxBanda != null){
-            bandas.add(auxBanda);
-            System.out.println("--> BANDA adicionado à BD");
-        }
+        musicaeBDHelper.adicionarBandaBD(banda);
     }
 
     public void adicionarBandasBD(ArrayList<Banda> listaBandas){
-        musicaeBDHelper.removerAllBanda();
-        for(Banda banda : listaBandas)
+        musicaeBDHelper.removerAllBandaBD();
+        for (Banda banda: listaBandas) {
             adicionarBandaBD(banda);
+        }
     }
 
     public void removerBanda(int idBanda){
