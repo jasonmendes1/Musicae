@@ -10,8 +10,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -22,15 +24,16 @@ import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
-public class DetalhesBanda extends AppCompatActivity {
+public class DetalhesBandaActivity extends AppCompatActivity {
 
     private Banda banda;
     public static  final String ID_BANDA = "idBanda";
     private EditText edNomeBanda, edCidadeBanda, edContactoBanda, edDescricaoBanda, edGeneroBanda, edLocalizacaoBanda, edCapaBanda;
+    private Spinner spinnerGenero;
     private int idBanda;
     ImageView imageView;
     private MenuItem menuItem;
-    private FloatingActionButton fab;
+    private Button buttonCriar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,43 +41,35 @@ public class DetalhesBanda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_band);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         idBanda = getIntent().getIntExtra(ID_BANDA, -1);
 
-
         edNomeBanda = findViewById(R.id.etBandName);
-        edCidadeBanda = findViewById(R.id.etCity);
+        spinnerGenero = findViewById(R.id.spinnerGenre);
+        edLocalizacaoBanda = findViewById(R.id.etCity);
         edContactoBanda = findViewById(R.id.etPhone);
         edDescricaoBanda = findViewById(R.id.etDescription);
         //fab = findViewById(R.id.fab);
 
-
-        fab.setOnClickListener(new View.OnClickListener() {
+        buttonCriar = findViewById(R.id.btnCRIARBANDA);
+        buttonCriar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(idBanda == -1){
-                    setTitle("Adicionar Banda");
-                    fab.setImageResource(R.drawable.ic_action_add);
-                }else{
-                    banda = Singleton.getInstance(getApplicationContext()).getBanda(idBanda);
-                    fab.setImageResource(R.drawable.ic_action_save);
-                    setTitle("Detalhes:" + banda.getNome());
-                    mostrarBanda(banda);
-                }
+                Singleton.getInstance(getApplicationContext()).adicionarBandaAPI(criarBanda(),getApplicationContext());
+                finish();
+                System.out.println("-->" + criarBanda().toString());
             }
         });
     }
 
     private Banda criarBanda(){
         String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
-        Banda auxbanda = new Banda(0, edNomeBanda.getText().toString(), edGeneroBanda.getText().toString(), edLocalizacaoBanda.getText().toString(), Integer.parseInt(edContactoBanda.getText().toString()), edDescricaoBanda.getText().toString(), edCapaBanda.getText().toString());
+        Banda auxbanda = new Banda(0, edNomeBanda.getText().toString(), spinnerGenero.getSelectedItem().toString(), edLocalizacaoBanda.getText().toString(), Integer.parseInt(edContactoBanda.getText().toString()), edDescricaoBanda.getText().toString(), img);
         return auxbanda;
     }
 
     private Banda editarBanda(){
         banda.setNome(edNomeBanda.getText().toString());
-        banda.setGenero(edGeneroBanda.getText().toString());
+        banda.setGenero(spinnerGenero.getSelectedItem().toString());
         banda.setLocalizacao(edLocalizacaoBanda.getText().toString());
         banda.setContacto(Integer.parseInt(edContactoBanda.getText().toString()));
         banda.setDescricao(edDescricaoBanda.getText().toString());
@@ -86,18 +81,10 @@ public class DetalhesBanda extends AppCompatActivity {
         setTitle("Banda: " + banda.getNome());
 
         edNomeBanda.setText(banda.getNome());
-        edGeneroBanda.setText(banda.getGenero());
+        spinnerGenero.setPrompt(banda.getGenero());
         edLocalizacaoBanda.setText(banda.getLocalizacao());
         edContactoBanda.setText(""+banda.getContacto());
         edDescricaoBanda.setText(banda.getDescricao());
-        edCapaBanda.setText(edCapaBanda.getText().toString());
-
-        Glide.with(getApplicationContext())
-                .load(banda.getCapa())
-                .placeholder(R.drawable.ic_edit_profile)
-                .thumbnail(0f)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imageView);
     }
 
     private void dialogRemover(){

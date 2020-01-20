@@ -20,7 +20,7 @@
         android:layout_marginTop="50dp"
         android:layout_toEndOf="@id/spaceV"
         android:fontFamily="@font/regular"
-        android:text="Cria a tua Banda"
+        android:text="@string/txtCriarBanda"
         android:textColor="@color/gray"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/etBandName"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Nome da Banda"
+        android:hint="@string/txtCriarBandaNome"
         android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         android:layout_below="@id/tv"
@@ -52,7 +52,7 @@
         android:id="@+id/etCity"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Cidade"
+        android:hint="@string/txtCriarBandaLocalizacao"
         android:layout_marginTop="10dp"
         android:inputType="textPersonName"
         android:layout_below="@id/spinnerGenre"
@@ -62,7 +62,7 @@
         android:id="@+id/etPhone"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Telemóvel"
+        android:hint="@string/txtCriarBandaContacto"
         android:layout_marginTop="10dp"
         android:inputType="phone"
         android:layout_below="@id/etCity"
@@ -76,7 +76,7 @@
         android:layout_toEndOf="@id/spaceV"
         android:gravity="start"
         android:layout_marginTop="10dp"
-        android:hint="Descriçãp"
+        android:hint="Descrição"
         android:lines="5" />
 
     <Button
@@ -85,7 +85,7 @@
         android:layout_height="38dp"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
-        android:text="Cancelar"
+        android:text="@string/txtCriarBandaCancelar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -99,7 +99,7 @@
         android:layout_height="38dp"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
-        android:text="Criar"
+        android:text="@string/txtCriarBandaCriar"
         android:layout_marginTop="40dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -107,5 +107,13 @@
         android:layout_marginLeft="40dp"
         android:layout_below="@id/etDescription"
         android:layout_toEndOf="@id/btnCancelar"/>
+
+    <Button
+        android:id="@+id/btnCRIARBANDA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:layout_marginLeft="20dp"/>
 
 </RelativeLayout>

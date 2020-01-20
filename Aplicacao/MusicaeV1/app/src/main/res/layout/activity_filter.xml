@@ -20,7 +20,7 @@
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/bold"
-        android:text="Habilidade:"
+        android:text="@string/txtFiltroHabilidade"
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
@@ -42,7 +42,7 @@
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/bold"
-        android:text="Género de Música:"
+        android:text="@string/txtFiltroGenero"
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
@@ -64,7 +64,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/etGenero"
         android:fontFamily="@font/bold"
-        android:text="Idade"
+        android:text="@string/txtFiltroIdade"
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
@@ -76,7 +76,7 @@
         android:layout_below="@id/etGenero"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/regular"
-        android:text="de"
+        android:text="@string/txtFiltroDe"
         android:layout_marginLeft="5dp"
         android:textColor="@color/gray"
         android:textSize="18sp" />
@@ -98,7 +98,7 @@
         android:layout_toEndOf="@id/etFrom"
         android:layout_below="@id/etGenero"
         android:fontFamily="@font/regular"
-        android:text=" a "
+        android:text="@string/txtFiltroA"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/gray"
@@ -122,7 +122,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/etFrom"
         android:fontFamily="@font/bold"
-        android:text="Experiência:"
+        android:text="@string/txtFiltroExperiencia"
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
@@ -144,7 +144,7 @@
         android:layout_marginTop="10dp"
         android:layout_below="@id/spinnerExperiencia"
         android:fontFamily="@font/bold"
-        android:text="Compromisso"
+        android:text="@string/txtFiltroCompromisso"
         android:textColor="@color/gray"
         android:textSize="17sp" />
 
@@ -156,7 +156,7 @@
         android:layout_toEndOf="@id/tv9"
         android:fontFamily="@font/regular"
         android:layout_marginTop="8dp"
-        android:text="Pelo Menos"
+        android:text="@string/txtFiltroPeloMenos"
         android:textColor="@color/gray"
         android:textSize="17sp"
         app:buttonTint="@color/gray" />
@@ -170,7 +170,7 @@
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@id/chkPeloMenos"
         android:fontFamily="@font/regular"
-        android:text="Exato"
+        android:text="@string/txtFiltroExato"
         android:textColor="@color/gray"
         android:textSize="17sp"
         app:buttonTint="@color/gray" />
@@ -194,7 +194,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/button_vermelho"
         android:fontFamily="@font/bold"
-        android:text="PROCURAR"
+        android:text="@string/txtFiltroProcurar"
         android:textColor="@color/white"
         android:textSize="20sp" />
 

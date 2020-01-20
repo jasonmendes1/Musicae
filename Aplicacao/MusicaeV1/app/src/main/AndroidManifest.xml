@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".vistas.PaserActivity"></activity>
         <activity
             android:name=".vistas.CandidaturesActivity"
             android:screenOrientation="portrait"
