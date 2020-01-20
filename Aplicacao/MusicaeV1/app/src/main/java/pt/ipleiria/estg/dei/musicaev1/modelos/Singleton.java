@@ -30,9 +30,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
+import pt.ipleiria.estg.dei.musicaev1.listeners.BandasListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.FeedListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 import pt.ipleiria.estg.dei.musicaev1.utils.BandaHabilidadeJsonParser;
+import pt.ipleiria.estg.dei.musicaev1.utils.BandaJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class Singleton extends Application implements FeedListener {
@@ -60,6 +62,8 @@ public class Singleton extends Application implements FeedListener {
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
+    private BandasListener bandasListener;
+
 
     private static Singleton INSTANCE = null;
 
@@ -260,6 +264,20 @@ public class Singleton extends Application implements FeedListener {
         return null;
     }
 
+    public void adicionarBandaBD(Banda banda){
+        Banda auxBanda = MusicaeBDHelper.adicionarBandaBD(banda);
+        if(auxBanda != null){
+            bandas.add(auxBanda);
+            System.out.println("--> BANDA adicionado à BD");
+        }
+    }
+
+    public void adicionarBandasBD(ArrayList<Banda> listaBandas){
+        musicaeBDHelper.removerAllBanda();
+        for(Banda banda : listaBandas)
+            adicionarBandaBD(banda);
+    }
+
     public void removerBanda(int idBanda){
         Banda auxBanda = getBanda(idBanda);
 
@@ -271,6 +289,56 @@ public class Singleton extends Application implements FeedListener {
 
         }
     }
+
+    public void guardarBandaBD(Banda banda){
+        if(!bandas.contains(banda)){
+            return;
+        }
+        Banda auxBanda = getBandasBD(banda.getId());
+        auxBanda.setNome(banda.getNome());
+        auxBanda.setNome(banda.getNome());
+        auxBanda.setDescricao(banda.getDescricao());
+        auxBanda.setLocalizacao(banda.getLocalizacao());
+        auxBanda.setContacto(banda.getContacto());
+        auxBanda.setCapa(banda.getCapa());
+
+        if(musicaeBDHelper.guardarBandaBD(auxBanda)){
+            System.out.println("--> LIVRO ATUALIZADO NA BD");
+        }
+    }
+
+    public void getAllBandasBD(final Context context, boolean isConnected){
+        Toast.makeText(context, "ISCONNECTED: " + isConnected, Toast.LENGTH_SHORT);
+
+        if (!isConnected){
+            bandas = musicaeBDHelper.getAllBandasBD();
+            if (bandasListener != null){
+                bandasListener.onRefreshBanda(bandas);
+            }
+        }else {
+            JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI, null, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    bandas = BandaJsonParser.parserJsonBanda(response, context);
+                    System.out.println("--> RESPOSTA: " + response);
+
+                    adicionarBandaBD(bandas);
+
+                    if(bandasListener != null){
+                        bandasListener.onRefreshBanda(bandas);
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    System.out.println("--> ERRO: GETALLLIVROSAPI: " + error.getMessage());
+                }
+            });
+
+            volleyQueue.add(req);
+        }
+    }
+
 
 
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
