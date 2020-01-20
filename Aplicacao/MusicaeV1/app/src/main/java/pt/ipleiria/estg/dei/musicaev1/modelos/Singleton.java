@@ -274,6 +274,36 @@ public class Singleton extends Application implements FeedListener {
             volleyQueue.add(req);
     }
 
+    public void adicionarBandaFeedAPI(final Feed feed, final Context context){
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades/feed", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println("--> RESPOSTA ADD POST: " + response);
+
+                if(feedListener != null){
+                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 1);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO ADICIONAR BADA FEED API: "+ error.getMessage());
+            }
+        }) {
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("nome", feed.getNome());
+                params.put("instrumento", feed.getInstrumento());
+                params.put("compromisso", feed.getCompromisso());
+                params.put("experiencia", feed.getExperiencia());
+                params.put("capa", feed.getLogo());
+
+                return params;
+            }
+        };
+        volleyQueue.add(req);
+    }
+
     public void setFeedListener(FeedListener feedListener){
         this.feedListener = feedListener;
     }
