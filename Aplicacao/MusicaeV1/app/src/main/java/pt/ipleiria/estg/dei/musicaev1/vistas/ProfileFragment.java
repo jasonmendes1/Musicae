@@ -17,6 +17,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
@@ -44,6 +46,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         final View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+        mQueue = Volley.newRequestQueue(getContext());
 
         tvUsername = rootView.findViewById(R.id.tvUsername);
         tvId = rootView.findViewById(R.id.tvID);
@@ -53,9 +56,7 @@ public class ProfileFragment extends Fragment {
         tvNrTelemovel = rootView.findViewById(R.id.tvBirthDate);
 
         // NÃO ESQUECER DE METER O IDUSER A FUNCIONAR
-        //IdUser = Singleton.getInstance(getContext()).getIdUser();
-        IdUser = 5;
-        System.out.println("-->w url: " + url + "/" + IdUser);
+        IdUser = Singleton.getInstance(getContext()).getIdUser();
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url + "/" + IdUser, null,
                 new Response.Listener<JSONArray>() {
@@ -63,46 +64,40 @@ public class ProfileFragment extends Fragment {
                     public void onResponse(JSONArray response) {
                         System.out.println("-->w estamos dentro do onResponse wi todos doidos ");
                         try {
-                            for (int i = 0; i < response.length(); i++) {
-                                System.out.println("-->w " + response.toString());
-                                JSONObject profile = response.getJSONObject(i);
+                            JSONObject profile = response.getJSONObject(0);
 
-                                String UserUsername = profile.getString("UserUsername");
-                                String HabilidadeNome = profile.getString("HabilidadeNome");
-                                String GeneroNome = profile.getString("GeneroNome");
-                                String ProfileNome = profile.getString("ProfileNome");
-                                String ProfileSexo = profile.getString("ProfileSexo");
-                                String ProfileLocalidade = profile.getString("ProfileLocalidade");
-                                String ProfileFoto = profile.getString("ProfileFoto");
-                                String UserEmail = profile.getString("UserEmail");
+                            String UserUsername = profile.getString("UserUsername");
+                            String HabilidadeNome = profile.getString("HabilidadeNome");
+                            String GeneroNome = profile.getString("GeneroNome");
+                            String ProfileNome = profile.getString("ProfileNome");
+                            String ProfileSexo = profile.getString("ProfileSexo");
+                            String ProfileLocalidade = profile.getString("ProfileLocalidade");
+                            String ProfileFoto = profile.getString("ProfileFoto");
+                            String UserEmail = profile.getString("UserEmail");
 
+                            tvUsername.setText(UserUsername);
+                            tvId.setText("#"+ IdUser);
+                            tvNome.setText(ProfileNome);
+                            tvEmail.setText(UserEmail);
 
-                                tvUsername.append(UserUsername);
-                                tvId.append(IdUser + "");
-                                tvNome.append(ProfileNome);
-                                tvEmail.append(UserEmail);
-
-                                /*
-                                tvUsername = rootView.findViewById(R.id.tvUsername);
-                                tvId = rootView.findViewById(R.id.tvID);
-                                tvNome = rootView.findViewById(R.id.tvName);
-                                tvEmail = rootView.findViewById(R.id.tvEmail);
-                                tvDataNasc = rootView.findViewById(R.id.tvNumber);
-                                */
-                            }
+                            /*
+                            tvUsername = rootView.findViewById(R.id.tvUsername);
+                            tvId = rootView.findViewById(R.id.tvID);
+                            tvNome = rootView.findViewById(R.id.tvName);
+                            tvEmail = rootView.findViewById(R.id.tvEmail);
+                            tvDataNasc = rootView.findViewById(R.id.tvNumber);
+                            */
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            System.out.println("-->w Error burro do caralho: " + e.getMessage());
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
-                System.out.println("-->w Error burro do caralho: " + error.getMessage());
             }
         });
-        //mQueue.add(request);
+        mQueue.add(request);
 
         buttonEditar = rootView.findViewById(R.id.btnEditProfile);
         buttonBanda = rootView.findViewById(R.id.btnBanda);

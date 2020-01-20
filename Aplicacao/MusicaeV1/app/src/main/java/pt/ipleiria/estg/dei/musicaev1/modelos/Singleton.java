@@ -59,7 +59,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
     //private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
@@ -158,11 +158,11 @@ public class Singleton extends Application implements FeedListener {
 
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
 
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONArray response) {
                 if(loginListener!=null){
-                    loginListener.onRefreshLogin(response.toString());
+                    loginListener.onRefreshLogin(response);
                 }
             }
         }, new Response.ErrorListener() {

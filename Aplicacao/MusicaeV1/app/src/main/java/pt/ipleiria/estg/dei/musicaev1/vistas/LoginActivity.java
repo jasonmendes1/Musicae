@@ -116,24 +116,53 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
     }
 
     @Override
-    public void onRefreshLogin(String response) {
+    public void onRefreshLogin(JSONArray response) {
+        int iduser = 0;
+        String username = null, email = null;
+        for (int i = 0; i < response.length(); i++) {
+            JSONObject obj = null;
+            try {
+                obj = response.getJSONObject(i);
+                iduser = obj.getInt("id");
+                username = obj.getString("username");
+                email = obj.getString("email");
+
+
+                if (iduser == -1) {
+                    Toast.makeText(this, "Username ou Password Errada!", Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        Singleton.getInstance(getApplicationContext()).setIdUser(iduser);
+        Toast.makeText(this, "Logged In!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MenuMainActivity.class);
+        intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
+        intent.putExtra(MenuMainActivity.CHAVE_EMAIL, email);
+        intent.putExtra(MenuMainActivity.CHAVE_ID, iduser+"");
+        startActivity(intent);
+        finish();
+    }
+/*
         if(response.contains("-1")){
             Toast.makeText(this, "Username ou Password Errada!", Toast.LENGTH_SHORT).show();
         }else{
             try {
-                JSONObject obj = new JSONObject(response);
-                System.out.println("--> objetoToString:" + obj.toString());
-                System.out.println("--> phonetype value: "+ obj.getString("phonetype"));
-            } catch (Throwable tx) {
-                System.out.println("--> Could not parse malformed JSON: \"" + response + "\"");
+                JSONArray obj = new JSONArray(response);
+                int iduser = obj.getInt(0);
+
+                Singleton.getInstance(getApplicationContext()).setIdUser(iduser);
+                Toast.makeText(this, "Logged In!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, MenuMainActivity.class);
+                intent.putExtra(MenuMainActivity.CHAVE_USERNAME, "Pedrosdafghj,");
+                intent.putExtra(MenuMainActivity.CHAVE_ID, Singleton.getInstance(getApplicationContext()).getIdUser());
+                startActivity(intent);
+                finish();
+            } catch (JSONException e) {
+                System.out.println("--> Error: "+ e.getMessage());
             }
-            Toast.makeText(this, "Logged In!", Toast.LENGTH_SHORT).show();
-            System.out.println("-->" + response + "          loginActivity");
-            Intent intent = new Intent(this, MenuMainActivity.class);
-            intent.putExtra(MenuMainActivity.CHAVE_USERNAME, "Pedro");
-            intent.putExtra(MenuMainActivity.CHAVE_ID, ""+ "1");
-            startActivity(intent);
-            finish();
         }
     }
 
