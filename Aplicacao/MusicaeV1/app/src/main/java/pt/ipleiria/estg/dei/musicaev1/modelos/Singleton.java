@@ -3,15 +3,9 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 import android.app.Application;
 import android.content.Context;
-
 import android.util.Base64;
 import android.widget.Toast;
 
-import java.security.Key;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
-
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,12 +16,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
 import pt.ipleiria.estg.dei.musicaev1.listeners.BandasListener;
@@ -37,7 +34,7 @@ import pt.ipleiria.estg.dei.musicaev1.utils.BandaHabilidadeJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.BandaJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
-public class Singleton extends Application implements FeedListener {
+public class Singleton extends Application implements FeedListener, BandasListener {
     private ArrayList<Banda> bandas;
     private ArrayList<Feed> bandasFeed;
     private ArrayList<BandaHabilidade> minhasBandas;
@@ -408,26 +405,6 @@ public class Singleton extends Application implements FeedListener {
         this.bandasListener = bandasListener;
     }
 
-    @Override
-    public void onRefreshBanda(ArrayList<Banda> listaBandas) {
-
-    }
-
-    @Override
-    public void onUpdateListaBandasBD(Banda banda, int operacao) {
-        System.out.println("--> Entrou update lista BandasBD");
-        switch(operacao){
-            case 1: adicionarBandaBD(banda);
-                break;
-            case 2: guardarBandaBD(banda);
-                break;
-            case 3: removerBanda(banda.getId());
-                break;
-        }
-    }
-
-
-
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
 
@@ -516,6 +493,24 @@ public class Singleton extends Application implements FeedListener {
 
     public void setBandaHabilidadeListener(BandaHabilidadeListener bandaHabilidadeListener){
         this.bandaHabilidadeListener = bandaHabilidadeListener;
+    }
+
+    @Override
+    public void onRefreshBanda(ArrayList<Banda> listabanda) {
+        
+    }
+
+    @Override
+    public void onUpdateListaBandasBD(Banda banda, int operacao) {
+        System.out.println("--> Entrou update lista BandasBD");
+        switch(operacao){
+            case 1: adicionarBandaBD(banda);
+                break;
+            case 2: guardarBandaBD(banda);
+                break;
+            case 3: removerBanda(banda.getId());
+                break;
+        }
     }
 
     @Override
