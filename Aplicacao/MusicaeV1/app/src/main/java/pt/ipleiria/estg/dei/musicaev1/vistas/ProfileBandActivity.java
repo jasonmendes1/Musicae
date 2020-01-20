@@ -32,6 +32,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 public class ProfileBandActivity extends AppCompatActivity {
 
     public static  final String ID_BANDA = "idBanda";
+    public static  final String NOME_BANDA = "nomeBanda";
     private Banda banda;
     private TextView tvName, tvDescription, tvGenre, tvNumber, tvCity;
     private ImageView ivBannner;
@@ -48,6 +49,7 @@ public class ProfileBandActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_band);
 
         idBanda = getIntent().getIntExtra(ID_BANDA, 0);
+        final String nomeBanda = getIntent().getStringExtra(NOME_BANDA);
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -122,7 +124,7 @@ public class ProfileBandActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileBandActivity.this, SearchBandActivity.class);
-                intent.putExtra(SearchBandActivity.ID_BANDA, idBanda);
+                intent.putExtra(SearchBandActivity.NOME_BANDA, nomeBanda);
                 startActivity(intent);
             }
         });
