@@ -58,7 +58,7 @@ public class Singleton extends Application implements FeedListener {
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -364,7 +364,7 @@ public class Singleton extends Application implements FeedListener {
     }
 
     public void adicionarBandaFeedAPI(final Feed feed, final Context context){
-        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades/feed", new Response.Listener<String>() {
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades/feeed/" + feed.getId(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
@@ -380,6 +380,36 @@ public class Singleton extends Application implements FeedListener {
             }
         }) {
             protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("nome", feed.getNome());
+                params.put("instrumento", feed.getInstrumento());
+                params.put("compromisso", feed.getCompromisso());
+                params.put("experiencia", feed.getExperiencia());
+                params.put("capa", feed.getLogo());
+
+                return params;
+            }
+        };
+        volleyQueue.add(req);
+    }
+
+    public void editarBandaFeedAPI(final Feed feed, final Context context){
+        StringRequest req = new StringRequest(Request.Method.PUT, UrlAPI + "/banda-habilidades/feeed/" + feed.getId(), new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println("--> RESPOSTA EDITAR: " + response);
+
+                if(feedListener != null){
+                    feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 2);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO EDITAR LIVRO API: "+ error.getMessage());
+            }
+        }){
+            protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("nome", feed.getNome());
                 params.put("instrumento", feed.getInstrumento());
