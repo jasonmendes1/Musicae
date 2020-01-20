@@ -61,7 +61,7 @@ public class ProfileBandActivity extends AppCompatActivity {
         ivBannner = findViewById(R.id.ivBannner);
 
         System.out.println("--> IDBanda: " + idBanda);
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url + "/" + idBanda, null,
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url + "/bandas/perfil/" + idBanda, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
