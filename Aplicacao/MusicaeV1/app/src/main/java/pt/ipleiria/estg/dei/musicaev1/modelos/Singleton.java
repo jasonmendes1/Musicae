@@ -288,7 +288,7 @@ public class Singleton extends Application implements FeedListener {
         auxBanda.setCapa(banda.getCapa());
 
         if(musicaeBDHelper.guardarBandaBD(auxBanda)){
-            System.out.println("--> LIVRO ATUALIZADO NA BD");
+            System.out.println("--> BANDA ATUALIZADO NA BD");
         }
     }
 
@@ -330,7 +330,7 @@ public class Singleton extends Application implements FeedListener {
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD: " + response);
                 if(bandasListener != null){
-                    bandasListener.onUpdateListaLivrosBD(BandaJsonParser.parserJsonBanda(response, context), 1);
+                    bandasListener.onUpdateListaBandaBD(BandaJsonParser.parserJsonBanda(response, context), 1);
                 }
             }
         }, new Response.ErrorListener() {
@@ -355,13 +355,13 @@ public class Singleton extends Application implements FeedListener {
         volleyQueue.add(req);
     }
 
-    public void removerBandasAPI(final Banda livro){
-        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/" + livro.getId(), new Response.Listener<String>() {
+    public void removerBandasAPI(final Banda banda){
+        StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/" + banda.getId(), new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA REMOVER: " + response);
                 if(bandasListener != null){
-                    bandasListener.onUpdateListaLivrosBD(livro, 3);
+                    bandasListener.onUpdateListaBandaBD(banda, 3);
                 }
             }
         }, new Response.ErrorListener() {
@@ -380,7 +380,7 @@ public class Singleton extends Application implements FeedListener {
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA EDITAR: " + response);
                 if(bandasListener != null){
-                    bandasListener.onUpdateListaLivrosBD(BandaJsonParser.parserJsonBanda(response, context), 2);
+                    bandasListener.onUpdateListaBandaBD(BandaJsonParser.parserJsonBanda(response, context), 2);
                 }
             }
         }, new Response.ErrorListener() {
@@ -493,7 +493,7 @@ public class Singleton extends Application implements FeedListener {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO EDITAR LIVRO API: "+ error.getMessage());
+                System.out.println("--> ERRO EDITAR BANDA API: "+ error.getMessage());
             }
         }){
             protected Map<String, String> getParams() {
