@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bold"
         android:gravity="start"
-        android:text="Username"
+        android:text="@string/txtMenuProfileUser"
         android:textColor="@color/white"
         android:textSize="14sp" />
 
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bold"
-        android:text="Email"
+        android:text="@string/txtMenuProfileEmail"
         android:textColor="@color/white"
         android:textSize="12sp" />
 </LinearLayout>
