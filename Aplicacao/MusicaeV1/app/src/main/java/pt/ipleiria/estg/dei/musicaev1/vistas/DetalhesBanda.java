@@ -54,7 +54,7 @@ public class DetalhesBanda extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(idBanda == -1){
-                    setTitle("Adicionar Livro");
+                    setTitle("Adicionar Banda");
                     fab.setImageResource(R.drawable.ic_action_add);
                 }else{
                     banda = Singleton.getInstance(getApplicationContext()).getBanda(idBanda);
