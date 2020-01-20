@@ -46,8 +46,8 @@ public class SearchBandActivity extends AppCompatActivity {
     }
 
     private Feed criarFeed(){
-        String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
+        /*String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
         Feed auxFeed = new Feed(0, edTitulo.getText().toString(), edSerie.getText().toString(), edAutor.getText().toString(), Integer.parseInt(edAno.getText().toString()), img);
-        return auxFeed;
+        return auxFeed;*/
     }
 }
