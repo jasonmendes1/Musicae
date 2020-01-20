@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/iv1"
             android:fontFamily="@font/bold"
-            android:text="Descrição"
+            android:text="@string/txtPerfilBandaDesc"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -115,7 +115,7 @@
             android:layout_toEndOf="@id/iv5"
             android:layout_below="@id/space1"
             android:fontFamily="@font/bold"
-            android:text="Membros"
+            android:text="@string/txtPerfilBandaMembros"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -164,7 +164,7 @@
             android:layout_marginTop="80dp"
             android:layout_below="@id/tv1"
             android:fontFamily="@font/bold"
-            android:text="Género Musical:"
+            android:text="@string/txtPerfilBandaGenero"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -193,7 +193,7 @@
             android:layout_toEndOf="@id/iv6"
             android:layout_below="@id/space1"
             android:fontFamily="@font/bold"
-            android:text="Telemóvel"
+            android:text="@string/txtPerfilBandaContacto"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -229,7 +229,7 @@
             android:layout_toEndOf="@id/iv8"
             android:layout_below="@id/space4"
             android:fontFamily="@font/bold"
-            android:text="Cidade"
+            android:text="@string/txtPerfilBandaLocalizacao"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -256,7 +256,7 @@
             android:layout_height="38dp"
             android:background="@drawable/button_preto"
             android:fontFamily="@font/semibold"
-            android:text="Editar"
+            android:text="@string/btnEditar"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -268,7 +268,7 @@
             android:layout_height="38dp"
             android:background="@drawable/button_preto"
             android:fontFamily="@font/semibold"
-            android:text="Candidatos"
+            android:text="@string/btnCandidatos"
             android:layout_marginLeft="20dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
