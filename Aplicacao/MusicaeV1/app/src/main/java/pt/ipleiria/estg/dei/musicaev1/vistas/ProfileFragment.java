@@ -33,7 +33,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView tvUsername, tvId, tvNome, tvEmail, tvDataNasc, tvNrTelemovel;
+    private TextView tvUsername, tvId, tvNome, tvEmail, tvDataNasc, tvNrTelemovel, tvHabilidade, tvGenero, tvSexo, tvLocalidade;
     private Perfil perfil;
     private SharedPreferences sharedPreferences;
     private Button buttonEditar, buttonBanda;
@@ -54,6 +54,11 @@ public class ProfileFragment extends Fragment {
         tvEmail = rootView.findViewById(R.id.tvEmail);
         tvDataNasc = rootView.findViewById(R.id.tvNumber);
         tvNrTelemovel = rootView.findViewById(R.id.tvBirthDate);
+        tvHabilidade = rootView.findViewById(R.id.tvInstrument);
+        tvGenero = rootView.findViewById(R.id.tvGenres);
+        tvSexo = rootView.findViewById(R.id.tvGender);
+        tvLocalidade = rootView.findViewById(R.id.tvCity);
+
 
         // NÃO ESQUECER DE METER O IDUSER A FUNCIONAR
         IdUser = Singleton.getInstance(getContext()).getIdUser();
@@ -79,6 +84,10 @@ public class ProfileFragment extends Fragment {
                             tvId.setText("#"+ IdUser);
                             tvNome.setText(ProfileNome);
                             tvEmail.setText(UserEmail);
+                            tvHabilidade.setText(HabilidadeNome);
+                            tvGenero.setText(GeneroNome);
+                            tvSexo.setText(ProfileSexo);
+                            tvLocalidade.setText(ProfileLocalidade);
 
                             /*
                             tvUsername = rootView.findViewById(R.id.tvUsername);
