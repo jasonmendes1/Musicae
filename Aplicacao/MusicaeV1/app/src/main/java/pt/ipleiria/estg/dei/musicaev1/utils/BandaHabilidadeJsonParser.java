@@ -21,7 +21,6 @@ public class BandaHabilidadeJsonParser {
     public static ArrayList<BandaHabilidade> parserJsonBandaHabilidade(JSONArray response, Context context){
         System.out.println("--> PARSER LISTA BANDA HABILIDADE: "+ response);
         ArrayList<BandaHabilidade> tempListaBH = new ArrayList<BandaHabilidade>();
-        //int id, String dataEntrada, String bandaNome, String habilidadeNome
         try{
             for(int i = 0; i < response.length(); i++){
                 JSONObject BandaHabilidade = (JSONObject) response.get(i);
