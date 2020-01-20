@@ -67,8 +67,6 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
             }
         });
 
-        Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
-
         swipeRefreshLayout = rootView.findViewById(R.id.swipeLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -92,7 +90,7 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         //------------------------------------------------------------------------------------------------------------
 
         Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
-        //Singleton.getInstance(getContext()).getMinhasBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+        Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
 
 
         return rootView;

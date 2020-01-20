@@ -41,7 +41,6 @@ public class ProfileFragment extends Fragment {
     private String url = "http://192.168.1.68/MusicaeWeb/backend/web/v1/user/profile";
     private RequestQueue mQueue;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);

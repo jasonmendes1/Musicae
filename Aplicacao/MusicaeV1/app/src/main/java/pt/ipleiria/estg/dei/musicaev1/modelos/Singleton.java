@@ -303,9 +303,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
                 public void onResponse(JSONArray response) {
                     bandas = BandaJsonParser.parserJsonBanda(response, context);
                     System.out.println("--> RESPOSTA: " + response);
-
                     adicionarBandasBD(bandas);
-
                     if(bandasListener != null){
                         bandasListener.onRefreshBanda(bandas);
                     }
