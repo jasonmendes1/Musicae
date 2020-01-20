@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:fontFamily="@font/semibold"
-        android:text="Band Name"
         android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +92,6 @@
             android:layout_below="@id/tv1"
             android:layout_toEndOf="@id/iv2"
             android:fontFamily="@font/regular"
-            android:text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -163,8 +161,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/iv4"
-            android:layout_marginTop="25dp"
-            android:layout_below="@id/tvDescription"
+            android:layout_marginTop="80dp"
+            android:layout_below="@id/tv1"
             android:fontFamily="@font/bold"
             android:text="Género Musical:"
             android:textColor="@color/gray"
@@ -177,7 +175,6 @@
             android:layout_below="@id/tv6"
             android:layout_toEndOf="@id/iv4"
             android:fontFamily="@font/regular"
-            android:text="Jazz"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -207,7 +204,6 @@
             android:layout_below="@id/tv4"
             android:layout_toEndOf="@id/iv6"
             android:fontFamily="@font/regular"
-            android:text="931234567"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
@@ -244,7 +240,6 @@
             android:layout_below="@id/tv5"
             android:layout_toEndOf="@id/iv8"
             android:fontFamily="@font/regular"
-            android:text="leiria"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 

@@ -10,9 +10,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
@@ -27,6 +37,9 @@ public class ProfileBandActivity extends AppCompatActivity {
     private int idBanda;
     private Button buttonEditar, buttonCandidatos;
     private FloatingActionButton fabProcura;
+    private String url = "http://192.168.1.7/MusicaeWeb/backend/web/v1/bandas/perfil";
+
+    private RequestQueue mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +48,7 @@ public class ProfileBandActivity extends AppCompatActivity {
 
         idBanda = getIntent().getIntExtra(ID_BANDA, 0);
 
+        mQueue = Volley.newRequestQueue(this);
 
         tvName = findViewById(R.id.tvName);
         tvDescription = findViewById(R.id.tvDescription);
@@ -43,11 +57,47 @@ public class ProfileBandActivity extends AppCompatActivity {
         tvCity = findViewById(R.id.tvCity);
         ivBannner = findViewById(R.id.ivBannner);
 
+        System.out.println("--> IDBanda: " + idBanda);
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url + "/" + idBanda, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
 
-            banda = Singleton.getInstance(getApplicationContext()).getBanda(idBanda);
-            System.out.println("--> IDBanda: " + idBanda);
-            mostrarBanda(banda);
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject banda = response.getJSONObject(i);
 
+                                String Nome = banda.getString("Nome");
+                                String Genero = banda.getString("Genero");
+                                String Localizacao = banda.getString("Localizacao");
+                                String Contacto = banda.getString("Contacto");
+                                String Descricao = banda.getString("Descricao");
+                                String Capa = banda.getString("Capa");
+
+
+                                tvName.append(Nome);
+                                tvDescription.append(Genero);
+                                tvGenre.append(Localizacao);
+                                tvNumber.append(Contacto);
+                                tvCity.append(Descricao);
+
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        mQueue.add(request);
+
+
+        //---------------------------------------------------------------------------- BUTOES ------------------------------------------------------------
         buttonEditar = findViewById(R.id.btnEditarBanda);
         buttonCandidatos = findViewById(R.id.btnCandidatos);
 
@@ -74,20 +124,5 @@ public class ProfileBandActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void mostrarBanda(Banda banda){
-        tvName.setText(banda.getNome());
-        tvDescription.setText(banda.getDescricao());
-        tvGenre.setText(banda.getGenero());
-        tvNumber.setText(banda.getContacto());
-        tvCity.setText(banda.getLocalizacao());
-        //imgView.setImageResource(livro.getCapa());
-        Glide.with(getApplicationContext())
-                .load(banda.getCapa())
-                .placeholder(R.drawable.banner)
-                .thumbnail(0f)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(ivBannner);
     }
 }

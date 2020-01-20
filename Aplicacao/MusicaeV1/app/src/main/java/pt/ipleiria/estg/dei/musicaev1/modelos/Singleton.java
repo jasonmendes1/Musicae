@@ -220,11 +220,20 @@ public class Singleton extends Application implements FeedListener {
         //TODO: FAZER FOREACH PARA CONSTRUIR A STRING
         String[] listItems = {"Vocalist", "Guitar", "Violin", "Drums", "DJ", "Piano", "Trumpet", "Saxophone", "Flute", "Clarinet"};
         return listItems;
-    }
 
-    public String[] getIndustriasFiltro() {
-        String[] listItems = {"Photographer", "Management", "Music Teacher", "Recording Studio", "Song Writer", "Other"};
-        return listItems;
+        /*ArrayList<String> listItems = new ArrayList<>();
+        listItems.add("Vocalist");
+        listItems.add("Guitar");
+        listItems.add("Violin");
+        listItems.add("Drums");
+        listItems.add("DJ");
+        listItems.add("Piano");
+        listItems.add("Trumpet");
+        listItems.add("Saxophone");
+        listItems.add("Flute");
+        listItems.add("Clarinet");
+        return listItems;*/
+
     }
 
     public String[] getGeneroFiltro() {

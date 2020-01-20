@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaBandaAdaptador;
 import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
-import pt.ipleiria.estg.dei.musicaev1.listeners.FeedListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;

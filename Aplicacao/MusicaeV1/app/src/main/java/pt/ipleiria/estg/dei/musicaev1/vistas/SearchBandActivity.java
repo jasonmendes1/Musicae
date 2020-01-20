@@ -18,7 +18,7 @@ public class SearchBandActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_band);
 
         buttonCancelar = findViewById(R.id.btnCancelar);
-        buttonCriarProcura = findViewById(R.id.btnSearch);
+        buttonCriarProcura = findViewById(R.id.btnCriarProcura);
 
         buttonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override

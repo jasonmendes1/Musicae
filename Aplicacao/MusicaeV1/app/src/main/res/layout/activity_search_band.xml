@@ -35,12 +35,12 @@
         android:layout_marginTop="40dp"
         android:layout_below="@id/tv1"
         android:fontFamily="@font/bold"
-        android:text="Género Musical:"
+        android:text="Instrumento:"
         android:textColor="@color/gray"
         android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinnerSkill"
+        android:id="@+id/spinnerInstrumento"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:textColor="?attr/editTextColor"
@@ -55,14 +55,14 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/spinnerSkill"
+        android:layout_below="@id/spinnerInstrumento"
         android:fontFamily="@font/bold"
         android:text="Experiência:"
         android:textColor="@color/gray"
         android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinnerExperience"
+        android:id="@+id/spinnerExperiencia"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:textColor="?attr/editTextColor"
@@ -77,24 +77,24 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/spaceV"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/spinnerExperience"
+        android:layout_below="@id/spinnerExperiencia"
         android:fontFamily="@font/bold"
         android:text="Compromisso:"
         android:textColor="@color/gray"
         android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinnerCommitment"
+        android:id="@+id/spinnerCompromisso"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:textColor="?attr/editTextColor"
         android:background="?attr/editTextBackground"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:layout_below="@id/chkAtLeast"
+        android:layout_below="@id/chkPeloMenos"
         android:layout_toEndOf="@id/spaceV" />
 
     <CheckBox
-        android:id="@+id/chkAtLeast"
+        android:id="@+id/chkPeloMenos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv3"
@@ -106,12 +106,12 @@
         app:buttonTint="@color/gray" />
 
     <CheckBox
-        android:id="@+id/chkExact"
+        android:id="@+id/chkExacto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv3"
         android:layout_marginLeft="20dp"
-        android:layout_toEndOf="@id/chkAtLeast"
+        android:layout_toEndOf="@id/chkPeloMenos"
         android:fontFamily="@font/regular"
         android:text="Exato"
         android:textColor="@color/gray"
@@ -129,11 +129,11 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_below="@id/spinnerCommitment"
+        android:layout_below="@id/spinnerCompromisso"
         android:layout_toEndOf="@id/spaceV"/>
 
     <Button
-        android:id="@+id/btnSearch"
+        android:id="@+id/btnCriarProcura"
         android:layout_width="150dp"
         android:layout_height="38dp"
         android:background="@drawable/button_preto"
@@ -144,7 +144,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_below="@id/spinnerCommitment"
+        android:layout_below="@id/spinnerCompromisso"
         android:layout_toEndOf="@id/btnCancelar"/>
 
 </RelativeLayout>
