@@ -37,7 +37,7 @@
         android:id="@+id/etUsername"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Username"
+        android:hint="@string/txtFinalUsername"
         android:inputType="textPersonName"
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/spaceV" />
@@ -53,7 +53,7 @@
         android:id="@+id/etPassword"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Password"
+        android:hint="@string/txtFinalPassword"
         android:inputType="textPassword"
         android:layout_below="@id/space3"
         android:layout_toEndOf="@id/spaceV" />
@@ -69,7 +69,7 @@
         android:id="@+id/etConfirmPassword"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="Confirmar Password"
+        android:hint="@string/txtFinalConfPass"
         android:inputType="textPassword"
         android:layout_below="@id/space4"
         android:layout_toEndOf="@id/spaceV" />
@@ -89,7 +89,7 @@
         android:layout_toEndOf="@id/spaceV"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
-        android:text="Registar"
+        android:text="@string/btnFinalRegistar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp" />
