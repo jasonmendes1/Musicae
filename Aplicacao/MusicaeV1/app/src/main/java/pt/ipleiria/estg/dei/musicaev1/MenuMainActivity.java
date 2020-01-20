@@ -69,11 +69,14 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
     private void carregarCabecalho() {
         username = getIntent().getStringExtra(CHAVE_USERNAME);
         String id = getIntent().getStringExtra(CHAVE_ID);
+        String email = getIntent().getStringExtra(CHAVE_EMAIL);
 
         String usernameId = username + "#" + id;
         View view = navigationView.getHeaderView(0);
         TextView textViewUser = view.findViewById(R.id.tvNome);
+        TextView txtEmail = view.findViewById(R.id.tvEmail);
         textViewUser.setText(usernameId);
+        txtEmail.setText(email);
     }
 
     private void carregamentoFragmentoInicial(){

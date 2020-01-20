@@ -56,7 +56,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
     //private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
@@ -155,11 +155,11 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
 
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONArray response) {
                 if(loginListener!=null){
-                    loginListener.onRefreshLogin(response.toString());
+                    loginListener.onRefreshLogin(response);
                 }
             }
         }, new Response.ErrorListener() {
@@ -172,7 +172,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
 
     public void getBandasPerfilAPI (final Context context, boolean isConnected){
-        System.out.println("-->wi response: BEM VINDO PUTA");
+        System.out.println("-->wi response: BEM VINDO");
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas/membros/" + IdUser, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
