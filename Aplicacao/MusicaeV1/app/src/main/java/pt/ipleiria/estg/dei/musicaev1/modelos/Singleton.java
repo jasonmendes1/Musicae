@@ -52,6 +52,7 @@ public class Singleton extends Application implements FeedListener {
     private LoginListener loginListener;
     private BandaHabilidadeListener bandaHabilidadeListener;
     public int IdUser = 4;
+    private int idBanda;
 
     private static final String ALGORITHM = "AES";
     private static final byte[] SALT = "tHeApAcHe6410111".getBytes();
@@ -59,6 +60,7 @@ public class Singleton extends Application implements FeedListener {
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
     private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    //private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -88,7 +90,6 @@ public class Singleton extends Application implements FeedListener {
         Perfis = new ArrayList<>();
 
         musicaeBDHelper = new MusicaeBDHelper(context);
-        generosGerarFakeData();
         perfisGerarFakeData();
     }
 
@@ -173,7 +174,7 @@ public class Singleton extends Application implements FeedListener {
         volleyQueue.add(req);
     }
 
-    public void getMinhasBandasAPI (final Context context, boolean isConnected){
+    public void getBandasPerfilAPI (final Context context, boolean isConnected){
         System.out.println("-->wi response: BEM VINDO PUTA");
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas/membros/" + IdUser, null, new Response.Listener<JSONArray>() {
             @Override
@@ -199,19 +200,6 @@ public class Singleton extends Application implements FeedListener {
 
     public void setIdUser(int idUser){
         this.IdUser = idUser;
-    }
-
-    private void generosGerarFakeData() {
-        Generos.add(new Genero(1, "Rock"));
-        Generos.add(new Genero(2, "Pop"));
-        Generos.add(new Genero(3, "Jazz"));
-        Generos.add(new Genero(4, "Rap"));
-        Generos.add(new Genero(5, "Reggae"));
-        Generos.add(new Genero(6, "Acoustic"));
-        Generos.add(new Genero(7, "Gospel"));
-        Generos.add(new Genero(8, "Country"));
-        Generos.add(new Genero(9, "Dubstep"));
-        Generos.add(new Genero(10, "Metal"));
     }
 
     private void perfisGerarFakeData(){
