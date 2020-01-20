@@ -264,9 +264,9 @@ public class Singleton extends Application implements FeedListener {
         Banda auxBanda = getBanda(idBanda);
 
         if(auxBanda != null){
-            if(musicaeBDHelper.removerPerfilBD(auxLivro.getId())){
-                livros.remove(auxLivro);
-                System.out.println("--> Livro removido da BD");
+            if(musicaeBDHelper.removerBandaBD(auxBanda.getId())){
+                bandas.remove(auxBanda);
+                System.out.println("--> BANDA removido da BD");
             }
 
         }
@@ -295,9 +295,6 @@ public class Singleton extends Application implements FeedListener {
             volleyQueue.add(req);
     }
 
-<<<<<<< HEAD
-
-=======
     public void adicionarBandaFeedAPI(final Feed feed, final Context context){
         StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades/feed", new Response.Listener<String>() {
             @Override
@@ -327,7 +324,6 @@ public class Singleton extends Application implements FeedListener {
         };
         volleyQueue.add(req);
     }
->>>>>>> 30d9f54c280e7caf9abd12f7967bf778c4775113
 
     public void setFeedListener(FeedListener feedListener){
         this.feedListener = feedListener;
