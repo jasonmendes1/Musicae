@@ -56,7 +56,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.68/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
     //private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;

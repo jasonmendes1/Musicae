@@ -38,7 +38,7 @@ public class ProfileFragment extends Fragment {
     private SharedPreferences sharedPreferences;
     private Button buttonEditar, buttonBanda;
     private int IdUser;
-    private String url = "http://192.168.1.68/MusicaeWeb/backend/web/v1/user/profile";
+    private String url = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
     private RequestQueue mQueue;
 
 
@@ -67,7 +67,7 @@ public class ProfileFragment extends Fragment {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        System.out.println("-->RESPOSTA WI ");
+                        System.out.println("-->RESPOSTA ");
                         try {
                             JSONObject profile = response.getJSONObject(0);
 

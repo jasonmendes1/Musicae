@@ -26,6 +26,7 @@ import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
+import pt.ipleiria.estg.dei.musicaev1.utils.BandaJsonParser;
 import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class BandListFragment extends Fragment implements BandaHabilidadeListener {
@@ -67,13 +68,11 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
             }
         });
 
-        Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
-
         swipeRefreshLayout = rootView.findViewById(R.id.swipeLayout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+                Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -92,7 +91,7 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         //------------------------------------------------------------------------------------------------------------
 
         Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
-        //Singleton.getInstance(getContext()).getMinhasBandasAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+        Singleton.getInstance(getContext()).getAllBandasAPI(getContext(), BandaJsonParser.isConnectionInternet(getContext()));
 
 
         return rootView;

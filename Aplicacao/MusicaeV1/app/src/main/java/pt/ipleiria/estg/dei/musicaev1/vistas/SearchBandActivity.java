@@ -34,7 +34,7 @@ public class SearchBandActivity extends AppCompatActivity {
         nome = nomeBanda;
 
         buttonCancelar = findViewById(R.id.btnCancelar);
-        //buttonCriarProcura = findViewById(R.id.btnCriarProcura);
+        buttonCriarProcura = findViewById(R.id.btnCriarProcura);
 
         buttonCancelar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +44,7 @@ public class SearchBandActivity extends AppCompatActivity {
         });
 
         //----------------------------------------------------------------------- Select Instrumento ------------------------------------------------------------------------------
-        //spinnerInstrumento = findViewById(R.id.spinnerInstrumento);
+        spinnerInstrumento = findViewById(R.id.spinnerInstrumento);
 
         List<String> instrumentos = new ArrayList<>();
         instrumentos.add(0, "");
