@@ -1,13 +1,18 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
@@ -29,6 +34,7 @@ import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.listeners.LoginListener;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
+import pt.ipleiria.estg.dei.musicaev1.modelos.SharedPreferencesConfig;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 
@@ -36,9 +42,10 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
 
     private Perfil perfil;
+    private String textIP;
     private TextInputLayout textInputUsername, textInputPassword;
     private TextInputEditText editTextUsername, editTextPassword;
-
+    private TextView textViewIP;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
@@ -53,21 +60,31 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         textInputPassword = findViewById(R.id.text_input_password);
         editTextUsername = findViewById(R.id.etUsername);
         editTextPassword = findViewById(R.id.etPassword);
+        textViewIP = findViewById(R.id.tvIP);
     }
 
     public void onClickLogin(View view) {
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
+        String ip = textViewIP.getText().toString().trim();
 
         if(!isChecked){
             descartarSharedpreferences();
         }
 
-        Singleton.getInstance(getApplicationContext()).setLoginListener(this);
-        String pw_encryptada = Singleton.getInstance(getApplicationContext()).getEncrypted(password);
-        System.out.println("--> encryptado: " + pw_encryptada);
-        Singleton.getInstance(getApplicationContext()).verificaLoginAPI_POST(username,pw_encryptada);
-
+        if(textViewIP.getText() == ""){
+            dialogIP();
+            Toast.makeText(this, "IP NULL", Toast.LENGTH_SHORT).show();
+            textViewIP.setText(textIP);
+        }else{
+            System.out.println("--> IP: " + ip);
+            SharedPreferencesConfig.write(SharedPreferencesConfig.IP, ip);
+            Singleton.getInstance(getApplicationContext()).setLoginListener(this);
+            String pw_encryptada = Singleton.getInstance(getApplicationContext()).getEncrypted(password);
+            System.out.println("--> encryptado: " + pw_encryptada);
+            Singleton.getInstance(getApplicationContext()).verificaLoginAPI_POST(username,pw_encryptada);
+        }
+        
 /*
         int id = Singleton.getInstance().verificarLogin(username, password);
         if(id != -1){
@@ -84,6 +101,28 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         }
 */
 
+    }
+
+    private void dialogIP(){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(this);
+        final EditText IPinput = new EditText(this);
+        builder.setView(IPinput);
+        builder.setTitle("IP")
+                .setMessage("Coloca aqui o teu IPv4")
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        textIP = IPinput.getText().toString();
+                        textViewIP.setText(textIP);
+                    }})
+
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }})
+                //.setIcon(android.R.drawable.ic_lock_power_off)
+                .show();
     }
 
     public void itemClicked(View v){

@@ -98,4 +98,27 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/tvIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textView8"
+        android:layout_below="@+id/text_input_password"
+        android:fontFamily="@font/regular"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/chkRememberme"
+        android:layout_below="@+id/text_input_password"
+        android:fontFamily="@font/regular"
+        android:text="ID: "
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/gray"
+        android:textSize="18sp" />
+
 </RelativeLayout>

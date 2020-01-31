@@ -56,12 +56,13 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
-    private String UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+
+    private String ipURL = SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null);
+    private String UrlAPI = "http://"+ipURL+"/MusicaeWeb/backend/web/v1";
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
     private BandasListener bandasListener;
-
 
     private static Singleton INSTANCE = null;
 
@@ -151,9 +152,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
 
     public void verificaLoginAPI_POST(final String username, final String password){
-
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
-
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.POST, UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

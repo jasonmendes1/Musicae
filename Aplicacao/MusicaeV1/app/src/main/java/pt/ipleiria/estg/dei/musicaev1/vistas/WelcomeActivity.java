@@ -42,13 +42,13 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        /*buttonNext = findViewById(R.id.button);
+        buttonNext = findViewById(R.id.button);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomeActivity.this, MenuMainActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

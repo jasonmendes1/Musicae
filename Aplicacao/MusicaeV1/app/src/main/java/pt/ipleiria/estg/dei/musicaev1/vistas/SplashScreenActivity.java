@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
+import pt.ipleiria.estg.dei.musicaev1.modelos.SharedPreferencesConfig;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -23,7 +24,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
 
         if(checkSharedPreferences()){
             new Handler().postDelayed(new Runnable() {
@@ -40,6 +40,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    SharedPreferencesConfig.init(getApplicationContext());
                     Intent mainIntent = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
                     startActivity(mainIntent);
                 }
