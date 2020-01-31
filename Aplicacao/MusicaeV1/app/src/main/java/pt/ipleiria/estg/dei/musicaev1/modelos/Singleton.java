@@ -57,8 +57,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
 
-    private String ipURL = SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null);
-    private String UrlAPI = "http://"+ipURL+"/MusicaeWeb/backend/web/v1";
+    private String UrlAPI = null;
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -75,6 +74,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
 
     private Singleton(Context context) {
+
         bandas = new ArrayList<>();
         bandasFeed = new ArrayList<>();
         minhasBandas = new ArrayList<>();
@@ -88,6 +88,11 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
         musicaeBDHelper = new MusicaeBDHelper(context);
         perfisGerarFakeData();
+    }
+
+    public void setIp(String ip) {
+        SharedPreferencesConfig.write(SharedPreferencesConfig.IP, ip);
+        UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
     }
 
     // Gets todos:
@@ -150,6 +155,8 @@ public class Singleton extends Application implements FeedListener, BandasListen
     public void setLoginListener(LoginListener loginListener){
         this.loginListener = loginListener;
     }
+
+
 
     public void verificaLoginAPI_POST(final String username, final String password){
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);

@@ -73,18 +73,17 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         }
 
         if(textViewIP.getText() == ""){
-            dialogIP();
-            Toast.makeText(this, "IP NULL", Toast.LENGTH_SHORT).show();
-            textViewIP.setText(textIP);
+            Toast.makeText(this, "Adiciona um IP!", Toast.LENGTH_SHORT).show();
         }else{
-            System.out.println("--> IP: " + ip);
-            SharedPreferencesConfig.write(SharedPreferencesConfig.IP, ip);
+            Singleton.getInstance(getApplicationContext()).setIp(ip);
+            System.out.println("--> SharedPreferences IP: " + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null));
+
             Singleton.getInstance(getApplicationContext()).setLoginListener(this);
             String pw_encryptada = Singleton.getInstance(getApplicationContext()).getEncrypted(password);
             System.out.println("--> encryptado: " + pw_encryptada);
             Singleton.getInstance(getApplicationContext()).verificaLoginAPI_POST(username,pw_encryptada);
         }
-        
+
 /*
         int id = Singleton.getInstance().verificarLogin(username, password);
         if(id != -1){
@@ -98,9 +97,11 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
             finish();
         }else{
             Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
-        }
-*/
+        }*/
+    }
 
+    public void onClickIP(View view) {
+        dialogIP();
     }
 
     private void dialogIP(){
@@ -116,7 +117,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
                         textIP = IPinput.getText().toString();
                         textViewIP.setText(textIP);
                     }})
-
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
