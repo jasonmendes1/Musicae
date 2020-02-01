@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -29,17 +30,20 @@ import org.json.JSONObject;
 import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
+import pt.ipleiria.estg.dei.musicaev1.modelos.SharedPreferencesConfig;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class ProfileFragment extends Fragment {
 
-    private TextView tvUsername, tvId, tvNome, tvEmail, tvDataNasc, tvNrTelemovel, tvHabilidade, tvGenero, tvSexo, tvLocalidade;
+    private TextView tvUsername, tvId, tvEmail;
+    private EditText etNome, etSexo, etContacto,etLocaclidade, etDtaNasc, etInstrumento, etGenero;
     private Perfil perfil;
     private SharedPreferences sharedPreferences;
-    private Button buttonEditar, buttonBanda;
+    private Button buttonEditar;
     private int IdUser;
-    private String url = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
     private RequestQueue mQueue;
+    private String urlAPI;
+    private String ipURL;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,20 +53,24 @@ public class ProfileFragment extends Fragment {
 
         tvUsername = rootView.findViewById(R.id.tvUsername);
         tvId = rootView.findViewById(R.id.tvID);
-        tvNome = rootView.findViewById(R.id.tvName);
         tvEmail = rootView.findViewById(R.id.tvEmail);
-        tvDataNasc = rootView.findViewById(R.id.tvNumber);
-        tvNrTelemovel = rootView.findViewById(R.id.tvBirthDate);
-        tvHabilidade = rootView.findViewById(R.id.tvInstrument);
-        tvGenero = rootView.findViewById(R.id.tvGenres);
-        tvSexo = rootView.findViewById(R.id.tvGender);
-        tvLocalidade = rootView.findViewById(R.id.tvCity);
+        etNome = rootView.findViewById(R.id.etNomeProfile);
+        etSexo = rootView.findViewById(R.id.etSexoProfile);
+        etContacto = rootView.findViewById(R.id.etContactoProfile);
+        etLocaclidade = rootView.findViewById(R.id.etLocalidadeProfile);
+        etDtaNasc = rootView.findViewById(R.id.etDtaNascProfile);
+        etInstrumento = rootView.findViewById(R.id.etInstrumentoProfile);
+        etGenero = rootView.findViewById(R.id.etGeneroProfile);
 
+
+        ipURL = Singleton.getInstance(getContext()).getIp();
+        urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1/user/profile";
+        //urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
 
         // NÃO ESQUECER DE METER O IDUSER A FUNCIONAR
         IdUser = Singleton.getInstance(getContext()).getIdUser();
 
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url + "/" + IdUser, null,
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, urlAPI + "/" + IdUser, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -80,13 +88,13 @@ public class ProfileFragment extends Fragment {
                             String UserEmail = profile.getString("UserEmail");
 
                             tvUsername.setText(UserUsername);
-                            tvId.setText("#"+ IdUser);
-                            tvNome.setText(ProfileNome);
+                            tvId.setText("#" + IdUser);
                             tvEmail.setText(UserEmail);
-                            tvHabilidade.setText(HabilidadeNome);
-                            tvGenero.setText(GeneroNome);
-                            tvSexo.setText(ProfileSexo);
-                            tvLocalidade.setText(ProfileLocalidade);
+                            etNome.setText(ProfileNome);
+                            etInstrumento.setText(HabilidadeNome);
+                            etGenero.setText(GeneroNome);
+                            etSexo.setText(ProfileSexo);
+                            etLocaclidade.setText(ProfileLocalidade);
 
                             /*
                             tvUsername = rootView.findViewById(R.id.tvUsername);
@@ -108,16 +116,7 @@ public class ProfileFragment extends Fragment {
         mQueue.add(request);
 
         buttonEditar = rootView.findViewById(R.id.btnEditProfile);
-        buttonBanda = rootView.findViewById(R.id.btnBanda);
-
         buttonEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        buttonBanda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -129,15 +128,15 @@ public class ProfileFragment extends Fragment {
         return rootView;
     }
 
-    private void mostrarPerfil(Perfil perfil){
+    private void mostrarPerfil(Perfil perfil) {
         tvUsername.setText(perfil.getNome());
         tvId.setText(perfil.getId());
-        tvNome.setText(perfil.getNome());
-        tvDataNasc.setText(perfil.getDatanasc());
-        tvNrTelemovel.setText(perfil.getNrtelemovel());
+        etNome.setText(perfil.getNome());
+        etDtaNasc.setText(perfil.getDatanasc());
+        etContacto.setText(perfil.getNrtelemovel());
     }
 
-    private Perfil editarPerfil(){
+    private Perfil editarPerfil() {
         perfil.setNome(perfil.getNome());
         perfil.setSexo(perfil.getSexo());
         perfil.setLocalidade(perfil.getLocalidade());

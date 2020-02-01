@@ -33,7 +33,7 @@
     <string name="btnEditar">Editar</string>
     <string name="btnCandidatos">Candidatos</string>
     <string name="txtDetalhes">Detalhes da Conta</string>
-    <string name="txtDetalhesPNome">Primeiro Nome</string>
+    <string name="txtDetalhesPNome">Nome</string>
     <string name="txtDetalhesUNome">Último Nome</string>
     <string name="txtDetalhesEmail">Email</string>
     <string name="txtDetalhesContacto">Telemóvel</string>

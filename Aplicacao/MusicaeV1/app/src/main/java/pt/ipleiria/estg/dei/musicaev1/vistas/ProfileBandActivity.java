@@ -39,7 +39,8 @@ public class ProfileBandActivity extends AppCompatActivity {
     private int idBanda;
     private Button buttonEditar, buttonCandidatos;
     private FloatingActionButton fabProcura;
-    private String url = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    private String urlAPI;
+    private String ipURL;
 
     private RequestQueue mQueue;
 
@@ -60,8 +61,12 @@ public class ProfileBandActivity extends AppCompatActivity {
         tvCity = findViewById(R.id.tvCity);
         ivBannner = findViewById(R.id.ivBannner);
 
+        ipURL = Singleton.getInstance(getApplicationContext()).getIp();
+        urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1";
+        //urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+        System.out.println("--> urlAPI:" + urlAPI);
         System.out.println("--> IDBanda: " + idBanda);
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url + "/bandas/perfil/" + idBanda, null,
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, urlAPI + "/bandas/perfil/" + idBanda, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {

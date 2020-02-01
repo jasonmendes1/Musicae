@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,38 +8,29 @@
 
     <ImageView
         android:id="@+id/ivBannner"
-        android:layout_width="0dp"
-        android:layout_height="170dp"
-        android:background="@color/gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/gray" />
 
     <ImageView
         android:id="@+id/ivProfile"
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="76dp"
-        android:src="@drawable/perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="93dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/perfil" />
 
     <TextView
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
         android:fontFamily="@font/semibold"
         android:text="@string/txtProfileUsername"
-        android:textColor="@color/gray"
+        android:textColor="@color/white"
         android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivBannner" />
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@id/ivProfile"/>
 
     <TextView
         android:id="@+id/tvID"
@@ -47,14 +38,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/semibold"
         android:text="@string/txtProfileXXX"
-        android:textColor="@color/gray"
+        android:textColor="@color/white"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toEndOf="@+id/tvUsername"
-        app:layout_constraintTop_toBottomOf="@+id/ivBannner"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@id/tvUsername"/>
 
     <TextView
         android:id="@+id/tvEmail"
@@ -62,45 +50,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/regular"
         android:text="@string/txtProfileEmail"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
-
-    <Button
-        android:id="@+id/btnBanda"
-        android:layout_width="115dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/button_preto"
-        android:fontFamily="@font/semibold"
-        android:text="@string/txtProfileBandas"
-        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
-
-    <Space
-        android:id="@+id/spaceH"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBanda" />
-
-    <Space
-        android:id="@+id/spaceV"
-        android:layout_width="40dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spaceH"
-        app:layout_constraintVertical_bias="1.0" />
+        android:textSize="20sp"
+        android:layout_marginTop="75dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@id/ivProfile"/>
 
     <Button
         android:id="@+id/btnEditProfile"
@@ -111,273 +65,148 @@
         android:text="@string/txtProfileEditar"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
-        app:layout_constraintStart_toEndOf="@+id/spaceV"
-        app:layout_constraintTop_toBottomOf="@+id/spaceH"
-        app:layout_constraintVertical_bias="0.947" />
+        android:textSize="18sp" />
 
-    <ScrollView
-        android:id="@+id/svProfile"
-        android:layout_width="371dp"
-        android:layout_height="341dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.288"
-        app:layout_constraintStart_toEndOf="@+id/spaceV"
-        app:layout_constraintTop_toBottomOf="@+id/spaceH"
-        app:layout_constraintVertical_bias="0.199">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv1"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:src="@drawable/side_rect" />
+    <TextView
+        android:id="@+id/TextViewNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space2"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileNome"
+        android:textColor="@color/gray"
+        android:textSize="13sp" />
+    <EditText
+        android:id="@+id/etNomeProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TextViewNome"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileNomeCompleto"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/TextViewInst"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/iv1"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileInstrumentos"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/tvInstrument"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextViewInst"
-                android:layout_toEndOf="@id/iv1"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileGuitarra"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
+    <TextView
+        android:id="@+id/TextViewSexo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space3"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileSexo"
+        android:textColor="@color/gray"
+        android:textSize="13sp" />
+    <EditText
+        android:id="@+id/etSexoProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TextViewGenero"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileMasculino"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <Space
-                android:id="@+id/space1"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv1" />
 
-            <ImageView
-                android:id="@+id/iv2"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_below="@id/space1"
-                android:src="@drawable/side_rect" />
+    <TextView
+        android:id="@+id/TextViewContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space5"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileNrTelemovel"
+        android:textColor="@color/gray"
+        android:textSize="13sp" />
+    <EditText
+        android:id="@+id/etContactoProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TextViewContacto"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileNrTelemovel2"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/TextViewGenr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/space1"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileGeneros"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/tvGenres"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextViewGenr"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileRap"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
+    <TextView
+        android:id="@+id/TextViewLocalidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space4"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileCidade"
+        android:textColor="@color/gray"
+        android:textSize="13sp" />
+    <EditText
+        android:id="@+id/etLocalidadeProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TextViewLocalidade"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileLeiria"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <Space
-                android:id="@+id/space2"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv2" />
 
-            <ImageView
-                android:id="@+id/iv3"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_below="@id/space2"
-                android:src="@drawable/side_rect" />
+    <TextView
+        android:id="@+id/TextViewDtaNasc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space6"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileDataNasc"
+        android:textColor="@color/gray"
+        android:textSize="13sp" />
+    <EditText
+        android:id="@+id/etDtaNascProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TextViewDtaNasc"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileDataNasc2"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/TextVieNme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/space2"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileNome"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextVieNme"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileNomeCompleto"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
+    <TextView
+        android:id="@+id/TextViewInstrumento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileInstrumentos"
+        android:textColor="@color/gray"
+        android:textSize="20sp"
+        android:layout_below="@id/ivBannner"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/etInstrumentoProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TextViewInstrumento"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileGuitarra"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <Space
-                android:id="@+id/space3"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv3" />
 
-            <ImageView
-                android:id="@+id/iv4"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_below="@id/space3"
-                android:src="@drawable/side_rect" />
+    <TextView
+        android:id="@+id/TextViewGenero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space1"
+        android:fontFamily="@font/bold"
+        android:text="@string/txtProfileGeneros"
+        android:textColor="@color/gray"
+        android:textSize="13sp" />
+    <EditText
+        android:id="@+id/etGeneroProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/TextViewGenero"
+        android:fontFamily="@font/regular"
+        android:text="@string/txtProfileRap"
+        android:textColor="@color/gray"
+        android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/TextVieGend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/space3"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileSexo"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tvGender"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextVieGend"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileMasculino"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <Space
-                android:id="@+id/space4"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv4" />
-
-            <ImageView
-                android:id="@+id/iv5"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_below="@id/space4"
-                android:src="@drawable/side_rect" />
-
-            <TextView
-                android:id="@+id/TextVieCty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/space4"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileCidade"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tvCity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextVieCty"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileLeiria"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <Space
-                android:id="@+id/space5"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv5" />
-
-            <ImageView
-                android:id="@+id/iv6"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_below="@id/space5"
-                android:src="@drawable/side_rect" />
-
-            <TextView
-                android:id="@+id/TextVieNr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/space5"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileNrTelemovel"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tvNumber"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextVieNr"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileNrTelemovel2"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <Space
-                android:id="@+id/space6"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv6" />
-
-            <ImageView
-                android:id="@+id/iv7"
-                android:layout_width="wrap_content"
-                android:layout_height="39dp"
-                android:layout_below="@id/space6"
-                android:src="@drawable/side_rect" />
-
-            <TextView
-                android:id="@+id/TextVieBD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/space6"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/bold"
-                android:text="@string/txtProfileDataNasc"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/tvBirthDate"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/TextVieBD"
-                android:layout_toEndOf="@id/iv2"
-                android:fontFamily="@font/regular"
-                android:text="@string/txtProfileDataNasc2"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <Space
-                android:id="@+id/space7"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_below="@id/iv7" />
-        </RelativeLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

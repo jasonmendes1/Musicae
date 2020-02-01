@@ -58,6 +58,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     private String tokenAPI = "";
 
     private String UrlAPI = null;
+    private String ipURL;
 
     private MusicaeBDHelper musicaeBDHelper = null;
     private FeedListener feedListener;
@@ -93,6 +94,12 @@ public class Singleton extends Application implements FeedListener, BandasListen
     public void setIp(String ip) {
         SharedPreferencesConfig.write(SharedPreferencesConfig.IP, ip);
         UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
+        //UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+    }
+
+    public String getIp() {
+        ipURL = SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null);
+        return ipURL;
     }
 
     // Gets todos:
@@ -155,8 +162,6 @@ public class Singleton extends Application implements FeedListener, BandasListen
     public void setLoginListener(LoginListener loginListener){
         this.loginListener = loginListener;
     }
-
-
 
     public void verificaLoginAPI_POST(final String username, final String password){
         System.out.println("--> url:" + UrlAPI + "/user/verificaLogin?username="+ username +"&password_hash="+ password);
@@ -410,6 +415,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
     public void getAllBandasFeedAPI(final Context context, boolean isConnected){
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
+        System.out.println("--> API URL FEED: " + UrlAPI);
 
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades/feed", null, new Response.Listener<JSONArray>() {
                 @Override

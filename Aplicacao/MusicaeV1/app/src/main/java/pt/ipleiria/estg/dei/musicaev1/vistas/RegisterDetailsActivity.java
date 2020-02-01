@@ -36,7 +36,7 @@ public class RegisterDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_details);
 
         //----------------------------------------------------------------------- Select Gender ------------------------------------------------------------------------------
-        spinner = findViewById(R.id.spinnerGenre);
+        spinner = findViewById(R.id.spinnerGender);
 
         List<String> categorias = new ArrayList<>();
         categorias.add(0, "Sexo");

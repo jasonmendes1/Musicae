@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/etFirstName"
-        android:layout_width="140dp"
+        android:layout_width="305dp"
         android:layout_height="50dp"
         android:hint="@string/txtDetalhesPNome"
         android:inputType="textPersonName"
@@ -50,15 +50,6 @@
         android:layout_below="@id/space2"
         android:layout_toEndOf="@id/etFirstName" />
 
-    <EditText
-        android:id="@+id/etLastName"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:hint="@string/txtDetalhesUNome"
-        android:inputType="textPersonName"
-        android:layout_below="@id/space2"
-        android:layout_toEndOf="@id/space3" />
-
     <Space
         android:id="@+id/space4"
         android:layout_width="match_parent"
@@ -67,7 +58,7 @@
         android:layout_toEndOf="@id/spaceV" />
 
     <Spinner
-        android:id="@+id/spinnerGenre"
+        android:id="@+id/spinnerGender"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:textColor="?attr/editTextColor"
@@ -80,7 +71,7 @@
         android:id="@+id/space5"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@id/spinnerGenre"
+        android:layout_below="@id/spinnerGender"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
