@@ -88,13 +88,12 @@ public class Singleton extends Application implements FeedListener, BandasListen
         Perfis = new ArrayList<>();
 
         musicaeBDHelper = new MusicaeBDHelper(context);
-        perfisGerarFakeData();
     }
 
     public void setIp(String ip) {
         SharedPreferencesConfig.write(SharedPreferencesConfig.IP, ip);
-        UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
-        //UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+        //UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
+        UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
     }
 
     public String getIp() {
@@ -128,8 +127,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
     // ---- End gets ----
     public Perfil getPerfil(int id){
-        for (Perfil p: Perfis
-             ) {
+        for (Perfil p: Perfis) {
             if(p.getId() == id){
                 return p;
             }
@@ -210,9 +208,9 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
 
     private void perfisGerarFakeData(){
-        Perfis.add(new Perfil(1, "Pedro Lopes", "Masculino", "23-11-1998", "Descricao bla", "foto.url", "Marinha Grande", 9100000));
-        Perfis.add(new Perfil(2, "Pedro Alves", "Masculino", "01-01-2000", "Descricao bla", "foto.url", "Marinha Grande", 9100000));
-        Perfis.add(new Perfil(3, "Pedro Lopes", "Masculino", "01-01-1998", "Descricao bla", "foto.url", "Leiria", 9100000));
+        Perfis.add(new Perfil(1, "Pedro Lopes", "Masculino", "23-11-1998", "Descricao bla", "foto.url", "Marinha Grande"));
+        Perfis.add(new Perfil(2, "Pedro Alves", "Masculino", "01-01-2000", "Descricao bla", "foto.url", "Marinha Grande"));
+        Perfis.add(new Perfil(3, "Pedro Lopes", "Masculino", "01-01-1998", "Descricao bla", "foto.url", "Leiria"));
     }
 
     public String[] getHabilidadesFiltro() {

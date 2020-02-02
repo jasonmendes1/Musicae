@@ -36,7 +36,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 public class ProfileFragment extends Fragment {
 
     private TextView tvUsername, tvId, tvEmail;
-    private EditText etNome, etSexo, etContacto,etLocaclidade, etDtaNasc, etInstrumento, etGenero;
+    private EditText etNome, etSexo,etLocalidade, etDtaNasc, etInstrumento, etGenero;
     private Perfil perfil;
     private SharedPreferences sharedPreferences;
     private Button buttonEditar;
@@ -56,16 +56,15 @@ public class ProfileFragment extends Fragment {
         tvEmail = rootView.findViewById(R.id.tvEmail);
         etNome = rootView.findViewById(R.id.etNomeProfile);
         etSexo = rootView.findViewById(R.id.etSexoProfile);
-        etContacto = rootView.findViewById(R.id.etContactoProfile);
-        etLocaclidade = rootView.findViewById(R.id.etLocalidadeProfile);
+        etLocalidade = rootView.findViewById(R.id.etLocalidadeProfile);
         etDtaNasc = rootView.findViewById(R.id.etDtaNascProfile);
         etInstrumento = rootView.findViewById(R.id.etInstrumentoProfile);
         etGenero = rootView.findViewById(R.id.etGeneroProfile);
 
 
         ipURL = Singleton.getInstance(getContext()).getIp();
-        urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1/user/profile";
-        //urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
+        //urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1/user/profile";
+        urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
 
         // NÃO ESQUECER DE METER O IDUSER A FUNCIONAR
         IdUser = Singleton.getInstance(getContext()).getIdUser();
@@ -79,22 +78,22 @@ public class ProfileFragment extends Fragment {
                             JSONObject profile = response.getJSONObject(0);
 
                             String UserUsername = profile.getString("UserUsername");
-                            String HabilidadeNome = profile.getString("HabilidadeNome");
-                            String GeneroNome = profile.getString("GeneroNome");
+                            String UserEmail = profile.getString("UserEmail");
                             String ProfileNome = profile.getString("ProfileNome");
                             String ProfileSexo = profile.getString("ProfileSexo");
                             String ProfileLocalidade = profile.getString("ProfileLocalidade");
+                            String HabilidadeNome = profile.getString("HabilidadeNome");
+                            String GeneroNome = profile.getString("GeneroNome");
                             String ProfileFoto = profile.getString("ProfileFoto");
-                            String UserEmail = profile.getString("UserEmail");
 
                             tvUsername.setText(UserUsername);
                             tvId.setText("#" + IdUser);
                             tvEmail.setText(UserEmail);
                             etNome.setText(ProfileNome);
+                            etSexo.setText(ProfileSexo);
+                            etLocalidade.setText(ProfileLocalidade);
                             etInstrumento.setText(HabilidadeNome);
                             etGenero.setText(GeneroNome);
-                            etSexo.setText(ProfileSexo);
-                            etLocaclidade.setText(ProfileLocalidade);
 
                             /*
                             tvUsername = rootView.findViewById(R.id.tvUsername);
@@ -133,14 +132,12 @@ public class ProfileFragment extends Fragment {
         tvId.setText(perfil.getId());
         etNome.setText(perfil.getNome());
         etDtaNasc.setText(perfil.getDatanasc());
-        etContacto.setText(perfil.getNrtelemovel());
     }
 
     private Perfil editarPerfil() {
         perfil.setNome(perfil.getNome());
         perfil.setSexo(perfil.getSexo());
         perfil.setLocalidade(perfil.getLocalidade());
-        perfil.setNrtelemovel(perfil.getNrtelemovel());
         perfil.setDatanasc(perfil.getDatanasc());
 
         return perfil;

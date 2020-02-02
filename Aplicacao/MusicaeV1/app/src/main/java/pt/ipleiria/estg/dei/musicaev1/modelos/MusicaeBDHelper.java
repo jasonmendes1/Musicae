@@ -58,7 +58,6 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
                 PROFILE_NOME + " TEXT NOT NULL, " +
                 PROFILE_SEXO + " TEXT NOT NULL, " +
                 PROFILE_DATANAC + " DATETIME NOT NULL, " +
-                PROFILE_NRTELEMOVEL + " INTEGER NOT NULL, " +
                 PROFILE_DESCRICAO + " INTEGER NOT NULL, " +
                 PROFILE_FOTO + " BLOB, " +
                 PROFILE_LOCALIDADE + " TEXT NOT NULL);";
@@ -104,12 +103,12 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         ArrayList<Perfil> perfis = new ArrayList<>();
 
         Cursor cursor = this.database.query(TABLE_PROFILES, new String[]{
-                        PROFILE_ID, PROFILE_NOME, PROFILE_SEXO, PROFILE_DATANAC, PROFILE_NRTELEMOVEL, PROFILE_DESCRICAO, PROFILE_FOTO, PROFILE_LOCALIDADE},
+                        PROFILE_ID, PROFILE_NOME, PROFILE_SEXO, PROFILE_DATANAC, PROFILE_DESCRICAO, PROFILE_FOTO, PROFILE_LOCALIDADE},
                 null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
             do{
-                Perfil auxPerfil = new Perfil(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7));
+                Perfil auxPerfil = new Perfil(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6));
                 perfis.add(auxPerfil);
             }while (cursor.moveToNext());
         }
@@ -137,7 +136,6 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         values.put(PROFILE_NOME, perfil.getNome());
         values.put(PROFILE_SEXO, perfil.getSexo());
         values.put(PROFILE_DATANAC, perfil.getDatanasc());
-        values.put(PROFILE_NRTELEMOVEL, perfil.getNrtelemovel());
         values.put(PROFILE_DESCRICAO, perfil.getDescricao());
         values.put(PROFILE_FOTO, perfil.getFoto());
         values.put(PROFILE_LOCALIDADE, perfil.getLocalidade());
@@ -161,7 +159,6 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
         values.put(PROFILE_NOME, perfil.getNome());
         values.put(PROFILE_SEXO, perfil.getSexo());
         values.put(PROFILE_DATANAC, perfil.getDatanasc());
-        values.put(PROFILE_NRTELEMOVEL, perfil.getNrtelemovel());
         values.put(PROFILE_DESCRICAO, perfil.getDescricao());
         values.put(PROFILE_FOTO, perfil.getFoto());
         values.put(PROFILE_LOCALIDADE, perfil.getLocalidade());

@@ -1,15 +1,14 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Perfil {
-    private int id, nrtelemovel;
+    private int id;
     private String nome, sexo, dataNasc, descricao, foto, localidade;
 
-    public Perfil(int id, String nome, String sexo , String dataNasc, String descricao, String foto,  String localidade, int nrtelemovel) {
+    public Perfil(int id, String nome, String sexo , String dataNasc, String descricao, String foto,  String localidade) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
         this.dataNasc = dataNasc;
-        this.nrtelemovel = nrtelemovel;
         this.descricao = descricao;
         this.foto = foto;
         this.localidade = localidade;
@@ -41,14 +40,6 @@ public class Perfil {
 
     public void setLocalidade(String localidade) {
         this.localidade = localidade;
-    }
-
-    public int getNrtelemovel() {
-        return nrtelemovel;
-    }
-
-    public void setNrtelemovel(int nrtelemovel) {
-        this.nrtelemovel = nrtelemovel;
     }
 
     public String getDatanasc() {

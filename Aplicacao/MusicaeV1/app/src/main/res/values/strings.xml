@@ -84,7 +84,7 @@
     <string name="txtProfileNomeCompleto">Pedro</string>
     <string name="txtProfileSexo">Sexo</string>
     <string name="txtProfileMasculino">Male</string>
-    <string name="txtProfileCidade">Cidade</string>
+    <string name="txtProfileLocalidade">Localidade</string>
     <string name="txtProfileLeiria">Leiria</string>
     <string name="txtProfileContacto">Contacto</string>
     <string name="txtProfileNrTelemovel2">931245678</string>

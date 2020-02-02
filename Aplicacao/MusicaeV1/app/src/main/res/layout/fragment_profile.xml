@@ -9,15 +9,15 @@
     <ImageView
         android:id="@+id/ivBannner"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="110dp"
         android:background="@color/gray" />
 
     <ImageView
         android:id="@+id/ivProfile"
-        android:layout_width="93dp"
-        android:layout_height="105dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/perfil" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:text="@string/txtProfileUsername"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp"
         android:layout_toEndOf="@id/ivProfile"/>
 
@@ -40,7 +40,7 @@
         android:text="@string/txtProfileXXX"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@id/tvUsername"/>
 
@@ -52,7 +52,7 @@
         android:text="@string/txtProfileEmail"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="60dp"
         android:layout_marginLeft="20dp"
         android:layout_toEndOf="@id/ivProfile"/>
 
@@ -60,6 +60,9 @@
         android:id="@+id/btnEditProfile"
         android:layout_width="115dp"
         android:layout_height="38dp"
+        android:layout_below="@id/etDescricaoProfile"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="260dp"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/semibold"
         android:text="@string/txtProfileEditar"
@@ -67,7 +70,12 @@
         android:textColor="@color/white"
         android:textSize="18sp" />
 
-
+    <Space
+        android:id="@+id/spaceV"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/ivBannner"
+        android:layout_toEndOf="@id/etNomeProfile"/>
 
     <TextView
         android:id="@+id/TextViewNome"
@@ -82,7 +90,7 @@
         android:textSize="17sp" />
     <EditText
         android:id="@+id/etNomeProfile"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/TextViewNome"
@@ -104,7 +112,7 @@
         android:textSize="17sp" />
     <EditText
         android:id="@+id/etSexoProfile"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_marginLeft="20dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/TextViewSexo"
@@ -115,40 +123,18 @@
 
 
     <TextView
-        android:id="@+id/TextViewContacto"
+        android:id="@+id/TextViewLocalidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/etSexoProfile"
         android:fontFamily="@font/bold"
-        android:text="@string/txtProfileContacto"
-        android:textColor="@color/gray"
-        android:textSize="17sp" />
-    <EditText
-        android:id="@+id/etContactoProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@id/TextViewContacto"
-        android:fontFamily="@font/regular"
-        android:text="@string/txtProfileNrTelemovel2"
-        android:textColor="@color/gray"
-        android:textSize="15sp" />
-
-
-    <TextView
-        android:id="@+id/TextViewLocalidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@id/etContactoProfile"
-        android:fontFamily="@font/bold"
-        android:text="@string/txtProfileCidade"
+        android:text="@string/txtProfileLocalidade"
         android:textColor="@color/gray"
         android:textSize="17sp" />
     <EditText
         android:id="@+id/etLocalidadeProfile"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/TextViewLocalidade"
@@ -163,16 +149,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_below="@id/etLocalidadeProfile"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/ivBannner"
+        android:layout_toEndOf="@+id/spaceV"
         android:fontFamily="@font/bold"
         android:text="@string/txtProfileDataNasc"
         android:textColor="@color/gray"
         android:textSize="17sp" />
     <EditText
         android:id="@+id/etDtaNascProfile"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@+id/spaceV"
         android:layout_below="@id/TextViewDtaNasc"
         android:fontFamily="@font/regular"
         android:text="@string/txtProfileDataNasc2"
@@ -187,17 +176,19 @@
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/bold"
         android:text="@string/txtProfileInstrumentos"
+        android:layout_toEndOf="@+id/spaceV"
         android:textColor="@color/gray"
         android:textSize="17sp"
         android:layout_below="@id/etDtaNascProfile"/>
     <EditText
         android:id="@+id/etInstrumentoProfile"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/TextViewInstrumento"
         android:fontFamily="@font/regular"
         android:text="@string/txtProfileGuitarra"
+        android:layout_toEndOf="@+id/spaceV"
         android:textColor="@color/gray"
         android:textSize="15sp" />
 
@@ -210,17 +201,42 @@
         android:layout_below="@id/etInstrumentoProfile"
         android:fontFamily="@font/bold"
         android:text="@string/txtProfileGeneros"
+        android:layout_toEndOf="@+id/spaceV"
         android:textColor="@color/gray"
         android:textSize="17sp" />
     <EditText
         android:id="@+id/etGeneroProfile"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_marginLeft="20dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/TextViewGenero"
         android:fontFamily="@font/regular"
         android:text="@string/txtProfileRap"
+        android:layout_toEndOf="@+id/spaceV"
         android:textColor="@color/gray"
         android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/TextViewDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/etLocalidadeProfile"
+        android:fontFamily="@font/bold"
+        android:text="Descrição"
+        android:textColor="@color/gray"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/etDescricaoProfile"
+        android:layout_width="350dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/TextViewDescricao"
+        android:layout_marginLeft="20dp"
+        android:gravity="start"
+        android:layout_marginTop="10dp"
+        android:hint="Descrição do Perfil"
+        android:lines="4" />
 
 </RelativeLayout>
