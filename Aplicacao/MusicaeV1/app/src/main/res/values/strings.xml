@@ -81,13 +81,13 @@
     <string name="txtProfileGeneros">Géneros</string>
     <string name="txtProfileRap">Rap</string>
     <string name="txtProfileNome">Nome</string>
-    <string name="txtProfileNomeCompleto">FullName</string>
+    <string name="txtProfileNomeCompleto">Pedro</string>
     <string name="txtProfileSexo">Sexo</string>
     <string name="txtProfileMasculino">Male</string>
     <string name="txtProfileCidade">Cidade</string>
     <string name="txtProfileLeiria">Leiria</string>
-    <string name="txtProfileNrTelemovel">Número Telemóvel</string>
-    <string name="txtProfileNrTelemovel2">(+351) 123456789</string>
+    <string name="txtProfileContacto">Contacto</string>
+    <string name="txtProfileNrTelemovel2">931245678</string>
     <string name="txtProfileDataNasc">Data de Nascimento</string>
     <string name="txtProfileDataNasc2">11/22/3333</string>
     <string name="txtFragFeedFiltro">Filtro</string>
