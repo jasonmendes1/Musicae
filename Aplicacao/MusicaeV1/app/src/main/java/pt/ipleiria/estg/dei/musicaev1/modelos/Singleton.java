@@ -92,8 +92,8 @@ public class Singleton extends Application implements FeedListener, BandasListen
 
     public void setIp(String ip) {
         SharedPreferencesConfig.write(SharedPreferencesConfig.IP, ip);
-        //UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
-        UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
+        UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
+        //UrlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1";
     }
 
     public String getIp() {

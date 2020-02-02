@@ -63,8 +63,8 @@ public class ProfileFragment extends Fragment {
 
 
         ipURL = Singleton.getInstance(getContext()).getIp();
-        //urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1/user/profile";
-        urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
+        urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1/user/profile";
+        //urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
 
         // NÃO ESQUECER DE METER O IDUSER A FUNCIONAR
         IdUser = Singleton.getInstance(getContext()).getIdUser();

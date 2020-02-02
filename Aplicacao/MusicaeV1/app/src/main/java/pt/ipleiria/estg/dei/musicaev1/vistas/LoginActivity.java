@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
             descartarSharedpreferences();
         }
 
-        textViewIP.setText("192.168.1.7");
+        //textViewIP.setText("192.168.1.7");
 
         if(textViewIP.getText() == ""){
             Toast.makeText(this, "Adiciona um IP!", Toast.LENGTH_SHORT).show();
