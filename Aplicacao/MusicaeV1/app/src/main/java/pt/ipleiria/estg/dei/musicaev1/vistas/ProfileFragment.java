@@ -36,7 +36,7 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 public class ProfileFragment extends Fragment {
 
     private TextView tvUsername, tvId, tvEmail;
-    private EditText etNome, etSexo,etLocalidade, etDtaNasc, etInstrumento, etGenero;
+    private EditText etNome, etSexo,etLocalidade, etDtaNasc, etInstrumento, etGenero, etDescricao;
     private Perfil perfil;
     private SharedPreferences sharedPreferences;
     private Button buttonEditar;
@@ -60,6 +60,7 @@ public class ProfileFragment extends Fragment {
         etDtaNasc = rootView.findViewById(R.id.etDtaNascProfile);
         etInstrumento = rootView.findViewById(R.id.etInstrumentoProfile);
         etGenero = rootView.findViewById(R.id.etGeneroProfile);
+        etDescricao = rootView.findViewById(R.id.etDescricaoProfile);
 
 
         ipURL = Singleton.getInstance(getContext()).getIp();
@@ -82,6 +83,8 @@ public class ProfileFragment extends Fragment {
                             String ProfileNome = profile.getString("ProfileNome");
                             String ProfileSexo = profile.getString("ProfileSexo");
                             String ProfileLocalidade = profile.getString("ProfileLocalidade");
+                            String ProfileDataNasc = profile.getString("ProfileDataNasc");
+                            String ProfileDescricao = profile.getString("ProfileDescricao");
                             String HabilidadeNome = profile.getString("HabilidadeNome");
                             String GeneroNome = profile.getString("GeneroNome");
                             String ProfileFoto = profile.getString("ProfileFoto");
@@ -92,6 +95,8 @@ public class ProfileFragment extends Fragment {
                             etNome.setText(ProfileNome);
                             etSexo.setText(ProfileSexo);
                             etLocalidade.setText(ProfileLocalidade);
+                            etDtaNasc.setText(ProfileDataNasc);
+                            etDescricao.setText(ProfileDescricao);
                             etInstrumento.setText(HabilidadeNome);
                             etGenero.setText(GeneroNome);
 

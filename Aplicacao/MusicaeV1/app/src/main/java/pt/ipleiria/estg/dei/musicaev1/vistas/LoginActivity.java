@@ -53,6 +53,8 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         editTextUsername = findViewById(R.id.etUsername);
         editTextPassword = findViewById(R.id.etPassword);
         textViewIP = findViewById(R.id.tvIP);
+
+        textViewIP.setText(SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null));
     }
 
     public void onClickLogin(View view) {
@@ -67,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         //textViewIP.setText("192.168.1.7");
 
         if(textViewIP.getText() == ""){
-            Toast.makeText(this, "Adiciona um IP!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Adiciona / Altera o IP!", Toast.LENGTH_SHORT).show();
         }else{
             Singleton.getInstance(getApplicationContext()).setIp(ip);
             System.out.println("--> SharedPreferences IP: " + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null));
@@ -103,6 +105,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         builder = new AlertDialog.Builder(this);
         final EditText IPinput = new EditText(this);
         builder.setView(IPinput);
+        IPinput.setText(textViewIP.getText());
         builder.setTitle("IP")
                 .setMessage("Coloca aqui o teu IPv4")
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
