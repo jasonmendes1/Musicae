@@ -74,7 +74,7 @@ public class MenuMainActivity extends AppCompatActivity implements NavigationVie
         String usernameId = username + "#" + id;
         View view = navigationView.getHeaderView(0);
         TextView textViewUser = view.findViewById(R.id.tvNome);
-        TextView txtEmail = view.findViewById(R.id.tvEmail);
+        TextView txtEmail = view.findViewById(R.id.tvEmailPerfil);
         textViewUser.setText(usernameId);
         txtEmail.setText(email);
     }

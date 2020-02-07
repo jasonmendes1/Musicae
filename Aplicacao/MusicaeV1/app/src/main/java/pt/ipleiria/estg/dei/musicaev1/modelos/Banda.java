@@ -2,16 +2,17 @@ package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class Banda {
     private int id, contacto;
-    private String nome, genero, localizacao, descricao, capa;
+    private String nome, idgenero, localizacao, descricao, logo, removida;
 
-    public Banda(int id, String nome, String genero, String localizacao, int contacto, String descricao, String capa) {
+    public Banda(int id,String nome,  String descricao, String localizacao, int contacto, String Logo, String removida, String idgenero) {
         this.id = id;
         this.nome = nome;
-        this.genero = genero;
         this.localizacao = localizacao;
         this.contacto = contacto;
         this.descricao = descricao;
-        this.capa = capa;
+        this.logo = Logo;
+        this.removida = removida;
+        this.idgenero = idgenero;
     }
 
     public int getId() {
@@ -26,16 +27,32 @@ public class Banda {
         return nome;
     }
 
+    public String getIdgenero() {
+        return idgenero;
+    }
+
+    public void setIdgenero(String idgenero) {
+        this.idgenero = idgenero;
+    }
+
+    public String getRemovida() {
+        return removida;
+    }
+
+    public void setRemovida(String removida) {
+        this.removida = removida;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     public String getGenero() {
-        return genero;
+        return idgenero;
     }
 
     public void setGenero(String genero) {
-        this.genero = genero;
+        this.idgenero = genero;
     }
 
     public String getLocalizacao() {
@@ -63,10 +80,10 @@ public class Banda {
     }
 
     public String getCapa() {
-        return capa;
+        return logo;
     }
 
     public void setCapa(String capa) {
-        this.capa = capa;
+        this.logo = capa;
     }
 }

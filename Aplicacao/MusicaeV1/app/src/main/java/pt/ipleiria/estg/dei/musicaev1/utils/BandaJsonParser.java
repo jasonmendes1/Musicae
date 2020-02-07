@@ -30,9 +30,11 @@ public class BandaJsonParser {
                 String descricao = banda.getString("Descricao");
                 String localizacao = banda.getString("Localizacao");
                 Integer contacto = banda.getInt("Contacto");
-                String capa = banda.getString("Capa");
+                String logo = banda.getString("Logo");
+                String removida = banda.getString("Removida");
+                String idGenero = banda.getString("IdGenero");
 
-                Banda auxbanda = new Banda(idBanda, nome, genero, localizacao, contacto, descricao, capa);
+                Banda auxbanda = new Banda(idBanda, nome, descricao, localizacao, contacto, logo, removida, idGenero);
                 tempListaBandas.add(auxbanda);
             }
 
@@ -58,9 +60,11 @@ public class BandaJsonParser {
             String descricao = banda.getString("Descricao");
             String localizacao = banda.getString("Localizacao");
             Integer contacto = banda.getInt("Contacto");
-            String capa = banda.getString("Capa");
+            String logo = banda.getString("Logo");
+            String removida = banda.getString("Removida");
+            String idGenero = banda.getString("IdGenero");
 
-            auxBanda = new Banda(idBanda, nome, genero, localizacao, contacto, descricao, capa);
+            auxBanda = new Banda(idBanda, nome, descricao, localizacao, contacto, logo, removida, idGenero);
 
         }catch(JSONException e){
             e.printStackTrace();

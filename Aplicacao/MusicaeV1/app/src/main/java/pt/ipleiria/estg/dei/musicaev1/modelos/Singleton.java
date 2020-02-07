@@ -16,11 +16,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.crypto.Cipher;
@@ -37,7 +39,7 @@ import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 public class Singleton extends Application implements FeedListener, BandasListener {
     private ArrayList<Banda> bandas;
     private ArrayList<Feed> bandasFeed;
-    private ArrayList<BandaHabilidade> minhasBandas;
+    private ArrayList<BandaMembro> minhasBandas;
     private ArrayList<BandaMembro> BandaMembros;
     private ArrayList<Genero> Generos;
     private ArrayList<Habilidade> habilidades;
@@ -45,6 +47,11 @@ public class Singleton extends Application implements FeedListener, BandasListen
     private ArrayList<ListaMusica> listaMusicas;
     private ArrayList<Musico> Musicos;
     private ArrayList<Perfil> Perfis;
+
+
+
+    public List<String> generosAPI;
+    public List<String> habilidadesAPI;
 
     private LoginListener loginListener;
     private BandaHabilidadeListener bandaHabilidadeListener;
@@ -57,7 +64,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     private static RequestQueue volleyQueue = null;
     private String tokenAPI = "";
 
-    private String UrlAPI = null;
+    private String UrlAPI = "http://" + SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null) + "/MusicaeWeb/backend/web/v1";
     private String ipURL;
 
     private MusicaeBDHelper musicaeBDHelper = null;
@@ -179,9 +186,138 @@ public class Singleton extends Application implements FeedListener, BandasListen
         volleyQueue.add(req);
     }
 
+    public void setGenerosAPI(List<String> generos){
+        this.generosAPI = generos;
+    }
+
+    public List<String> getGenerosAPI (){
+        final List<String> generos = new ArrayList<>();
+
+        System.out.println("-->wi response: url: " + UrlAPI + "/generos");
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/generos", null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                generos.add("Generos");
+                for(int i = 0; i < response.length(); i++){
+                    try {
+                        JSONObject obj = (JSONObject) response.get(i);
+                        generos.add(obj.getString("Nome"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO caramba WI: " + error.getMessage());
+            }
+        });
+        volleyQueue.add(req);
+
+        return generos;
+    }
+
+
+    public void setHabilidadesAPI(List<String> habilidades){
+        this.habilidadesAPI = habilidades;
+    }
+
+    public List<String> getHabilidadesAPI (){
+        final List<String> habilidades = new ArrayList<>();
+
+        System.out.println("-->wi response: url: " + UrlAPI + "/habilidades");
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/generos", null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                habilidades.add("Instrumento");
+                for(int i = 0; i < response.length(); i++){
+                    try {
+                        JSONObject obj = (JSONObject) response.get(i);
+                        habilidades.add(obj.getString("Nome"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO caramba WI: " + error.getMessage());
+            }
+        });
+        volleyQueue.add(req);
+
+        return habilidades;
+    }
+
+    public void adicionarBandaAPI(final Banda banda, final Context context){
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/bandas", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(bandasListener != null){
+                    bandasListener.onUpdateListaBandasBD(BandaJsonParser.parserJsonBanda(response, context), 1);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO: adicionarBandasAPI: " + error.getMessage());
+
+            }
+        }){
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("Nome", banda.getNome());
+                params.put("Descricao", banda.getDescricao());
+                params.put("Localizacao", banda.getLocalizacao());
+                params.put("Contacto", "" + banda.getContacto());
+                params.put("Logo", banda.getCapa());
+                params.put("Removida", banda.getRemovida());
+                params.put("IdGenero", banda.getIdgenero());
+
+                return params;
+            }
+        };
+        volleyQueue.add(req);
+    }
+
+    public void adicionarMembroBandaAPI(final String bandaNome){
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-membros/add?IdUser=" + getIdUser() + "&BandaNome=" + bandaNome, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO: adicionar Membro a banda: " + error.getMessage());
+            }
+        });
+        volleyQueue.add(req);
+    }
+
     public void getBandasPerfilAPI (final Context context, boolean isConnected){
         System.out.println("-->wi response: BEM VINDO");
         JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas/membros/" + IdUser, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                minhasBandas = BandaHabilidadeJsonParser.parserJsonBandaHabilidade(response, context);
+                if (bandaHabilidadeListener != null) {
+                    bandaHabilidadeListener.onRefreshBandaHabilidades(minhasBandas);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("--> ERRO WI: " + error.getMessage());
+            }
+        });
+        volleyQueue.add(req);
+    }
+
+    public void getBandasHistoricoAPI (final Context context, boolean isConnected){
+        System.out.println("-->wi response: BEM VINDO");
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/bandas/historico/" + IdUser, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 minhasBandas = BandaHabilidadeJsonParser.parserJsonBandaHabilidade(response, context);
@@ -327,37 +463,6 @@ public class Singleton extends Application implements FeedListener, BandasListen
         }
     }
 
-    public void adicionarBandaAPI(final Banda banda, final Context context){
-        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                System.out.println("--> RESPOSTA ADD: " + response);
-                if(bandasListener != null){
-                    bandasListener.onUpdateListaBandasBD(BandaJsonParser.parserJsonBanda(response, context), 1);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("--> ERRO: adicionarBandasAPI: " + error.getMessage());
-
-            }
-        }){
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap<>();
-                params.put("token", tokenAPI);
-                params.put("nome", banda.getNome());
-                params.put("descricao", banda.getDescricao());
-                params.put("localizacao", banda.getLocalizacao());
-                params.put("contacto", "" + banda.getContacto());
-                params.put("logo", banda.getCapa());
-
-                return params;
-            }
-        };
-        volleyQueue.add(req);
-    }
-
     public void removerBandasAPI(final Banda banda){
         StringRequest req = new StringRequest(Request.Method.DELETE, UrlAPI + "/" + banda.getId(), new Response.Listener<String>() {
             @Override
@@ -434,8 +539,8 @@ public class Singleton extends Application implements FeedListener, BandasListen
             volleyQueue.add(req);
     }
 
-    public void adicionarBandaFeedAPI(final Feed feed, final Context context){
-        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades/feeed/" + feed.getId(), new Response.Listener<String>() {
+    public void adicionarBandaFeedAPI(final String idBanda, final String idHabilidade, final String experiencia, final String compromisso , final Context context){
+        StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
@@ -452,11 +557,10 @@ public class Singleton extends Application implements FeedListener, BandasListen
         }) {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
-                params.put("nome", feed.getNome());
-                params.put("instrumento", feed.getInstrumento());
-                params.put("compromisso", feed.getCompromisso());
-                params.put("experiencia", feed.getExperiencia());
-                params.put("capa", feed.getLogo());
+                params.put("IdBanda", idBanda);
+                params.put("IdHabilidade", idHabilidade);
+                params.put("experiencia", experiencia);
+                params.put("compromisso", compromisso);
 
                 return params;
             }

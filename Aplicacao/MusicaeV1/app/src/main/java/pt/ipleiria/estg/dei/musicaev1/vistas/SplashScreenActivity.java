@@ -33,6 +33,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                     perfil = Singleton.getInstance(getApplicationContext()).getPerfil(Integer.parseInt(sharedPreferences.getString(MenuMainActivity.SECCAO_INFO_USER, "-1")));
                     mainIntent.putExtra(MenuMainActivity.CHAVE_USERNAME, perfil.getNome());
                     mainIntent.putExtra(MenuMainActivity.CHAVE_ID, ""+ perfil.getId());
+
+                    Singleton.getInstance(getApplicationContext()).setGenerosAPI(Singleton.getInstance(getApplicationContext()).getGenerosAPI());
+                    Singleton.getInstance(getApplicationContext()).setHabilidadesAPI(Singleton.getInstance(getApplicationContext()).getHabilidadesAPI());
+
                     startActivity(mainIntent);
                 }
             },SLAPSH_TIME_OUT);
@@ -42,6 +46,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                 public void run() {
                     SharedPreferencesConfig.init(getApplicationContext());
                     Intent mainIntent = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
+
+                    Singleton.getInstance(getApplicationContext()).setGenerosAPI(Singleton.getInstance(getApplicationContext()).getGenerosAPI());
+                    Singleton.getInstance(getApplicationContext()).setHabilidadesAPI(Singleton.getInstance(getApplicationContext()).getHabilidadesAPI());
+
                     startActivity(mainIntent);
                 }
             },SLAPSH_TIME_OUT);

@@ -1,7 +1,6 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,19 +17,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import pt.ipleiria.estg.dei.musicaev1.MenuMainActivity;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Perfil;
-import pt.ipleiria.estg.dei.musicaev1.modelos.SharedPreferencesConfig;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class ProfileFragment extends Fragment {
@@ -51,9 +45,9 @@ public class ProfileFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
         mQueue = Volley.newRequestQueue(getContext());
 
-        tvUsername = rootView.findViewById(R.id.tvUsername);
-        tvId = rootView.findViewById(R.id.tvID);
-        tvEmail = rootView.findViewById(R.id.tvEmail);
+        tvUsername = rootView.findViewById(R.id.tvUsernamePerfil);
+        tvId = rootView.findViewById(R.id.tvIDPerfil);
+        tvEmail = rootView.findViewById(R.id.tvEmailPerfil);
         etNome = rootView.findViewById(R.id.etNomeProfile);
         etSexo = rootView.findViewById(R.id.etSexoProfile);
         etLocalidade = rootView.findViewById(R.id.etLocalidadeProfile);
@@ -65,11 +59,10 @@ public class ProfileFragment extends Fragment {
 
         ipURL = Singleton.getInstance(getContext()).getIp();
         urlAPI = "http://" + ipURL + "/MusicaeWeb/backend/web/v1/user/profile";
-        //urlAPI = "http://192.168.1.7/MusicaeWeb/backend/web/v1/user/profile";
 
         // NÃO ESQUECER DE METER O IDUSER A FUNCIONAR
         IdUser = Singleton.getInstance(getContext()).getIdUser();
-
+        System.out.println("--> url perfilAPI: "+ urlAPI + "/" + IdUser);
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, urlAPI + "/" + IdUser, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -77,6 +70,7 @@ public class ProfileFragment extends Fragment {
                         System.out.println("-->RESPOSTA ");
                         try {
                             JSONObject profile = response.getJSONObject(0);
+                            System.out.println("--> profile: " + profile.toString());
 
                             String UserUsername = profile.getString("UserUsername");
                             String UserEmail = profile.getString("UserEmail");
@@ -99,14 +93,7 @@ public class ProfileFragment extends Fragment {
                             etDescricao.setText(ProfileDescricao);
                             etInstrumento.setText(HabilidadeNome);
                             etGenero.setText(GeneroNome);
-
-                            /*
-                            tvUsername = rootView.findViewById(R.id.tvUsername);
-                            tvId = rootView.findViewById(R.id.tvID);
-                            tvNome = rootView.findViewById(R.id.tvName);
-                            tvEmail = rootView.findViewById(R.id.tvEmail);
-                            tvDataNasc = rootView.findViewById(R.id.tvNumber);
-                            */
+                            System.out.println("--> tvUsername: " + tvUsername.getText());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

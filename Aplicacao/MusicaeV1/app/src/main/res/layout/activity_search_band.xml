@@ -87,64 +87,39 @@
         android:id="@+id/spinnerCompromisso"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:textColor="?attr/editTextColor"
-        android:background="?attr/editTextBackground"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:layout_below="@id/chkPeloMenos"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <CheckBox
-        android:id="@+id/chkPeloMenos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/tv3"
         android:layout_toEndOf="@id/spaceV"
-        android:fontFamily="@font/regular"
-        android:text="@string/txtProcurarPeloMenos"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:buttonTint="@color/gray" />
-
-    <CheckBox
-        android:id="@+id/chkExacto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv3"
-        android:layout_marginLeft="20dp"
-        android:layout_toEndOf="@id/chkPeloMenos"
-        android:fontFamily="@font/regular"
-        android:text="@string/txtProcurarExato"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:buttonTint="@color/gray" />
+        android:background="?attr/editTextBackground"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textColor="?attr/editTextColor" />
 
     <Button
         android:id="@+id/btnCancelar"
         android:layout_width="130dp"
         android:layout_height="38dp"
-        android:layout_marginTop="50dp"
+        android:layout_below="@id/spinnerCompromisso"
+        android:layout_marginTop="150dp"
+        android:layout_toEndOf="@id/spaceV"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
         android:text="@string/btnProcurarCancelar"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_below="@id/spinnerCompromisso"
-        android:layout_toEndOf="@id/spaceV"/>
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnCriarProcura"
         android:layout_width="150dp"
         android:layout_height="38dp"
+        android:layout_below="@id/spinnerCompromisso"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="150dp"
+        android:layout_toEndOf="@id/btnCancelar"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
-        android:layout_marginTop="50dp"
         android:text="@string/btnProcurarCriar"
-        android:layout_marginLeft="30dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_below="@id/spinnerCompromisso"
-        android:layout_toEndOf="@id/btnCancelar"/>
+        android:textSize="20sp" />
 
 </RelativeLayout>

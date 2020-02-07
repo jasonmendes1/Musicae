@@ -2,6 +2,7 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,17 +34,19 @@ public class ProfileBandActivity extends AppCompatActivity {
 
     public static  final String ID_BANDA = "idBanda";
     public static  final String NOME_BANDA = "nomeBanda";
+    public static  final String FEED = "-1";
     private Banda banda;
     private TextView tvName, tvDescription, tvGenre, tvNumber, tvCity;
     private ImageView ivBannner;
     private int idBanda;
     private Button buttonEditar, buttonCandidatos;
-    private FloatingActionButton fabProcura;
+    private FloatingActionButton fabProcura, fabAddBanda;
     private String urlAPI;
     private String ipURL;
 
     private RequestQueue mQueue;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,18 @@ public class ProfileBandActivity extends AppCompatActivity {
 
         idBanda = getIntent().getIntExtra(ID_BANDA, 0);
         final String nomeBanda = getIntent().getStringExtra(NOME_BANDA);
+        fabProcura = findViewById(R.id.fabProcura);
+        fabAddBanda = findViewById(R.id.fabADDbanda);
+
+
+        if(getIntent().getIntExtra(FEED, 0) == -1){
+            System.out.println("Veio das minhas bandas");
+        }else{
+            fabAddBanda.setVisibility(View.GONE);
+            fabProcura.setVisibility(View.GONE);
+            System.out.println("Veio do feed");
+        }
+
 
         mQueue = Volley.newRequestQueue(this);
 
@@ -124,12 +139,12 @@ public class ProfileBandActivity extends AppCompatActivity {
             }
         });
 
-        fabProcura = findViewById(R.id.fabProcura);
         fabProcura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileBandActivity.this, SearchBandActivity.class);
                 intent.putExtra(SearchBandActivity.NOME_BANDA, nomeBanda);
+                intent.putExtra(SearchBandActivity.ID_BANDA, idBanda);
                 startActivity(intent);
             }
         });
