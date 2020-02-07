@@ -539,12 +539,12 @@ public class Singleton extends Application implements FeedListener, BandasListen
             volleyQueue.add(req);
     }
 
-    public void adicionarBandaFeedAPI(final String idBanda, final String idHabilidade, final String experiencia, final String compromisso , final Context context){
+    public void adicionarBandaFeedAPI(final int idBanda, final String idHabilidade, final String experiencia, final String compromisso , final Context context){
+        System.out.println("--> adad: " + idBanda + " " + idHabilidade + " " + experiencia + " " +  compromisso);
         StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-habilidades", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 System.out.println("--> RESPOSTA ADD POST: " + response);
-
                 if(feedListener != null){
                     feedListener.onUpdateListaBandasFeed(FeedJsonParser.parserJsonFeed(response, context), 1);
                 }
@@ -557,7 +557,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
         }) {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
-                params.put("IdBanda", idBanda);
+                params.put("IdBanda", idBanda + "");
                 params.put("IdHabilidade", idHabilidade);
                 params.put("experiencia", experiencia);
                 params.put("compromisso", compromisso);
