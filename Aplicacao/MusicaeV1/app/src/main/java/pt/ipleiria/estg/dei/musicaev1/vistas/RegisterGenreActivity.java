@@ -9,13 +9,17 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class RegisterGenreActivity extends AppCompatActivity {
+    public static  final String ID_HABILIDADE = "idHabilidade";
 
     private ListView lvListaGeneros;
-    private String[] listaGeneros;
+    private List<String> listaGeneros;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +27,7 @@ public class RegisterGenreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_genre);
 
         lvListaGeneros = findViewById(R.id.lvListaGeneros);
-        listaGeneros = Singleton.getInstance(getApplicationContext()).getGeneroFiltro();
-
+        listaGeneros = Singleton.getInstance(getApplicationContext()).generosAPI;
 
         // Create The Adapter with passing ArrayList as 3rd parameter
         ArrayAdapter<String> arrayAdapter =
@@ -39,6 +42,8 @@ public class RegisterGenreActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
             {
                 Intent intent = new Intent(RegisterGenreActivity.this, RegisterDetailsActivity.class);
+                intent.putExtra(RegisterDetailsActivity.ID_HABILIDADE, getIntent().getIntExtra(ID_HABILIDADE, 0));
+                intent.putExtra(RegisterDetailsActivity.ID_GENERO, position);
                 startActivity(intent);
             }
         });

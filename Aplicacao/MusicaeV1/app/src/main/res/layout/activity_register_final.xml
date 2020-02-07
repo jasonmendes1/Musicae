@@ -34,7 +34,7 @@
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etUsernameRegister"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:hint="@string/txtFinalUsername"
@@ -46,11 +46,11 @@
         android:id="@+id/space3"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_below="@id/etUsername"
+        android:layout_below="@id/etUsernameRegister"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/etPasswordRegistar"
         android:layout_width="305dp"
         android:layout_height="50dp"
         android:hint="@string/txtFinalPassword"
@@ -62,7 +62,7 @@
         android:id="@+id/space4"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_below="@id/etPassword"
+        android:layout_below="@id/etPasswordRegistar"
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText

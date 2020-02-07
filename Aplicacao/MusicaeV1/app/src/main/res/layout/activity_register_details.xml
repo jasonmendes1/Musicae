@@ -91,35 +91,19 @@
         android:layout_toEndOf="@id/spaceV" />
 
     <EditText
-        android:id="@+id/etPhone"
+        android:id="@+id/etLocalidade"
         android:layout_width="305dp"
         android:layout_height="50dp"
-        android:hint="@string/txtDetalhesContacto"
-        android:inputType="phone"
         android:layout_below="@id/space6"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <Space
-        android:id="@+id/space7"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@id/etPhone"
-        android:layout_toEndOf="@id/spaceV" />
-
-    <EditText
-        android:id="@+id/etCity"
-        android:layout_width="305dp"
-        android:layout_height="50dp"
+        android:layout_toEndOf="@id/spaceV"
         android:hint="@string/txtDetalhesLocalizacao"
-        android:inputType="textPersonName"
-        android:layout_below="@id/space7"
-        android:layout_toEndOf="@id/spaceV" />
+        android:inputType="textPersonName" />
 
     <Space
         android:id="@+id/space8"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@id/etCity"
+        android:layout_below="@id/etLocalidade"
         android:layout_toEndOf="@id/spaceV" />
 
     <TextView
