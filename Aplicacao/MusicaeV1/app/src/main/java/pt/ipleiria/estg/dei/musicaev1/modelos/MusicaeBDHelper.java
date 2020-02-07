@@ -124,7 +124,7 @@ public class MusicaeBDHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do{
-                Banda auxBanda = new Banda(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6));
+                Banda auxBanda = new Banda(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
                 bandas.add(auxBanda);
             }while (cursor.moveToNext());
         }

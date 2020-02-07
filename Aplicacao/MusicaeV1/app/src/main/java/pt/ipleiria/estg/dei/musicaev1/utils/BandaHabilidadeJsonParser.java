@@ -12,26 +12,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaMembro;
 
 
 public class BandaHabilidadeJsonParser {
 
 
-    public static ArrayList<BandaHabilidade> parserJsonBandaHabilidade(JSONArray response, Context context){
+    public static ArrayList<BandaMembro> parserJsonBandaHabilidade(JSONArray response, Context context){
         System.out.println("--> PARSER LISTA BANDA HABILIDADE: "+ response);
-        ArrayList<BandaHabilidade> tempListaBH = new ArrayList<BandaHabilidade>();
+        ArrayList<BandaMembro> tempListaBM = new ArrayList<BandaMembro>();
         try{
             for(int i = 0; i < response.length(); i++){
                 JSONObject BandaHabilidade = (JSONObject) response.get(i);
 
-                int idBandaHabilidade = BandaHabilidade.getInt("Id");
+                int idBanda = BandaHabilidade.getInt("Id");
                 String DataEntrada   = BandaHabilidade.getString("DataEntrada");
                 String BandaNome = BandaHabilidade.getString("BandaNome");
                 String HabilidadeNome = BandaHabilidade.getString("HabilidadeNome");
 
-                BandaHabilidade auxfeed = new BandaHabilidade(idBandaHabilidade, DataEntrada, BandaNome, HabilidadeNome);
-                tempListaBH.add(auxfeed);
+                BandaMembro auxBandaMembro = new BandaMembro(idBanda, DataEntrada, BandaNome, HabilidadeNome);
+                tempListaBM.add(auxBandaMembro);
             }
 
         }catch(JSONException e){
@@ -39,8 +41,8 @@ public class BandaHabilidadeJsonParser {
             Toast.makeText(context, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        System.out.println("--> PARSER LISTA TEMP: "+ tempListaBH);
-        return tempListaBH;
+        System.out.println("--> PARSER LISTA TEMP: "+ tempListaBM);
+        return tempListaBM;
     }
 
     public static boolean isConnectionInternet(Context context){

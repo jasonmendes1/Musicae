@@ -20,8 +20,9 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 public class SearchBandActivity extends AppCompatActivity {
 
     public static  final String NOME_BANDA = "nomeBanda";
+    public static  final String ID_BANDA = "idBanda";
     private Feed feed;
-    private String nome;
+    private String nomeBanda, idBanda;
     private Spinner spinnerInstrumento, spinnerExperiencia, spinnerCompromisso;
     private Button buttonCancelar, buttonCriarProcura;
 
@@ -30,8 +31,8 @@ public class SearchBandActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_band);
 
-        final String nomeBanda = getIntent().getStringExtra(NOME_BANDA);
-        nome = nomeBanda;
+        nomeBanda = getIntent().getStringExtra(NOME_BANDA);
+        idBanda = getIntent().getStringExtra(ID_BANDA);
 
         buttonCancelar = findViewById(R.id.btnCancelar);
         buttonCriarProcura = findViewById(R.id.btnCriarProcura);
@@ -46,16 +47,13 @@ public class SearchBandActivity extends AppCompatActivity {
         //----------------------------------------------------------------------- Select Instrumento ------------------------------------------------------------------------------
         spinnerInstrumento = findViewById(R.id.spinnerInstrumento);
 
-        List<String> instrumentos = new ArrayList<>();
-        instrumentos.add(0, "");
-        instrumentos.add(1, "Harpa");
-        instrumentos.add(2, "Guitarra");
-        instrumentos.add(3, "Piano");
+        List<String> instrumentos = Singleton.getInstance(getApplicationContext()).habilidadesAPI;
 
         ArrayAdapter<String> dataAdapterInstrumento;
         dataAdapterInstrumento = new ArrayAdapter(this, android.R.layout.simple_spinner_item, instrumentos);
         dataAdapterInstrumento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerInstrumento.setAdapter(dataAdapterInstrumento);
+
 
         spinnerInstrumento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -78,9 +76,11 @@ public class SearchBandActivity extends AppCompatActivity {
 
         List<String> compromissos = new ArrayList<>();
         compromissos.add(0, "");
-        compromissos.add(1, "Pouco");
-        compromissos.add(2, "Médio");
-        compromissos.add(3, "Muito");
+        compromissos.add(1, "Diversao");
+        compromissos.add(2, "Moderadamente Comprometido");
+        compromissos.add(3, "Comprometido");
+        compromissos.add(3, "Muito Comprometido");
+        compromissos.add(3, "Tour");
 
         ArrayAdapter<String> dataAdapterCompromisso;
         dataAdapterCompromisso = new ArrayAdapter(this, android.R.layout.simple_spinner_item, compromissos);
@@ -133,30 +133,14 @@ public class SearchBandActivity extends AppCompatActivity {
 
             }
         });
-        //------------------------------------------------------------------------------------------------------------------------------------------------------
+
         buttonCriarProcura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Singleton.getInstance(getApplicationContext()).adicionarBandaFeedAPI(criarFeed(),getApplicationContext());
-                setResult(RESULT_OK);
-                System.out.println("-->Nome: " + nomeBanda);
+
+                Singleton.getInstance(getApplicationContext()).adicionarBandaFeedAPI(idBanda, spinnerInstrumento.getSelectedItemId() + "", spinnerExperiencia.getSelectedItemId() + "", spinnerCompromisso.getSelectedItemId() + "",getApplicationContext());
                 finish();
             }
         });
-    }
-
-    private Feed criarFeed(){
-        String img = "http://amsi.dei.estg.ipleiria.pt/img/ipl_semfundo.png";
-        Feed auxFeed = new Feed(0, nome, spinnerInstrumento.getSelectedItem().toString(), spinnerCompromisso.getSelectedItem().toString(), spinnerExperiencia.getSelectedItem().toString(), img);
-        return auxFeed;
-    }
-
-    private Feed editarFeed(){
-        feed.setNome(nome);
-        feed.setInstrumento(spinnerInstrumento.getSelectedItem().toString());
-        feed.setCompromisso(spinnerCompromisso.getSelectedItem().toString());
-        feed.setExperiencia(spinnerExperiencia.getSelectedItem().toString());
-
-        return feed;
     }
 }

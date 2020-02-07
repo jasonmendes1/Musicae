@@ -50,11 +50,11 @@ public class FeedFragment extends Fragment implements FeedListener {
         lvListaFeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 Feed tempFeed = (Feed) parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ProfileBandActivity.class);
                 intent.putExtra(ProfileBandActivity.ID_BANDA, tempFeed.getId());
                 intent.putExtra(ProfileBandActivity.NOME_BANDA, tempFeed.getNome());
+                intent.putExtra(ProfileBandActivity.FEED, 1);
                 startActivityForResult(intent, RESULT_CODE_VER);
             }
         });

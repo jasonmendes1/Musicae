@@ -15,32 +15,33 @@ import java.util.ArrayList;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaMembro;
 
 public class ListaBandaAdaptador extends BaseAdapter {
 
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<BandaHabilidade> bandaHabilidades;
+    private ArrayList<BandaMembro> bandaMembros;
 
 
-    public ListaBandaAdaptador(Context context, ArrayList<BandaHabilidade> bandaHabilidades) {
+    public ListaBandaAdaptador(Context context, ArrayList<BandaMembro> bandaMembro) {
         this.context = context;
-        this.bandaHabilidades = bandaHabilidades;
+        this.bandaMembros = bandaMembro;
     }
 
     @Override
     public int getCount() {
-        return bandaHabilidades.size();
+        return bandaMembros.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return bandaHabilidades.get(position);
+        return bandaMembros.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return bandaHabilidades.get(position).getId();
+        return bandaMembros.get(position).getId();
     }
 
     @Override
@@ -59,12 +60,12 @@ public class ListaBandaAdaptador extends BaseAdapter {
             convertView.setTag(viewHolder);
         }
 
-        viewHolder.update(bandaHabilidades.get(position));
+        viewHolder.update(bandaMembros.get(position));
         return convertView;
     }
 
-    public void refresh(ArrayList<BandaHabilidade> bandaHabilidades) {
-        this.bandaHabilidades = bandaHabilidades;
+    public void refresh(ArrayList<BandaMembro> bandaMembros) {
+        this.bandaMembros = bandaMembros;
         notifyDataSetChanged();
     }
 
@@ -79,10 +80,10 @@ public class ListaBandaAdaptador extends BaseAdapter {
             dataEntrada = convertView.findViewById(R.id.tvDataEntrada);
         }
 
-        public void update(BandaHabilidade banda){
-            nome.setText(banda.getBandaNome());
-            instrumento.setText(banda.getHabilidadeNome());
-            dataEntrada.setText(banda.getDataEntrada());
+        public void update(BandaMembro bandaMembros){
+            nome.setText(bandaMembros.getBandaNome());
+            instrumento.setText(bandaMembros.getHabilidadeNome());
+            dataEntrada.setText(bandaMembros.getDataentrada());
         }
     }
 }

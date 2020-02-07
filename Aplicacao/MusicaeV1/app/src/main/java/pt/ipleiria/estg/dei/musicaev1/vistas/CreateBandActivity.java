@@ -19,6 +19,7 @@ import java.util.List;
 
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
+import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class CreateBandActivity extends AppCompatActivity {
 
@@ -33,36 +34,23 @@ public class CreateBandActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_band);
 
+
+        edNomeBanda = findViewById(R.id.etBandName);
+        edCidadeBanda = findViewById(R.id.etCity);
+        edContactoBanda = findViewById(R.id.etPhone);
+        edDescricaoBanda = findViewById(R.id.etDescription);
+
         //----------------------------------------------------------------------- Select Gender ------------------------------------------------------------------------------
         spinner = findViewById(R.id.spinnerGenre);
 
-        List<String> categorias = new ArrayList<>();
-        categorias.add(0, "Genero");
-        categorias.add(1, "Rap");
-        categorias.add(2, "Jazz");
-        categorias.add(3, "Rock");
+
+        List<String> categorias = Singleton.getInstance(getApplicationContext()).generosAPI;
 
         ArrayAdapter<String> dataAdapter;
         dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categorias);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getItemAtPosition(position) == "Sexo"){
-
-                }else{
-                    String item = parent.getItemAtPosition(position).toString();
-                    Toast.makeText(parent.getContext(), "Selecionado: " + item, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         //------------------------------------------------------------ Buttons ------------------------------------------------------------
 
         buttonCancelar = findViewById(R.id.btnCancelar);
@@ -78,7 +66,10 @@ public class CreateBandActivity extends AppCompatActivity {
         buttonCriar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Banda banda = new Banda(0, edNomeBanda.getText().toString(), edDescricaoBanda.getText().toString(), edCidadeBanda.getText().toString(), Integer.parseInt(edContactoBanda.getText().toString()), "logo.png", "0", spinner.getSelectedItemPosition()+ "");
+                Singleton.getInstance(getApplicationContext()).adicionarBandaAPI(banda, getApplicationContext());
+                Singleton.getInstance(getApplicationContext()).adicionarMembroBandaAPI(banda.getNome());
+                finish();
             }
         });
     }

@@ -1,26 +1,31 @@
 package pt.ipleiria.estg.dei.musicaev1.modelos;
 
 public class BandaMembro {
-    private int idBanda, idMusico, idHabilidade;
-    private String dataentrada;
+    private int id, idBanda;
+    private String dataentrada, bandaNome, habilidadeNome;
 
-    public BandaMembro(int idBanda, int idMusico, int idHabilidade, String dataentrada) {
+    public BandaMembro(int idBanda, String dataentrada, String bandaNome, String habilidadeNome) {
+        this.id++;
         this.idBanda = idBanda;
-        this.idMusico = idMusico;
-        this.idHabilidade = idHabilidade;
         this.dataentrada = dataentrada;
+        this.bandaNome = bandaNome;
+        this.habilidadeNome = habilidadeNome;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdBanda() {
         return idBanda;
     }
 
-    public int getIdMusico() {
-        return idMusico;
-    }
-
-    public int getIdHabilidade() {
-        return idHabilidade;
+    public void setIdBanda(int idBanda) {
+        this.idBanda = idBanda;
     }
 
     public String getDataentrada() {
@@ -29,5 +34,21 @@ public class BandaMembro {
 
     public void setDataentrada(String dataentrada) {
         this.dataentrada = dataentrada;
+    }
+
+    public String getBandaNome() {
+        return bandaNome;
+    }
+
+    public void setBandaNome(String bandaNome) {
+        this.bandaNome = bandaNome;
+    }
+
+    public String getHabilidadeNome() {
+        return habilidadeNome;
+    }
+
+    public void setHabilidadeNome(String habilidadeNome) {
+        this.habilidadeNome = habilidadeNome;
     }
 }

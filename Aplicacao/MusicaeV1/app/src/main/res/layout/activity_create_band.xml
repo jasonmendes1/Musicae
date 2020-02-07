@@ -108,12 +108,4 @@
         android:layout_below="@id/etDescription"
         android:layout_toEndOf="@id/btnCancelar"/>
 
-    <Button
-        android:id="@+id/btnCRIARBANDA"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:clickable="true"
-        android:layout_marginLeft="20dp"/>
-
 </RelativeLayout>

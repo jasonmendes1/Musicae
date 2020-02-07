@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -22,20 +21,18 @@ import java.util.ArrayList;
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.adaptadores.ListaBandaAdaptador;
 import pt.ipleiria.estg.dei.musicaev1.listeners.BandaHabilidadeListener;
-import pt.ipleiria.estg.dei.musicaev1.modelos.Banda;
 import pt.ipleiria.estg.dei.musicaev1.modelos.BandaHabilidade;
+import pt.ipleiria.estg.dei.musicaev1.modelos.BandaMembro;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 import pt.ipleiria.estg.dei.musicaev1.utils.BandaHabilidadeJsonParser;
-import pt.ipleiria.estg.dei.musicaev1.utils.FeedJsonParser;
 
 public class BandListFragment extends Fragment implements BandaHabilidadeListener {
 
     private Button buttonAtual, buttonPassado, buttonPendente;
-    private ArrayList<Banda> listaBandas;
     private ListView lvListaBandas;
-    private SearchView searchView;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListaBandaAdaptador listaBandaAdaptador;
+    private boolean isHistorico;
 
 
     public static final int RESULT_CODE_CRIAR = 12;
@@ -52,11 +49,12 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                /*Banda tempBanda = (Banda) parent.getItemAtPosition(position);
+                BandaMembro temp = (BandaMembro)  parent.getItemAtPosition(position);
                 Intent intent = new Intent(getContext(), ProfileBandActivity.class);
-                intent.putExtra(ProfileBandActivity.NOME_BANDA, tempBanda.getNome());
-                startActivityForResult(intent, RESULT_CODE_VER);*/
+                intent.putExtra(ProfileBandActivity.ID_BANDA, temp.getIdBanda());
+                intent.putExtra(ProfileBandActivity.NOME_BANDA, temp.getBandaNome());
+                intent.putExtra(ProfileBandActivity.FEED, -1);
+                startActivityForResult(intent, RESULT_CODE_VER);
             }
         });
 
@@ -73,15 +71,21 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
+                if(isHistorico){
+                    Singleton.getInstance(getContext()).getBandasHistoricoAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
+                }else{
+                    Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
+                }
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         swipeRefreshLayout.setRefreshing(false);
                     }
-                }, 2000);
+                }, 1000);
             }
         });
+
+
 
         //---------------------------------------------------- Buttons --------------------------------------------------
         buttonAtual = rootView.findViewById(R.id.btnAtuais);
@@ -94,22 +98,36 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         Singleton.getInstance(getContext()).setBandaHabilidadeListener(this);
         Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
 
+        buttonPassado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isHistorico = true;
+                lvListaBandas.setAdapter(null);
+                Singleton.getInstance(getContext()).getBandasHistoricoAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
+            }
+        });
 
+        buttonAtual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isHistorico = false;
+                lvListaBandas.setAdapter(null);
+                Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
+            }
+        });
 
         return rootView;
     }
 
     @Override
     public void onResume() {
-        Singleton.getInstance(getContext()).getAllBandasFeedAPI(getContext(), FeedJsonParser.isConnectionInternet(getContext()));
-        if(searchView != null){
-            searchView.onActionViewCollapsed();
-        }
+        System.out.println("--> Onresume triggered");
+        Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
         super.onResume();
     }
 
     @Override
-    public void onRefreshBandaHabilidades(ArrayList<BandaHabilidade> MinhasBandas) {
+    public void onRefreshBandaHabilidades(ArrayList<BandaMembro> MinhasBandas) {
         if(!MinhasBandas.isEmpty()){
             listaBandaAdaptador = new ListaBandaAdaptador(getContext(), MinhasBandas);
             lvListaBandas.setAdapter(listaBandaAdaptador);
