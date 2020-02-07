@@ -227,7 +227,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
         final List<String> habilidades = new ArrayList<>();
 
         System.out.println("-->wi response: url: " + UrlAPI + "/habilidades");
-        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/generos", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/habilidades", null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 habilidades.add("Instrumento");

@@ -9,13 +9,15 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import pt.ipleiria.estg.dei.musicaev1.R;
 import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 
 public class RegisterSkillActivity extends AppCompatActivity {
 
     private ListView lvListaHabilidades;
-    private String[] listaHabilidades;
+    private List<String> listaHabilidades;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +25,11 @@ public class RegisterSkillActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_skill);
 
         lvListaHabilidades = findViewById(R.id.lvListaHabilidades);
-        listaHabilidades = Singleton.getInstance(getApplicationContext()).getHabilidadesFiltro();
+        listaHabilidades = Singleton.getInstance(getApplicationContext()).habilidadesAPI;
 
 
-        // Create The Adapter with passing ArrayList as 3rd parameter
         ArrayAdapter<String> arrayAdapter =
                 new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaHabilidades);
-        // Set The Adapter
         lvListaHabilidades.setAdapter(arrayAdapter);
 
         // register onClickListener to handle click events on each item
@@ -39,6 +39,7 @@ public class RegisterSkillActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> arg0, View v,int position, long arg3)
             {
                 Intent intent = new Intent(RegisterSkillActivity.this, RegisterGenreActivity.class);
+                intent.putExtra(RegisterGenreActivity.ID_HABILIDADE, position);
                 startActivity(intent);
             }
         });

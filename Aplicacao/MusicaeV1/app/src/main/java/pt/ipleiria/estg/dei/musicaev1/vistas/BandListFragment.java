@@ -32,7 +32,7 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
     private ListView lvListaBandas;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListaBandaAdaptador listaBandaAdaptador;
-    private boolean isHistorico;
+    private boolean isHistorico = false;
 
 
     public static final int RESULT_CODE_CRIAR = 12;
@@ -49,12 +49,14 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         lvListaBandas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BandaMembro temp = (BandaMembro)  parent.getItemAtPosition(position);
-                Intent intent = new Intent(getContext(), ProfileBandActivity.class);
-                intent.putExtra(ProfileBandActivity.ID_BANDA, temp.getIdBanda());
-                intent.putExtra(ProfileBandActivity.NOME_BANDA, temp.getBandaNome());
-                intent.putExtra(ProfileBandActivity.FEED, -1);
-                startActivityForResult(intent, RESULT_CODE_VER);
+                if(!isHistorico){
+                    BandaMembro temp = (BandaMembro)  parent.getItemAtPosition(position);
+                    Intent intent = new Intent(getContext(), ProfileBandActivity.class);
+                    intent.putExtra(ProfileBandActivity.ID_BANDA, temp.getIdBanda());
+                    intent.putExtra(ProfileBandActivity.NOME_BANDA, temp.getBandaNome());
+                    intent.putExtra(ProfileBandActivity.FEED, -1);
+                    startActivityForResult(intent, RESULT_CODE_VER);
+                }
             }
         });
 
