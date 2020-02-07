@@ -22,7 +22,8 @@ public class SearchBandActivity extends AppCompatActivity {
     public static  final String NOME_BANDA = "nomeBanda";
     public static  final String ID_BANDA = "idBanda";
     private Feed feed;
-    private String nomeBanda, idBanda;
+    private String nomeBanda;
+    private int idBanda;
     private Spinner spinnerInstrumento, spinnerExperiencia, spinnerCompromisso;
     private Button buttonCancelar, buttonCriarProcura;
 
@@ -32,8 +33,9 @@ public class SearchBandActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_band);
 
         nomeBanda = getIntent().getStringExtra(NOME_BANDA);
-        idBanda = getIntent().getStringExtra(ID_BANDA);
+        idBanda = getIntent().getIntExtra(ID_BANDA, 0);
 
+        System.out.println("--> idBanda: " + idBanda);
         buttonCancelar = findViewById(R.id.btnCancelar);
         buttonCriarProcura = findViewById(R.id.btnCriarProcura);
 
@@ -79,8 +81,8 @@ public class SearchBandActivity extends AppCompatActivity {
         compromissos.add(1, "Diversao");
         compromissos.add(2, "Moderadamente Comprometido");
         compromissos.add(3, "Comprometido");
-        compromissos.add(3, "Muito Comprometido");
-        compromissos.add(3, "Tour");
+        compromissos.add(4, "Muito Comprometido");
+        compromissos.add(5, "Tour");
 
         ArrayAdapter<String> dataAdapterCompromisso;
         dataAdapterCompromisso = new ArrayAdapter(this, android.R.layout.simple_spinner_item, compromissos);
@@ -137,8 +139,7 @@ public class SearchBandActivity extends AppCompatActivity {
         buttonCriarProcura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Singleton.getInstance(getApplicationContext()).adicionarBandaFeedAPI(idBanda, spinnerInstrumento.getSelectedItemId() + "", spinnerExperiencia.getSelectedItemId() + "", spinnerCompromisso.getSelectedItemId() + "",getApplicationContext());
+                Singleton.getInstance(getApplicationContext()).adicionarBandaFeedAPI(idBanda, spinnerInstrumento.getSelectedItemId() + "", spinnerExperiencia.getSelectedItem().toString()+ "", spinnerCompromisso.getSelectedItem().toString() + "",getApplicationContext());
                 finish();
             }
         });

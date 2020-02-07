@@ -53,20 +53,22 @@ public class ProfileBandActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_band);
 
         idBanda = getIntent().getIntExtra(ID_BANDA, 0);
+        System.out.println("--> idBanda: " + idBanda);
         final String nomeBanda = getIntent().getStringExtra(NOME_BANDA);
         fabProcura = findViewById(R.id.fabProcura);
         fabAddBanda = findViewById(R.id.fabADDbanda);
-
+        buttonEditar = findViewById(R.id.btnEditarBanda);
+        buttonCandidatos = findViewById(R.id.btnCandidatos);
 
         if(getIntent().getIntExtra(FEED, 0) == -1){
             System.out.println("Veio das minhas bandas");
         }else{
             fabAddBanda.setVisibility(View.GONE);
             fabProcura.setVisibility(View.GONE);
+            buttonEditar.setVisibility(View.GONE);
+            buttonCandidatos.setVisibility(View.GONE);
             System.out.println("Veio do feed");
         }
-
-
         mQueue = Volley.newRequestQueue(this);
 
         tvName = findViewById(R.id.tvName);
@@ -97,14 +99,11 @@ public class ProfileBandActivity extends AppCompatActivity {
                                 String Descricao = banda.getString("Descricao");
                                 String Capa = banda.getString("Capa");
 
-
                                 tvName.append(Nome);
-                                tvDescription.append(Genero);
-                                tvGenre.append(Localizacao);
+                                tvDescription.append(Descricao);
+                                tvGenre.append(Genero);
                                 tvNumber.append(Contacto);
-                                tvCity.append(Descricao);
-
-
+                                tvCity.append(Localizacao);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -121,8 +120,7 @@ public class ProfileBandActivity extends AppCompatActivity {
 
 
         //---------------------------------------------------------------------------- BUTOES ------------------------------------------------------------
-        buttonEditar = findViewById(R.id.btnEditarBanda);
-        buttonCandidatos = findViewById(R.id.btnCandidatos);
+
 
         buttonEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +141,7 @@ public class ProfileBandActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileBandActivity.this, SearchBandActivity.class);
+                System.out.println("--> idBanda dentro do onclick do profilebandcativit: "+ idBanda);
                 intent.putExtra(SearchBandActivity.NOME_BANDA, nomeBanda);
                 intent.putExtra(SearchBandActivity.ID_BANDA, idBanda);
                 startActivity(intent);
