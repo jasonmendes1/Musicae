@@ -520,7 +520,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
         Toast.makeText(context, "isConnected", Toast.LENGTH_SHORT).show();
         System.out.println("--> API URL FEED: " + UrlAPI);
 
-        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades/feed", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest req = new JsonArrayRequest(Request.Method.GET, UrlAPI + "/banda-habilidades/feed/" + getIdUser(), null, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray response) {
                     bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
