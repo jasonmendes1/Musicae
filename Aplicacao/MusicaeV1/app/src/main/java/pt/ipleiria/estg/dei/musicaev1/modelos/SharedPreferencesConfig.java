@@ -9,6 +9,7 @@ public class SharedPreferencesConfig
 {
     private static SharedPreferences mSharedPref;
     public static final String IP = "IP";
+    public static final String ENTRAR = "IP";
 
     private SharedPreferencesConfig()
     {

@@ -11,11 +11,12 @@
         android:layout_width="175dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/regular"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/semibold"
         android:text="@string/txtListaBandasAtuais"
         android:textAllCaps="false"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,40 +27,28 @@
         android:layout_width="175dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/regular"
+        android:background="@drawable/button_preto"
+        android:fontFamily="@font/semibold"
         android:text="@string/txtListaBandasPassadas"
         android:textAllCaps="false"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnAtuais"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnPendentes"
-        android:layout_width="185dp"
-        android:layout_height="50dp"
-        android:fontFamily="@font/regular"
-        android:text="@string/txtListaBandasPendentes"
-        android:textAllCaps="false"
-        android:textColor="@color/gray"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAtuais" />
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="35dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="100dp"
         android:layout_marginRight="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPendentes"
-        android:id="@+id/swipeLayout">
+        app:layout_constraintTop_toBottomOf="@+id/btnAtuais">
 
         <ListView
             android:id="@+id/lvListaBandas"

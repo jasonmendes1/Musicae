@@ -1,5 +1,6 @@
 package pt.ipleiria.estg.dei.musicaev1.vistas;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
 
     private boolean isChecked = false;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         editTextPassword = findViewById(R.id.etPassword);
         textViewIP = findViewById(R.id.tvIP);
 
+
         textViewIP.setText(SharedPreferencesConfig.read(SharedPreferencesConfig.IP, null));
     }
 
@@ -61,12 +64,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
         String username = editTextUsername.getText().toString().trim().toLowerCase();
         String password = editTextPassword.getText().toString().trim();
         String ip = textViewIP.getText().toString().trim();
-
-        if(!isChecked){
-            descartarSharedpreferences();
-        }
-
-        //textViewIP.setText("192.168.1.7");
 
         if(textViewIP.getText() == ""){
             Toast.makeText(this, "Adiciona / Altera o IP!", Toast.LENGTH_SHORT).show();
@@ -79,21 +76,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
             System.out.println("--> encryptado: " + pw_encryptada);
             Singleton.getInstance(getApplicationContext()).verificaLoginAPI_POST(username,pw_encryptada);
         }
-
-/*
-        int id = Singleton.getInstance().verificarLogin(username, password);
-        if(id != -1){
-            if(!isChecked){
-                descartarSharedpreferences();
-            }
-            Intent intent = new Intent(this, MenuMainActivity.class);
-            intent.putExtra(MenuMainActivity.CHAVE_USERNAME, username);
-            intent.putExtra(MenuMainActivity.CHAVE_ID, ""+id);
-            startActivity(intent);
-            finish();
-        }else{
-            Toast.makeText(this, "Palavra-pass ou Username errado!", Toast.LENGTH_SHORT).show();
-        }*/
     }
 
     public void onClickIP(View view) {
@@ -120,36 +102,6 @@ public class LoginActivity extends AppCompatActivity implements LoginListener {
                     }})
                 //.setIcon(android.R.drawable.ic_lock_power_off)
                 .show();
-    }
-
-    public void itemClicked(View v){
-        CheckBox checkBox = (CheckBox) v;
-        if(checkBox.isChecked()){
-            isChecked = true;
-            guardarSharedpreferences();
-        }else{
-            isChecked = false;
-            descartarSharedpreferences();
-        }
-    }
-
-
-    private void guardarSharedpreferences(){
-        /*
-        sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        int id = Singleton.getInstance(getApplicationContext()).verificarLogin(editTextUsername.getText().toString().trim().toLowerCase(), editTextPassword.getText().toString().trim());
-        editor.putString(MenuMainActivity.SECCAO_INFO_USER, "" + id);
-        editor.apply();
-
-         */
-    }
-
-    private void descartarSharedpreferences(){
-        sharedPreferences = getSharedPreferences(MenuMainActivity.SECCAO_INFO_USER, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.putString(MenuMainActivity.SECCAO_INFO_USER, "-1");
-        editor.apply();
     }
 
     @Override

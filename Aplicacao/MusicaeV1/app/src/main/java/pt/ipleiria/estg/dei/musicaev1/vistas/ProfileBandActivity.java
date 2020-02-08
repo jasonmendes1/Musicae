@@ -39,7 +39,6 @@ public class ProfileBandActivity extends AppCompatActivity {
     private TextView tvName, tvDescription, tvGenre, tvNumber, tvCity;
     private ImageView ivBannner;
     private int idBanda;
-    private Button buttonEditar, buttonCandidatos;
     private FloatingActionButton fabProcura, fabAddBanda;
     private String urlAPI;
     private String ipURL;
@@ -56,17 +55,13 @@ public class ProfileBandActivity extends AppCompatActivity {
         System.out.println("--> idBanda: " + idBanda);
         final String nomeBanda = getIntent().getStringExtra(NOME_BANDA);
         fabProcura = findViewById(R.id.fabProcura);
-        fabAddBanda = findViewById(R.id.fabADDbanda);
-        buttonEditar = findViewById(R.id.btnEditarBanda);
-        buttonCandidatos = findViewById(R.id.btnCandidatos);
+        fabAddBanda = findViewById(R.id.fabADDbanda_);
 
         if(getIntent().getIntExtra(FEED, 0) == -1){
             System.out.println("Veio das minhas bandas");
         }else{
             fabAddBanda.setVisibility(View.GONE);
             fabProcura.setVisibility(View.GONE);
-            buttonEditar.setVisibility(View.GONE);
-            buttonCandidatos.setVisibility(View.GONE);
             System.out.println("Veio do feed");
         }
         mQueue = Volley.newRequestQueue(this);
@@ -120,23 +115,6 @@ public class ProfileBandActivity extends AppCompatActivity {
 
 
         //---------------------------------------------------------------------------- BUTOES ------------------------------------------------------------
-
-
-        buttonEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        buttonCandidatos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileBandActivity.this, CandidaturesActivity.class);
-                startActivity(intent);
-            }
-        });
-
         fabProcura.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

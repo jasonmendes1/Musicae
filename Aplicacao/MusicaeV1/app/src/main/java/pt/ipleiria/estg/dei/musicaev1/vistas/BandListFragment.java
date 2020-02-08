@@ -2,6 +2,7 @@ package pt.ipleiria.estg.dei.musicaev1.vistas;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -92,7 +94,6 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         //---------------------------------------------------- Buttons --------------------------------------------------
         buttonAtual = rootView.findViewById(R.id.btnAtuais);
         buttonPassado = rootView.findViewById(R.id.btnPassadas);
-        buttonPendente = rootView.findViewById(R.id.btnPendentes);
 
 
         //------------------------------------------------------------------------------------------------------------
@@ -103,6 +104,10 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         buttonPassado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonPassado.setBackgroundColor(Color.GRAY);
+                buttonPassado.setTextColor(Color.BLACK);
+                buttonAtual.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_preto));
+                buttonAtual.setTextColor(Color.WHITE);
                 isHistorico = true;
                 lvListaBandas.setAdapter(null);
                 Singleton.getInstance(getContext()).getBandasHistoricoAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));
@@ -112,6 +117,10 @@ public class BandListFragment extends Fragment implements BandaHabilidadeListene
         buttonAtual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                buttonAtual.setBackgroundColor(Color.GRAY);
+                buttonAtual.setTextColor(Color.BLACK);
+                buttonPassado.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.button_preto));
+                buttonPassado.setTextColor(Color.WHITE);
                 isHistorico = false;
                 lvListaBandas.setAdapter(null);
                 Singleton.getInstance(getContext()).getBandasPerfilAPI(getContext(), BandaHabilidadeJsonParser.isConnectionInternet(getContext()));

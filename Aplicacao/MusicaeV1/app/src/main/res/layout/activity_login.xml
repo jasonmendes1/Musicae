@@ -67,25 +67,11 @@
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/chkRememberme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/text_input_password"
-        android:layout_toEndOf="@id/space1"
-        android:fontFamily="@font/regular"
-        android:onClick="itemClicked"
-        android:text="@string/txtLembrarConta"
-        android:textColor="@color/gray"
-        android:textSize="18sp"
-        app:buttonTint="@color/red" />
-
-
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLoginConta"
         android:layout_width="240dp"
-        android:layout_height="31dp"
-        android:layout_below="@+id/chkRememberme"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_input_password"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="100dp"
@@ -101,13 +87,13 @@
     <Button
         android:id="@+id/btnIP"
         android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/chkRememberme"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_input_password"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="100dp"
-        android:layout_toEndOf="@id/btnLogin"
-        android:layout_marginLeft="20dp"
+        android:layout_toEndOf="@id/btnLoginConta"
         android:background="@drawable/button_preto"
         android:fontFamily="@font/bold"
         android:onClick="onClickIP"
@@ -130,7 +116,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/chkRememberme"
+        android:layout_toEndOf="@+id/text_input_password"
         android:layout_below="@+id/text_input_password"
         android:fontFamily="@font/regular"
         android:text="IP: "

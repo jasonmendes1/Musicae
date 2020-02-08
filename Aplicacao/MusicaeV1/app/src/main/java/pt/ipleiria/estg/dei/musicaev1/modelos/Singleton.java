@@ -283,6 +283,7 @@ public class Singleton extends Application implements FeedListener, BandasListen
     }
 
     public void adicionarMembroBandaAPI(final String bandaNome){
+        System.out.println("--> skrrrrrt: " + UrlAPI + "/banda-membros/add?IdUser=" + getIdUser() + "&BandaNome=" + bandaNome);
         StringRequest req = new StringRequest(Request.Method.POST, UrlAPI + "/banda-membros/add?IdUser=" + getIdUser() + "&BandaNome=" + bandaNome, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -525,7 +526,6 @@ public class Singleton extends Application implements FeedListener, BandasListen
                 public void onResponse(JSONArray response) {
                     bandasFeed = FeedJsonParser.parserJsonFeed(response, context);
                     System.out.println("--> RESPOSTA GET FEED API: " + bandasFeed);
-
                     if(feedListener != null){
                         feedListener.onRefreshListaBandasFeed(bandasFeed);
                     }

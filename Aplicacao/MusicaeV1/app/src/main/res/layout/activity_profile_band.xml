@@ -50,6 +50,7 @@
     <RelativeLayout
         android:layout_width="368dp"
         android:layout_height="512dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/spaceV"
@@ -67,12 +68,13 @@
             android:layout_height="39dp"
             android:layout_below="@id/iv1"
             android:src="@drawable/side_rect" />
+
         <ImageView
             android:id="@+id/iv4"
             android:layout_width="wrap_content"
             android:layout_height="39dp"
-            android:layout_marginTop="40dp"
             android:layout_below="@id/iv2"
+            android:layout_marginTop="40dp"
             android:src="@drawable/side_rect" />
 
         <TextView
@@ -112,15 +114,15 @@
             android:id="@+id/tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv5"
             android:layout_below="@id/space1"
+            android:layout_toEndOf="@id/iv5"
             android:fontFamily="@font/bold"
             android:text="@string/txtPerfilBandaMembros"
             android:textColor="@color/gray"
             android:textSize="17sp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabADDbanda"
+            android:id="@+id/fabADDbanda_"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_below="@id/space1"
@@ -130,23 +132,23 @@
             android:layout_marginBottom="16dp"
             android:layout_toEndOf="@id/tv2"
             android:clickable="true"
-            app:fabSize="normal"
-            app:maxImageSize="20dp"
             android:src="@drawable/ic_action_add"
-            app:backgroundTint="@color/red" />
+            app:backgroundTint="@color/red"
+            app:fabSize="normal"
+            app:maxImageSize="20dp" />
 
         <ListView
             android:id="@+id/lvMembers"
             android:layout_width="160dp"
             android:layout_height="200dp"
-            android:layout_below="@id/iv5"/>
+            android:layout_below="@id/iv5" />
 
         <Space
             android:id="@+id/space2"
             android:layout_width="20dp"
             android:layout_height="239dp"
             android:layout_below="@id/space1"
-            android:layout_toEndOf="@id/lvMembers"/>
+            android:layout_toEndOf="@id/lvMembers" />
 
         <ImageView
             android:id="@+id/iv6"
@@ -160,9 +162,9 @@
             android:id="@+id/tv6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv4"
-            android:layout_marginTop="80dp"
             android:layout_below="@id/tv1"
+            android:layout_marginTop="80dp"
+            android:layout_toEndOf="@id/iv4"
             android:fontFamily="@font/bold"
             android:text="@string/txtPerfilBandaGenero"
             android:textColor="@color/gray"
@@ -183,15 +185,15 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_below="@id/tvNumber"
-            android:layout_toEndOf="@id/space2"/>
+            android:layout_toEndOf="@id/space2" />
 
 
         <TextView
             android:id="@+id/tv4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv6"
             android:layout_below="@id/space1"
+            android:layout_toEndOf="@id/iv6"
             android:fontFamily="@font/bold"
             android:text="@string/txtPerfilBandaContacto"
             android:textColor="@color/gray"
@@ -212,7 +214,7 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_below="@id/tvNumber"
-            android:layout_toEndOf="@id/space2"/>
+            android:layout_toEndOf="@id/space2" />
 
         <ImageView
             android:id="@+id/iv8"
@@ -226,8 +228,8 @@
             android:id="@+id/tv5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/iv8"
             android:layout_below="@id/space4"
+            android:layout_toEndOf="@id/iv8"
             android:fontFamily="@font/bold"
             android:text="@string/txtPerfilBandaLocalizacao"
             android:textColor="@color/gray"
@@ -248,45 +250,21 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@id/tvCity"
-            android:layout_toEndOf="@id/space2"/>
-
-        <Button
-            android:id="@+id/btnEditarBanda"
-            android:layout_width="115dp"
-            android:layout_height="38dp"
-            android:background="@drawable/button_preto"
-            android:fontFamily="@font/semibold"
-            android:text="@string/btnEditar"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_below="@id/lvMembers"/>
-
-        <Button
-            android:id="@+id/btnCandidatos"
-            android:layout_width="140dp"
-            android:layout_height="38dp"
-            android:background="@drawable/button_preto"
-            android:fontFamily="@font/semibold"
-            android:text="@string/btnCandidatos"
-            android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_below="@id/lvMembers"
-            android:layout_toEndOf="@id/btnEditarBanda"/>
+            android:layout_toEndOf="@id/space2" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabProcura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tvCity"
             android:layout_gravity="bottom|end"
+            android:layout_marginStart="139dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="103dp"
+            android:layout_toEndOf="@id/lvMembers"
             android:clickable="true"
-            android:layout_marginLeft="20dp"
             android:src="@drawable/ic_action_search"
-            app:backgroundTint="@color/red"
-            android:layout_toEndOf="@id/btnCandidatos"
-            android:layout_below="@id/tvCity"/>
+            app:backgroundTint="@color/red" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

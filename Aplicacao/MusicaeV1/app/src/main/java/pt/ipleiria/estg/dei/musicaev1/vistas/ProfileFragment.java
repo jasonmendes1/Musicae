@@ -139,6 +139,11 @@ public class ProfileFragment extends Fragment {
         buttonEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                etNome.clearFocus();
+                etSexo.clearFocus();
+                etLocalidade.clearFocus();
+                etDescricao.clearFocus();
+
                 JsonArrayRequest request = new JsonArrayRequest(Request.Method.POST, urlAPI + "/edit?IdUser=" + IdUser
                         + "&HabilidadeId=" + spInstrumento.getSelectedItemId() + "&GeneroId=" + spGenero.getSelectedItemId()
                         + "&ProfileNome=" +  etNome.getText().toString() + "&ProfileSexo=" + etSexo.getText().toString() + "&ProfileLocalidade=" + etLocalidade.getText().toString()
