@@ -34,9 +34,8 @@ import pt.ipleiria.estg.dei.musicaev1.modelos.Singleton;
 public class ProfileFragment extends Fragment {
 
     private TextView tvUsername, tvId, tvEmail;
-    private EditText etNome, etSexo,etLocalidade, etDtaNasc, etGenero, etDescricao;
+    private EditText etNome, etSexo,etLocalidade, etDtaNasc, etDescricao;
     private Spinner spInstrumento, spGenero;
-    private Perfil perfil;
     private SharedPreferences sharedPreferences;
     private Button buttonEditar;
     private int IdUser;
@@ -166,22 +165,6 @@ public class ProfileFragment extends Fragment {
 
 
         return rootView;
-    }
-
-    private void mostrarPerfil(Perfil perfil) {
-        tvUsername.setText(perfil.getNome());
-        tvId.setText(perfil.getId());
-        etNome.setText(perfil.getNome());
-        etDtaNasc.setText(perfil.getDatanasc());
-    }
-
-    private Perfil editarPerfil() {
-        perfil.setNome(perfil.getNome());
-        perfil.setSexo(perfil.getSexo());
-        perfil.setLocalidade(perfil.getLocalidade());
-        perfil.setDatanasc(perfil.getDatanasc());
-
-        return perfil;
     }
 
 }
